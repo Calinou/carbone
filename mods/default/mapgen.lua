@@ -243,6 +243,7 @@ if minetest.setting_get("mg_name") == "indev" then
 		height_min     = 500,
 		height_max     = 31000,
 	})
+end
 
 	-- Underground springs
 	minetest.register_ore({
@@ -250,9 +251,9 @@ if minetest.setting_get("mg_name") == "indev" then
 		ore            = "default:water_source",
 		ore_param2     = 128,
 		wherein        = "default:stone",
-		clust_scarcity = 25*25*25,
-		clust_num_ores = 8,
-		clust_size     = 3,
+		clust_scarcity = 20*20*20,
+		clust_num_ores = 10,
+		clust_size     = 4,
 		height_min     = -10000,
 		height_max     = -10,
 	})
@@ -262,13 +263,12 @@ if minetest.setting_get("mg_name") == "indev" then
 		ore            = "default:lava_source",
 		ore_param2     = 128,
 		wherein        = "default:stone",
-		clust_scarcity = 35*35*35,
+		clust_scarcity = 32*32*32,
 		clust_num_ores = 5,
 		clust_size     = 2,
 		height_min     = -31000,
 		height_max     = -100,
 	})
-end
 
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -279,7 +279,7 @@ minetest.register_ore({
 	clust_size     = 5,
 	height_max     = 0,
 	height_min     = -10,
-})
+	})
 
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
 	minetest.log('action', "WARNING: default.generate_ore is deprecated")

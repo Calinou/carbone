@@ -26,15 +26,13 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-More Blocks and Map Tools are under the zlib/libpng license, they can be found here:
-https://github.com/Calinou/moreblocks
-https://github.com/Calinou/maptools
+More Blocks and Map Tools are under the zlib/libpng license, they can be found here: https://github.com/Calinou/moreblocks – https://github.com/Calinou/maptools
 
-Player Textures is under the WTFPL, it can be found here:
-https://github.com/PilzAdam/player_textures
+Player Textures is under the WTFPL, it can be found here: https://github.com/PilzAdam/player_textures
 
-WorldEdit is under the AGPLv3, it can be found here:
-https://github.com/Uberi/MineTest-WorldEdit
+Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAdam/mobs
+
+WorldEdit is under the AGPLv3, it can be found here:h ttps://github.com/Uberi/MineTest-WorldEdit
 
 
 License of media (textures and sounds)
