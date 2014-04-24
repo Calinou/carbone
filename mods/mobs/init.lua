@@ -12,6 +12,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	view_range = 13,
 	walk_velocity = 1.5,
 	run_velocity = 3,
+	on_rightclick = nil,
 	damage = 2,
 	drops = {
 		name = "default:dirt",
@@ -270,7 +271,12 @@ mobs:register_mob("mobs:rat", {
 	makes_footstep_sound = false,
 	walk_velocity = 1,
 	armor = 200,
-	drops = {"mobs:rat"},
+	drops = {
+		{name = "mobs:rat",
+		chance = 1,
+		min = 1,
+		max = 1,},
+	},
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 1,
