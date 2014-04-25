@@ -9,9 +9,9 @@ mobs:register_mob("mobs:dirt_monster", {
 	textures = {"mobs_dirt_monster.png"},
 	visual_size = {x=3, y=2.6},
 	makes_footstep_sound = true,
-	view_range = 13,
-	walk_velocity = 1.5,
-	run_velocity = 3,
+	view_range = 8,
+	walk_velocity = 1,
+	run_velocity = 2.5,
 	on_rightclick = nil,
 	damage = 2,
 	drops = {
@@ -40,11 +40,11 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt"}, 2, -1, 5000, 3, -1)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -1, 6000, 3, -1)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
-	hp_max = 14,
+	hp_max = 12,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -82,7 +82,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 5000, 3, -1)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 6000, 3, -1)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -95,7 +95,7 @@ mobs:register_mob("mobs:sand_monster", {
 	makes_footstep_sound = true,
 	view_range = 12,
 	walk_velocity = 2.125,
-	run_velocity = 4.25,
+	run_velocity = 4,
 	damage = 1,
 	drops = {
 		{name = "default:sand",
@@ -124,11 +124,11 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:desert_sand"}, 20, -1, 5000, 3, -1)
+mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert_stone"}, 20, -1, 6000, 3, -1)
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
-	hp_max = 11,
+	hp_max = 14,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
@@ -171,11 +171,11 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 2, -1, 5000, 3, 31000)
+mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 2, -1, 4000, 3, 31000)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
-	hp_max = 5,
+	hp_max = 6,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	textures = {"mobs_sheep.png"},
 	visual = "mesh",
@@ -312,7 +312,7 @@ minetest.register_craft({
 
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
-	hp_max = 10,
+	hp_max = 12,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
@@ -321,7 +321,7 @@ mobs:register_mob("mobs:oerkki", {
 	makes_footstep_sound = false,
 	view_range = 15,
 	walk_velocity = 0.5,
-	run_velocity = 3.5,
+	run_velocity = 2.75,
 	damage = 3,
 	drops = {},
 	armor = 100,
@@ -345,11 +345,11 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 5000, 3, -16)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 6000, 3, -16)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 20,
+	hp_max = 30,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
@@ -357,8 +357,8 @@ mobs:register_mob("mobs:dungeon_master", {
 	visual_size = {x=8, y=8},
 	makes_footstep_sound = true,
 	view_range = 15,
-	walk_velocity = 1,
-	run_velocity = 3,
+	walk_velocity = 0.3,
+	run_velocity = 2,
 	damage = 4,
 	drops = {
 		{name = "default:mese",
@@ -390,14 +390,14 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 6000, 1, -64)
+mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 8000, 1, -64)
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
 	visual_size = {x=0.75, y=0.75},
 	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
 	textures = {"mobs_fireball.png"},
-	velocity = 7.5,
+	velocity = 8,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
