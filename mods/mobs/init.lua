@@ -40,7 +40,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -1, 6000, 3, -1)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -1, 4000, 3, -1)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
@@ -82,7 +82,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 6000, 3, -1)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 5000, 3, -1)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -345,7 +345,7 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 6000, 3, -16)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 5000, 3, -16)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
@@ -390,7 +390,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 8000, 1, -64)
+mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 7000, 1, -64)
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
