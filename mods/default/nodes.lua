@@ -260,6 +260,7 @@ minetest.register_node("default:jungleleaves", {
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
+	walkable = false,
 	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1},
 	drop = {
 		max_items = 1,
