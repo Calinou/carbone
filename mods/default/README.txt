@@ -78,7 +78,7 @@ VanessaE (WTFPL):
   default_sand.png
   default_sandstone_brick.png
 
-Calinou (CC BY-SA):
+Calinou (CC BY-SA 3.0):
   default_brick.png
   default_clay_brick.png
   default_papyrus.png
@@ -87,6 +87,8 @@ Calinou (CC BY-SA):
   default_copper_ingot.png
   default_copper_lump.png
   default_mineral_copper.png
+  heart.png
+  bubble.png
 
 MirceaKitsune (WTFPL):
   character.x
@@ -136,9 +138,6 @@ Zeg9 (CC BY-SA 3.0):
   default_bronze_block.png
   default_gold_block.png
   default_diamond_block.png
-
-kaeza (WTFPL):
-  bubble.png
 
 Glass breaking sounds (CC BY 3.0):
   1: http://www.freesound.org/people/cmusounddesign/sounds/71947/
