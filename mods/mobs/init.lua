@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 5000, 1, 31000)
+mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 2500, 1, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -390,7 +390,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 5000, 1, -64)
+mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 6000, 1, -64)
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
