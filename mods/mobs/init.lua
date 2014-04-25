@@ -124,7 +124,7 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert_stone"}, 2, -1, 6000, 3, 31000)
+mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert_stone"}, 2, -1, 4000, 3, 31000)
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
