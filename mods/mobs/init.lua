@@ -241,7 +241,7 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 10000, 1, 31000)
+mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 10000, 2, 31000)
 
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 2500, 1, 31000)
+mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 2500, 6, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
