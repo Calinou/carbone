@@ -40,7 +40,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt"}, 3, -1, 5000, 3, -1)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt"}, 2, -1, 5000, 3, -1)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
@@ -82,7 +82,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 3, -1, 5000, 3, -1)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 5000, 3, -1)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -171,7 +171,7 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 3, -1, 5000, 3, 31000)
+mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 2, -1, 5000, 3, 31000)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
