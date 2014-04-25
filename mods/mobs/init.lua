@@ -2,7 +2,7 @@ dofile(minetest.get_modpath("mobs").."/api.lua")
 
 mobs:register_mob("mobs:dirt_monster", {
 	type = "monster",
-	hp_max = 10,
+	hp_max = 15,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -44,7 +44,7 @@ mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
-	hp_max = 15,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -86,7 +86,7 @@ mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 5000, 3, -1)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
-	hp_max = 7,
+	hp_max = 10,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
@@ -128,7 +128,7 @@ mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
-	hp_max = 18,
+	hp_max = 40,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
@@ -175,7 +175,7 @@ mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleave
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
-	hp_max = 11,
+	hp_max = 15,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	textures = {"mobs_sheep.png"},
 	visual = "mesh",
@@ -312,7 +312,7 @@ minetest.register_craft({
 
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
-	hp_max = 14,
+	hp_max = 30,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
@@ -345,11 +345,11 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 5000, 3, -16)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 5000, 3, -32)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 35,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
