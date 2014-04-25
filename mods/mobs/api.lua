@@ -248,7 +248,6 @@ function mobs:register_mob(name, def)
 			if self.following and self.following:is_player() then
 				if self.following:get_wielded_item():get_name() ~= self.follow then
 					self.following = nil
-					self.v_start = false
 				else
 					local s = self.object:getpos()
 					local p = self.following:getpos()
