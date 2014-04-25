@@ -251,7 +251,7 @@ minetest.register_craftitem("mobs:meat_raw", {
 minetest.register_craftitem("mobs:meat", {
 	description = "Meat",
 	inventory_image = "mobs_meat.png",
-	on_use = minetest.item_eat(8),
+	on_use = minetest.item_eat(7),
 })
 
 minetest.register_craft({
