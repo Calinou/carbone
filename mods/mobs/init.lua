@@ -2,7 +2,7 @@ dofile(minetest.get_modpath("mobs").."/api.lua")
 
 mobs:register_mob("mobs:dirt_monster", {
 	type = "monster",
-	hp_max = 15,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -44,7 +44,7 @@ mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
-	hp_max = 20,
+	hp_max = 25,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -128,7 +128,7 @@ mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
-	hp_max = 40,
+	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
@@ -312,7 +312,7 @@ minetest.register_craft({
 
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 40,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
@@ -349,7 +349,7 @@ mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 5000, 3, -32)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 50,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
@@ -397,7 +397,7 @@ mobs:register_arrow("mobs:fireball", {
 	visual_size = {x=0.75, y=0.75},
 	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
 	textures = {"mobs_fireball.png"},
-	velocity = 8,
+	velocity = 10,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()

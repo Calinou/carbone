@@ -35,6 +35,8 @@ Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAda
 
 WorldEdit is under the AGPLv3, it can be found here: https://github.com/Uberi/MineTest-WorldEdit
 
+3D Armor mods are under the LGPLv2.1, it can be found here: https://github.com/stujones11/minetest-3d_armor
+
 
 License of media (textures and sounds)
 --------------------------------------
