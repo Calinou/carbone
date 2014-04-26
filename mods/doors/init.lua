@@ -15,10 +15,23 @@ doors = {}
 --    selection_box_top
 --    only_placer_can_open: if true only the player who placed the door can
 --                          open it
+
+local function is_right(pos) 
+	local r1 = minetest.get_node({x=pos.x-1, y=pos.y, z=pos.z})
+	local r2 = minetest.get_node({x=pos.x, y=pos.y, z=pos.z-1})
+	if string.find(r1.name, "door_") or string.find(r2.name, "door_") then
+		if string.find(r1.name, "_1") or string.find(r2.name, "_1") then
+			return true
+		else
+			return false
+		end
+	end
+end
+
 function doors:register_door(name, def)
 	def.groups.not_in_creative_inventory = 1
 
-	local box = {{-0.5, -0.5, -0.5,   0.5, 0.5, -0.5+1.5/16}}
+	local box = {{-0.5, -0.5, -0.5, 0.5, 0.5, -0.5+1.5/16}}
 
 	if not def.node_box_bottom then
 		def.node_box_bottom = box
@@ -104,10 +117,11 @@ function doors:register_door(name, def)
 
 	local tt = def.tiles_top
 	local tb = def.tiles_bottom
-
-	local function after_dig_node(pos, name)
-		if minetest.get_node(pos).name == name then
-			minetest.remove_node(pos)
+	
+	local function after_dig_node(pos, name, digger)
+		local node = minetest.get_node(pos)
+		if node.name == name then
+			minetest.node_dig(pos, node, digger)
 		end
 	end
 
@@ -118,11 +132,24 @@ function doors:register_door(name, def)
 		end
 		local p2 = minetest.get_node(pos).param2
 		p2 = params[p2+1]
-
+		
 		minetest.swap_node(pos, {name=replace_dir, param2=p2})
-
+		
 		pos.y = pos.y-dir
 		minetest.swap_node(pos, {name=replace, param2=p2})
+
+		local snd_1 = "_close"
+		local snd_2 = "_open"
+		if params[1] == 3 then
+			snd_1 = "_open"
+			snd_2 = "_close"
+		end
+
+		if is_right(pos) then
+			minetest.sound_play("door"..snd_1, {pos = pos, gain = 0.175, max_hear_distance = 16})
+		else
+			minetest.sound_play("door"..snd_2, {pos = pos, gain = 0.175, max_hear_distance = 16})
+		end
 	end
 
 	local function check_player_priv(pos, player)
@@ -140,7 +167,6 @@ function doors:register_door(name, def)
 		paramtype2 = "facedir",
 		drop = name,
 		drawtype = "nodebox",
-		sunlight_propagates = true,
 		node_box = {
 			type = "fixed",
 			fixed = def.node_box_bottom
@@ -150,28 +176,29 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_bottom
 		},
 		groups = def.groups,
-
+		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y+1
-			after_dig_node(pos, name.."_t_1")
+			after_dig_node(pos, name.."_t_1", digger)
 		end,
-
+		
 		on_rightclick = function(pos, node, clicker)
 			if check_player_priv(pos, clicker) then
 				on_rightclick(pos, 1, name.."_t_1", name.."_b_2", name.."_t_2", {1,2,3,0})
 			end
 		end,
-
+		
 		can_dig = check_player_priv,
+		sounds = def.sounds,
+        	sunlight_propagates = def.sunlight
 	})
 
 	minetest.register_node(name.."_t_1", {
 		tiles = {tt[2], tt[2], tt[2], tt[2], tt[1], tt[1].."^[transformfx"},
 		paramtype = "light",
 		paramtype2 = "facedir",
-		drop = name,
+		drop = "",
 		drawtype = "nodebox",
-		sunlight_propagates = true,
 		node_box = {
 			type = "fixed",
 			fixed = def.node_box_top
@@ -181,19 +208,21 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_top
 		},
 		groups = def.groups,
-
+		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y-1
-			after_dig_node(pos, name.."_b_1")
+			after_dig_node(pos, name.."_b_1", digger)
 		end,
-
+		
 		on_rightclick = function(pos, node, clicker)
 			if check_player_priv(pos, clicker) then
 				on_rightclick(pos, -1, name.."_b_1", name.."_t_2", name.."_b_2", {1,2,3,0})
 			end
 		end,
-
+		
 		can_dig = check_player_priv,
+		sounds = def.sounds,
+        	sunlight_propagates = def.sunlight,
 	})
 
 	minetest.register_node(name.."_b_2", {
@@ -202,7 +231,6 @@ function doors:register_door(name, def)
 		paramtype2 = "facedir",
 		drop = name,
 		drawtype = "nodebox",
-		sunlight_propagates = true,
 		node_box = {
 			type = "fixed",
 			fixed = def.node_box_bottom
@@ -212,28 +240,29 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_bottom
 		},
 		groups = def.groups,
-
+		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y+1
-			after_dig_node(pos, name.."_t_2")
+			after_dig_node(pos, name.."_t_2", digger)
 		end,
-
+		
 		on_rightclick = function(pos, node, clicker)
 			if check_player_priv(pos, clicker) then
 				on_rightclick(pos, 1, name.."_t_2", name.."_b_1", name.."_t_1", {3,0,1,2})
 			end
 		end,
-
+		
 		can_dig = check_player_priv,
+		sounds = def.sounds,
+        	sunlight_propagates = def.sunlight
 	})
 
 	minetest.register_node(name.."_t_2", {
 		tiles = {tt[2], tt[2], tt[2], tt[2], tt[1].."^[transformfx", tt[1]},
 		paramtype = "light",
 		paramtype2 = "facedir",
-		drop = name,
+		drop = "",
 		drawtype = "nodebox",
-		sunlight_propagates = true,
 		node_box = {
 			type = "fixed",
 			fixed = def.node_box_top
@@ -243,20 +272,23 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_top
 		},
 		groups = def.groups,
-
+		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y-1
-			after_dig_node(pos, name.."_b_2")
+			after_dig_node(pos, name.."_b_2", digger)
 		end,
-
+		
 		on_rightclick = function(pos, node, clicker)
 			if check_player_priv(pos, clicker) then
 				on_rightclick(pos, -1, name.."_b_2", name.."_t_1", name.."_b_1", {3,0,1,2})
 			end
 		end,
-
+		
 		can_dig = check_player_priv,
+		sounds = def.sounds,
+        	sunlight_propagates = def.sunlight
 	})
+
 end
 
 doors:register_door("doors:door_wood", {
@@ -265,10 +297,12 @@ doors:register_door("doors:door_wood", {
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"door_wood_b.png", "door_brown.png"},
 	tiles_top = {"door_wood_a.png", "door_brown.png"},
+	sounds = default.node_sound_wood_defaults(),
+	sunlight = false,
 })
 
 minetest.register_craft({
-	output = "doors:door_wood 4",
+	output = "doors:door_wood 3",
 	recipe = {
 		{"group:wood", "group:wood"},
 		{"group:wood", "group:wood"},
@@ -283,10 +317,12 @@ doors:register_door("doors:door_steel", {
 	tiles_bottom = {"door_steel_b.png", "door_grey.png"},
 	tiles_top = {"door_steel_a.png", "door_grey.png"},
 	only_placer_can_open = true,
+	sounds = default.node_sound_wood_defaults(),
+	sunlight = false,
 })
 
 minetest.register_craft({
-	output = "doors:door_steel 4",
+	output = "doors:door_steel 3",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot"},
 		{"default:steel_ingot", "default:steel_ingot"},
@@ -297,13 +333,15 @@ minetest.register_craft({
 doors:register_door("doors:door_glass", {
 	description = "Glass Door",
 	inventory_image = "door_glass.png",
-	groups = {cracky=3,oddly_breakable_by_hand=3,door=1},
-	tiles_bottom = {"door_glass_b.png", "door_grey_blue.png"},
-	tiles_top = {"door_glass_a.png", "door_grey_blue.png"},
+	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
+	tiles_bottom = {"door_glass_b.png", "door_glass_side.png"},
+	tiles_top = {"door_glass_a.png", "door_glass_side.png"},
+	sounds = default.node_sound_glass_defaults(),
+	sunlight = true,
 })
 
 minetest.register_craft({
-	output = "doors:door_glass 4",
+	output = "doors:door_glass 3",
 	recipe = {
 		{"default:glass", "default:glass"},
 		{"default:glass", "default:glass"},
@@ -311,7 +349,106 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_alias("doors:door_wood_a_c", "doors:door_wood_t_1")
-minetest.register_alias("doors:door_wood_a_o", "doors:door_wood_t_1")
-minetest.register_alias("doors:door_wood_b_c", "doors:door_wood_b_1")
-minetest.register_alias("doors:door_wood_b_o", "doors:door_wood_b_1")
+doors:register_door("doors:door_obsidian_glass", {
+	description = "Obsidian Glass Door",
+	inventory_image = "door_obsidian_glass.png",
+	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
+	tiles_bottom = {"door_obsidian_glass_b.png", "door_obsidian_glass_side.png"},
+	tiles_top = {"door_obsidian_glass_b.png", "door_obsidian_glass_side.png"},
+	sounds = default.node_sound_glass_defaults(),
+	sunlight = true,
+})
+
+minetest.register_craft({
+	output = "doors:door_obsidian_glass 3",
+	recipe = {
+		{"default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass"}
+	}
+})
+
+
+---- Trapdoors ----
+
+local function update_door(pos, node) 
+	minetest.set_node(pos, node)
+end
+
+local function punch(pos)
+	local meta = minetest.get_meta(pos)
+	local state = meta:get_int("state")
+	local me = minetest.get_node(pos)
+	local tmp_node
+	local tmp_node2
+	oben = {x=pos.x, y=pos.y+1, z=pos.z}
+		if state == 1 then
+			state = 0
+			minetest.sound_play("door_close", {pos = pos, gain = 0.175, max_hear_distance = 16})
+			tmp_node = {name="doors:trapdoor", param1=me.param1, param2=me.param2}
+		else
+			state = 1
+			minetest.sound_play("door_open", {pos = pos, gain = 0.175, max_hear_distance = 16})
+			tmp_node = {name="doors:trapdoor_open", param1=me.param1, param2=me.param2}
+		end
+		update_door(pos, tmp_node)
+		meta:set_int("state", state)
+end
+
+minetest.register_node("doors:trapdoor", {
+	description = "Trapdoor",
+	inventory_image = "door_trapdoor.png",
+	drawtype = "nodebox",
+	tiles = {"door_trapdoor.png", "door_trapdoor.png",  "door_trapdoor_side.png",  "door_trapdoor_side.png", "door_trapdoor_side.png", "door_trapdoor_side.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	sounds = default.node_sound_wood_defaults(),
+	drop = "doors:trapdoor",
+	node_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4, 0.5}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4, 0.5}
+	},
+	on_creation = function(pos)
+		state = 0
+	end,
+	on_rightclick = function(pos, node, clicker)
+		punch(pos)
+	end,
+})
+
+minetest.register_node("doors:trapdoor_open", {
+	drawtype = "nodebox",
+	tiles = {"door_trapdoor_side.png", "door_trapdoor_side.png",  "door_trapdoor_side.png",  "door_trapdoor_side.png", "door_trapdoor.png", "door_trapdoor.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	pointable = true,
+	stack_max = 0,
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	sounds = default.node_sound_wood_defaults(),
+	drop = "doors:trapdoor",
+	node_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, 0.4, 0.5, 0.5, 0.5}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, 0.4, 0.5, 0.5, 0.5}
+	},
+	on_rightclick = function(pos, node, clicker)
+		punch(pos)
+	end,
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor 6',
+	recipe = {
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'', '', ''},
+	}
+})
