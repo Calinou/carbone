@@ -23,8 +23,8 @@ mobs:register_mob("mobs:dirt_monster", {
 	armor = 100,
 	drawtype = "front",
 	water_damage = 1,
-	lava_damage = 5,
-	light_damage = 2,
+	lava_damage = 8,
+	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 15,
@@ -106,8 +106,8 @@ mobs:register_mob("mobs:sand_monster", {
 	light_resistant = true,
 	armor = 100,
 	drawtype = "front",
-	water_damage = 3,
-	lava_damage = 1,
+	water_damage = 1,
+	lava_damage = 8,
 	light_damage = 0,
 	attack_type = "dogfight",
 	animation = {
@@ -152,9 +152,9 @@ mobs:register_mob("mobs:tree_monster", {
 	light_resistant = true,
 	armor = 80,
 	drawtype = "front",
-	water_damage = 1,
-	lava_damage = 5,
-	light_damage = 2,
+	water_damage = 0,
+	lava_damage = 8,
+	light_damage = 1,
 	disable_fall_damage = true,
 	attack_type = "dogfight",
 	animation = {
@@ -191,7 +191,7 @@ mobs:register_mob("mobs:sheep", {
 	},
 	drawtype = "front",
 	water_damage = 1,
-	lava_damage = 5,
+	lava_damage = 8,
 	light_damage = 0,
 	animation = {
 		speed_normal = 15,
@@ -278,8 +278,8 @@ mobs:register_mob("mobs:rat", {
 		max = 1,},
 	},
 	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 1,
+	water_damage = 1,
+	lava_damage = 8,
 	light_damage = 0,
 })
 
@@ -369,7 +369,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	armor = 60,
 	drawtype = "front",
 	water_damage = 1,
-	lava_damage = 1,
+	lava_damage = 8,
 	light_damage = 0,
 	on_rightclick = nil,
 	attack_type = "shoot",
