@@ -36,7 +36,7 @@ minetest.register_tool("throwing:bow_wood", {
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
-				itemstack:add_wear(65535/50)
+				itemstack:add_wear(65535/30)
 			end
 		end
 		return itemstack
@@ -59,7 +59,7 @@ minetest.register_tool("throwing:bow_stone", {
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
-				itemstack:add_wear(65535/100)
+				itemstack:add_wear(65535/90)
 			end
 		end
 		return itemstack
@@ -95,6 +95,29 @@ minetest.register_craft({
 		{'farming:string', 'default:steel_ingot', ''},
 		{'farming:string', '', 'default:steel_ingot'},
 		{'farming:string', 'default:steel_ingot', ''},
+	}
+})
+
+minetest.register_tool("throwing:bow_bronze", {
+	description = "Bronze Bow",
+	inventory_image = "throwing_bow_bronze.png",
+    stack_max = 1,
+	on_use = function(itemstack, user, pointed_thing)
+		if throwing_shoot_arrow(item, user, pointed_thing) then
+			if not minetest.setting_getbool("creative_mode") then
+				itemstack:add_wear(65535/220)
+			end
+		end
+		return itemstack
+	end,
+})
+
+minetest.register_craft({
+	output = 'throwing:bow_bronze',
+	recipe = {
+		{'farming:string', 'default:bronze_ingot', ''},
+		{'farming:string', '', 'default:bronze_ingot'},
+		{'farming:string', 'default:bronze_ingot', ''},
 	}
 })
 
