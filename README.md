@@ -46,13 +46,16 @@ See README.txt in each mod directory for information about other authors.
 If not mentioned: CC BY-SA 3.0
 
 menu/header.png
-© 2013 BlockMen -- CC BY-3.0
+© 2013 BlockMen – CC BY 3.0
 
 mods/default/textures/default_desert_cobble.png
-© 2014 brunob.santos -- CC-BY-SA 4.0
+© 2014 brunob.santos – CC-BY-SA 4.0
 
 mods/throwing/sounds/throwing_sound.ogg
 GPLv3, from Xonotic
 
 mods/default/sounds/player_damage.*.ogg
 GPLv3, from Xonotic
+
+mods/mobs/sounds/mobs_bullet.ogg
+© 2012 Q009 – CC BY-SA 3.0
