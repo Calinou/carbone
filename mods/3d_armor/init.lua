@@ -2,7 +2,7 @@ ARMOR_MOD_NAME = minetest.get_current_modname()
 dofile(minetest.get_modpath(ARMOR_MOD_NAME).."/armor.lua")
 local use_moreores = minetest.get_modpath("moreores")
 
--- Register Head Armor
+-- Register head armor.
 
 minetest.register_tool("3d_armor:helmet_wood", {
 	description = "Wood Helmet",
@@ -41,7 +41,7 @@ if use_moreores then
 	})
 end
 
--- Register Torso Armor
+-- Register torso armor.
 
 minetest.register_tool("3d_armor:chestplate_wood", {
 	description = "Wood Chestplate",
@@ -80,7 +80,7 @@ if use_moreores then
 	})
 end
 
--- Register Leg Armor
+-- Register leg armor.
 
 minetest.register_tool("3d_armor:leggings_wood", {
 	description = "Wood Leggings",
@@ -158,7 +158,7 @@ if use_moreores then
 	})
 end
 
--- Register Craft Recipies
+-- Register crafting recipes.
 
 local craft_ingreds = {
 	wood = "default:wood",

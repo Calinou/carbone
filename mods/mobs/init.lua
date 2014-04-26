@@ -13,7 +13,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	walk_velocity = 1,
 	run_velocity = 2.5,
 	on_rightclick = nil,
-	damage = 3,
+	damage = 4,
 	drops = {
 		name = "default:dirt",
 		chance = 1,
@@ -54,7 +54,7 @@ mobs:register_mob("mobs:stone_monster", {
 	view_range = 16,
 	walk_velocity = 0.25,
 	run_velocity = 1.75,
-	damage = 5,
+	damage = 6,
 	drops = {
 		{name = "default:mossycobble",
 		chance = 1,
@@ -138,7 +138,7 @@ mobs:register_mob("mobs:tree_monster", {
 	view_range = 32,
 	walk_velocity = 0,
 	run_velocity = 1.25,
-	damage = 6,
+	damage = 8,
 	drops = {
 		{name = "default:sapling",
 		chance = 3,
@@ -322,7 +322,7 @@ mobs:register_mob("mobs:oerkki", {
 	view_range = 16,
 	walk_velocity = 0.5,
 	run_velocity = 2.75,
-	damage = 4,
+	damage = 5,
 	drops = {},
 	armor = 100,
 	drawtype = "front",
@@ -394,7 +394,7 @@ mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 7000, 1, -6
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
-	visual_size = {x=0.75, y=0.75},
+	visual_size = {x=1, y=1},
 	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
 	textures = {"mobs_fireball.png"},
 	velocity = 10,
@@ -404,7 +404,90 @@ mobs:register_arrow("mobs:fireball", {
 		local vec = {x=s.x-p.x, y=s.y-p.y, z=s.z-p.z}
 		player:punch(self.object, 1.0,  {
 			full_punch_interval=1.0,
-			damage_groups = {fleshy=10},
+			damage_groups = {fleshy=12},
+		}, vec)
+		local pos = self.object:getpos()
+		for dx=-1,1 do
+			for dy=-1,1 do
+				for dz=-1,1 do
+					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local n = minetest.env:get_node(pos).name
+				end
+			end
+		end
+	end,
+	hit_node = function(self, pos, node)
+		for dx=-1,1 do
+			for dy=-2,1 do
+				for dz=-1,1 do
+					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local n = minetest.env:get_node(pos).name
+				end
+			end
+		end
+	end
+})
+
+mobs:register_mob("mobs:rhino", {
+	type = "monster",
+	hp_max = 25,
+	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
+	visual = "mesh",
+	mesh = "mobs_sand_monster.x",
+	textures = {"mobs_rhino.png"},
+	visual_size = {x=8, y=8},
+	makes_footstep_sound = true,
+	view_range = 10,
+	walk_velocity = 1,
+	run_velocity = 2.5,
+	damage = 4,
+	drops = {
+		{name = "default:mese",
+		chance = 20,
+		min = 1,
+		max = 2,},
+	},
+	armor = 60,
+	drawtype = "front",
+	water_damage = 1,
+	lava_damage = 8,
+	light_damage = 0,
+	on_rightclick = nil,
+	attack_type = "shoot",
+	arrow = "mobs:bullet",
+	shoot_interval = 0.5,
+	sounds = {
+		attack = "mobs_bullet",
+	},
+	animation = {
+		speed_normal = 15,
+		speed_run = 15,
+		stand_start = 0,
+		stand_end = 39,
+		walk_start = 41,
+		walk_end = 72,
+		run_start = 74,
+		run_end = 105,
+		punch_start = 74,
+		punch_end = 105,
+	},
+})
+
+mobs:register_spawn("mobs:rhino", {"default:stone"}, 2, -1, 7000, 1, -64)
+
+mobs:register_arrow("mobs:bullet", {
+	visual = "sprite",
+	visual_size = {x=0.75, y=0.75},
+	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
+	textures = {"mobs_bullet.png"},
+	velocity = 30,
+	hit_player = function(self, player)
+		local s = self.object:getpos()
+		local p = player:getpos()
+		local vec = {x=s.x-p.x, y=s.y-p.y, z=s.z-p.z}
+		player:punch(self.object, 1.0,  {
+			full_punch_interval=1.0,
+			damage_groups = {fleshy=3},
 		}, vec)
 		local pos = self.object:getpos()
 		for dx=-1,1 do

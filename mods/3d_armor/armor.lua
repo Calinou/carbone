@@ -333,11 +333,13 @@ minetest.register_on_joinplayer(function(player)
 	end	
 
 	-- Legacy support, import player's armor from old inventory format
+	--[[
 	for _,v in pairs(armor.elements) do
 		local list = "armor_"..v
 		armor_inv:add_item("armor", player_inv:get_stack(list, 1))
 		player_inv:set_stack(list, 1, nil)
 	end
+	--]]
 
 	armor.player_hp[name] = 0
 	armor.def[name] = {
