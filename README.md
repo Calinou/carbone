@@ -29,10 +29,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 More Blocks and Map Tools are under the zlib/libpng license, they can be found here: https://github.com/Calinou/moreblocks – https://github.com/Calinou/maptools
 
 Player Textures is under the WTFPL, it can be found here: https://github.com/PilzAdam/player_textures
-
+Throwing is under the WTFPL, it can be found here: https://github.com/PilzAdam/throwing
+Item Drop is under the WTFPL, it can be found here: https://github.com/PilzAdam/item_drop
 Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAdam/mobs
 
-WorldEdit is under the AGPLv3, it can be found here:h ttps://github.com/Uberi/MineTest-WorldEdit
+WorldEdit is under the AGPLv3, it can be found here: https://github.com/Uberi/MineTest-WorldEdit
 
 
 License of media (textures and sounds)
@@ -47,6 +48,9 @@ menu/header.png
 
 mods/default/textures/default_desert_cobble.png
 © 2014 brunob.santos -- CC-BY-SA 4.0
+
+mods/throwing/sounds/throwing_sound.ogg
+GPLv3, from Xonotic
 
 mods/default/sounds/player_damage.*.ogg
 GPLv3, from Xonotic
