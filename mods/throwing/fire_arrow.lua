@@ -1,5 +1,5 @@
 minetest.register_craftitem("throwing:arrow_fire", {
-	description = "Fire Arrow",
+	description = "Torch Arrow",
 	inventory_image = "throwing_arrow_fire.png",
 })
 
@@ -45,40 +45,30 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 1)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_fire_entity" and obj:get_luaentity().name ~= "__builtin:item" then
-					local damage = 5
-					obj:punch(self.object, 1.0, {
-						full_punch_interval=1.0,
-						damage_groups={fleshy=damage},
-					}, nil)
+					if self.node ~= "" then
+						minetest.env:set_node(self.lastpos, {name="default:torch"})
+					end
 					self.object:remove()
 				end
 			else
-				local damage = 5
-				obj:punch(self.object, 1.0, {
-					full_punch_interval=1.0,
-					damage_groups={fleshy=damage},
-				}, nil)
+				if self.node ~= "" then
+					minetest.env:set_node(self.lastpos, {name="default:torch"})
+				end
 				self.object:remove()
 			end
 		end
 	end
 
 	if self.lastpos.x~=nil then
-		if node.name ~= "air" and node.name ~= "throwing:light" then
-			minetest.env:set_node(self.lastpos, {name="fire:basic_flame"})
+		if node.name ~= "air" then
+			if self.node ~= "" then
+				minetest.env:set_node(self.lastpos, {name="default:torch"})
+			end
 			self.object:remove()
-		end
-		if math.floor(self.lastpos.x+0.5) ~= math.floor(pos.x+0.5) or math.floor(self.lastpos.y+0.5) ~= math.floor(pos.y+0.5) or math.floor(self.lastpos.z+0.5) ~= math.floor(pos.z+0.5) then
-			if minetest.env:get_node(self.lastpos).name == "throwing:light" then
-				minetest.env:remove_node(self.lastpos)
-			end
-			if minetest.env:get_node(pos).name == "air" then
-				minetest.env:set_node(pos, {name="throwing:light"})
-			end
 		end
 	end
 	self.lastpos={x=pos.x, y=pos.y, z=pos.z}
@@ -86,17 +76,13 @@ end
 
 minetest.register_entity("throwing:arrow_fire_entity", THROWING_ARROW_ENTITY)
 
---[[
+
 minetest.register_craft({
-	output = 'throwing:arrow_fire 4',
+	output = 'throwing:arrow_fire 1',
 	recipe = {
-		{'default:stick', 'default:stick', 'bucket:bucket_lava'},
+		{'default:stick', 'default:stick', 'default:torch'},
 	},
-	replacements = {
-		{"bucket:bucket_lava", "bucket:bucket_empty"}
-	}
 })
---]]
 
 minetest.register_node("throwing:light", {
 	drawtype = "airlike",
