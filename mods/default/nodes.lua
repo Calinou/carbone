@@ -374,12 +374,72 @@ minetest.register_node("default:papyrus", {
 	end,
 })
 
+default.bookshelf_formspec =
+	"size[8,7;]"..
+	gui_bg..
+	gui_bg_img..
+	gui_slots..
+	"list[context;books;0,0.3;8,2;]"..
+	"list[current_player;main;0,2.85;8,1;]"..
+	"list[current_player;main;0,4.08;8,3;8]"..
+	default.get_hotbar_bg(0,2.85)
+
 minetest.register_node("default:bookshelf", {
 	description = "Bookshelf",
 	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = false,
 	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
+	on_construct = function(pos)
+		local meta = minetest.env:get_meta(pos)
+		meta:set_string("formspec", default.bookshelf_formspec)
+		local inv = meta:get_inventory()
+		inv:set_size("books", 8*2)
+	end,
+	can_dig = function(pos,player)
+		local meta = minetest.env:get_meta(pos);
+		local inv = meta:get_inventory()
+		return inv:is_empty("books")
+	end,
+
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		local meta = minetest.env:get_meta(pos)
+		local inv = meta:get_inventory()
+		if listname == "books" then
+			if stack:get_name() == "default:book" then
+				return 1
+			else
+				return 0
+			end
+		end
+	end,
+
+	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		local meta = minetest.env:get_meta(pos)
+		local inv = meta:get_inventory()
+		local stack = inv:get_stack(from_list, from_index)
+		local to_stack = inv:get_stack(to_list, to_index)
+		if to_list == "books" then
+			if stack:get_name() == "default:book" and to_stack:is_empty() then
+				return 1
+			else
+				return 0
+			end
+		end
+	end,
+
+	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		minetest.log("action", player:get_player_name()..
+			   " moves stuff in bookshelf at "..minetest.pos_to_string(pos))
+	end,
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
+		minetest.log("action", player:get_player_name()..
+			   " moves stuff to bookshelf at "..minetest.pos_to_string(pos))
+	end,
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
+		minetest.log("action", player:get_player_name()..
+			   " takes stuff from bookshelf at "..minetest.pos_to_string(pos))
+	end,
 })
 
 minetest.register_node("default:glass", {
@@ -394,12 +454,13 @@ minetest.register_node("default:glass", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
+local fence_wood_texture = "default_fence_overlay.png^default_wood.png^default_fence_overlay.png^[makealpha:255,126,126"
 minetest.register_node("default:fence_wood", {
 	description = "Wooden Fence",
 	drawtype = "fencelike",
 	tiles = {"default_wood.png"},
-	inventory_image = "default_fence.png",
-	wield_image = "default_fence.png",
+	inventory_image = fence_wood_texture,
+	wield_image = fence_wood_texture,
 	paramtype = "light",
 	is_ground_content = false,
 	selection_box = {
@@ -410,21 +471,55 @@ minetest.register_node("default:fence_wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:rail", {
-	description = "Rail",
-	drawtype = "raillike",
-	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
-	inventory_image = "default_rail.png",
-	wield_image = "default_rail.png",
+local fence_cobble_texture = "default_fence_overlay.png^default_cobble.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_cobble", {
+	description = "Cobblestone Fence",
+	drawtype = "fencelike",
+	tiles = {"default_cobble.png"},
+	inventory_image = fence_cobble_texture,
+	wield_image = fence_cobble_texture,
 	paramtype = "light",
-	walkable = false,
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-                -- but how to specify the dimensions for curved and sideways rails?
-                fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	groups = {bendy=2,dig_immediate=2,attached_node=1},
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+local fence_desert_cobble_texture = "default_fence_overlay.png^default_desert_cobble.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_desert_cobble", {
+	description = "Desert Cobblestone Fence",
+	drawtype = "fencelike",
+	tiles = {"default_desert_cobble.png"},
+	inventory_image = fence_desert_cobble_texture,
+	wield_image = fence_desert_cobble_texture,
+	paramtype = "light",
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+local fence_steelblock_texture = "default_fence_overlay.png^default_steel_block.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_steelblock", {
+	description = "Steel Block Fence",
+	drawtype = "fencelike",
+	tiles = {"default_steel_block.png"},
+	inventory_image = fence_steelblock_texture,
+	wield_image = fence_steelblock_texture,
+	paramtype = "light",
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {cracky=1,level=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:ladder", {

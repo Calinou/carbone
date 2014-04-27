@@ -30,6 +30,30 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'default:fence_cobble 16',
+	recipe = {
+		{'default:cobble', 'default:cobble', 'default:cobble'},
+		{'default:cobble', 'default:cobble', 'default:cobble'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:fence_desert_cobble 16',
+	recipe = {
+		{'default:desert_cobble', 'default:desert_cobble', 'default:desert_cobble'},
+		{'default:desert_cobble', 'default:desert_cobble', 'default:desert_cobble'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:fence_steelblock 16',
+	recipe = {
+		{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+		{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+	}
+})
+
+minetest.register_craft({
 	output = 'default:sign_wall',
 	recipe = {
 		{'group:wood', 'group:wood', 'group:wood'},
