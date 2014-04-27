@@ -1,7 +1,7 @@
 -- Wielded Item Transformations - http://dev.minetest.net/texture
 
 wieldview.transform = {
-	["default:torch"]="R270",
+	["mobs:rat"]="R270",
 	["default:sapling"]="R270",
 	["flowers:dandelion_white"]="R270",
 	["flowers:dandelion_yellow"]="R270",
@@ -17,6 +17,15 @@ wieldview.transform = {
 	["screwdriver:screwdriver2"]="R270",
 	["screwdriver:screwdriver3"]="R270",
 	["screwdriver:screwdriver4"]="R270",
+	["throwing:bow_wood"]="R270",
+	["throwing:bow_stone"]="R270",
+	["throwing:bow_steel"]="R270",
+	["throwing:bow_bronze"]="R270",
+	["throwing:arrow"]="R270",
+	["throwing:arrow_build"]="R270",
+	["throwing:arrow_dig"]="R270",
+	["throwing:arrow_teleport"]="R270",
+	["throwing:arrow_fire"]="R270",
 	["vessels:glass_bottle"]="R270",
 	["vessels:drinking_glass"]="R270",
 	["vessels:steel_bottle"]="R270",
