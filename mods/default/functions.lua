@@ -306,7 +306,7 @@ minetest.register_abm({
 	neighbors = {"air", "group:liquid"},
 	-- A low interval and a high inverse chance spreads the load
 	interval = 2,
-	chance = 5,
+	chance = 3,
 
 	action = function(p0, node, _, _)
 		--print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
