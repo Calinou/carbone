@@ -6,8 +6,8 @@ if not update_time then
 end
 local node_tiles = minetest.setting_getbool("wieldview_node_tiles")
 if not node_tiles then
-	node_tiles = false
-	minetest.setting_set("wieldview_node_tiles", "false")
+	node_tiles = true
+	minetest.setting_set("wieldview_node_tiles", "true")
 end
 
 wieldview = {
@@ -24,7 +24,7 @@ wieldview.get_item_texture = function(self, item)
 			if minetest.registered_items[item].inventory_image ~= "" then
 				texture = minetest.registered_items[item].inventory_image
 			elseif node_tiles == true and minetest.registered_items[item].tiles then
-				texture = minetest.registered_items[item].tiles[1]
+				texture = minetest.inventorycube(minetest.registered_items[item].tiles[1])
 			end
 		end
 		if wieldview.transform[item] then
