@@ -30,6 +30,7 @@ More Blocks and Map Tools are under the zlib/libpng license, they can be found h
 
 Player Textures is under the WTFPL, it can be found here: https://github.com/PilzAdam/player_textures
 Throwing is under the WTFPL, it can be found here: https://github.com/PilzAdam/throwing
+Builtin Item is under the WTFPL, it can be found here: https://github.com/PilzAdam/builtin_item
 Item Drop is under the WTFPL, it can be found here: https://github.com/PilzAdam/item_drop
 Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAdam/mobs
 
