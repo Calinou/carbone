@@ -375,7 +375,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
+	light_damage = 200,
 	on_rightclick = nil,
 	attack_type = "shoot",
 	arrow = "mobs:fireball",

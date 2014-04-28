@@ -287,10 +287,10 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:clay",
 	wherein        = "default:sand",
-	clust_scarcity = 15*15*15,
+	clust_scarcity = 14*14*14,
 	clust_num_ores = 64,
 	clust_size     = 5,
-	height_max     = 0,
+	height_max     = 2,
 	height_min     = -10,
 })
 
@@ -390,7 +390,7 @@ end
 
 function generate_nyancats(seed, minp, maxp)
 	local height_min = -31000
-	local height_max = -32
+	local height_max = 31000
 	if maxp.y < height_min or minp.y > height_max then
 		return
 	end
@@ -398,7 +398,7 @@ function generate_nyancats(seed, minp, maxp)
 	local y_max = math.min(maxp.y, height_max)
 	local volume = (maxp.x-minp.x+1)*(y_max-y_min+1)*(maxp.z-minp.z+1)
 	local pr = PseudoRandom(seed + 9324342)
-	local max_num_nyancats = math.floor(volume / (16*16*16))
+	local max_num_nyancats = math.floor(volume / (14*14*14))
 	for i=1,max_num_nyancats do
 		if pr:next(0, 1000) == 0 then
 			local x0 = pr:next(minp.x, maxp.x)

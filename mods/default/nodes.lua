@@ -254,7 +254,7 @@ minetest.register_node("default:junglewood", {
 
 minetest.register_node("default:jungleleaves", {
 	description = "Jungle Leaves",
-	drawtype = "allfaces_optional",
+	drawtype = "glasslike",
 	visual_scale = 1.3,
 	tiles = {"default_jungleleaves.png"},
 	paramtype = "light",
@@ -266,13 +266,12 @@ minetest.register_node("default:jungleleaves", {
 		max_items = 1,
 		items = {
 			{
-				-- player will get sapling with 1/20 chance
+				-- player will get sapling with 1/15 chance
 				items = {'default:junglesapling'},
-				rarity = 20,
+				rarity = 15,
 			},
 			{
-				-- player will get leaves only if he get no saplings,
-				-- this is because max_items is 1
+				-- player will get leaves only if he gets no saplings, this is because max_items is 1
 				items = {'default:jungleleaves'},
 			}
 		}
@@ -330,13 +329,12 @@ minetest.register_node("default:leaves", {
 		max_items = 1,
 		items = {
 			{
-				-- player will get sapling with 1/20 chance
+				-- player will get sapling with 1/15 chance
 				items = {'default:sapling'},
-				rarity = 20,
+				rarity = 15,
 			},
 			{
-				-- player will get leaves only if he get no saplings,
-				-- this is because max_items is 1
+				-- player will get leaves only if he gets no saplings, this is because max_items is 1
 				items = {'default:leaves'},
 			}
 		}

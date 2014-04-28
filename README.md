@@ -56,4 +56,4 @@ mods/throwing/sounds/throwing_sound.ogg: GNU GPLv3, from Xonotic
 
 mods/default/sounds/player_damage.*.ogg: GNU GPLv3, from Xonotic
 
-mods/mobs/sounds/mobs_bullet.ogg: © 2012 Q009 – CC BY-SA 3.0
+mods/mobs/sounds/*.ogg: © 2012 Q009 – CC BY-SA 3.0
