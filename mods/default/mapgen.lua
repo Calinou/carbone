@@ -80,7 +80,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
-	clust_scarcity = 7*7*7,
+	clust_scarcity = 8*8*8,
 	clust_num_ores = 5,
 	clust_size     = 3,
 	height_min     = -31000,
@@ -199,7 +199,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_copper",
 	wherein        = "default:stone",
-	clust_scarcity = 9*9*9,
+	clust_scarcity = 10*10*10,
 	clust_num_ores = 5,
 	clust_size     = 3,
 	height_min     = -31000,
@@ -246,29 +246,42 @@ if minetest.setting_get("mg_name") == "indev" then
 end
 
 	-- Underground springs
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "default:water_source",
-		ore_param2     = 128,
-		wherein        = "default:stone",
-		clust_scarcity = 20*20*20,
-		clust_num_ores = 10,
-		clust_size     = 4,
-		height_min     = -10000,
-		height_max     = -10,
-	})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:water_source",
+	ore_param2     = 128,
+	wherein        = "default:stone",
+	clust_scarcity = 20*20*20,
+	clust_num_ores = 10,
+	clust_size     = 4,
+	height_min     = -10000,
+	height_max     = -10,
+})
 
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "default:lava_source",
-		ore_param2     = 128,
-		wherein        = "default:stone",
-		clust_scarcity = 32*32*32,
-		clust_num_ores = 5,
-		clust_size     = 2,
-		height_min     = -31000,
-		height_max     = -100,
-	})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:lava_source",
+	ore_param2     = 128,
+	wherein        = "default:stone",
+	clust_scarcity = 32*32*32,
+	clust_num_ores = 5,
+	clust_size     = 2,
+	height_min     = -31000,
+	height_max     = -100,
+})
+
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "air",
+	wherein        = "default:stone",
+	clust_scarcity = 55*55*55,
+	clust_num_ores = 360,
+	clust_size     = 9,
+	height_min     = -31000,
+	height_max     = -20,
+})
+
 
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -279,7 +292,7 @@ minetest.register_ore({
 	clust_size     = 5,
 	height_max     = 0,
 	height_min     = -10,
-	})
+})
 
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
 	minetest.log('action', "WARNING: default.generate_ore is deprecated")
