@@ -186,8 +186,8 @@ mobs:register_mob("mobs:sheep", {
 	drops = {
 		{name = "mobs:meat_raw",
 		chance = 1,
-		min = 3,
-		max = 3,},
+		min = 2,
+		max = 2,},
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -258,7 +258,7 @@ minetest.register_craft({
 	type = "cooking",
 	output = "mobs:meat",
 	recipe = "mobs:meat_raw",
-	cooktime = 5,
+	cooktime = 25,
 })
 
 mobs:register_mob("mobs:rat", {
@@ -307,7 +307,7 @@ minetest.register_craft({
 	type = "cooking",
 	output = "mobs:rat_cooked",
 	recipe = "mobs:rat",
-	cooktime = 5,
+	cooktime = 15,
 })
 
 mobs:register_mob("mobs:oerkki", {
