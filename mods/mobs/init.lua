@@ -70,7 +70,7 @@ mobs:register_mob("mobs:stone_monster", {
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 15,
-		speed_run = 15,
+		speed_run = 60,
 		stand_start = 0,
 		stand_end = 14,
 		walk_start = 15,

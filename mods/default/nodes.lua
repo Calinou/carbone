@@ -1043,7 +1043,7 @@ minetest.register_node("default:furnace_active", {
 				type = "vertical_frames",
 				aspect_w = 16,
 				aspect_h = 16,
-				length = 1.5
+				length = 1.25
 			},
 		}
 	},

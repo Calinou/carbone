@@ -11,15 +11,15 @@ end
 
 minetest.register_node("bones:bones", {
 	description = "Bones",
-	tiles = {
-		"bones_top.png",
-		"bones_bottom.png",
-		"bones_side.png",
-		"bones_side.png",
-		"bones_rear.png",
-		"bones_front.png"
-	},
+	tiles = {"bones.png"},
+	paramtype = "light",
 	paramtype2 = "facedir",
+	walkable = false,
+	sunlight_propagates = true,
+	climbable = true,
+	drowning = 2,
+	light_source = 11,
+	drawtype = "glasslike_framed",
 	groups = {dig_immediate=2},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
@@ -119,7 +119,10 @@ minetest.register_on_dieplayer(function(player)
 		player_inv:set_stack("craft", i, nil)
 	end
 	
-	meta:set_string("formspec", "size[8,9;]"..
+gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
+gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
+
+	meta:set_string("formspec", "size[8,9;]"..gui_bg_img..gui_slots..
 			"list[current_name;main;0,0;8,4;]"..
 			"list[current_player;main;0,5;8,4;]")
 	meta:set_string("infotext", player:get_player_name().."'s fresh bones")
