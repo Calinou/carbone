@@ -27,8 +27,8 @@ mobs:register_mob("mobs:dirt_monster", {
 	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 17,
+		speed_run = 60,
 		stand_start = 0,
 		stand_end = 14,
 		walk_start = 15,
@@ -69,8 +69,8 @@ mobs:register_mob("mobs:stone_monster", {
 	light_damage = 0,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 15,
-		speed_run = 60,
+		speed_normal = 7,
+		speed_run = 45,
 		stand_start = 0,
 		stand_end = 14,
 		walk_start = 15,
@@ -111,8 +111,8 @@ mobs:register_mob("mobs:sand_monster", {
 	light_damage = 0,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 35,
+		speed_run = 50,
 		stand_start = 0,
 		stand_end = 39,
 		walk_start = 41,
@@ -194,7 +194,7 @@ mobs:register_mob("mobs:sheep", {
 	lava_damage = 8,
 	light_damage = 0,
 	animation = {
-		speed_normal = 15,
+		speed_normal = 17,
 		stand_start = 0,
 		stand_end = 80,
 		walk_start = 81,
@@ -345,8 +345,8 @@ mobs:register_mob("mobs:oerkki", {
 		run_end = 49,
 		punch_start = 37,
 		punch_end = 49,
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 10,
+		speed_run = 20,
 	},
 })
 
@@ -362,7 +362,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	visual_size = {x=8, y=8},
 	makes_footstep_sound = true,
 	view_range = 12,
-	walk_velocity = 0.3,
+	walk_velocity = 0.15,
 	run_velocity = 2,
 	damage = 4,
 	drops = {
@@ -390,8 +390,8 @@ mobs:register_mob("mobs:dungeon_master", {
 		walk_end = 35,
 		punch_start = 36,
 		punch_end = 48,
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 5,
+		speed_run = 5,
 	},
 })
 
@@ -417,6 +417,7 @@ mobs:register_arrow("mobs:fireball", {
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.env:get_node(pos).name
+						minetest.env:remove_node(p)
 				end
 			end
 		end
@@ -427,11 +428,14 @@ mobs:register_arrow("mobs:fireball", {
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.env:get_node(pos).name
+						minetest.env:remove_node(p)
+						minetest.sound_play("mobs_fireball_explode", {pos = p, gain = 0.125})
 				end
 			end
 		end
 	end
 })
+
 
 mobs:register_mob("mobs:rhino", {
 	type = "monster",
@@ -465,8 +469,8 @@ mobs:register_mob("mobs:rhino", {
 		attack = "mobs_bullet",
 	},
 	animation = {
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 20,
+		speed_run = 45,
 		stand_start = 0,
 		stand_end = 39,
 		walk_start = 41,
