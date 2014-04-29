@@ -40,9 +40,9 @@ end
 function default.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_sand_footstep", gain=0.5}
+			{name="default_sand_footstep", gain=0.25}
 	table.dug = table.dug or
-			{name="default_sand_footstep", gain=1.0}
+			{name="default_sand_footstep", gain=0.5}
 	table.place = table.place or
 			{name="default_place_node", gain=1.0}
 	default.node_sound_defaults(table)

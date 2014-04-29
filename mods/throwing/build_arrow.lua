@@ -52,12 +52,14 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				if obj:get_luaentity().name ~= "throwing:arrow_build_entity" and obj:get_luaentity().name ~= "__builtin:item" then
 					if self.node ~= "" then
 						minetest.env:set_node(self.lastpos, {name="default:obsidian_glass"})
+						minetest.sound_play("throwing_build_arrow", {pos = self.lastpos})
 					end
 					self.object:remove()
 				end
 			else
 				if self.node ~= "" then
 					minetest.env:set_node(self.lastpos, {name="default:obsidian_glass"})
+					minetest.sound_play("throwing_build_arrow", {pos = self.lastpos})
 				end
 				self.object:remove()
 			end
@@ -68,6 +70,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 		if node.name ~= "air" then
 			if self.node ~= "" then
 				minetest.env:set_node(self.lastpos, {name="default:obsidian_glass"})
+				minetest.sound_play("throwing_build_arrow", {pos = self.lastpos})
 			end
 			self.object:remove()
 		end
@@ -81,5 +84,12 @@ minetest.register_craft({
 	output = 'throwing:arrow_build',
 	recipe = {
 		{'default:stick', 'default:stick', 'default:obsidian_glass'},
+	}
+})
+
+minetest.register_craft({
+	output = 'throwing:arrow_build',
+	recipe = {
+		{'default:obsidian_glass', 'default:stick', 'default:stick'},
 	}
 })

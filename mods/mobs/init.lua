@@ -418,6 +418,7 @@ mobs:register_arrow("mobs:fireball", {
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.env:get_node(pos).name
 						minetest.env:remove_node(p)
+						minetest.sound_play("mobs_fireball_explode", {pos = s, gain = 0.125})
 				end
 			end
 		end
@@ -487,7 +488,6 @@ mobs:register_spawn("mobs:rhino", {"default:stone"}, 2, -1, 6500, 1, -64)
 mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
 	visual_size = {x=0.75, y=0.75},
-	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
 	textures = {"mobs_bullet.png"},
 	velocity = 30,
 	hit_player = function(self, player)

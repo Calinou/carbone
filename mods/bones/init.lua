@@ -20,6 +20,7 @@ minetest.register_node("bones:bones", {
 	drowning = 2,
 	light_source = 11,
 	drawtype = "glasslike_framed",
+	post_effect_color = {a=70, r=0, g=0, b=0},
 	groups = {dig_immediate=2},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},

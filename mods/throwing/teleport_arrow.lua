@@ -53,6 +53,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 					if self.player ~= "" then
 						self.player:setpos(pos)
 						self.player:get_inventory():add_item("main", ItemStack("throwing:arrow_teleport"))
+						minetest.sound_play("throwing_teleport_arrow", {pos = self.lastpos})
 					end
 					self.object:remove()
 				end
@@ -60,6 +61,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				if self.player ~= "" then
 					self.player:setpos(pos)
 					self.player:get_inventory():add_item("main", ItemStack("throwing:arrow_teleport"))
+					minetest.sound_play("throwing_teleport_arrow", {pos = self.lastpos})
 				end
 				self.object:remove()
 			end
@@ -71,6 +73,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 			if self.player ~= "" then
 					self.player:setpos(self.lastpos)
 					self.player:get_inventory():add_item("main", ItemStack("throwing:arrow_teleport"))
+					minetest.sound_play("throwing_teleport_arrow", {pos = self.lastpos})
 				end
 			self.object:remove()
 		end
@@ -84,5 +87,12 @@ minetest.register_craft({
 	output = 'throwing:arrow_teleport',
 	recipe = {
 		{'default:stick', 'default:stick', 'default:diamond'},
+	}
+})
+
+minetest.register_craft({
+	output = 'throwing:arrow_teleport',
+	recipe = {
+		{'default:diamond', 'default:stick', 'default:stick'},
 	}
 })

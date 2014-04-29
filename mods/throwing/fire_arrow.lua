@@ -10,10 +10,10 @@ minetest.register_node("throwing:arrow_fire_box", {
 		fixed = {
 			-- Shaft
 			{-6.5/17, -1.5/17, -1.5/17, 6.5/17, 1.5/17, 1.5/17},
-			--Spitze
+			-- Spitze
 			{-4.5/17, 2.5/17, 2.5/17, -3.5/17, -2.5/17, -2.5/17},
 			{-8.5/17, 0.5/17, 0.5/17, -6.5/17, -0.5/17, -0.5/17},
-			--Federn
+			-- Federn
 			{6.5/17, 1.5/17, 1.5/17, 7.5/17, 2.5/17, 2.5/17},
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
@@ -51,12 +51,14 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				if obj:get_luaentity().name ~= "throwing:arrow_fire_entity" and obj:get_luaentity().name ~= "__builtin:item" then
 					if self.node ~= "" then
 						minetest.env:set_node(self.lastpos, {name="default:torch"})
+						minetest.sound_play("default_place_node", {pos = self.lastpos})
 					end
 					self.object:remove()
 				end
 			else
 				if self.node ~= "" then
 					minetest.env:set_node(self.lastpos, {name="default:torch"})
+					minetest.sound_play("default_place_node", {pos = self.lastpos})
 				end
 				self.object:remove()
 			end
@@ -67,6 +69,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 		if node.name ~= "air" then
 			if self.node ~= "" then
 				minetest.env:set_node(self.lastpos, {name="default:torch"})
+				minetest.sound_play("default_place_node", {pos = self.lastpos})
 			end
 			self.object:remove()
 		end
@@ -76,7 +79,6 @@ end
 
 minetest.register_entity("throwing:arrow_fire_entity", THROWING_ARROW_ENTITY)
 
-
 minetest.register_craft({
 	output = 'throwing:arrow_fire 1',
 	recipe = {
@@ -84,26 +86,9 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_node("throwing:light", {
-	drawtype = "airlike",
-	paramtype = "light",
-	sunlight_propagates = true,
-	tiles = {"throwing_empty.png"},
-	light_source = LIGHT_MAX-4,
-	selection_box = {
-		type = "fixed",
-		fixed = {
-			{0,0,0,0,0,0}
-		}
+minetest.register_craft({
+	output = 'throwing:arrow_fire 1',
+	recipe = {
+		{'default:torch', 'default:stick', 'default:stick'},
 	},
-	groups = {not_in_creative_inventory=1}
-})
-
-minetest.register_abm({
-	nodenames = {"throwing:light"},
-	interval = 10,
-	chance = 1,
-	action = function(pos, node)
-		minetest.env:remove_node(pos)
-	end
 })

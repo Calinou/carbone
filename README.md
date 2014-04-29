@@ -52,8 +52,8 @@ mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY
 
 mods/default/textures/crosshair.png: © 2013 ETERNALSOLSTICE – CC BY 3.0
 
-mods/throwing/sounds/throwing_sound.ogg: GNU GPLv3, from Xonotic
+mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic
 
-mods/default/sounds/player_damage.*.ogg: GNU GPLv3, from Xonotic
+mods/default/sounds/player_*.ogg: GNU GPLv3, from Xonotic
 
 mods/mobs/sounds/*.ogg: © 2012 Q009 – CC BY-SA 3.0
