@@ -187,8 +187,8 @@ minetest.register_node("default:gravel", {
 	is_ground_content = true,
 	groups = {crumbly=2, falling_node=1},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
+		footstep = {name="default_gravel_footstep", gain=0.35},
+		dug = {name="default_gravel_footstep", gain=0.6},
 	}),
 })
 

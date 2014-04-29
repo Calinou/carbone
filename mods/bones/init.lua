@@ -23,8 +23,8 @@ minetest.register_node("bones:bones", {
 	post_effect_color = {a=70, r=0, g=0, b=0},
 	groups = {dig_immediate=2},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
+		footstep = {name="default_gravel_footstep", gain=0.35},
+		dug = {name="default_gravel_footstep", gain=0.6},
 	}),
 	
 	can_dig = function(pos, player)
