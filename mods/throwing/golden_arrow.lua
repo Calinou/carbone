@@ -71,7 +71,7 @@ THROWING_arrow_gold_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_gold')
+			minetest.env:add_item(self.lastpos, "throwing:arrow_gold")
 			minetest.sound_play("throwing_arrow", {pos = self.lastpos})
 			self.object:remove()
 		end
@@ -82,15 +82,15 @@ end
 minetest.register_entity("throwing:arrow_gold_entity", THROWING_arrow_gold_ENTITY)
 
 minetest.register_craft({
-	output = 'throwing:arrow_gold 16',
+	output = "throwing:arrow_gold 16",
 	recipe = {
-		{'default:stick', 'default:stick', 'default:gold_ingot'},
+		{"default:stick", "default:stick", "default:gold_ingot"},
 	}
 })
 
 minetest.register_craft({
-	output = 'throwing:arrow_gold 16',
+	output = "throwing:arrow_gold 16",
 	recipe = {
-		{'default:gold_ingot', 'default:stick', 'default:stick'},
+		{"default:gold_ingot", "default:stick", "default:stick"},
 	}
 })

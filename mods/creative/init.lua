@@ -87,7 +87,7 @@ creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 			"list[detached:creative_trash;main;5,2;1,1;]")
 end
 minetest.register_on_joinplayer(function(player)
-	-- If in creative mode, modify player's inventory forms
+	-- If in creative mode, modify player"s inventory forms
 	if not minetest.setting_getbool("creative_mode") then
 		return
 	end

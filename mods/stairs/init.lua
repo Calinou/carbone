@@ -60,7 +60,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 4',
+		output = "stairs:stair_" .. subname .. " 4",
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
@@ -70,7 +70,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 
 	-- Flipped recipe for the silly minecrafters
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 4',
+		output = "stairs:stair_" .. subname .. " 4",
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -99,7 +99,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				return itemstack
 			end
 
-			-- If it's being placed on an another similar one, replace it with
+			-- If it"s being placed on an another similar one, replace it with
 			-- a full block
 			local slabpos = nil
 			local slabnode = nil
@@ -182,7 +182,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 	})
 
 	minetest.register_craft({
-		output = 'stairs:slab_' .. subname .. ' 6',
+		output = "stairs:slab_" .. subname .. " 6",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 		},

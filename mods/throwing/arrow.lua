@@ -71,7 +71,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow')
+			minetest.env:add_item(self.lastpos, "throwing:arrow")
 			minetest.sound_play("throwing_arrow", {pos = self.lastpos})
 			self.object:remove()
 		end
@@ -82,15 +82,15 @@ end
 minetest.register_entity("throwing:arrow_entity", THROWING_ARROW_ENTITY)
 
 minetest.register_craft({
-	output = 'throwing:arrow 16',
+	output = "throwing:arrow 16",
 	recipe = {
-		{'default:stick', 'default:stick', 'default:steel_ingot'},
+		{"default:stick", "default:stick", "default:steel_ingot"},
 	}
 })
 
 minetest.register_craft({
-	output = 'throwing:arrow 16',
+	output = "throwing:arrow 16",
 	recipe = {
-		{'default:steel_ingot', 'default:stick', 'default:stick'},
+		{"default:steel_ingot", "default:stick", "default:stick"},
 	}
 })

@@ -143,8 +143,8 @@ register_panes("pane", {
 	update_pane(pos, "pane")
     end,
     recipe = {
-		{'default:glass', 'default:glass', 'default:glass'},
-        {'default:glass', 'default:glass', 'default:glass'}
+		{"default:glass", "default:glass", "default:glass"},
+        {"default:glass", "default:glass", "default:glass"}
 	}
 })
 
@@ -168,7 +168,7 @@ register_panes("bar", {
 	update_pane(pos, "bar")
     end,
     recipe = {
-		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
-        {'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'}
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+        {"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"}
 	}
 })

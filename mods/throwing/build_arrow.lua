@@ -81,15 +81,15 @@ end
 minetest.register_entity("throwing:arrow_build_entity", THROWING_ARROW_ENTITY)
 
 minetest.register_craft({
-	output = 'throwing:arrow_build',
+	output = "throwing:arrow_build",
 	recipe = {
-		{'default:stick', 'default:stick', 'default:obsidian_glass'},
+		{"default:stick", "default:stick", "default:obsidian_glass"},
 	}
 })
 
 minetest.register_craft({
-	output = 'throwing:arrow_build',
+	output = "throwing:arrow_build",
 	recipe = {
-		{'default:obsidian_glass', 'default:stick', 'default:stick'},
+		{"default:obsidian_glass", "default:stick", "default:stick"},
 	}
 })

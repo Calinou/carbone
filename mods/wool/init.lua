@@ -1,6 +1,6 @@
 -- minetest/wool/init.lua
 
--- Backwards compatibility with jordach's 16-color wool mod
+-- Backwards compatibility with jordach"s 16-color wool mod
 minetest.register_alias("wool:dark_blue", "wool:blue")
 minetest.register_alias("wool:gold", "wool:yellow")
 
@@ -41,8 +41,8 @@ for _, row in ipairs(wool.dyes) do
 		-- Crafting from dye and white wool
 		minetest.register_craft({
 			type = "shapeless",
-			output = 'wool:'..name,
-			recipe = {'group:dye,'..craft_color_group, 'group:wool'},
+			output = "wool:"..name,
+			recipe = {"group:dye,"..craft_color_group, "group:wool"},
 		})
 	end
 end

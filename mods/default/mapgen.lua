@@ -295,7 +295,7 @@ minetest.register_ore({
 })
 
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
-	minetest.log('action', "WARNING: default.generate_ore is deprecated")
+	minetest.log("action", "WARNING: default.generate_ore is deprecated")
 
 	if maxp.y < height_min or minp.y > height_max then
 		return

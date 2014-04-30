@@ -12,7 +12,7 @@ minetest.register_entity(":__builtin:item", {
 		timer = 0,
 	},
 	
-	itemstring = '',
+	itemstring = "",
 	physical_state = true,
 
 	set_item = function(self, itemstring)
@@ -170,7 +170,7 @@ minetest.register_entity(":__builtin:item", {
 	end,
 
 	on_punch = function(self, hitter)
-		if self.itemstring ~= '' then
+		if self.itemstring ~= "" then
 			local left = hitter:get_inventory():add_item("main", self.itemstring)
 			if not left:is_empty() then
 				self.itemstring = left:to_string()

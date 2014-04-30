@@ -49,13 +49,13 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_dig_entity" and obj:get_luaentity().name ~= "__builtin:item" then
-					minetest.env:add_item(pos, 'throwing:arrow_dig')
+					minetest.env:add_item(pos, "throwing:arrow_dig")
 					minetest.env:remove_node(pos)
 					minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
 					self.object:remove()
 				end
 			else
-				minetest.env:add_item(pos, 'throwing:arrow_dig')
+				minetest.env:add_item(pos, "throwing:arrow_dig")
 				minetest.env:remove_node(pos)
 				minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
 				self.object:remove()
@@ -65,7 +65,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_dig')
+			minetest.env:add_item(self.lastpos, "throwing:arrow_dig")
 			minetest.env:remove_node(pos)
 			minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
 			self.object:remove()
@@ -77,15 +77,15 @@ end
 minetest.register_entity("throwing:arrow_dig_entity", THROWING_ARROW_ENTITY)
 
 minetest.register_craft({
-	output = 'throwing:arrow_dig',
+	output = "throwing:arrow_dig",
 	recipe = {
-		{'default:stick', 'default:stick', 'default:pick_wood'},
+		{"default:stick", "default:stick", "default:pick_wood"},
 	}
 })
 
 minetest.register_craft({
-	output = 'throwing:arrow_dig',
+	output = "throwing:arrow_dig",
 	recipe = {
-		{'default:pick_wood', 'default:stick', 'default:stick'},
+		{"default:pick_wood", "default:stick", "default:stick"},
 	}
 })

@@ -105,6 +105,7 @@ minetest.register_on_dieplayer(function(player)
 	
 	minetest.dig_node(pos)
 	minetest.add_node(pos, {name="bones:bones", param2=param2})
+	minetest.chat_send_all("*** Death at " .. minetest.pos_to_string(pos) .. ".")
 	
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()

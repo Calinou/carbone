@@ -94,7 +94,7 @@ function default.player_get_animation(player)
 	}
 end
 
--- Called when a player's appearance needs to be updated
+-- Called when a player"s appearance needs to be updated
 function default.player_set_model(player, model_name)
 	local name = player:get_player_name()
 	local model = models[model_name]

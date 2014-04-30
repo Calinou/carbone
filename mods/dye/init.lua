@@ -6,11 +6,11 @@
 -- basecolor: 9, excolor: 17, unicolor: 89
 --
 -- Example of one shapeless recipe using a color group:
--- Note: As this uses basecolor_*, you'd need 9 of these.
+-- Note: As this uses basecolor_*, you"d need 9 of these.
 -- minetest.register_craft({
 --     type = "shapeless",
---     output = '<mod>:item_yellow',
---     recipe = {'<mod>:item_no_color', 'group:basecolor_yellow'},
+--     output = "<mod>:item_yellow",
+--     recipe = {"<mod>:item_no_color", "group:basecolor_yellow"},
 -- })
 
 -- Other mods can use these for looping through available colors
@@ -127,8 +127,8 @@ for one,results in pairs(dyelocal.mixes) do
 		local another = dyelocal.mixbases[i]
 		minetest.register_craft({
 			type = "shapeless",
-			output = 'dye:'..result..' 2',
-			recipe = {'dye:'..one, 'dye:'..another},
+			output = "dye:"..result.." 2",
+			recipe = {"dye:"..one, "dye:"..another},
 		})
 	end
 end

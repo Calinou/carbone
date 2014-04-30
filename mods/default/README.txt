@@ -22,7 +22,7 @@ Authors of media files
 Everything not listed in here:
 Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-Cisoun's WTFPL texture pack:
+Cisoun"s WTFPL texture pack:
   default_chest_front.png
   default_chest_lock.png
   default_chest_side.png
@@ -49,20 +49,20 @@ Cisoun's WTFPL texture pack:
   default_tree_top.png
   default_water.png
 
-Originating from G4JC's Almost MC Texture Pack:
+Originating from G4JC"s Almost MC Texture Pack:
   default_wood.png
   default_torch.png
   default_torch_on_ceiling.png
   default_torch_on_floor.png
   default_cobble.png
 
-VanessaE's animated torches (WTFPL):
+VanessaE"s animated torches (WTFPL):
   default_torch_animated.png
   default_torch_on_ceiling_animated.png
   default_torch_on_floor_animated.png
   default_torch_on_floor.png
 
-RealBadAngel's animated water (WTFPL):
+RealBadAngel"s animated water (WTFPL):
   default_water_source_animated.png
   default_water_flowing_animated.png
 

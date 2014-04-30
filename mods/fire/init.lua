@@ -10,7 +10,7 @@ minetest.register_node("fire:basic_flame", {
 	inventory_image = "fire_basic_flame.png",
 	light_source = 14,
 	groups = {igniter=2,dig_immediate=3,hot=3},
-	drop = '',
+	drop = "",
 	walkable = false,
 	buildable_to = true,
 	damage_per_second = 4,
@@ -110,7 +110,7 @@ minetest.register_abm({
 	interval = 1,
 	chance = 2,
 	action = function(p0, node, _, _)
-		-- If there is water or stuff like that around flame, don't ignite
+		-- If there is water or stuff like that around flame, don"t ignite
 		if fire.flame_should_extinguish(p0) then
 			return
 		end
@@ -136,7 +136,7 @@ minetest.register_abm({
 		local d = reg.groups.igniter
 		local p = minetest.find_node_near(p0, d, {"group:flammable"})
 		if p then
-			-- If there is water or stuff like that around flame, don't ignite
+			-- If there is water or stuff like that around flame, don"t ignite
 			if fire.flame_should_extinguish(p) then
 				return
 			end
@@ -175,7 +175,7 @@ minetest.register_abm({
 			-- remove a flammable node around flame
 			local p = minetest.find_node_near(p0, 1, {"group:flammable"})
 			if p then
-				-- If there is water or stuff like that around flame, don't remove
+				-- If there is water or stuff like that around flame, don"t remove
 				if fire.flame_should_extinguish(p0) then
 					return
 				end

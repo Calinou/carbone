@@ -332,7 +332,7 @@ minetest.register_on_joinplayer(function(player)
 		armor_inv:set_stack("armor", i, stack)
 	end	
 
-	-- Legacy support, import player's armor from old inventory format
+	-- Legacy support, import player"s armor from old inventory format
 	--[[
 	for _,v in pairs(armor.elements) do
 		local list = "armor_"..v
