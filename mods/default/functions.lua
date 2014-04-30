@@ -183,12 +183,12 @@ minetest.register_abm({
 
 default.cool_lava_source = function(pos)
 	minetest.set_node(pos, {name="default:obsidian"})
-	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
+	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.2})
 end
 
 default.cool_lava_flowing = function(pos)
 	minetest.set_node(pos, {name="default:stone"})
-	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
+	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.2})
 end
 
 minetest.register_abm({

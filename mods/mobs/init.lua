@@ -231,7 +231,7 @@ mobs:register_mob("mobs:sheep", {
 		if clicker:get_inventory() and not self.naked then
 			self.naked = true
 			if minetest.registered_items["wool:white"] then
-				clicker:get_inventory():add_item("main", ItemStack("wool:white "..math.random(1,3)))
+				clicker:get_inventory():add_item("main", ItemStack("wool:white 2"))
 			end
 			self.object:set_properties({
 				textures = {"mobs_sheep_shaved.png"},
@@ -241,7 +241,7 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 2, 31000)
+mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 3, 31000)
 
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 12000, 6, 31000)
+mobs:register_spawn("mobs:rat", {"default:leaves", "default:stone"}, 20, -1, 12000, 9, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
