@@ -299,7 +299,6 @@ minetest.register_node("default:junglesapling", {
 minetest.register_node("default:junglegrass", {
 	description = "Jungle Grass",
 	drawtype = "plantlike",
-	visual_scale = 1.3,
 	tiles = {"default_junglegrass.png"},
 	inventory_image = "default_junglegrass.png",
 	wield_image = "default_junglegrass.png",
@@ -460,6 +459,7 @@ minetest.register_node("default:fence_wood", {
 	inventory_image = fence_wood_texture,
 	wield_image = fence_wood_texture,
 	paramtype = "light",
+	sunlight_propagates = true,
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
@@ -477,6 +477,7 @@ minetest.register_node("default:fence_cobble", {
 	inventory_image = fence_cobble_texture,
 	wield_image = fence_cobble_texture,
 	paramtype = "light",
+	sunlight_propagates = true,
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
@@ -494,6 +495,7 @@ minetest.register_node("default:fence_desert_cobble", {
 	inventory_image = fence_desert_cobble_texture,
 	wield_image = fence_desert_cobble_texture,
 	paramtype = "light",
+	sunlight_propagates = true,
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
@@ -511,6 +513,7 @@ minetest.register_node("default:fence_steelblock", {
 	inventory_image = fence_steelblock_texture,
 	wield_image = fence_steelblock_texture,
 	paramtype = "light",
+	sunlight_propagates = true,
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
@@ -527,6 +530,7 @@ minetest.register_node("default:ladder", {
 	inventory_image = "default_ladder.png",
 	wield_image = "default_ladder.png",
 	paramtype = "light",
+	sunlight_propagates = true,
 	paramtype2 = "wallmounted",
 	walkable = false,
 	climbable = true,
@@ -551,6 +555,7 @@ minetest.register_node("default:wood", {
 
 minetest.register_node("default:cloud", {
 	description = "Cloud",
+	sunlight_propagates = true,
 	tiles = {"default_cloud.png"},
 	sounds = default.node_sound_defaults(),
 	groups = {not_in_creative_inventory=1},
