@@ -349,7 +349,7 @@ function mobs:register_mob(name, def)
 						self.v_start = true
 						self.set_velocity(self, self.run_velocity)
 					else
-						if self.get_velocity(self) <= 0.5 and self.object:getvelocity().y == 0 then
+						if self.object:getvelocity().y == 0 then
 							local v = self.object:getvelocity()
 							v.y = 5
 							self.object:setvelocity(v)
@@ -479,7 +479,7 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 	minetest.register_abm({
 		nodenames = nodes,
 		neighbors = {"air"},
-		interval = 30,
+		interval = 2,
 		chance = chance,
 		action = function(pos, node, _, active_object_count_wider)
 			if active_object_count_wider > active_object_count then
@@ -505,15 +505,12 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 				return
 			end
 			pos.y = pos.y+1
-			if minetest.env:get_node(pos).name ~= "air" then
-				return
-			end
 			if spawn_func and not spawn_func(pos, node) then
 				return
 			end
 			
 			if minetest.setting_getbool("display_mob_spawn") then
-				minetest.chat_send_all("[mobs] Spawned " .. name .. " at " .. minetest.pos_to_string(pos))
+				minetest.chat_send_all("*** Spawned " .. name .. " at " .. minetest.pos_to_string(pos))
 			end
 			minetest.env:add_entity(pos, name)
 		end

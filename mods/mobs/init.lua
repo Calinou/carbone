@@ -40,7 +40,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 2, -1, 3500, 3, -1)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 125000, 3, -10)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
@@ -66,7 +66,7 @@ mobs:register_mob("mobs:stone_monster", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
-	light_damage = 0,
+	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 7,
@@ -82,7 +82,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 2, -1, 4500, 3, -1)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 125000, 3, -10)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -108,7 +108,7 @@ mobs:register_mob("mobs:sand_monster", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
+	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 35,
@@ -124,7 +124,7 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:desert_sand", "default:desert_stone"}, 2, -1, 3500, 3, 31000)
+mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 125000, 3, -10)
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
@@ -171,7 +171,7 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 2, -1, 3000, 3, 31000)
+mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 125000, 3, -10)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
@@ -241,7 +241,7 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 10000, 2, 31000)
+mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 2, 31000)
 
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 800, 6, 31000)
+mobs:register_spawn("mobs:rat", {"default:dirt_with_grass", "default:stone"}, 8, -1, 12000, 6, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -334,7 +334,7 @@ mobs:register_mob("mobs:oerkki", {
 	light_resistant = true,
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
+	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
 		stand_start = 0,
@@ -350,7 +350,7 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 2, -1, 4500, 3, -32)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 125000, 3, -30)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
@@ -395,7 +395,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 2, -1, 6500, 1, -64)
+mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 1, -1, 125000, 1, -60)
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
@@ -461,7 +461,7 @@ mobs:register_mob("mobs:rhino", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
+	light_damage = 1,
 	on_rightclick = nil,
 	attack_type = "shoot",
 	arrow = "mobs:bullet",
@@ -483,7 +483,7 @@ mobs:register_mob("mobs:rhino", {
 	},
 })
 
-mobs:register_spawn("mobs:rhino", {"default:stone"}, 2, -1, 6500, 1, -64)
+mobs:register_spawn("mobs:rhino", {"default:stone"}, 1, -1, 125000, 1, -60)
 
 mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
