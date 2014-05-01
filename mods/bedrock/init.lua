@@ -1,5 +1,3 @@
--- A simple bedrock mod by jn and Calinou.
-
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:bedrock",
@@ -7,7 +5,7 @@ minetest.register_ore({
 	clust_scarcity = 1*1*1,
 	clust_num_ores = 5,
 	clust_size     = 2,
-	height_min     = -30912,
+	height_min     = -30912, -- Engine changes can modify this value.
 	height_max     = -30896,
 })
 
@@ -18,14 +16,13 @@ minetest.register_ore({
 	clust_scarcity = 1*1*1,
 	clust_num_ores = 5,
 	clust_size     = 2,
-	height_min     = -30912,
+	height_min     = -30912, -- Engine changes can modify this value.
 	height_max     = -30896,
 })
 
 minetest.register_node("bedrock:bedrock", {
-	description = "bedrock",
+	description = "Bedrock",
 	tile_images = {"bedrock_bedrock.png"},
-	groups = {unbreakable = 1},
+	groups = {unbreakable = 1}, -- For Map Tools' admin pickaxe.
 	sounds = default.node_sound_stone_defaults(),
-	is_ground_content = false,
 })
