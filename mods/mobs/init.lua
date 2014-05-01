@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves"}, 20, -1, 13750, 10, 31000)
+mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 10, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",

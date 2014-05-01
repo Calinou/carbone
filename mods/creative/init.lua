@@ -73,18 +73,18 @@ gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
 
 creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 	pagenum = math.floor(pagenum)
-	local pagemax = math.floor((creative_inventory.creative_inventory_size-1) / (6*4) + 1)
-	player:set_inventory_formspec("size[13,7.5]".. gui_bg_img .. gui_slots ..
+	local pagemax = math.floor((creative_inventory.creative_inventory_size-1) / (5*8) + 1)
+	player:set_inventory_formspec("size[15,9]".. gui_bg_img .. gui_slots ..
 			--"image[6,0.6;1,2;player.png]"..
-			"list[current_player;main;5,3.5;8,4;]"..
-			"list[current_player;craft;8,0;3,3;]"..
-			"list[current_player;craftpreview;12,1;1,1;]"..
-			"list[detached:creative;main;0.3,0.5;4,6;"..tostring(start_i).."]"..
-			"label[2.0,6.55;"..tostring(pagenum).."/"..tostring(pagemax).."]"..
-			"button[0.3,6.5;1.6,1;creative_prev;<<]"..
-			"button[2.7,6.5;1.6,1;creative_next;>>]"..
-			"label[5,1.5;Trash:]"..
-			"list[detached:creative_trash;main;5,2;1,1;]")
+			"list[current_player;main;6,4.5;8,5;]"..
+			"list[current_player;craft;8,1;3,4;]"..
+			"list[current_player;craftpreview;12,2;1,2;]"..
+			"list[detached:creative;main;0.3,0.5;5,8;"..tostring(start_i).."]"..
+			"label[2.5,8.7;"..tostring(pagenum).." of "..tostring(pagemax).."]"..
+			"button[0.3,8.3;2.6,1;creative_prev;<--<--<--<--]"..
+			"button[2.7,8.3;2.6,1;creative_next;-->-->-->-->]"..
+			"label[6,1.5;Trash:]"..
+			"list[detached:creative_trash;main;6,2;1,1;]")
 end
 minetest.register_on_joinplayer(function(player)
 	-- If in creative mode, modify player"s inventory forms
@@ -104,35 +104,35 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	start_i = tonumber(start_i) or 0
 
 	if fields.creative_prev then
-		start_i = start_i - 4*6
+		start_i = start_i - 5*8
 	end
 	if fields.creative_next then
-		start_i = start_i + 4*6
+		start_i = start_i + 5*8
 	end
 
 	if start_i < 0 then
-		start_i = start_i + 4*6
+		start_i = start_i + 5*8
 	end
 	if start_i >= creative_inventory.creative_inventory_size then
-		start_i = start_i - 4*6
+		start_i = start_i - 5*8
 	end
 		
 	if start_i < 0 or start_i >= creative_inventory.creative_inventory_size then
 		start_i = 0
 	end
 
-	creative_inventory.set_creative_formspec(player, start_i, start_i / (6*4) + 1)
+	creative_inventory.set_creative_formspec(player, start_i, start_i / (5*8) + 1)
 end)
 
 if minetest.setting_getbool("creative_mode") then
-	local digtime = 0.5
+	local digtime = 0.35
 	minetest.register_item(":", {
 		type = "none",
 		wield_image = "wieldhand.png",
 		wield_scale = {x=1,y=1,z=2.5},
-		range = 10,
+		range = 12,
 		tool_capabilities = {
-			full_punch_interval = 0.5,
+			full_punch_interval = 0.35,
 			max_drop_level = 3,
 			groupcaps = {
 				crumbly = {times={[1]=digtime, [2]=digtime, [3]=digtime}, uses=0, maxlevel=3},
