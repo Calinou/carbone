@@ -40,10 +40,7 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	
 	-- turn the node into soil, wear out item and play sound
 	minetest.set_node(pt.under, {name = regN[under.name].soil.dry})
-	minetest.sound_play("default_dig_crumbly", {
-		pos = pt.under,
-		gain = 0.5,
-	})
+	minetest.sound_play("default_dig_crumbly", {pos = pt.under, gain = 0.375})
 	itemstack:add_wear(65535/(uses-1))
 	return itemstack
 end

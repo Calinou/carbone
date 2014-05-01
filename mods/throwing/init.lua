@@ -30,8 +30,9 @@ local throwing_shoot_arrow = function(itemstack, player)
 	return false
 end
 
+
 minetest.register_tool("throwing:bow_wood", {
-	description = "Wood Bow",
+	description = "Wooden Bow",
 	inventory_image = "throwing_bow_wood.png",
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
@@ -52,6 +53,8 @@ minetest.register_craft({
 		{"farming:string", "default:wood", ""},
 	}
 })
+
+
 
 minetest.register_tool("throwing:bow_stone", {
 	description = "Stone Bow",
@@ -76,6 +79,8 @@ minetest.register_craft({
 	}
 })
 
+
+
 minetest.register_tool("throwing:bow_steel", {
 	description = "Steel Bow",
 	inventory_image = "throwing_bow_steel.png",
@@ -99,6 +104,8 @@ minetest.register_craft({
 	}
 })
 
+
+
 minetest.register_tool("throwing:bow_bronze", {
 	description = "Bronze Bow",
 	inventory_image = "throwing_bow_bronze.png",
@@ -121,6 +128,58 @@ minetest.register_craft({
 		{"farming:string", "default:bronze_ingot", ""},
 	}
 })
+
+
+
+minetest.register_tool("throwing:bow_mese", {
+	description = "mese Bow",
+	inventory_image = "throwing_bow_mese.png",
+    stack_max = 1,
+	on_use = function(itemstack, user, pointed_thing)
+		if throwing_shoot_arrow(item, user, pointed_thing) then
+			if not minetest.setting_getbool("creative_mode") then
+				itemstack:add_wear(65535/350)
+			end
+		end
+		return itemstack
+	end,
+})
+
+minetest.register_craft({
+	output = "throwing:bow_mese",
+	recipe = {
+		{"farming:string", "default:mese_crystal", ""},
+		{"farming:string", "", "default:mese_crystal"},
+		{"farming:string", "default:mese_crystal", ""},
+	}
+})
+
+
+
+minetest.register_tool("throwing:bow_diamond", {
+	description = "diamond Bow",
+	inventory_image = "throwing_bow_diamond.png",
+    stack_max = 1,
+	on_use = function(itemstack, user, pointed_thing)
+		if throwing_shoot_arrow(item, user, pointed_thing) then
+			if not minetest.setting_getbool("creative_mode") then
+				itemstack:add_wear(65535/500)
+			end
+		end
+		return itemstack
+	end,
+})
+
+minetest.register_craft({
+	output = "throwing:bow_diamond",
+	recipe = {
+		{"farming:string", "default:diamond", ""},
+		{"farming:string", "", "default:diamond"},
+		{"farming:string", "default:diamond", ""},
+	}
+})
+
+
 
 dofile(minetest.get_modpath("throwing").."/arrow.lua")
 dofile(minetest.get_modpath("throwing").."/golden_arrow.lua")
