@@ -50,14 +50,20 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_dig_entity" and obj:get_luaentity().name ~= "__builtin:item" then
 					minetest.env:add_item(pos, "throwing:arrow_dig")
-					minetest.env:remove_node(pos)
-					minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
+					local n = minetest.env:get_node(pos).name
+					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
+						minetest.env:dig_node(pos)
+					end
+					minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})
 					self.object:remove()
 				end
 			else
 				minetest.env:add_item(pos, "throwing:arrow_dig")
-				minetest.env:remove_node(pos)
-				minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
+				local n = minetest.env:get_node(pos).name
+				if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
+					minetest.env:dig_node(pos)
+				end
+				minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})
 				self.object:remove()
 			end
 		end
@@ -66,8 +72,11 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
 			minetest.env:add_item(self.lastpos, "throwing:arrow_dig")
-			minetest.env:remove_node(pos)
-			minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos})
+			local n = minetest.env:get_node(pos).name
+			if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
+				minetest.env:dig_node(pos)
+			end
+			minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})
 			self.object:remove()
 		end
 	end

@@ -19,7 +19,7 @@ local throwing_shoot_arrow = function(itemstack, player)
 			obj:setvelocity({x=dir.x*19, y=dir.y*19, z=dir.z*19})
 			obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
 			obj:setyaw(player:get_look_yaw()+math.pi)
-			minetest.sound_play("throwing_sound", {pos=playerpos})
+			minetest.sound_play("throwing_sound", {pos=playerpos, gain = 0.5})
 			if obj:get_luaentity().player == "" then
 				obj:get_luaentity().player = player
 			end
@@ -179,14 +179,12 @@ minetest.register_craft({
 	}
 })
 
-
-
-dofile(minetest.get_modpath("throwing").."/arrow.lua")
-dofile(minetest.get_modpath("throwing").."/golden_arrow.lua")
-dofile(minetest.get_modpath("throwing").."/fire_arrow.lua")
-dofile(minetest.get_modpath("throwing").."/teleport_arrow.lua")
-dofile(minetest.get_modpath("throwing").."/dig_arrow.lua")
-dofile(minetest.get_modpath("throwing").."/build_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/golden_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/fire_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/teleport_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/dig_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/build_arrow.lua")
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "[throwing] loaded.")

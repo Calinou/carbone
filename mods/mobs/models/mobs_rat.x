@@ -513,7 +513,6 @@ Frame Root {
            96.078431;
            0.500000; 0.500000; 0.500000;;
            0.000000; 0.000000; 0.000000;;
-          TextureFilename {"UV_rat.png";}
         }
       } //End of Cube_005 Material List
       MeshTextureCoords { //Cube_005 UV Coordinates

@@ -1002,7 +1002,6 @@ Frame Root {
              96.078431;
              0.500000; 0.500000; 0.500000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"oerkki.png";}
           }
         } //End of Plane_009 Material List
         MeshTextureCoords { //Plane_009 UV Coordinates

@@ -54,7 +54,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 						full_punch_interval=1.0,
 						damage_groups={fleshy=damage},
 					}, nil)
-					minetest.sound_play("throwing_arrow", {pos = self.lastpos})
+					minetest.sound_play("throwing_arrow", {pos = self.lastpos, gain = 0.8})
 					self.object:remove()
 				end
 			else
@@ -63,7 +63,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 					full_punch_interval=1.0,
 					damage_groups={fleshy=damage},
 				}, nil)
-				minetest.sound_play("throwing_arrow", {pos = self.lastpos})
+				minetest.sound_play("throwing_arrow", {pos = self.lastpos, gain = 0.8})
 				self.object:remove()
 			end
 		end
@@ -72,7 +72,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
 			minetest.env:add_item(self.lastpos, "throwing:arrow")
-			minetest.sound_play("throwing_arrow", {pos = self.lastpos})
+			minetest.sound_play("throwing_arrow", {pos = self.lastpos, gain = 0.8})
 			self.object:remove()
 		end
 	end

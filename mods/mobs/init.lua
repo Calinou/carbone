@@ -283,7 +283,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 10, 31000)
+mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 6, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -417,8 +417,10 @@ mobs:register_arrow("mobs:fireball", {
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.env:get_node(pos).name
-						minetest.env:remove_node(p)
-						minetest.sound_play("mobs_fireball_explode", {pos = s, gain = 0.125})
+					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
+						minetest.env:dig_node(p)
+					end
+						minetest.sound_play("mobs_fireball_explode", {pos = s, gain = 0.1, max_hear_distance = 48})
 				end
 			end
 		end
@@ -429,8 +431,10 @@ mobs:register_arrow("mobs:fireball", {
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.env:get_node(pos).name
-						minetest.env:remove_node(p)
-						minetest.sound_play("mobs_fireball_explode", {pos = p, gain = 0.125})
+					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
+						minetest.env:dig_node(p)
+					end
+						minetest.sound_play("mobs_fireball_explode", {pos = p, gain = 0.1, max_hear_distance = 48})
 				end
 			end
 		end

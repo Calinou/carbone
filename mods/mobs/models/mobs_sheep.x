@@ -1475,7 +1475,6 @@ Frame Root {
              96.078431;
              0.000000; 0.000000; 0.000000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"sheep.png";}
           }
         } //End of Cube_000 Material List
         MeshTextureCoords { //Cube_000 UV Coordinates
