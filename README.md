@@ -50,7 +50,7 @@ menu/header.png: © 2013 BlockMen – CC BY 3.0
 
 mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY-SA 4.0
 
-mods/default/textures/crosshair.png: © 2013 ETERNALSOLSTICE – CC BY 3.0
+mods/default/textures/crosshair.png: © 2014 ETERNALSOLSTICE – CC BY 3.0: http://quadropolis.us/node/3993
 
 mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic
 
