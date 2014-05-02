@@ -40,7 +40,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 150000, 3, -10)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 150000, 2, -10)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
@@ -82,7 +82,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 150000, 3, -10)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 150000, 2, -10)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -124,54 +124,7 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 150000, 3, -10)
-
-mobs:register_mob("mobs:tree_monster", {
-	type = "monster",
-	hp_max = 75,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
-	visual = "mesh",
-	mesh = "mobs_tree_monster.x",
-	textures = {"mobs_tree_monster.png"},
-	visual_size = {x=4.5,y=4.5},
-	makes_footstep_sound = true,
-	view_range = 32,
-	walk_velocity = 0,
-	run_velocity = 1.25,
-	damage = 8,
-	drops = {
-		{name = "default:sapling",
-		chance = 1,
-		min = 4,
-		max = 4,},
-		{name = "default:junglesapling",
-		chance = 1,
-		min = 4,
-		max = 4,},
-	},
-	light_resistant = true,
-	armor = 80,
-	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 8,
-	light_damage = 1,
-	disable_fall_damage = true,
-	attack_type = "dogfight",
-	animation = {
-		speed_normal = 15,
-		speed_run = 15,
-		stand_start = 0,
-		stand_end = 24,
-		walk_start = 25,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		punch_start = 48,
-		punch_end = 62,
-	},
-})
-
-mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 150000, 3, -10)
+mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 150000, 2, -10)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
@@ -241,7 +194,7 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 3, 31000)
+mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 2, 31000)
 
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
@@ -283,7 +236,7 @@ mobs:register_mob("mobs:rat", {
 	light_damage = 0,
 })
 
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 6, 31000)
+mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 5, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -350,7 +303,54 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 150000, 3, -30)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 150000, 2, -30)
+
+mobs:register_mob("mobs:tree_monster", {
+	type = "monster",
+	hp_max = 75,
+	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
+	visual = "mesh",
+	mesh = "mobs_tree_monster.x",
+	textures = {"mobs_tree_monster.png"},
+	visual_size = {x=4.5,y=4.5},
+	makes_footstep_sound = true,
+	view_range = 32,
+	walk_velocity = 0,
+	run_velocity = 1.25,
+	damage = 8,
+	drops = {
+		{name = "default:sapling",
+		chance = 1,
+		min = 4,
+		max = 4,},
+		{name = "default:junglesapling",
+		chance = 1,
+		min = 4,
+		max = 4,},
+	},
+	light_resistant = true,
+	armor = 80,
+	drawtype = "front",
+	water_damage = 0,
+	lava_damage = 8,
+	light_damage = 1,
+	disable_fall_damage = true,
+	attack_type = "dogfight",
+	animation = {
+		speed_normal = 15,
+		speed_run = 15,
+		stand_start = 0,
+		stand_end = 24,
+		walk_start = 25,
+		walk_end = 47,
+		run_start = 48,
+		run_end = 62,
+		punch_start = 48,
+		punch_end = 62,
+	},
+})
+
+mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 150000, 1, -10)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
