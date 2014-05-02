@@ -1,17 +1,19 @@
 -- Minetest 0.4 mod: default
 -- See README.txt for licensing and other information.
 
--- The API documentation in here was moved into doc/lua_api.txt
+-- The API documentation in here was moved into doc/lua_api.txt.
 
 WATER_ALPHA = 160
 WATER_VISC = 1
 LAVA_VISC = 7
 LIGHT_MAX = 14
 
--- Definitions made by this mod that other mods can use too
+-- Definitions made by this mod that other mods can use too:
+
 default = {}
 
--- GUI related stuff
+-- GUI related stuff:
+
 gui_bg = ""
 gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
 gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
@@ -35,7 +37,8 @@ gui_suvival_form = "size[8,8.5]"..
 			"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
 			default.get_hotbar_bg(0,4.25)
 
--- Load files
+-- Load files:
+
 dofile(minetest.get_modpath("default").."/functions.lua")
 dofile(minetest.get_modpath("default").."/commands.lua")
 dofile(minetest.get_modpath("default").."/nodes.lua")
@@ -46,3 +49,19 @@ dofile(minetest.get_modpath("default").."/mapgen.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/trees.lua")
 dofile(minetest.get_modpath("default").."/aliases.lua")
+
+-- Code below by Casimir.
+
+local function count_items()
+	local i = 0
+	local number = 0
+	for name, item in pairs(minetest.registered_items) do
+		if (name and name ~= "") then
+			number = number + 1
+		end
+		i = i+1
+	end
+	print("There are "..number.." registered nodes, items and tools.")
+end
+
+minetest.after(1, count_items)
