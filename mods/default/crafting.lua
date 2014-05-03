@@ -125,6 +125,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "default:pick_nyan",
+	recipe = {
+		{"default:nyancat", "default:nyancat", "default:nyancat"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+minetest.register_craft({
 	output = "default:shovel_wood",
 	recipe = {
 		{"group:wood"},
@@ -173,6 +182,15 @@ minetest.register_craft({
 	output = "default:shovel_diamond",
 	recipe = {
 		{"default:diamond"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:shovel_nyan",
+	recipe = {
+		{"default:nyancat"},
 		{"group:stick"},
 		{"group:stick"},
 	}
@@ -233,6 +251,24 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "default:axe_nyan",
+	recipe = {
+		{"default:nyancat", "default:nyancat"},
+		{"default:nyancat", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:axe_nyan",
+	recipe = {
+		{"default:nyancat", "default:nyancat"},
+		{"group:stick", "default:nyancat"},
+		{"group:stick", ""},
+	}
+})
+
+minetest.register_craft({
 	output = "default:sword_wood",
 	recipe = {
 		{"group:wood"},
@@ -287,7 +323,16 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:rail 15",
+	output = "default:sword_nyan",
+	recipe = {
+		{"default:nyancat"},
+		{"default:nyancat"},
+		{"group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:rail 16",
 	recipe = {
 		{"default:steel_ingot", "", "default:steel_ingot"},
 		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
@@ -311,6 +356,12 @@ minetest.register_craft({
 		{"group:wood", "default:steel_ingot", "group:wood"},
 		{"group:wood", "group:wood", "group:wood"},
 	}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:chest_locked",
+	recipe = {"default:steel_ingot", "default:chest"},
 })
 
 minetest.register_craft({
@@ -580,7 +631,7 @@ minetest.register_craft({
 --
 minetest.register_craft({
 	type = "toolrepair",
-	additional_wear = -0.02,
+	additional_wear = -0.15,
 })
 
 --
@@ -654,7 +705,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "group:leaves",
-	burntime = 1,
+	burntime = 4,
 })
 
 minetest.register_craft({
@@ -666,7 +717,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:papyrus",
-	burntime = 1,
+	burntime = 3,
 })
 
 minetest.register_craft({
@@ -702,7 +753,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:torch",
-	burntime = 4,
+	burntime = 5,
 })
 
 minetest.register_craft({
@@ -726,25 +777,25 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:nyancat",
-	burntime = 1,
+	burntime = 7200,
 })
 
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:nyancat_rainbow",
-	burntime = 1,
+	burntime = 1200,
 })
 
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:sapling",
-	burntime = 10,
+	burntime = 12,
 })
 
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:apple",
-	burntime = 3,
+	burntime = 5,
 })
 
 minetest.register_craft({
@@ -762,11 +813,11 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:junglesapling",
-	burntime = 10,
+	burntime = 12,
 })
 
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:grass_1",
-	burntime = 2,
+	burntime = 3,
 })

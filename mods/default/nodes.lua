@@ -1334,21 +1334,30 @@ minetest.register_node("default:nyancat", {
 	description = "Nyan Cat",
 	tiles = {"default_nc_side.png", "default_nc_side.png", "default_nc_side.png",
 		"default_nc_side.png", "default_nc_back.png", "default_nc_front.png"},
+	paramtype = "light",
 	paramtype2 = "facedir",
+	light_source = LIGHT_MAX,
 	groups = {cracky=2},
 	is_ground_content = false,
-	legacy_facedir_simple = true,
-	sounds = default.node_sound_defaults(),
+	post_effect_color = {a=128, r=255, g=128, b=255},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:nyancat_rainbow", {
 	description = "Nyan Cat Rainbow",
+	drawtype = "glasslike",
 	tiles = {"default_nc_rb.png^[transformR90", "default_nc_rb.png^[transformR90",
 		"default_nc_rb.png", "default_nc_rb.png"},
+	paramtype = "light",
 	paramtype2 = "facedir",
+	light_source = LIGHT_MAX,
+	walkable = false,
+	use_texture_alpha = true,
+	climbable = true,
 	groups = {cracky=2},
 	is_ground_content = false,
-	sounds = default.node_sound_defaults(),
+	post_effect_color = {a=128, r=255, g=128, b=255},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:sapling", {
