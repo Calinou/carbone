@@ -125,7 +125,7 @@ minetest.register_node("default:dirt_with_grass", {
 	groups = {crumbly=3,soil=1},
 	drop = "default:dirt",
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.25},
+		footstep = {name="default_grass_footstep", gain=0.4},
 	}),
 })
 
@@ -136,7 +136,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 	groups = {crumbly=3,soil=1,not_in_creative_inventory=1},
 	drop = "default:dirt",
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.25},
+		footstep = {name="default_grass_footstep", gain=0.4},
 	}),
 })
 
@@ -1867,7 +1867,7 @@ minetest.register_node("default:snow", {
 	groups = {crumbly=3,falling_node=1, melts=1, float=1},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.75},
+		dug = {name="default_snow_footstep", gain=0.65},
 	}),
 	on_construct = function(pos)
 		pos.y = pos.y - 1
@@ -1886,6 +1886,6 @@ minetest.register_node("default:snowblock", {
 	groups = {crumbly=3, melts=1},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.75},
+		dug = {name="default_snow_footstep", gain=0.65},
 	}),
 })
