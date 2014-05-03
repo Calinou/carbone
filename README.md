@@ -44,18 +44,20 @@ License of media (textures and sounds)
 © 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 See README.txt in each mod directory for information about other authors.
 
-If not mentioned: CC BY-SA 3.0
+If not mentioned: CC BY-SA 3.0.
 
-menu/header.png: © 2013 BlockMen – CC BY 3.0
+menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
-mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY-SA 4.0
+mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY-SA 4.0.
 
 mods/default/textures/crack_anylength.png: GNU FDL, from VanessaE's HDX.
 
 mods/default/textures/crosshair.png: © 2014 ETERNALSOLSTICE – CC BY 3.0: http://quadropolis.us/node/3993
 
-mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic
+mods/default/textures/default_furnace_lock*.png: © 2012 kotolegokot, Oleg Matveev <gkotolegokot@gmail.com> – CC BY-SA 3.0.
 
-mods/default/sounds/player_*.ogg: GNU GPLv3, from Xonotic
+mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic.
 
-mods/mobs/sounds/*.ogg: © 2012 Q009 – CC BY-SA 3.0
+mods/default/sounds/player_*.ogg: GNU GPLv3, from Xonotic.
+
+mods/mobs/sounds/*.ogg: © 2012 Q009 – CC BY-SA 3.0.

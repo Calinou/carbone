@@ -215,9 +215,10 @@ farming.register_plant = function(name, def)
 		local drop = {
 			items = {
 				{items = {mname .. ":" .. pname}, rarity = 9 - i},
-				{items = {mname .. ":" .. pname}, rarity= 18 - i * 2},
+				{items = {mname .. ":" .. pname}, rarity = 18 - i * 2},
 				{items = {mname .. ":seed_" .. pname}, rarity = 9 - i},
 				{items = {mname .. ":seed_" .. pname}, rarity = 18 - i * 2},
+				{items = {"maptools:copper_coin"}, rarity = 801 - i * 100},
 			}
 		}
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
