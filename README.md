@@ -56,6 +56,8 @@ mods/default/textures/crosshair.png: © 2014 ETERNALSOLSTICE – CC BY 3.0: http
 
 mods/default/textures/default_furnace_lock*.png: © 2012 kotolegokot, Oleg Matveev <gkotolegokot@gmail.com> – CC BY-SA 3.0.
 
+mods/default/textures/smoke_puff.png: GNU FDL, from VanessaE's HDX.
+
 mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic.
 
 mods/default/sounds/player_*.ogg: GNU GPLv3, from Xonotic.
