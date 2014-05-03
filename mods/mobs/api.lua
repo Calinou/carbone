@@ -349,7 +349,7 @@ function mobs:register_mob(name, def)
 						self.v_start = true
 						self.set_velocity(self, self.run_velocity)
 					else
-						if self.get_velocity(self) <= 1.1 and self.object:getvelocity().y == 0 then
+						if self.get_velocity(self) <= 1.5 and self.object:getvelocity().y == 0 then
 							local v = self.object:getvelocity()
 							v.y = 5
 							self.object:setvelocity(v)
