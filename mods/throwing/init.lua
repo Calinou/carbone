@@ -4,6 +4,7 @@ arrows = {
 	{"throwing:arrow_fire", "throwing:arrow_fire_entity"},
 	{"throwing:arrow_teleport", "throwing:arrow_teleport_entity"},
 	{"throwing:arrow_dig", "throwing:arrow_dig_entity"},
+	{"throwing:arrow_dig_admin", "throwing:arrow_dig_admin_entity"},
 	{"throwing:arrow_build", "throwing:arrow_build_entity"}
 }
 
@@ -184,6 +185,7 @@ dofile(minetest.get_modpath("throwing") .. "/golden_arrow.lua")
 dofile(minetest.get_modpath("throwing") .. "/fire_arrow.lua")
 dofile(minetest.get_modpath("throwing") .. "/teleport_arrow.lua")
 dofile(minetest.get_modpath("throwing") .. "/dig_arrow.lua")
+dofile(minetest.get_modpath("throwing") .. "/dig_arrow_admin.lua")
 dofile(minetest.get_modpath("throwing") .. "/build_arrow.lua")
 
 if minetest.setting_get("log_mods") then
