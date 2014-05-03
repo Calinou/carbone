@@ -1261,7 +1261,7 @@ minetest.register_node("default:furnace_locked", {
 minetest.register_node("default:furnace_locked_active", {
 	description = "Locked Furnace",
 	tiles = {"default_furnace_top.png", "default_furnace_bottom.png", "default_furnace_side.png",
-		"default_furnace_side.png", "default_furnace_side.png", "defauly_furnace_lock_active.png"},
+		"default_furnace_side.png", "default_furnace_side.png", "default_furnace_lock_active.png"},
 	paramtype2 = "facedir",
 	light_source = 8,
 	drop = "default:furnace_locked",
