@@ -18,7 +18,7 @@ minetest.register_node("throwing:arrow_dig_admin_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -50,12 +50,14 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_dig_admin_entity" and obj:get_luaentity().name ~= "__builtin:item" then
 					local n = minetest.env:get_node(pos).name
-					minetest.env:dig_node(pos)
+					minetest.log("action", n .. " was removed using an Admin Dig Arrow at " .. minetest.pos_to_string(pos) .. ".")
+					minetest.env:remove_node(pos)
 					self.object:remove()
 				end
 			else
-				local n = minetest.env:get_node(pos).name	
-				minetest.env:dig_node(pos)
+				local n = minetest.env:get_node(pos).name
+				minetest.log("action", n .. " was removed using an Admin Dig Arrow at " .. minetest.pos_to_string(pos) .. ".")
+				minetest.env:remove_node(pos)
 				self.object:remove()
 			end
 		end
@@ -64,7 +66,8 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
 			local n = minetest.env:get_node(pos).name
-			minetest.env:dig_node(pos)
+			minetest.log("action", n .. " was removed using an Admin Dig Arrow at " .. minetest.pos_to_string(pos) .. ".")
+			minetest.env:remove_node(pos)
 			self.object:remove()
 		end
 	end
