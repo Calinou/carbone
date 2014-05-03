@@ -5,6 +5,7 @@ minetest.register_on_newplayer(function(player)
 		player:get_inventory():add_item("main", "default:sapling 10")
 		player:get_inventory():add_item("main", "default:apple 10")
 		player:get_inventory():add_item("main", "default:chest_locked 1")
+		player:get_inventory():add_item("main", "default:furnace_locked 1")
 	end
 end)
 
