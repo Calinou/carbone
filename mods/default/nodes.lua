@@ -127,7 +127,7 @@ minetest.register_node("default:stone_with_diamond", {
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
-			{items = {"default:gold_lump"},},
+			{items = {"default:diamond"},},
 			{items = {"maptools:silver_coin 1"},},
 		},
 	},
