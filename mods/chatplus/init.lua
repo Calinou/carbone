@@ -336,7 +336,6 @@ minetest.register_globalstep(function(dtime)
 					chatplus.loggedin[key].player:hud_remove(chatplus.loggedin[key].msgicon2)
 				end
 
-				--[[
 				if #value.inbox>0 then
 					chatplus.loggedin[key].msgicon = chatplus.loggedin[key].player:hud_add({
 						hud_elem_type = "image",
@@ -355,7 +354,6 @@ minetest.register_globalstep(function(dtime)
 						alignment = {x=0.5, y=0.5},
 					})					
 				end
-				--]]
 				chatplus.loggedin[key].lastcount = #value.inbox
 			end
 		end
