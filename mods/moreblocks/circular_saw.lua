@@ -272,7 +272,7 @@ end
 
 function circular_saw.on_construct(pos)
 	local meta = minetest.get_meta(pos)
-	meta:set_string("formspec", "size[11,9]"..
+	meta:set_string("formspec", "size[11,9]"..gui_bg_img..gui_slots..
 			"label[0,0;"..S("Input\nmaterial").."]"..
 			"list[current_name;input;1.5,0;1,1;]"..
 			"label[0,1;"..S("Left-over").."]"..
