@@ -411,7 +411,7 @@ function generate_nyancats(seed, minp, maxp)
 	local y_max = math.min(maxp.y, height_max)
 	local volume = (maxp.x-minp.x+1)*(y_max-y_min+1)*(maxp.z-minp.z+1)
 	local pr = PseudoRandom(seed + 9324342)
-	local max_num_nyancats = math.floor(volume / (14*14*14))
+	local max_num_nyancats = math.floor(volume / (15*15*15))
 	for i=1,max_num_nyancats do
 		if pr:next(0, 1000) == 0 then
 			local x0 = pr:next(minp.x, maxp.x)
