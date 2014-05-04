@@ -29,10 +29,18 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 More Blocks and Map Tools are under the zlib/libpng license, they can be found here: https://github.com/Calinou/moreblocks – https://github.com/Calinou/maptools
 
 Player Textures is under the WTFPL, it can be found here: https://github.com/PilzAdam/player_textures
+
 Throwing is under the WTFPL, it can be found here: https://github.com/PilzAdam/throwing
+
 Builtin Item is under the WTFPL, it can be found here: https://github.com/PilzAdam/builtin_item
+
 Item Drop is under the WTFPL, it can be found here: https://github.com/PilzAdam/item_drop
+
 Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAdam/mobs
+
+Chat Plus is under CC BY-SA, it can be found here: https://github.com/rubenwardy/chatplus
+
+Awards is under CC BY-SA, it can be found here: https://github.com/rubenwardy/awards
 
 WorldEdit is under the AGPLv3, it can be found here: https://github.com/Uberi/MineTest-WorldEdit
 
