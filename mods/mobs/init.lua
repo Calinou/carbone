@@ -249,7 +249,7 @@ mobs:register_mob("mobs:rat", {
 	lava_damage = 8,
 	light_damage = 0,
 	follow = "default:scorched_stuff",
-	view_range = 3,
+	view_range = 4,
 })
 
 mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 13750, 5, 31000)
