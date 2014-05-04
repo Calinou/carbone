@@ -175,7 +175,7 @@ minetest.register_on_joinplayer(function(player)
 	local _player = chatplus.poke(player:get_player_name(),player)
 
 	if chatplus.log_handle ~= nil then
-		chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." | "..player:get_player_name().." joined the game.\r\n")
+		chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." O "..player:get_player_name().." joined the game.\r\n")
 		chatplus.log_handle:flush()
 	end
 
@@ -187,7 +187,7 @@ end)
 minetest.register_on_leaveplayer(function(player)
 	chatplus.poke(player:get_player_name(),"end")
 	if chatplus.log_handle ~= nil then
-		chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." | "..player:get_player_name().." left the game.\r\n")
+		chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." X "..player:get_player_name().." left the game.\r\n")
 		chatplus.log_handle:flush()
 	end
 end)
@@ -299,7 +299,7 @@ minetest.register_chatcommand("mail", {
 
 		minetest.log("To: "..to..", From: "..name..", Message: "..msg)
 		if chatplus.log_handle ~= nil then
-			chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." To: "..to..", From: "..name..", Message: "..msg)
+			chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." @ To: "..to..", From: "..name..", Message: "..msg)
 			chatplus.log_handle:flush()
 		end
 		if chatplus.players[to] then
