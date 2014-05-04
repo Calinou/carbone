@@ -252,7 +252,7 @@ mobs:register_mob("mobs:rat", {
 	view_range = 4,
 })
 
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 15000, 5, 31000)
+mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 17500, 5, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
