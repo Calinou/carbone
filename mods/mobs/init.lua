@@ -134,7 +134,7 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 150000, 2, -10)
+mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 175000, 2, -10)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
@@ -372,7 +372,7 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 150000, 1, -10)
+mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 175000, 1, -10)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",

@@ -12,6 +12,7 @@ minetest.register_ore({
 minetest.register_node("bedrock:bedrock", {
 	description = "Bedrock",
 	tile_images = {"bedrock_bedrock.png"},
+	drop = "",
 	groups = {unbreakable = 1, not_in_creative_inventory = 1}, -- For Map Tools' admin pickaxe.
 	sounds = default.node_sound_stone_defaults(),
 })
