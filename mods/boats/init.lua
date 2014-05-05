@@ -32,10 +32,10 @@ end
 
 local boat = {
 	physical = true,
-	collisionbox = {-0.8125, -0.3125, -0.8125, 0.8125, 0.125, 0.8125},
+	collisionbox = {-0.8125, -0.3125, -0.8125, 0.8125, 0, 0.8125},
 	visual = "mesh",
 	mesh = "boat.x",
-	textures = {"default_wood.png"},
+	textures = {"default_wood.png^[transformR90"},
 	driver = nil,
 	v = 0,
 }
