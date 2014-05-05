@@ -6,10 +6,10 @@
 chatplus = {
 	log_file = minetest.get_worldpath().."/chat_log.txt",
 	_defsettings = {
-		log = true,
+		log = false, -- Set to true to log chat in a file found in the world directory.
 		use_gui = true,
 		distance = 0,
-		badwords = ""
+		badwords = "" -- Words not allowed to be said in chat, separated by commas. Uncomment the code near the end to make this work.
 	}
 }
 
@@ -297,11 +297,13 @@ minetest.register_chatcommand("mail", {
 			return
 		end
 
+		--[[
 		minetest.log("To: "..to..", From: "..name..", Message: "..msg)
 		if chatplus.log_handle ~= nil then
 			chatplus.log_handle:write(os.date("%Y-%m-%d, %I:%M%p").." @ To: "..to..", From: "..name..", Message: "..msg)
 			chatplus.log_handle:flush()
 		end
+		--]]
 		if chatplus.players[to] then
 			table.insert(chatplus.players[to].inbox,os.date("%Y-%m-%d, %I:%M%p").." | <"..name.."> "..msg)
 			minetest.chat_send_player(name,"Message sent.")

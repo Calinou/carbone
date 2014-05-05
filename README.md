@@ -46,6 +46,8 @@ WorldEdit is under the AGPLv3, it can be found here: https://github.com/Uberi/Mi
 
 3D Armor mods are under the LGPLv2.1, it can be found here: https://github.com/stujones11/minetest-3d_armor
 
+No Bad Names (which is based on No Guests) is under the WTFPL, by kaeza, VanessaE and sfan5.
+
 
 License of media (textures and sounds)
 --------------------------------------
