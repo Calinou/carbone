@@ -279,6 +279,13 @@ minetest.register_craft({
 	cooktime = 15,
 })
 
+minetest.register_craft({
+	type = "cooking",
+	output = "default:scorched_stuff",
+	recipe = "mobs:rat",
+	cooktime = 15,
+})
+
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
 	hp_max = 40,

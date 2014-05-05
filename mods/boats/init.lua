@@ -84,18 +84,10 @@ function boat:on_step(dtime)
 			self.v = self.v-0.1
 		end
 		if ctrl.left then
-			if ctrl.down then 
-				self.object:setyaw(self.object:getyaw()-math.pi/120-dtime*math.pi/90)
-			else
-				self.object:setyaw(self.object:getyaw()+math.pi/120+dtime*math.pi/90)
-			end
+			self.object:setyaw(self.object:getyaw()+math.pi/120+dtime*math.pi/90)
 		end
 		if ctrl.right then
-			if ctrl.down then 
-				self.object:setyaw(self.object:getyaw()+math.pi/120+dtime*math.pi/90)
-			else
-				self.object:setyaw(self.object:getyaw()-math.pi/120-dtime*math.pi/90)
-			end
+			self.object:setyaw(self.object:getyaw()-math.pi/120-dtime*math.pi/90)
 		end
 	end
 	local s = get_sign(self.v)
@@ -170,7 +162,6 @@ minetest.register_craftitem("boats:boat", {
 minetest.register_craft({
 	output = "boats:boat",
 	recipe = {
-		{"", "", ""},
 		{"group:wood", "", "group:wood"},
 		{"group:wood", "group:wood", "group:wood"},
 	},
