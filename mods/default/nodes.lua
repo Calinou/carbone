@@ -1468,10 +1468,15 @@ minetest.register_abm({
 					srcstack:take_item()
 					inv:set_stack("src", 1, srcstack)
 				else
-					print("Could not insert '"..cooked.item.."'")
+					print("Could not insert " .. cooked.item .. ".")
 				end
 				meta:set_string("src_time", 0)
 			end
+		end
+	
+		local item_percent = 0
+		if cooked then
+			item_percent = meta:get_float("src_time")/cooked.time
 		end
 		
 		if meta:get_float("fuel_time") < meta:get_float("fuel_totaltime") then
@@ -1480,13 +1485,16 @@ minetest.register_abm({
 			meta:set_string("infotext","Furnace active: "..percent.."% (owned by "..meta:get_string("owner")..")")
 			swap_node(pos,"default:furnace_locked_active")
 			meta:set_string("formspec",
-				"invsize[8,9;]"..
-				"image[2,2;1,1;default_furnace_fire_bg.png^[lowpart:"..
-						(100-percent)..":default_furnace_fire_fg.png]"..
-				"list[current_name;fuel;2,3;1,1;]"..
-				"list[current_name;src;2,1;1,1;]"..
-				"list[current_name;dst;5,1;2,2;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"invsize[8,8.5;]"..gui_bg_img..gui_slots..
+				"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
+				(100-percent)..":default_furnace_fire_fg.png]"..
+		        "image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
+						(item_percent*100)..":gui_furnace_arrow_fg.png^[transformR270]"..
+				"list[current_name;src;2.75,0.5;1,1;]"..
+				"list[current_name;fuel;2.75,2.5;1,1;]"..
+				"list[current_name;dst;4.75,0.96;2,2;]"..
+				"list[current_player;main;0,4.25;8,1;]"..
+				"list[current_player;main;0,5.5;8,3;8]")
 			return
 		end
 
@@ -1503,7 +1511,7 @@ minetest.register_abm({
 		end
 
 		if fuel.time <= 0 then
-			meta:set_string("infotext","Locked Furnace out of fuel (owned by "..meta:get_string("owner")..")")
+			meta:set_string("infotext","Locked Furnace is out of fuel (owned by "..meta:get_string("owner")..")")
 			swap_node(pos,"default:furnace_locked")
 			meta:set_string("formspec", default.furnace_inactive_formspec)
 			return
@@ -1525,15 +1533,6 @@ minetest.register_abm({
 		stack:take_item()
 		inv:set_stack("fuel", 1, stack)
 	end,
-})
-
-minetest.register_craft({
-	output = "default:furnace_locked",
-	recipe = {
-		{"default:cobble", "default:cobble", "default:cobble"},
-		{"default:cobble", "default:steel_ingot", "default:cobble"},
-		{"default:cobble", "default:cobble", "default:cobble"},
-	},
 })
 
 function swap_node(pos,name)
@@ -1615,7 +1614,7 @@ minetest.register_abm({
 		end
 
 		if not fuel or fuel.time <= 0 then
-			meta:set_string("infotext","Furnace out of fuel")
+			meta:set_string("infotext","Furnace is out of fuel")
 			swap_node(pos,"default:furnace")
 			meta:set_string("formspec", default.furnace_inactive_formspec)
 			return

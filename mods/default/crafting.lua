@@ -361,7 +361,25 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "shapeless",
 	output = "default:chest_locked",
-	recipe = {"default:steel_ingot", "default:chest"},
+	recipe = {"default:chest", "default:copper_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:chest_locked",
+	recipe = {"default:chest", "default:steel_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:chest_locked",
+	recipe = {"default:chest", "default:bronze_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:chest_locked",
+	recipe = {"default:chest", "default:gold_ingot"},
 })
 
 minetest.register_craft({
@@ -371,6 +389,39 @@ minetest.register_craft({
 		{"group:stone", "", "group:stone"},
 		{"group:stone", "group:stone", "group:stone"},
 	}
+})
+
+minetest.register_craft({
+	output = "default:furnace_locked",
+	recipe = {
+		{"default:cobble", "default:cobble", "default:cobble"},
+		{"default:cobble", "default:steel_ingot", "default:cobble"},
+		{"default:cobble", "default:cobble", "default:cobble"},
+	},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:furnace_locked",
+	recipe = {"default:furnace", "default:copper_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:furnace_locked",
+	recipe = {"default:furnace", "default:steel_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:furnace_locked",
+	recipe = {"default:furnace", "default:bronze_ingot"},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:furnace_locked",
+	recipe = {"default:furnace", "default:gold_ingot"},
 })
 
 minetest.register_craft({
@@ -594,30 +645,31 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:stonebrick",
+	output = "default:stonebrick 4",
 	recipe = {
-		{"default:stone"},
+		{"default:stone", "default:stone"},
+		{"default:stone", "default:stone"},
 	}
 })
 
 minetest.register_craft({
-	output = "default:desert_stonebrick",
+	output = "default:desert_stonebrick 4",
 	recipe = {
-		{"default:desert_stone"},
+		{"default:desert_stone", "default:desert_stone"},
+		{"default:desert_stone", "default:desert_stone"},
 	}
 })
 
 minetest.register_craft({
 	output = "default:snowblock",
 	recipe = {
-		{"default:snow", "default:snow", "default:snow"},
-		{"default:snow", "default:snow", "default:snow"},
-		{"default:snow", "default:snow", "default:snow"},
+		{"default:snow", "default:snow"},
+		{"default:snow", "default:snow"},
 	}
 })
 
 minetest.register_craft({
-	output = "default:snow 9",
+	output = "default:snow 4",
 	recipe = {
 		{"default:snowblock"},
 	}

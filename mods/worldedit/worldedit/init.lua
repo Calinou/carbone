@@ -22,4 +22,6 @@ loadmodule(path .. "/serialization.lua")
 loadmodule(path .. "/code.lua")
 loadmodule(path .. "/compatibility.lua")
 
-print("[MOD] WorldEdit loaded!")
+if minetest.setting_get("log_mods") then
+	minetest.log("action", "[worldedit] loaded.")
+end
