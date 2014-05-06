@@ -18,6 +18,7 @@ minetest.register_node("flowers:dandelion_white", {
 	tiles = { "flowers_dandelion_white.png" },
 	inventory_image = "flowers_dandelion_white.png",
 	wield_image = "flowers_dandelion_white.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -36,6 +37,7 @@ minetest.register_node("flowers:dandelion_yellow", {
 	tiles = { "flowers_dandelion_yellow.png" },
 	inventory_image = "flowers_dandelion_yellow.png",
 	wield_image = "flowers_dandelion_yellow.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -54,6 +56,7 @@ minetest.register_node("flowers:geranium", {
 	tiles = { "flowers_geranium.png" },
 	inventory_image = "flowers_geranium.png",
 	wield_image = "flowers_geranium.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -72,6 +75,7 @@ minetest.register_node("flowers:rose", {
 	tiles = { "flowers_rose.png" },
 	inventory_image = "flowers_rose.png",
 	wield_image = "flowers_rose.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -90,6 +94,7 @@ minetest.register_node("flowers:tulip", {
 	tiles = { "flowers_tulip.png" },
 	inventory_image = "flowers_tulip.png",
 	wield_image = "flowers_tulip.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -108,6 +113,7 @@ minetest.register_node("flowers:viola", {
 	tiles = { "flowers_viola.png" },
 	inventory_image = "flowers_viola.png",
 	wield_image = "flowers_viola.png",
+	is_ground_content = true;
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
