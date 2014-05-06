@@ -35,7 +35,7 @@ local hover = {
 	collisionbox = {-0.8125, -0.3125, -0.8125, 0.8125, 0, 0.8125},
 	visual = "mesh",
 	mesh = "boat.x",
-	textures = {"default_mese.png^[transformR90"},
+	textures = {"default_mese_block.png^[transformR90"},
 	driver = nil,
 	v = 0,
 }
