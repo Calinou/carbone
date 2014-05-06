@@ -44,7 +44,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 150000, 2, -15)
+mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 140000, 2, -15)
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
@@ -89,7 +89,7 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 150000, 2, -15)
+mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 140000, 2, -15)
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
@@ -134,7 +134,7 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 175000, 2, -15)
+mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 160000, 1, -15)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
@@ -208,7 +208,7 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 150000, 2, 31000)
+mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 140000, 2, 31000)
 
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
@@ -252,7 +252,7 @@ mobs:register_mob("mobs:rat", {
 	view_range = 4,
 })
 
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 17500, 5, 31000)
+mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 17500, 4, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -329,7 +329,7 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 150000, 2, -30)
+mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 140000, 2, -30)
 
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
@@ -379,7 +379,7 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 175000, 1, -30)
+mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 160000, 1, -30)
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
@@ -428,7 +428,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 1, -1, 150000, 1, -60)
+mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 1, -1, 140000, 1, -60)
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
@@ -524,7 +524,7 @@ mobs:register_mob("mobs:rhino", {
 	},
 })
 
-mobs:register_spawn("mobs:rhino", {"default:stone"}, 1, -1, 150000, 1, -60)
+mobs:register_spawn("mobs:rhino", {"default:stone"}, 1, -1, 140000, 1, -60)
 
 mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
