@@ -48,9 +48,15 @@ function hover:on_rightclick(clicker)
 	if self.driver and clicker == self.driver then
 		self.driver = nil
 		clicker:set_detach()
+		default.player_attached[name] = false
+		default.player_set_animation(clicker, "stand" , 30)
 	elseif not self.driver then
 		self.driver = clicker
 		clicker:set_attach(self.object, "", {x=0,y=11,z=-3}, {x=0,y=0,z=0})
+		default.player_attached[name] = true
+		minetest.after(0.2, function()
+			default.player_set_animation(clicker, "sit" , 30)
+		end)
 		self.object:setyaw(clicker:get_look_yaw()-math.pi/2)
 	end
 end
