@@ -17,7 +17,7 @@ local cart = {
 	old_pos = nil,
 	old_velocity = nil,
 	pre_stop_dir = nil,
-	MAX_V = 12.5, -- Limit of the velocity
+	MAX_V = 12.75, -- Limit of the velocity
 }
 
 function cart:on_rightclick(clicker)
@@ -239,7 +239,7 @@ function cart:on_step(dtime)
 	if dir.y == 0 then
 		if math.abs(self.velocity.x) < 0.1 and  math.abs(self.velocity.z) < 0.1 then
 			-- Start the cart if powered from mesecons
-			local a = tonumber(minetest.env:get_meta(pos):get_string("cart_acceleration"))
+			local a = tonumber(minetest.get_meta(pos):get_string("cart_acceleration"))
 			if a and a ~= 0 then
 				if self.pre_stop_dir and cart_func.v3:equal(self:get_rail_direction(self.object:getpos(), self.pre_stop_dir), self.pre_stop_dir) then
 					self.velocity = {
@@ -332,7 +332,7 @@ function cart:on_step(dtime)
 	dir = cart_func:velocity_to_dir(self.velocity)
 	
 	-- Accelerate or decelerate the cart according to the pitch and acceleration of the rail node
-	local a = tonumber(minetest.env:get_meta(pos):get_string("cart_acceleration"))
+	local a = tonumber(minetest.get_meta(pos):get_string("cart_acceleration"))
 	if not a then
 		a = 0
 	end
@@ -442,13 +442,13 @@ minetest.register_craftitem("carts:cart", {
 			return
 		end
 		if cart_func:is_rail(pointed_thing.under) then
-			minetest.env:add_entity(pointed_thing.under, "carts:cart")
+			minetest.add_entity(pointed_thing.under, "carts:cart")
 			if not minetest.setting_getbool("creative_mode") then
 				itemstack:take_item()
 			end
 			return itemstack
 		elseif cart_func:is_rail(pointed_thing.above) then
-			minetest.env:add_entity(pointed_thing.above, "carts:cart")
+			minetest.add_entity(pointed_thing.above, "carts:cart")
 			if not minetest.setting_getbool("creative_mode") then
 				itemstack:take_item()
 			end
@@ -484,7 +484,24 @@ minetest.register_node(":default:rail", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+})
+
+minetest.register_node("carts:rail_copper", {
+	description = "Copper Rail",
+	drawtype = "raillike",
+	tiles = {"carts_rail_copper.png", "carts_rail_copper_curved.png", "carts_rail_copper_t_junction.png", "carts_rail_copper_crossing.png"},
+	inventory_image = "carts_rail_copper.png",
+	wield_image = "carts_rail_copper.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
+	},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
 })
 
 minetest.register_node("carts:power_rail", {
@@ -501,22 +518,22 @@ minetest.register_node("carts:power_rail", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
 	
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
-			minetest.env:get_meta(pos):set_string("cart_acceleration", "0.5")
+			minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
 		end
 	end,
 	
 	mesecons = {
 		effector = {
 			action_on = function(pos, node)
-				minetest.env:get_meta(pos):set_string("cart_acceleration", "0.5")
+				minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
 			end,
 			
 			action_off = function(pos, node)
-				minetest.env:get_meta(pos):set_string("cart_acceleration", "0")
+				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
 	},
@@ -536,37 +553,46 @@ minetest.register_node("carts:brake_rail", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
 	
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
-			minetest.env:get_meta(pos):set_string("cart_acceleration", "-0.2")
+			minetest.get_meta(pos):set_string("cart_acceleration", "-0.2")
 		end
 	end,
 	
 	mesecons = {
 		effector = {
 			action_on = function(pos, node)
-				minetest.env:get_meta(pos):set_string("cart_acceleration", "-0.2")
+				minetest.get_meta(pos):set_string("cart_acceleration", "-0.2")
 			end,
 			
 			action_off = function(pos, node)
-				minetest.env:get_meta(pos):set_string("cart_acceleration", "0")
+				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
 	},
 })
 
 minetest.register_craft({
+	output = "carts:rail_copper 16",
+	recipe = {
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+	}
+})
+
+minetest.register_craft({
 	type = "shapeless",
 	output = "carts:power_rail",
-	recipe =  {"default:rail", "default:mese_crystal_fragment"},
+	recipe =  {"group:rail", "default:mese_crystal_fragment"},
 })
 
 minetest.register_craft({
 	type = "shapeless",
 	output = "carts:brake_rail",
-	recipe =  {"default:rail", "default:coal_lump"},
+	recipe =  {"group:rail", "default:coal_lump"},
 })
 
 minetest.register_alias("carts:powerrail", "carts:power_rail")

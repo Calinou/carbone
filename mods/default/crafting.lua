@@ -334,9 +334,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "default:rail 16",
 	recipe = {
-		{"default:steel_ingot", "", "default:steel_ingot"},
 		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
-		{"default:steel_ingot", "", "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
 	}
 })
 
