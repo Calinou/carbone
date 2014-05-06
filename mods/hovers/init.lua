@@ -142,7 +142,7 @@ minetest.register_craftitem("hovers:hover", {
 		if pointed_thing.type ~= "node" then
 			return
 		end
-		pointed_thing.under.y = pointed_thing.under.y+0.8125
+		pointed_thing.under.y = pointed_thing.under.y + 1
 		minetest.env:add_entity(pointed_thing.under, "hovers:hover")
 		itemstack:take_item()
 		return itemstack
