@@ -149,7 +149,7 @@ function mobs:register_mob(name, def)
 					if d > 5 then
 						local damage = d-5
 						self.object:set_hp(self.object:get_hp()-damage)
-						minetest.sound_play("player_damage", {object = self.object, gain = 0.3})
+						minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
 						if self.object:get_hp() == 0 then
 							self.object:remove()
 						end
@@ -182,7 +182,7 @@ function mobs:register_mob(name, def)
 					and minetest.env:get_timeofday() < 0.8
 				then
 					self.object:set_hp(self.object:get_hp()-self.light_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.3})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end
@@ -192,7 +192,7 @@ function mobs:register_mob(name, def)
 					minetest.get_item_group(n.name, "water") ~= 0
 				then
 					self.object:set_hp(self.object:get_hp()-self.water_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.3})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end
@@ -202,7 +202,7 @@ function mobs:register_mob(name, def)
 					minetest.get_item_group(n.name, "lava") ~= 0
 				then
 					self.object:set_hp(self.object:get_hp()-self.lava_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.3})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end

@@ -37,13 +37,13 @@ minetest.register_globalstep(
 
 --------------------------------------------------------------------------------
 
-minetest.register_chatcommand("say", {
+minetest.register_chatcommand("broadcast", {
 	params = "<message>",
 	description = "Broadcast a message anonymously",
 	privs = {ban=true},
 	func = function(name, param)
 		if param == "" then
-			minetest.chat_send_player(name, "Usage: /say <message>")
+			minetest.chat_send_player(name, "Usage: /broadcast <message>")
 			return
 		end
 			minetest.chat_send_all("*** " .. param)
