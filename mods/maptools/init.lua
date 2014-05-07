@@ -409,7 +409,7 @@ minetest.register_node("maptools:smoke", {
 	paramtype = "light",
 	drop = "",
 	groups = {unbreakable=1, not_in_creative_inventory = maptools_creative},
-	post_effect_color = {a=127, r=127, g=127, b=127},
+	post_effect_color = {a=192, r=96, g=96, b=96},
 })
 
 minetest.register_node("maptools:ladder", {

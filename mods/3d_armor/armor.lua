@@ -254,7 +254,7 @@ end
 -- Register Player Model
 
 default.player_register_model("3d_armor_character.x", {
-	animation_speed = 30,
+	animation_speed = 35,
 	textures = {
 		armor.default_skin..".png",
 		"3d_armor_trans.png",

@@ -103,8 +103,8 @@ function hover:on_step(dtime)
 		self.v = 0
 		return
 	end
-	if math.abs(self.v) > 6.75 then
-		self.v = 6.75 * get_sign(self.v)
+	if math.abs(self.v) > 7.5 then
+		self.v = 7.5 * get_sign(self.v)
 	end
 	
 	local p = self.object:getpos()

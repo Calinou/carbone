@@ -16,14 +16,13 @@ local cart = {
 	old_pos = nil,
 	old_velocity = nil,
 	pre_stop_dir = nil,
-  MAX_V = 11.25, -- Limit of the velocity --
-  TARGET_TOUR_V = 5.25, -- target touring velocity --
-  railcount=0, 
-  ignorekeypos=nil,
-  lockyaw=false,
-  yawtarget=nil,
-  YAW_STEP=math.pi/12
-  --smaller YAW_STEP makes for smoother camera turning.  BUT, takes much longer and can fall behind
+	MAX_V = 12.5, -- Limit of the velocity (speed).
+	TARGET_TOUR_V = 6, -- Target touring velocity.
+	railcount = 0,
+	ignorekeypos = nil,
+	lockyaw = false,
+	yawtarget = nil,
+	YAW_STEP = math.pi/64 -- Larger YAW_STEP makes for slower camera turning.
 }
 
 function cart:on_rightclick(clicker)
@@ -68,7 +67,7 @@ function cart:on_punch(puncher, time_from_last_punch, tool_capabilities, directi
 	end
 
 	if puncher:get_player_control().sneak then
-    minetest.log("action", "carts:cart removed at " .. pos_to_string(vector.round(self.object:getpos())) .. ", " .. self.railcount .. " rails travelled.") 
+    minetest.log("action", "carts:cart removed at " .. pos_to_string(vector.round(self.object:getpos())) .. ", " .. self.railcount .. " rails travelled.")
 		self.object:remove()
 		local inv = puncher:get_inventory()
 		if minetest.setting_getbool("creative_mode") then
@@ -81,13 +80,13 @@ function cart:on_punch(puncher, time_from_last_punch, tool_capabilities, directi
 		return
 	end
 
---	if puncher == self.driver then
+--      if puncher == self.driver then
   if puncher == self.driver and (math.abs(self.velocity.x)>1 or math.abs(self.velocity.z)>1) then
 		return
 	end
 
 	local d = cart_func:velocity_to_dir(direction)
- 	if d.x==0 and d.z==0 then
+	if d.x==0 and d.z==0 then
 		local fd = minetest.dir_to_facedir(puncher:get_look_dir())
 		if fd == 0 then
 			d.x = 1
@@ -116,7 +115,7 @@ function cart:on_punch(puncher, time_from_last_punch, tool_capabilities, directi
 			self.velocity.z = 6*cart_func:get_sign(self.velocity.z)
 		end
 	end
-end 
+end
 
 
 
@@ -162,16 +161,16 @@ function cart:get_rail_direction(pos, dir)
   if self.ignorekeypos then --ignorekeypos was set
     if cart_func.v3:equal(self.ignorekeypos,pos) then
       ignorekeys=true --if still at same position, ignore left and right keys
-    else 
+    else
       self.ignorekeypos=nil --if ignorekeypos was set but pos does not match anymore, clear it
     end
   end
-    
-  local ctrl=nil    
+
+  local ctrl=nil
   if self.driver and not ignorekeys then
     ctrl = self.driver:get_player_control()
   end
-    
+
   if ctrl and ctrl.left then --left key pressed, check left first
     if cart_func:check_rail_in_direction(pos,left) then
       self.ignorekeypos=cart_func.v3:copy(pos) --ignore keys until pos changes
@@ -198,16 +197,16 @@ function cart:get_rail_direction(pos, dir)
 	elseif cart_func:check_rail_in_direction(pos,up) then
     return up
 	elseif (not ctrl or not ctrl.left) --only check left if we didnt above
-                     and cart_func:check_rail_in_direction(pos,left) then
+		     and cart_func:check_rail_in_direction(pos,left) then
     return left
   elseif (not ctrl or not ctrl.left)
-                     and cart_func:check_rail_in_direction(pos,leftdown) then
+		     and cart_func:check_rail_in_direction(pos,leftdown) then
     return leftdown
   elseif (not ctrl or not ctrl.right) --only check right if we didnt above
-                     and cart_func:check_rail_in_direction(pos,right) then
+		     and cart_func:check_rail_in_direction(pos,right) then
     return right
   elseif (not ctrl or not ctrl.right)
-                     and cart_func:check_rail_in_direction(pos,rightdown) then
+		     and cart_func:check_rail_in_direction(pos,rightdown) then
     return rightdown
   else
     return {x=0, y=0, z=0}
@@ -258,7 +257,7 @@ function cart:calc_rail_direction(pos, vel)
 			return {x=0, y=0, z=0}, p
 		end
 
-		if not cart_func.v3:equal(dir, dir_old) then       
+		if not cart_func.v3:equal(dir, dir_old) then
 			return velocity, cart_func.v3:round(p)
 		end
 
@@ -295,21 +294,21 @@ function cart:on_step(dtime)
     end
   end
   --*!*debug
-  
-  local ctrl=nil    
+
+  local ctrl=nil
   if self.driver then
     ctrl = self.driver:get_player_control()
     if ctrl and ctrl.jump and not self.lockyaw then
       self.lockyaw=true
       self.yawtarget=self.object:getyaw()
---      minetest.chat_send_player(self.driver:get_player_name(),"Player view locked to cart, sneak to unlock.")  
+--      minetest.chat_send_player(self.driver:get_player_name(),"Player view locked to cart, sneak to unlock.")
     elseif ctrl and ctrl.sneak and self.lockyaw then
       self.lockyaw=false
---      minetest.chat_send_player(self.driver:get_player_name(),"Player view unlocked from cart, jump to lock.")        
+--      minetest.chat_send_player(self.driver:get_player_name(),"Player view unlocked from cart, jump to lock.")
     end
-  end --check lockyaw if self.driver  
-     
-      
+  end --check lockyaw if self.driver
+
+
 
 	if not cart_func.v3:equal(self.velocity, {x=0,y=0,z=0}) then
 		self.pre_stop_dir = cart_func:velocity_to_dir(self.velocity)
@@ -351,7 +350,7 @@ function cart:on_step(dtime)
 								z = 0,
 							}
 							self.old_velocity = self.velocity
-    					return
+					return
 						end
 					end
 				end
@@ -461,14 +460,14 @@ function cart:on_step(dtime)
     a=a*acelordecl
   end -- if t>0
 
-  --check if down arrow is being pressed (hand break)     
+  --check if down arrow is being pressed (hand break)
   if self.driver then
     local ctrl = self.driver:get_player_control()
     if ctrl and ctrl.down then
-      a=a-0.1 --same as uphill 
-      
-    end --if hand break  
-  end --if self.driver  
+      a=a-0.1 --same as uphill
+
+    end --if hand break
+  end --if self.driver
 
 	if self.velocity.y < 0 then
 		self.velocity = {
@@ -487,7 +486,7 @@ function cart:on_step(dtime)
 			x = self.velocity.x + (a-0.03)*cart_func:get_sign(self.velocity.x),
 			y = self.velocity.y + (a-0.03)*cart_func:get_sign(self.velocity.y),
 			z = self.velocity.z + (a-0.03)*cart_func:get_sign(self.velocity.z),
-		}	      
+		}
 
 		-- Place the cart exactly on top of the rail
 		if cart_func:is_rail(cart_func.v3:round(pos)) then
@@ -554,33 +553,33 @@ function cart:on_step(dtime)
 	elseif dir.z > 0 then
 		self.object:setyaw(0)
 	end
-  
+
   local newyaw=self.object:getyaw()
   --now if driver and lockyaw, change drivers direction.
   if self.driver and self.lockyaw then
     if oldyaw~=newyaw then
       self.yawtarget=newyaw  --set new target
       --minetest.log("action", "--Cart yawtarget set "..self.yawtarget)
-    end      
+    end
     local playeryaw=self.driver:get_look_yaw()-1.57
     if playeryaw<0 then playeryaw=playeryaw+(math.pi*2) end
     if self.yawtarget and playeryaw ~= self.yawtarget  then
       local diff = self.yawtarget - playeryaw
       if diff>math.pi then
-        diff=diff-(2*math.pi)
-      elseif diff<(-math.pi) then 
-        diff=diff+(2*math.pi)
-      end  
+	diff=diff-(2*math.pi)
+      elseif diff<(-math.pi) then
+	diff=diff+(2*math.pi)
+      end
       yawdir=cart_func:get_sign(diff)
       local step=self.YAW_STEP
       if math.abs(diff)<=self.YAW_STEP then
       step=diff
-        self.yawtarget=nil
-      end         
+	self.yawtarget=nil
+      end
       local setyaw=playeryaw+(step*yawdir)
       self.driver:set_look_yaw(setyaw)
     end --move yaw
-  end --lockyaw set  
+  end --lockyaw set
 
 	if dir.y == -1 then
 		self.object:set_animation({x=1, y=1}, 1, 0)
@@ -649,7 +648,7 @@ minetest.register_node(":default:rail", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
 })
 
 minetest.register_node("carts:rail_copper", {
@@ -666,7 +665,24 @@ minetest.register_node("carts:rail_copper", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
+})
+
+minetest.register_node("carts:rail_invisible", {
+	description = "Invisible Rail",
+	drawtype = "raillike",
+	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
+	inventory_image = "default_rail.png^default_steel_ingot.png",
+	wield_image = "default_rail.png^default_steel_ingot.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+	},
+	groups = {unbreakable = 1, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
 })
 
 minetest.register_node("carts:rail_power", {
@@ -683,7 +699,7 @@ minetest.register_node("carts:rail_power", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
 
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
@@ -704,6 +720,27 @@ minetest.register_node("carts:rail_power", {
 	},
 })
 
+minetest.register_node("carts:rail_power_invisible", {
+	description = "Invisible Powered Rail",
+	drawtype = "raillike",
+	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
+	inventory_image = "default_rail.png^default_mese_crystal_fragment.png",
+	wield_image = "default_rail.png^default_mese_crystal_fragment.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+	},
+	groups = {unbreakable = 1, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
+
+	after_place_node = function(pos, placer, itemstack)
+	  minetest.get_meta(pos):set_string("cart_acceleration", "10")
+	end,
+})
+
 minetest.register_node("carts:rail_brake", {
 	description = "Brake Rail",
 	drawtype = "raillike",
@@ -718,7 +755,7 @@ minetest.register_node("carts:rail_brake", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy = 2,snappy = 1,dig_immediate = 2,attached_node = 1,rail = 1,connect_to_raillike = 1},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1},
 
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
@@ -739,6 +776,27 @@ minetest.register_node("carts:rail_brake", {
 	},
 })
 
+minetest.register_node("carts:rail_brake_invisible", {
+	description = "Invisible Brake Rail",
+	drawtype = "raillike",
+	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
+	inventory_image = "default_rail.png^default_coal_lump.png",
+	wield_image = "default_rail.png^default_coal_lump.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+	},
+	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
+
+	after_place_node = function(pos, placer, itemstack)
+			minetest.get_meta(pos):set_string("cart_acceleration", "-10")
+	end,
+})
+
 --[[
 minetest.register_node("carts:rail_tour", {
     description = "Touring Rail",
@@ -751,31 +809,40 @@ minetest.register_node("carts:rail_tour", {
     is_ground_content = true,
     walkable = false,
     selection_box = {
-        type = "fixed",
-        fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+	type = "fixed",
+	fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
     },
-    groups = {bendy = 2, snappy = 1, dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+    groups = {bendy = 2, snappy = 1, dig_immediate = 2,  rail = 1, connect_to_raillike = 1},
 
     after_place_node = function(pos, placer, itemstack)
-        if not mesecon then
-            minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
-            minetest.get_meta(pos):set_string("cart_touring_velocity", cart.TARGET_TOUR_V)
-        end
+	if not mesecon then
+	    minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
+	    minetest.get_meta(pos):set_string("cart_touring_velocity", cart.TARGET_TOUR_V)
+	end
     end,
 
     mesecons = {
-        effector = {
-            action_on = function(pos, node)
-                minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
-            end,
+	effector = {
+	    action_on = function(pos, node)
+		minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
+	    end,
 
-            action_off = function(pos, node)
-                minetest.get_meta(pos):set_string("cart_acceleration", "0")
-            end,
-        },
+	    action_off = function(pos, node)
+		minetest.get_meta(pos):set_string("cart_acceleration", "0")
+	    end,
+	},
     },
 })
 --]]
+
+minetest.register_craft({
+	output = "carts:rail_copper 16",
+	recipe = {
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+		{"default:copper_ingot", "group:stick", "default:copper_ingot"},
+	}
+})
 
 minetest.register_craft({
 	type = "shapeless",
