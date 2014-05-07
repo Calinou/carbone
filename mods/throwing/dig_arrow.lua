@@ -54,7 +54,6 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				end
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
-						minetest.log("action", n .. " was removed using throwing:arrow_dig at " .. pos_to_string(vector.round(pos)) .. ".")
 						minetest.dig_node(pos)
 					end
 					minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})
@@ -66,7 +65,6 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				end
 				local n = minetest.get_node(pos).name
 				if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
-					minetest.log("action", n .. " was removed using throwing:arrow_dig at " .. pos_to_string(vector.round(pos)) .. ".")
 					minetest.dig_node(pos)
 				end
 				minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})
@@ -82,7 +80,6 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 				end
 			local n = minetest.get_node(pos).name
 			if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
-				minetest.log("action", n .. " was removed using throwing:arrow_dig at " .. pos_to_string(vector.round(pos)) .. ".")
 				minetest.dig_node(pos)
 			end
 			minetest.sound_play("throwing_dig_arrow", {pos = self.lastpos, gain = 0.8})

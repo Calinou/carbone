@@ -44,8 +44,6 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 140000, 2, -15)
-
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
 	hp_max = 25,
@@ -89,8 +87,6 @@ mobs:register_mob("mobs:stone_monster", {
 	}
 })
 
-mobs:register_spawn("mobs:stone_monster", {"default:stone"}, 1, -1, 140000, 2, -15)
-
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
 	hp_max = 10,
@@ -133,8 +129,6 @@ mobs:register_mob("mobs:sand_monster", {
 		punch_end = 105,
 	},
 })
-
-mobs:register_spawn("mobs:sand_monster", {"default:stone"}, 1, -1, 160000, 1, -15)
 
 mobs:register_mob("mobs:sheep", {
 	type = "animal",
@@ -208,8 +202,6 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
-mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"}, 20, 8, 140000, 2, 31000)
-
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
 	inventory_image = "mobs_meat_raw.png",
@@ -251,8 +243,6 @@ mobs:register_mob("mobs:rat", {
 	follow = "default:scorched_stuff",
 	view_range = 4,
 })
-
-mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 17500, 4, 31000)
 
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
@@ -329,8 +319,6 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 140000, 2, -30)
-
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
 	hp_max = 60,
@@ -379,8 +367,6 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:tree_monster", {"default:stone"}, 1, -1, 160000, 1, -30)
-
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
 	hp_max = 50,
@@ -428,8 +414,6 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 })
 
-mobs:register_spawn("mobs:dungeon_master", {"default:stone"}, 1, -1, 140000, 1, -60)
-
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
 	visual_size = {x=1, y=1},
@@ -473,7 +457,6 @@ mobs:register_arrow("mobs:fireball", {
 		end
 	end
 })
-
 
 mobs:register_mob("mobs:rhino", {
 	type = "monster",
@@ -524,8 +507,6 @@ mobs:register_mob("mobs:rhino", {
 	},
 })
 
-mobs:register_spawn("mobs:rhino", {"default:stone"}, 1, -1, 140000, 1, -60)
-
 mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
 	visual_size = {x=0.75, y=0.75},
@@ -560,6 +541,20 @@ mobs:register_arrow("mobs:bullet", {
 		end
 	end
 })
+
+if not minetest.setting_getbool("creative_mode") then
+	mobs:register_spawn("mobs:rat", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 17500, 4, 31000)
+	mobs:register_spawn("mobs:sheep", {"default:dirt_with_grass"},                  20, 8, 140000, 2, 31000)
+	if not minetest.setting_getbool("only_peaceful_mobs") then
+		mobs:register_spawn("mobs:dirt_monster", {"default:dirt", "default:stone"}, 1, -1, 140000, 2, -15)
+		mobs:register_spawn("mobs:stone_monster", {"default:stone"},                1, -1, 140000, 2, -15)
+		mobs:register_spawn("mobs:sand_monster", {"default:stone"},                 1, -1, 160000, 1, -15)
+		mobs:register_spawn("mobs:oerkki", {"default:stone"},                       1, -1, 140000, 2, -30)
+		mobs:register_spawn("mobs:tree_monster", {"default:stone"},                 1, -1, 160000, 1, -30)
+		mobs:register_spawn("mobs:dungeon_master", {"default:stone"},               1, -1, 140000, 1, -60)
+		mobs:register_spawn("mobs:rhino", {"default:stone"},                        1, -1, 140000, 1, -60)
+	end
+end
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "[mobs] loaded.")
