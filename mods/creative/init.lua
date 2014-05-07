@@ -141,7 +141,7 @@ if minetest.setting_getbool("creative_mode") then
 				choppy = {times={[1]=digtime, [2]=digtime, [3]=digtime}, uses=0, maxlevel=3},
 				oddly_breakable_by_hand = {times={[1]=digtime, [2]=digtime, [3]=digtime}, uses=0, maxlevel=3},
 			},
-			damage_groups = {fleshy = 10},
+			damage_groups = {fleshy = 1000},
 		}
 	})
 	

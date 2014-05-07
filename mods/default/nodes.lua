@@ -510,19 +510,19 @@ minetest.register_node("default:bookshelf", {
 	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.bookshelf_formspec)
 		local inv = meta:get_inventory()
 		inv:set_size("books", 8*2)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
 		return inv:is_empty("books")
 	end,
 
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		if listname == "books" then
 			if stack:get_name() == "default:book" then
@@ -534,7 +534,7 @@ minetest.register_node("default:bookshelf", {
 	end,
 
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		local stack = inv:get_stack(from_list, from_index)
 		local to_stack = inv:get_stack(to_list, to_index)
@@ -1285,12 +1285,12 @@ minetest.register_node("default:furnace_locked", {
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_stone_defaults(),
 	after_place_node = function(pos, placer)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name())
 		meta:set_string("infotext", "Locked Furnace (owned by " .. placer:get_player_name() .. ")")
 	end,
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.furnace_inactive_formspec)
 		meta:set_string("infotext", "Locked Furnace")
 		local inv = meta:get_inventory()
@@ -1299,12 +1299,12 @@ minetest.register_node("default:furnace_locked", {
 		inv:set_size("dst", 4)
 	end,
 	can_dig = function(pos, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		return minetest.setting_get("name") == player:get_player_name() or (inv:is_empty("fuel") and inv:is_empty("dst") and inv:is_empty("src"))
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1315,7 +1315,7 @@ minetest.register_node("default:furnace_locked", {
 		return count
 	end,
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1326,7 +1326,7 @@ minetest.register_node("default:furnace_locked", {
 		return stack:get_count()
 	end,
 	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1361,12 +1361,12 @@ minetest.register_node("default:furnace_locked_active", {
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_stone_defaults(),
 	after_place_node = function(pos, placer)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name())
 		meta:set_string("owner", "Locked Furnace (owned by " .. player:get_player_name() .. ")")
 	end,
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.furnace_inactive_formspec)
 		meta:set_string("infotext", "Locked Furnace");
 		local inv = meta:get_inventory()
@@ -1375,12 +1375,12 @@ minetest.register_node("default:furnace_locked_active", {
 		inv:set_size("dst", 4)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		return minetest.setting_get("name") == player:get_player_name() or (inv:is_empty("fuel") and inv:is_empty("dst") and inv:is_empty("src"))
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1391,7 +1391,7 @@ minetest.register_node("default:furnace_locked_active", {
 		return count
 	end,
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1402,7 +1402,7 @@ minetest.register_node("default:furnace_locked_active", {
 		return stack:get_count()
 	end,
 	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		if not has_locked_furnace_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
 					" tried to access a locked furnace belonging to "..
@@ -1431,7 +1431,7 @@ minetest.register_abm({
 	interval = 1.0,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		for i, name in ipairs({
 				"fuel_totaltime",
 				"fuel_time",

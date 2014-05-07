@@ -15,7 +15,7 @@ local throwing_shoot_arrow = function(itemstack, player)
 				player:get_inventory():remove_item("main", arrow[1])
 			end
 			local playerpos = player:getpos()
-			local obj = minetest.env:add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, arrow[2])
+			local obj = minetest.add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, arrow[2])
 			local dir = player:get_look_dir()
 			obj:setvelocity({x=dir.x*19, y=dir.y*19, z=dir.z*19})
 			obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
@@ -35,7 +35,6 @@ end
 minetest.register_tool("throwing:bow_wood", {
 	description = "Wooden Bow",
 	inventory_image = "throwing_bow_wood.png",
-    stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
@@ -60,7 +59,6 @@ minetest.register_craft({
 minetest.register_tool("throwing:bow_stone", {
 	description = "Stone Bow",
 	inventory_image = "throwing_bow_stone.png",
-    stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
@@ -85,7 +83,6 @@ minetest.register_craft({
 minetest.register_tool("throwing:bow_steel", {
 	description = "Steel Bow",
 	inventory_image = "throwing_bow_steel.png",
-    stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
@@ -133,9 +130,8 @@ minetest.register_craft({
 
 
 minetest.register_tool("throwing:bow_mese", {
-	description = "mese Bow",
+	description = "Mese Bow",
 	inventory_image = "throwing_bow_mese.png",
-    stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
@@ -158,9 +154,8 @@ minetest.register_craft({
 
 
 minetest.register_tool("throwing:bow_diamond", {
-	description = "diamond Bow",
+	description = "Diamond Bow",
 	inventory_image = "throwing_bow_diamond.png",
-    stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
 			if not minetest.setting_getbool("creative_mode") then
