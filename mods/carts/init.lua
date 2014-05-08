@@ -650,6 +650,8 @@ minetest.register_node("carts:rail_copper", {
 
 minetest.register_node("carts:rail_invisible", {
 	description = "Invisible Rail",
+	stack_max = 10000,
+	range = 12,
 	drawtype = "raillike",
 	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
 	inventory_image = "default_rail.png^default_steel_ingot.png",
@@ -703,6 +705,8 @@ minetest.register_node("carts:rail_power", {
 
 minetest.register_node("carts:rail_power_invisible", {
 	description = "Invisible Powered Rail",
+	stack_max = 10000,
+	range = 12,
 	drawtype = "raillike",
 	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
 	inventory_image = "default_rail.png^default_mese_crystal_fragment.png",
@@ -760,6 +764,8 @@ minetest.register_node("carts:rail_brake", {
 
 minetest.register_node("carts:rail_brake_invisible", {
 	description = "Invisible Brake Rail",
+	stack_max = 10000,
+	range = 12,
 	drawtype = "raillike",
 	tiles = {"invisible.png", "invisible.png", "invisible.png", "invisible.png"},
 	inventory_image = "default_rail.png^default_coal_lump.png",
