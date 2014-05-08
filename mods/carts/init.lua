@@ -1,26 +1,22 @@
 dofile(minetest.get_modpath("carts").."/functions.lua")
 
---
--- Cart entity
---
-
 local cart = {
-	physical = true,
+	physical = true, -- Set to false to not make carts collide with other entities such as carts or the player.
 	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 	visual = "mesh",
 	mesh = "cart.x",
 	visual_size = {x=1, y=1},
-	textures = {"cart.png"},
+	textures = {"cart.png"}, -- Set to "invisible.png" to make the cart invisible, which is sometimes useful for videos and custom maps.
 	driver = nil,
 	velocity = {x=0, y=0, z=0},
 	old_pos = nil,
 	old_velocity = nil,
 	pre_stop_dir = nil,
 	MAX_V = 12.5, -- Limit of the velocity (speed).
-	TARGET_TOUR_V = 6, -- Target touring velocity.
+	TARGET_TOUR_V = 6, -- Target touring velocity, currently unused.
 	railcount = 0,
 	ignorekeypos = nil,
-	lockyaw = false,
+	lockyaw = false, -- Set to true to lock camera by default. If set to false, player has to press the "jump" key to lock camera.
 	yawtarget = nil,
 	YAW_STEP = math.pi/64 -- Larger YAW_STEP makes for slower camera turning.
 }
@@ -80,7 +76,6 @@ function cart:on_punch(puncher, time_from_last_punch, tool_capabilities, directi
 		return
 	end
 
---      if puncher == self.driver then
   if puncher == self.driver and (math.abs(self.velocity.x)>1 or math.abs(self.velocity.z)>1) then
 		return
 	end
@@ -116,10 +111,6 @@ function cart:on_punch(puncher, time_from_last_punch, tool_capabilities, directi
 		end
 	end
 end
-
-
-
-
 
 -- Returns the direction as a unit vector
 function cart:get_rail_direction(pos, dir)
@@ -213,8 +204,6 @@ function cart:get_rail_direction(pos, dir)
   end --normal rail checks
 end  --get_rail_direction
 
-
-
 function cart:calc_rail_direction(pos, vel)
 	local velocity = cart_func.v3:copy(vel)
 	local p = cart_func.v3:copy(pos)
@@ -265,35 +254,31 @@ function cart:calc_rail_direction(pos, vel)
 	return velocity, p
 end
 
-
-
---because built in pos_to_string doesn't handle nil
+-- built in pos_to_string doesn't handle nil.
 function pos_to_string(pos)
   if pos==nil then return "(nil)"
   else return minetest.pos_to_string(pos)
-  end --poss==nill
+  end --poss==nil
 end --pos_to_string
-
-
 
 function cart:on_step(dtime)
 
 	local pos = self.object:getpos()
 	local dir = cart_func:velocity_to_dir(self.velocity)
 
-  --*!*debug
+  -- *!* Debug.
   if self.old_pos then
     local cmp_old=vector.round(self.old_pos)
     local cmp_new=vector.round(pos)
     if cmp_old.x~=cmp_new.x or cmp_old.y~=cmp_new.y or cmp_old.z~=cmp_new.z then
       self.railcount=self.railcount+1
-      --local a = tonumber(minetest.get_meta(pos):get_string("cart_acceleration"))
-      --local railtype=""
-      --if a and a>0 then railtype="power" end
-      --minetest.chat_send_all("-- cart pos="..pos_to_string(vector.round(pos)).." railcount="..self.railcount.." vel="..pos_to_string(self.velocity).." "..railtype)  --*!*debug
+      -- local a = tonumber(minetest.get_meta(pos):get_string("cart_acceleration"))
+      -- local railtype=""
+      -- if a and a>0 then railtype="power" end
+      -- minetest.chat_send_all("-- cart pos="..pos_to_string(vector.round(pos)).." railcount="..self.railcount.." vel="..pos_to_string(self.velocity).." "..railtype)  --*!*debug
     end
   end
-  --*!*debug
+  -- *!* Debug.
 
   local ctrl=nil
   if self.driver then
@@ -306,19 +291,16 @@ function cart:on_step(dtime)
       self.lockyaw=false
 --      minetest.chat_send_player(self.driver:get_player_name(),"Player view unlocked from cart, jump to lock.")
     end
-  end --check lockyaw if self.driver
-
-
+  end -- Check lockyaw if self.driver.
 
 	if not cart_func.v3:equal(self.velocity, {x=0,y=0,z=0}) then
 		self.pre_stop_dir = cart_func:velocity_to_dir(self.velocity)
 	end
 
-	-- Stop the cart if the velocity is nearly 0
-	-- Only if on a flat railway
+	-- Stop the cart if the velocity is nearly 0, only if on a flat railway.
 	if dir.y == 0 then
 		if math.abs(self.velocity.x) < 0.1 and  math.abs(self.velocity.z) < 0.1 then
-			-- Start the cart if powered from mesecons
+			-- Start the cart if powered from mesecons.
 			local a = tonumber(minetest.get_meta(pos):get_string("cart_acceleration"))
 			if a and a ~= 0 then
 				if self.pre_stop_dir and cart_func.v3:equal(self:get_rail_direction(self.object:getpos(), self.pre_stop_dir), self.pre_stop_dir) then
@@ -460,14 +442,14 @@ function cart:on_step(dtime)
     a=a*acelordecl
   end -- if t>0
 
-  --check if down arrow is being pressed (hand break)
+  -- Check if down arrow is being pressed (handbrake).
   if self.driver then
     local ctrl = self.driver:get_player_control()
     if ctrl and ctrl.down then
-      a=a-0.1 --same as uphill
+      a=a-0.1 -- Same as uphill.
 
-    end --if hand break
-  end --if self.driver
+    end -- If handbrake.
+  end -- If self.driver.
 
 	if self.velocity.y < 0 then
 		self.velocity = {
@@ -527,7 +509,7 @@ function cart:on_step(dtime)
 		self.object:setpos(pos)
 	end
 
-	-- Limit the velocity
+	-- Limit the velocity.
 	if math.abs(self.velocity.x) > self.MAX_V then
 		self.velocity.x = self.MAX_V*cart_func:get_sign(self.velocity.x)
 	end
@@ -555,11 +537,11 @@ function cart:on_step(dtime)
 	end
 
   local newyaw=self.object:getyaw()
-  --now if driver and lockyaw, change drivers direction.
+  -- Now if driver and lockyaw, change drivers direction.
   if self.driver and self.lockyaw then
     if oldyaw~=newyaw then
-      self.yawtarget=newyaw  --set new target
-      --minetest.log("action", "--Cart yawtarget set "..self.yawtarget)
+      self.yawtarget=newyaw  -- Set new target.
+      -- minetest.log("action", "--Cart yawtarget set "..self.yawtarget)
     end
     local playeryaw=self.driver:get_look_yaw()-1.57
     if playeryaw<0 then playeryaw=playeryaw+(math.pi*2) end
@@ -578,8 +560,8 @@ function cart:on_step(dtime)
       end
       local setyaw=playeryaw+(step*yawdir)
       self.driver:set_look_yaw(setyaw)
-    end --move yaw
-  end --lockyaw set
+    end -- Move yaw.
+  end -- lockyaw set.
 
 	if dir.y == -1 then
 		self.object:set_animation({x=1, y=1}, 1, 0)
@@ -593,12 +575,10 @@ end
 
 minetest.register_entity("carts:cart", cart)
 
-
 minetest.register_craftitem("carts:cart", {
 	description = "Cart",
 	inventory_image = minetest.inventorycube("cart_top.png", "cart_side.png", "cart_side.png"),
 	wield_image = "cart_side.png",
-
 	on_place = function(itemstack, placer, pointed_thing)
 		if not pointed_thing.type == "node" then
 			return
@@ -606,7 +586,7 @@ minetest.register_craftitem("carts:cart", {
 		if cart_func:is_rail(pointed_thing.under) then
 			local obj=minetest.add_entity(pointed_thing.under, "carts:cart")
       minetest.log("action", "carts:cart placed at " .. pos_to_string(vector.round(obj:getpos())) .. ".")
---      minetest.chat_send_player(placer:get_player_name(),"cart: right click to ride, left click to push, SNEAK-left click to put back in inventory, JUMP to lock view to cart, SNEAK to unlock view from cart, LEFT and RIGHT ARROWS to switch tracks, DOWN ARROW to apply hand break")
+--      minetest.chat_send_player(placer:get_player_name(),"Right click to ride, left click to push, sneak + left click to put back in inventory, jump to lock view to cart, sneak to unlock view from cart, move left and right to switch tracks, move backwards to apply handbrake.")
 			if not minetest.setting_getbool("creative_mode") then
 				itemstack:take_item()
 			end
@@ -709,11 +689,11 @@ minetest.register_node("carts:rail_power", {
 
 	mesecons = {
 		effector = {
-			action_on = function(pos, node)
+			action_off = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
 			end,
 
-			action_off = function(pos, node)
+			action_on = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
@@ -765,11 +745,11 @@ minetest.register_node("carts:rail_brake", {
 
 	mesecons = {
 		effector = {
-			action_on = function(pos, node)
+			action_off = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "-0.2")
 			end,
 
-			action_off = function(pos, node)
+			action_on = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
