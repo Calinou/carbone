@@ -6,7 +6,7 @@ check_region = function(name, param)
 	--obtain positions
 	local pos1, pos2 = worldedit.pos1[name], worldedit.pos2[name]
 	if pos1 == nil or pos2 == nil then
-		worldedit.player_notify(name, "no region selected")
+		worldedit.player_notify(name, "No region selected.")
 		return nil
 	end
 
@@ -23,13 +23,13 @@ safe_region = function(callback, nodes_needed)
 		--check if the operation applies to a safe number of nodes
 		local count = nodes_needed(name, param)
 		if count == nil then return end --invalid command
-		if count < 10000 then
+		if count < 65536 then -- Warn if editing more than x nodes.
 			return callback(name, param)
 		end
 
 		--save callback to call later
 		safe_region_callback, safe_region_name, safe_region_param = callback, name, param
-		worldedit.player_notify(name, "WARNING: this operation could affect up to " .. count .. " nodes; type //y to continue or //n to cancel")
+		worldedit.player_notify(name, "WARNING: this operation could affect up to " .. count .. " nodes; type //y to continue or //n to cancel.")
 	end
 end
 
@@ -39,14 +39,14 @@ minetest.register_chatcommand("/y", {
 	func = function()
 		local callback, name, param = safe_region_callback, safe_region_name, safe_region_param
 		if not callback then
-			worldedit.player_notify(name, "no operation pending")
+			worldedit.player_notify(name, "No operation pending.")
 			return
 		end
 
 		--obtain positions
 		local pos1, pos2 = worldedit.pos1[name], worldedit.pos2[name]
 		if pos1 == nil or pos2 == nil then
-			worldedit.player_notify(name, "no region selected")
+			worldedit.player_notify(name, "No region selected.")
 			return
 		end
 
@@ -60,7 +60,7 @@ minetest.register_chatcommand("/n", {
 	description = "Confirm a pending operation",
 	func = function()
 		if not safe_region_callback then 
-			worldedit.player_notify(name, "no operation pending")
+			worldedit.player_notify(name, "No operation pending.")
 			return
 		end
 		safe_region_callback, safe_region_name, safe_region_param = nil, nil, nil
