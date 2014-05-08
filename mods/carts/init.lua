@@ -662,6 +662,7 @@ minetest.register_node("carts:rail_invisible", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
+	drop = "",
 	groups = {unbreakable = 1, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
 })
 
@@ -714,6 +715,7 @@ minetest.register_node("carts:rail_power_invisible", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
+	drop = "",
 	groups = {unbreakable = 1, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
 
 	after_place_node = function(pos, placer, itemstack)
@@ -770,6 +772,7 @@ minetest.register_node("carts:rail_brake_invisible", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
+	drop = "",
 	groups = {bendy = 2, snappy = 1, dig_immediate = 2, rail = 1, connect_to_raillike = 1, not_in_creative_inventory = 1},
 
 	after_place_node = function(pos, placer, itemstack)
