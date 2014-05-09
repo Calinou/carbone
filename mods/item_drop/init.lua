@@ -21,7 +21,7 @@ minetest.register_globalstep(function(dtime)
 				end
 			end
 			
-			for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do
+			for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 1)) do
 				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 					if object:get_luaentity().collect then
 						if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
