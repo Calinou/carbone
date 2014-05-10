@@ -56,9 +56,10 @@ minetest.register_chatcommand("broadcast", {
 
 -- Texture Stick code by PilzAdam.
 
-minetest.register_craftitem("default:info_stick", {
-    description = "Information Stick",
-    inventory_image = "heart.png",
+minetest.register_craftitem("default:infotool", {
+    description = "Infotool",
+    inventory_image = "default_infotool.png",
+    wield_image = "default_infotool.png^[transformR90",
     on_use = function(_, user, pt)
 	if pt.type ~= "node" then
 	    return
@@ -74,7 +75,7 @@ minetest.register_craftitem("default:info_stick", {
 	    textures = {"unknown_node.png"}
 	end
 	if not description then
-			description = {"???"}
+	    description = {"(no description)"}
 		end
 	for i = 1,6 do
 	    if not textures[i] then
@@ -106,10 +107,10 @@ minetest.register_craftitem("default:info_stick", {
 })
 
 minetest.register_chatcommand("info", {
-	description = "Gives an information stick",
+	description = "Gives an Infotool, click to receive information on the pointed node",
 	func = function(name)
 		local receiverref = minetest.get_player_by_name(name)
-		receiverref:get_inventory():add_item("main", "default:info_stick")
-		minetest.chat_send_player(name, "\"default:info_stick\" added to inventory.")
+		receiverref:get_inventory():add_item("main", "default:infotool")
+		minetest.chat_send_player(name, "\"default:infotool\" added to inventory.")
 	end,
 })

@@ -3,6 +3,7 @@
 minetest.register_craftitem("default:stick", {
 	description = "Stick",
 	inventory_image = "default_stick.png",
+	wield_image = "default_stick.png^[transformR90",
 	groups = {stick=1},
 })
 

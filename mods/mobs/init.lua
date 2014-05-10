@@ -2,7 +2,7 @@ dofile(minetest.get_modpath("mobs").."/api.lua")
 
 mobs:register_mob("mobs:dirt_monster", {
 	type = "monster",
-	hp_max = 20,
+	hp_max = 25,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -11,7 +11,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	makes_footstep_sound = true,
 	view_range = 12,
 	walk_velocity = 1,
-	run_velocity = 2.5,
+	run_velocity = 3,
 	on_rightclick = nil,
 	damage = 4,
 	drops = {
@@ -46,7 +46,7 @@ mobs:register_mob("mobs:dirt_monster", {
 
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
-	hp_max = 25,
+	hp_max = 30,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -55,7 +55,7 @@ mobs:register_mob("mobs:stone_monster", {
 	makes_footstep_sound = true,
 	view_range = 16,
 	walk_velocity = 0.25,
-	run_velocity = 1.75,
+	run_velocity = 2,
 	damage = 6,
 	drops = {
 		{name = "default:stone",
@@ -89,7 +89,7 @@ mobs:register_mob("mobs:stone_monster", {
 
 mobs:register_mob("mobs:sand_monster", {
 	type = "monster",
-	hp_max = 10,
+	hp_max = 15,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
@@ -278,7 +278,7 @@ minetest.register_craft({
 
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
-	hp_max = 40,
+	hp_max = 45,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
@@ -287,7 +287,7 @@ mobs:register_mob("mobs:oerkki", {
 	makes_footstep_sound = false,
 	view_range = 16,
 	walk_velocity = 0.5,
-	run_velocity = 2.75,
+	run_velocity = 3.25,
 	damage = 5,
 	drops = {
 		{name = "default:obsidian",
@@ -369,7 +369,7 @@ mobs:register_mob("mobs:tree_monster", {
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 50,
+	hp_max = 55,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
