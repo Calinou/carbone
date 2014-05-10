@@ -60,6 +60,7 @@ minetest.register_craftitem("default:infotool", {
     description = "Infotool",
     inventory_image = "default_infotool.png",
     wield_image = "default_infotool.png^[transformR90",
+    groups = {not_in_creative_inventory = 1},
     on_use = function(_, user, pt)
 	if pt.type ~= "node" then
 	    return
