@@ -65,7 +65,7 @@ boom = function(pos, time)
 		if minetest.get_node(pos).name ~= "tnt:tnt_burning" then
 			return
 		end
-		minetest.sound_play("tnt_explode", {pos=pos, gain=0.3, max_hear_distance=128})
+		minetest.sound_play("tnt_explode", {pos=pos, gain = 0.35, max_hear_distance = 128})
 		minetest.set_node(pos, {name="tnt:boom"})
 		minetest.after(0.5, function(pos)
 			minetest.remove_node(pos)
@@ -238,7 +238,7 @@ burn = function(pos)
 	if minetest.get_node(pos).name ~= "tnt:gunpowder" then
 		return
 	end
-	minetest.sound_play("tnt_gunpowder_burning", {pos=pos, gain=0.5})
+	minetest.sound_play("tnt_gunpowder_burning", {pos=pos, gain = 0.5})
 	minetest.set_node(pos, {name="tnt:gunpowder_burning"})
 	
 	minetest.after(1, function(pos)
