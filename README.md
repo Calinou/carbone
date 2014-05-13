@@ -38,6 +38,8 @@ Item Drop is under the WTFPL, it can be found here: https://github.com/PilzAdam/
 
 Simple Mobs is under the WTFPL, it can be found here: https://github.com/PilzAdam/mobs
 
+Simple Snow is under the WTFPL, it can be found here: https://forum.minetest.net/viewtopic.php?f=11&t=9270
+
 Chat Plus is under CC BY-SA, it can be found here: https://github.com/rubenwardy/chatplus
 
 Awards is under CC BY-SA, it can be found here: https://github.com/rubenwardy/awards
@@ -68,8 +70,10 @@ mods/default/textures/default_furnace_lock*.png: © 2012 kotolegokot, Oleg Matve
 
 mods/default/textures/smoke_puff.png: GNU FDL, from VanessaE's HDX.
 
-mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic.
-
 mods/default/sounds/player_*.ogg: GNU GPLv3, from Xonotic.
 
 mods/mobs/sounds/*.ogg: © 2012 Q009 – CC BY-SA 3.0.
+
+mods/snow/textures/*.png: © 2014 Frai – CC BY-SA 4.0.
+
+mods/throwing/sounds/*.ogg: GNU GPLv3, from Xonotic.

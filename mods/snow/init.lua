@@ -1,7 +1,7 @@
 minetest.register_node("snow:snow_brick", {
 	description = "Snow Brick",
 	tiles = {"snow_snow_brick.png"},
-	groups = {cracky=2},
+	groups = {cracky = 2},
 	drop = "snow:snow_brick",
 	sounds = default.node_sound_stone_defaults(),
 })
