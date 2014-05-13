@@ -160,7 +160,7 @@ minetest.register_node("default:dirt_with_grass", {
 		},
 	},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.4},
+		footstep = {name="default_grass_footstep", gain = 0.4},
 	}),
 })
 
@@ -176,7 +176,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 		},
 	},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.4},
+		footstep = {name="default_grass_footstep", gain = 0.4},
 	}),
 })
 
@@ -188,11 +188,12 @@ minetest.register_node("default:dirt_with_snow", {
 	drop = {
 		items = {
 			{items = {"default:dirt"},},
+			{items = {"default:snow"},},
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
+		footstep = {name="default_snow_footstep", gain = 0.25},
 	}),
 })
 
@@ -286,8 +287,8 @@ minetest.register_node("default:gravel", {
 		},
 	},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.35},
-		dug = {name="default_gravel_footstep", gain=0.6},
+		footstep = {name="default_gravel_footstep", gain = 0.35},
+		dug = {name="default_gravel_footstep", gain = 0.6},
 	}),
 })
 
@@ -1957,6 +1958,7 @@ minetest.register_node("default:snow", {
 	wield_image = "default_snowball.png",
 	is_ground_content = true,
 	paramtype = "light",
+	sunlight_propagates = true,
 	buildable_to = true,
 	leveled = 7,
 	drawtype = "nodebox",
@@ -1964,18 +1966,20 @@ minetest.register_node("default:snow", {
 	node_box = {
 		type = "leveled",
 		fixed = {
-			{-0.5, -0.5, -0.5,  0.5, -0.5+2/16, 0.5},
+			{-0.5, -0.5, -0.5,  0.5, -0.375, 0.5},
 		},
 	},
-	groups = {crumbly=3,falling_node=1, melts=1, float=1},
+	groups = {crumbly = 3, falling_node = 1, melts = 1, float = 1},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.65},
+		footstep = {name="default_snow_footstep", gain = 0.25},
+		dug = {name="default_snow_footstep", gain = 0.65},
 	}),
 	on_construct = function(pos)
 		pos.y = pos.y - 1
 		if minetest.get_node(pos).name == "default:dirt_with_grass" then
 			minetest.set_node(pos, {name="default:dirt_with_snow"})
+			pos.y = pos.y + 1
+			minetest.remove_node(pos)
 		end
 	end,
 })
@@ -1988,7 +1992,7 @@ minetest.register_node("default:snowblock", {
 	freezemelt = "default:water_source",
 	groups = {crumbly=3, melts=1},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.65},
+		footstep = {name="default_snow_footstep", gain = 0.25},
+		dug = {name="default_snow_footstep", gain = 0.65},
 	}),
 })
