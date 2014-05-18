@@ -95,12 +95,12 @@ function default.spawn_falling_node(p, nodename)
 	spawn_falling_node(p, nodename)
 end
 
--- Horrible crap to support old code
--- Don"t use this and never do what this does, it"s completely wrong!
--- (More specifically, the client and the C++ code doesn"t get the group)
+-- Horrible crap to support old code,
+-- don't use this and never do what this does, it's completely wrong!
+-- (more specifically, the client and the C++ code doesn't get the group).
 function default.register_falling_node(nodename, texture)
 	minetest.log("error", debug.traceback())
-	minetest.log("error", "WARNING: default.register_falling_node is deprecated")
+	minetest.log("error", "WARNING: default.register_falling_node is deprecated.")
 	if minetest.registered_nodes[nodename] then
 		minetest.registered_nodes[nodename].groups.falling_node = 1
 	end
@@ -146,7 +146,7 @@ minetest.register_abm({
 			return
 		end
 		
-		minetest.log("action", "A sapling grows into a tree at "..minetest.pos_to_string(pos))
+		minetest.log("action", "A sapling grows into a tree at " .. minetest.pos_to_string(pos) .. ".")
 		local vm = minetest.get_voxel_manip()
 		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
@@ -169,7 +169,7 @@ minetest.register_abm({
 			return
 		end
 		
-		minetest.log("action", "A jungle sapling grows into a tree at "..minetest.pos_to_string(pos))
+		minetest.log("action", "A jungle sapling grows into a tree at " .. minetest.pos_to_string(pos) .. ".")
 		local vm = minetest.get_voxel_manip()
 		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
@@ -182,17 +182,75 @@ minetest.register_abm({
 })
 
 --
--- Lavacooling
+-- Lava cooling
 --
 
+local function cool_wf_vm(pos, node1, node2)
+	local t1 = os.clock()
+	local minp = vector.subtract(pos, 10)
+	local maxp = vector.add(pos, 10)
+	local manip = minetest.get_voxel_manip()
+	local emerged_pos1, emerged_pos2 = manip:read_from_map(minp, maxp)
+	local area = VoxelArea:new({MinEdge=emerged_pos1, MaxEdge=emerged_pos2})
+	local nodes = manip:get_data()
+
+	local stone = minetest.get_content_id(node2)
+	local lava = minetest.get_content_id(node1)
+
+	for x = minp.x, maxp.x do
+		for y = minp.y, maxp.y do
+			for z = minp.z, maxp.z do
+				local p = {x=x, y=y, z=z}
+				local p_p = area:indexp(p)
+				if nodes[p_p] == lava
+				and minetest.find_node_near(p, 1, {"group:water"}) then
+					nodes[p_p] = stone
+				end
+			end
+		end
+	end
+				
+	manip:set_data(nodes)
+	manip:write_to_map()
+	minetest.log("action", "Lava cooling happened at (" .. pos.x .. "," .. pos.y .. "," .. pos.z .. ").")
+	local t1 = os.clock()
+	manip:update_map()
+	-- minetest.log("action", string.format("Lava cooling updated the map after ca. %.2fs.", os.clock() - t1))
+end
+
+local del1 = 0
+local count = 0
+
 default.cool_lava_source = function(pos)
-	minetest.set_node(pos, {name="default:obsidian"})
-	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.2})
+	local del2 = tonumber(os.clock())
+	if del2-del1 < 0.1
+	and count > 1 then
+		cool_wf_vm(pos, "default:lava_source", "default:obsidian")
+		count = 0
+	else
+		minetest.set_node(pos, {name="default:obsidian"})
+		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
+		if del2-del1 < 0.1 then
+			count = count + 1
+		end
+	end
+	del1 = del2
 end
 
 default.cool_lava_flowing = function(pos)
-	minetest.set_node(pos, {name="default:stone"})
-	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.2})
+	local del2 = tonumber(os.clock())
+	if del2-del1 < 0.1
+	and count > 1 then
+		cool_wf_vm(pos, "default:lava_flowing", "default:stone")
+		count = 0
+	else
+		minetest.set_node(pos, {name="default:stone"})
+		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
+		if del2-del1 < 0.1 then
+			count = count + 1
+		end
+	end
+	del1 = del2
 end
 
 minetest.register_abm({

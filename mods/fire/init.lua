@@ -18,7 +18,7 @@ minetest.register_node("fire:basic_flame", {
 	walkable = false,
 	buildable_to = true,
 	damage_per_second = 3,
-	post_effect_color = {a=96, r=64, g=64, b=64},
+	post_effect_color = {a=128, r=64, g=64, b=64},
 	after_place_node = function(pos, placer)
 		fire.on_flame_add_at(pos)
 	end,
@@ -55,17 +55,17 @@ function fire.update_sounds_around(pos)
 	--	..minetest.pos_to_string(p1)..": "..#flames_p)
 	local should_have_sound = (#flames_p > 0)
 	local wanted_sound = nil
-	if #flames_p >= 10 then
-		wanted_sound = {name = "fire_large", gain = 1.25}
+	if #flames_p >= 12 then
+		wanted_sound = {name = "fire_large"}
 	elseif #flames_p > 0 then
-		wanted_sound = {name = "fire_small", gain = 1.25}
+		wanted_sound = {name = "fire_small"}
 	end
 	local p0_hash = minetest.hash_node_position(p0)
 	local sound = fire.sounds[p0_hash]
 	if not sound then
 		if should_have_sound then
 			fire.sounds[p0_hash] = {
-				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}),
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true}),
 				name = wanted_sound.name,
 			}
 		end
@@ -76,7 +76,7 @@ function fire.update_sounds_around(pos)
 		elseif sound.name ~= wanted_sound.name then
 			minetest.sound_stop(sound.handle)
 			fire.sounds[p0_hash] = {
-				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}),
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true}),
 				name = wanted_sound.name,
 			}
 		end
