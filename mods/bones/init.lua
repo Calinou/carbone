@@ -20,7 +20,8 @@ minetest.register_node("bones:bones", {
 	drowning = 2,
 	light_source = 11,
 	drawtype = "glasslike_framed",
-	post_effect_color = {a=70, r=0, g=0, b=0},
+	post_effect_color = {a=96, r=0, g=0, b=0},
+	drop = "",
 	groups = {dig_immediate = 3},
 	
 	can_dig = function(pos, player)
@@ -98,41 +99,41 @@ minetest.register_node("bones:bones", {
 minetest.register_on_dieplayer(function(player)
 	if minetest.setting_getbool("creative_mode") then
 		return
-	end
+	end -- Don't do anything in creative mode.
 	
 	local pos = player:getpos()
-	pos.x = math.floor(pos.x+0.5)
-	pos.y = math.floor(pos.y+0.5)
-	pos.z = math.floor(pos.z+0.5)
+	pos.x = math.floor(pos.x + 0.5)
+	pos.y = math.floor(pos.y + 0.5)
+	pos.z = math.floor(pos.z + 0.5)
 	local param2 = minetest.dir_to_facedir(player:get_look_dir())
 	local player_name = player:get_player_name()
 	local player_inv = player:get_inventory()
 
-	if minetest.check_player_privs(player_name, {interact=false}) and
+	if minetest.check_player_privs(player_name, {interact = false}) and
 	not minetest.is_singleplayer() then
 	   return
-	end
+	end -- Players without interact don't drop bones, except in singleplayer.
 	
 	local nn = minetest.get_node(pos).name
 	if minetest.registered_nodes[nn].can_dig and
 		not minetest.registered_nodes[nn].can_dig(pos, player) then
 
-		-- drop items instead of delete
+		-- Drop items instead of delete.
 		for i=1,player_inv:get_size("main") do
 			minetest.add_item(pos, player_inv:get_stack("main", i))
 		end
 		for i=1,player_inv:get_size("craft") do
 			minetest.add_item(pos, player_inv:get_stack("craft", i))
 		end
-		-- empty lists main and craft
-		player_inv:set_list("main", {})
-		player_inv:set_list("craft", {})
+		player_inv:set_list("main", {})	-- Empty the main inventory.
+		player_inv:set_list("craft", {}) -- Empty the crafting grid, since it can be used to store items.
 		return
 	end
 	
 	minetest.dig_node(pos)
 	minetest.add_node(pos, {name="bones:bones", param2=param2})
 	minetest.chat_send_all("[#] " .. player:get_player_name() .. " died at " .. minetest.pos_to_string(pos) .. ".")
+	minetest.log("action", player:get_player_name() .. " died at " .. minetest.pos_to_string(pos) .. ".")
 	
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
@@ -146,8 +147,7 @@ minetest.register_on_dieplayer(function(player)
 		if inv:room_for_item("main", stack) then
 			inv:add_item("main", stack)
 		else
-			--drop if no space left
-			minetest.add_item(pos, stack)
+			minetest.add_item(pos, stack) -- Drop items as entities if there's no space.
 		end
 	end
 	
