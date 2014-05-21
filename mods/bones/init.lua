@@ -13,7 +13,6 @@ minetest.register_node("bones:bones", {
 	description = "Bones",
 	tiles = {"bones_bones.png"},
 	paramtype = "light",
-	paramtype2 = "facedir",
 	walkable = false,
 	sunlight_propagates = true,
 	climbable = true,
