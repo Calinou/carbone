@@ -21,11 +21,7 @@ minetest.register_node("bones:bones", {
 	light_source = 11,
 	drawtype = "glasslike_framed",
 	post_effect_color = {a=70, r=0, g=0, b=0},
-	groups = {dig_immediate=2},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.35},
-		dug = {name="default_gravel_footstep", gain=0.6},
-	}),
+	groups = {dig_immediate = 3},
 	
 	can_dig = function(pos, player)
 		local inv = minetest.get_meta(pos):get_inventory()
@@ -60,9 +56,7 @@ minetest.register_node("bones:bones", {
 	end,
 	
 	on_punch = function(pos, node, player)
-		if(not is_owner(pos, player:get_player_name())) then
-			return
-		end
+		if not is_owner(pos, player:get_player_name()) then return end
 		
 		local inv = minetest.get_meta(pos):get_inventory()
 		local player_inv = player:get_inventory()
@@ -79,10 +73,8 @@ minetest.register_node("bones:bones", {
 			end
 		end
 		
-		-- remove bones if player emptied them
-		if has_space then
-			minetest.remove_node(pos)
-		end
+		-- Remove bones if player emptied them.
+		if has_space then minetest.dig_node(pos) end
 	end,
 	
 	on_timer = function(pos, elapsed)
