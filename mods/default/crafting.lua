@@ -551,49 +551,51 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "default:clay",
 	recipe = {
-		{"default:clay_lump", "default:clay_lump"},
-		{"default:clay_lump", "default:clay_lump"},
+		{"default:clay_lump", "default:clay_lump", "default:clay_lump"},
+		{"default:clay_lump", "default:clay_lump", "default:clay_lump"},
+		{"default:clay_lump", "default:clay_lump", "default:clay_lump"},
 	}
 })
 
 minetest.register_craft({
 	output = "default:brick",
 	recipe = {
-		{"default:clay_brick", "default:clay_brick"},
-		{"default:clay_brick", "default:clay_brick"},
+		{"default:clay_brick", "default:clay_brick", "default:clay_brick"},
+		{"default:clay_brick", "default:clay_brick", "default:clay_brick"},
+		{"default:clay_brick", "default:clay_brick", "default:clay_brick"},
 	}
 })
 
 minetest.register_craft({
-	output = "default:clay_brick 4",
+	output = "default:clay_lump 9",
+	recipe = {
+		{"default:clay"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:clay_brick 9",
 	recipe = {
 		{"default:brick"},
 	}
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = "default:paper",
-	recipe = {
-		{"default:papyrus", "default:papyrus", "default:papyrus"},
-	}
+	recipe =  {"default:papyrus", "default:papyrus", "default:papyrus"},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = "default:book",
-	recipe = {
-		{"default:paper"},
-		{"default:paper"},
-		{"default:paper"},
-	}
+	recipe =  {"default:paper", "default:paper", "default:paper"},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = "default:bookshelf",
-	recipe = {
-		{"group:wood", "group:wood", "group:wood"},
-		{"default:book", "default:book", "default:book"},
-		{"group:wood", "group:wood", "group:wood"},
-	}
+	recipe =  {"group:wood", "group:wood", "group:wood", "default:book", "default:book", "default:book", "group:wood", "group:wood", "group:wood"},
 })
 
 minetest.register_craft({
