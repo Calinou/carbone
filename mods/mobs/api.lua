@@ -118,7 +118,7 @@ function mobs:register_mob(name, def)
 			self.lifetimer = self.lifetimer - dtime
 			if self.lifetimer <= 0 and not self.tamed then
 				local player_count = 0
-				for _,obj in ipairs(minetest.env:get_objects_inside_radius(self.object:getpos(), 20)) do
+				for _,obj in ipairs(minetest.get_objects_inside_radius(self.object:getpos(), 20)) do
 					if obj:is_player() then
 						player_count = player_count+1
 					end
@@ -149,7 +149,7 @@ function mobs:register_mob(name, def)
 					if d > 5 then
 						local damage = d-5
 						self.object:set_hp(self.object:get_hp()-damage)
-						minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
+						minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
 						if self.object:get_hp() == 0 then
 							self.object:remove()
 						end
@@ -172,17 +172,17 @@ function mobs:register_mob(name, def)
 			
 			local do_env_damage = function(self)
 				local pos = self.object:getpos()
-				local n = minetest.env:get_node(pos)
+				local n = minetest.get_node(pos)
 				
 				if self.light_damage and self.light_damage ~= 0
 					and pos.y>0
-					and minetest.env:get_node_light(pos)
-					and minetest.env:get_node_light(pos) > 4
-					and minetest.env:get_timeofday() > 0.2
-					and minetest.env:get_timeofday() < 0.8
+					and minetest.get_node_light(pos)
+					and minetest.get_node_light(pos) > 4
+					and minetest.get_timeofday() > 0.2
+					and minetest.get_timeofday() < 0.8
 				then
 					self.object:set_hp(self.object:get_hp()-self.light_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end
@@ -192,7 +192,7 @@ function mobs:register_mob(name, def)
 					minetest.get_item_group(n.name, "water") ~= 0
 				then
 					self.object:set_hp(self.object:get_hp()-self.water_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end
@@ -202,7 +202,7 @@ function mobs:register_mob(name, def)
 					minetest.get_item_group(n.name, "lava") ~= 0
 				then
 					self.object:set_hp(self.object:get_hp()-self.lava_damage)
-					minetest.sound_play("player_damage", {object = self.object, gain = 0.375})
+					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
 					if self.object:get_hp() == 0 then
 						self.object:remove()
 					end
@@ -418,7 +418,7 @@ function mobs:register_mob(name, def)
 					
 					local p = self.object:getpos()
 					p.y = p.y + (self.collisionbox[2]+self.collisionbox[5])/2
-					local obj = minetest.env:add_entity(p, self.arrow)
+					local obj = minetest.add_entity(p, self.arrow)
 					local amount = (vec.x^2+vec.y^2+vec.z^2)^0.5
 					local v = obj:get_luaentity().velocity
 					vec.y = vec.y+1
@@ -493,19 +493,19 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 				return
 			end
 			pos.y = pos.y+1
-			if not minetest.env:get_node_light(pos) then
+			if not minetest.get_node_light(pos) then
 				return
 			end
-			if minetest.env:get_node_light(pos) > max_light then
+			if minetest.get_node_light(pos) > max_light then
 				return
 			end
-			if minetest.env:get_node_light(pos) < min_light then
+			if minetest.get_node_light(pos) < min_light then
 				return
 			end
 			if pos.y > max_height then
 				return
 			end
-			if minetest.env:get_node(pos).name ~= "air" then
+			if minetest.get_node(pos).name ~= "air" then
 				return
 			end
 			pos.y = pos.y+1
@@ -517,7 +517,7 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 				minetest.chat_send_all("*** Spawned " .. name .. " at " .. minetest.pos_to_string(pos) .. ".")
 			end
 			minetest.log("action", "Spawned " .. name .. " at " .. minetest.pos_to_string(pos) .. ".")
-			minetest.env:add_entity(pos, name)
+			minetest.add_entity(pos, name)
 		end
 	})
 end
@@ -534,13 +534,13 @@ function mobs:register_arrow(name, def)
 		
 		on_step = function(self, dtime)
 			local pos = self.object:getpos()
-			if minetest.env:get_node(self.object:getpos()).name ~= "air" then
+			if minetest.get_node(self.object:getpos()).name ~= "air" then
 				self.hit_node(self, pos, node)
 				self.object:remove()
 				return
 			end
 			pos.y = pos.y-1
-			for _,player in pairs(minetest.env:get_objects_inside_radius(pos, 1)) do
+			for _,player in pairs(minetest.get_objects_inside_radius(pos, 1)) do
 				if player:is_player() then
 					self.hit_player(self, player)
 					self.object:remove()

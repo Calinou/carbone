@@ -249,7 +249,7 @@ minetest.register_craftitem("mobs:rat", {
 	inventory_image = "mobs_rat_inventory.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
-			minetest.env:add_entity(pointed_thing.above, "mobs:rat")
+			minetest.add_entity(pointed_thing.above, "mobs:rat")
 			itemstack:take_item()
 		end
 		return itemstack
@@ -433,9 +433,9 @@ mobs:register_arrow("mobs:fireball", {
 			for dy=-1,1 do
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-					local n = minetest.env:get_node(pos).name
+					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
-						minetest.env:dig_node(p)
+						minetest.dig_node(p)
 					end
 						minetest.sound_play("mobs_fireball_explode", {pos = s, gain = 0.1, max_hear_distance = 48})
 				end
@@ -447,9 +447,9 @@ mobs:register_arrow("mobs:fireball", {
 			for dy=-2,1 do
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-					local n = minetest.env:get_node(pos).name
+					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
-						minetest.env:dig_node(p)
+						minetest.dig_node(p)
 					end
 						minetest.sound_play("mobs_fireball_explode", {pos = p, gain = 0.1, max_hear_distance = 48})
 				end
@@ -525,7 +525,7 @@ mobs:register_arrow("mobs:bullet", {
 			for dy=-1,1 do
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-					local n = minetest.env:get_node(pos).name
+					local n = minetest.get_node(pos).name
 				end
 			end
 		end
@@ -535,7 +535,7 @@ mobs:register_arrow("mobs:bullet", {
 			for dy=-2,1 do
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-					local n = minetest.env:get_node(pos).name
+					local n = minetest.get_node(pos).name
 				end
 			end
 		end

@@ -92,7 +92,7 @@ minetest.register_entity(":__builtin:item", {
 		
 		local p = self.object:getpos()
 		
-		local name = minetest.env:get_node(p).name
+		local name = minetest.get_node(p).name
 		if name == "default:lava_flowing"
 		or name == "default:lava_source"
 		or name == "fire:basic_flame"
@@ -108,7 +108,7 @@ minetest.register_entity(":__builtin:item", {
 		if minetest.registered_nodes[name].liquidtype == "flowing" then
 			get_flowing_dir = function(self)
 				local pos = self.object:getpos()
-				local param2 = minetest.env:get_node(pos).param2
+				local param2 = minetest.get_node(pos).param2
 				for i,d in ipairs({-1, 1, -1, 1}) do
 					if i<3 then
 						pos.x = pos.x+d
@@ -116,8 +116,8 @@ minetest.register_entity(":__builtin:item", {
 						pos.z = pos.z+d
 					end
 					
-					local name = minetest.env:get_node(pos).name
-					local par2 = minetest.env:get_node(pos).param2
+					local name = minetest.get_node(pos).name
+					local par2 = minetest.get_node(pos).param2
 					if name == "default:water_flowing" and par2 < param2 then
 						return pos
 					end
@@ -152,7 +152,7 @@ minetest.register_entity(":__builtin:item", {
 		end
 		
 		p.y = p.y - 0.3
-		local nn = minetest.env:get_node(p).name
+		local nn = minetest.get_node(p).name
 		-- If node is not registered or node is walkably solid.
 		if not minetest.registered_nodes[nn] or minetest.registered_nodes[nn].walkable then
 			if self.physical_state then
