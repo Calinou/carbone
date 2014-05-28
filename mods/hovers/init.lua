@@ -4,7 +4,7 @@
 --
 
 local function is_water(pos)
-	local nn = minetest.env:get_node(pos).name
+	local nn = minetest.get_node(pos).name
 	return minetest.get_item_group(nn, "water") ~= 0
 end
 
@@ -149,7 +149,7 @@ minetest.register_craftitem("hovers:hover", {
 			return
 		end
 		pointed_thing.under.y = pointed_thing.under.y + 1
-		minetest.env:add_entity(pointed_thing.under, "hovers:hover")
+		minetest.add_entity(pointed_thing.under, "hovers:hover")
 		itemstack:take_item()
 		return itemstack
 	end,
