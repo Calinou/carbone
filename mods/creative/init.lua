@@ -111,10 +111,10 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	end
 
 	if start_i < 0 then
-		start_i = start_i + 5*8
+		start_i = creative_inventory.creative_inventory_size - 5*8
 	end
 	if start_i >= creative_inventory.creative_inventory_size then
-		start_i = start_i - 5*8
+		start_i = 0
 	end
 		
 	if start_i < 0 or start_i >= creative_inventory.creative_inventory_size then
