@@ -26,7 +26,7 @@ minetest.register_node("throwing:arrow_fire_box", {
 		}
 	},
 	tiles = {"throwing_arrow_fire.png", "throwing_arrow_fire.png", "throwing_arrow_fire_back.png", "throwing_arrow_fire_front.png", "throwing_arrow_fire_2.png", "throwing_arrow_fire.png"},
-	groups = {not_in_creative_inventorY =1},
+	groups = {not_in_creative_inventory = 1},
 })
 
 local THROWING_ARROW_ENTITY = {

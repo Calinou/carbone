@@ -26,7 +26,7 @@ minetest.register_node("throwing:arrow_teleport_box", {
 		}
 	},
 	tiles = {"throwing_arrow_teleport.png", "throwing_arrow_teleport.png", "throwing_arrow_teleport_back.png", "throwing_arrow_teleport_front.png", "throwing_arrow_teleport_2.png", "throwing_arrow_teleport.png"},
-	groups = {not_in_creative_inventorY =1},
+	groups = {not_in_creative_inventory = 1},
 })
 
 local THROWING_ARROW_ENTITY = {

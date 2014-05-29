@@ -26,7 +26,7 @@ minetest.register_node("throwing:arrow_dig_box", {
 		}
 	},
 	tiles = {"throwing_arrow_dig.png", "throwing_arrow_dig.png", "throwing_arrow_dig_back.png", "throwing_arrow_dig_front.png", "throwing_arrow_dig_2.png", "throwing_arrow_dig.png"},
-	groups = {not_in_creative_inventorY =1},
+	groups = {not_in_creative_inventory = 1},
 })
 
 local THROWING_ARROW_ENTITY = {
