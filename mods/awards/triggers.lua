@@ -18,7 +18,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 	end
 	local nodedug = string.split(oldnode.name, ":")
 	if #nodedug ~= 2 then
-		minetest.log("error","Awards mod: "..oldnode.name.." is in wrong format!")
+		-- minetest.log("error","Awards mod: "..oldnode.name.." is in wrong format.")
 		return
 	end
 	local mod = nodedug[1]
@@ -47,7 +47,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 			-- Handle table trigger
 			if not awards.onDig[i].node or not awards.onDig[i].target or not awards.onDig[i].award then
 				-- table running failed!
-				print("[ERROR] awards - onDig trigger "..i.." is invalid!")
+				minetest.log("error", "Awards: onDig trigger " .. i .. " is invalid.")
 			else
 				-- run the table
 				local tnodedug = string.split(awards.onDig[i].node, ":")
@@ -73,7 +73,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 	end
 	local nodedug = string.split(node.name, ":")
 	if #nodedug ~= 2 then
-		minetest.log("error","Awards mod: "..node.name.." is in wrong format!")
+		-- minetest.log("error","Awards mod: "..node.name.." is in wrong format.")
 		return
 	end
 	local mod=nodedug[1]
@@ -102,7 +102,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 		elseif type(awards.onPlace[i]) == "table" then
 			-- Handle table trigger
 			if not awards.onPlace[i].node or not awards.onPlace[i].target or not awards.onPlace[i].award then
-				print("[ERROR] awards - onPlace trigger "..i.." is invalid!")
+				minetest.log("error", "Awards: onDig trigger " .. i .. " is invalid.")
 			else
 				-- run the table
 				local tnodedug = string.split(awards.onPlace[i].node, ":")
