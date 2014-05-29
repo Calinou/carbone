@@ -112,21 +112,22 @@ end
 
 -- Global environment step function
 function on_step(dtime)
-	-- print("on_step")
+	-- print("on_step, " .. p .. ", " .. node)
 end
 minetest.register_globalstep(on_step)
 
 function on_placenode(p, node)
-	--print("on_placenode")
+	-- print("on_placenode, " .. p .. ", " .. node)
 end
 minetest.register_on_placenode(on_placenode)
 
 function on_dignode(p, node)
-	--print("on_dignode")
+	-- print("on_dignode, " .. p .. ", " .. node)
 end
 minetest.register_on_dignode(on_dignode)
 
 function on_punchnode(p, node)
+	-- print("on_punchnode, " .. p .. ", " .. node)
 end
 minetest.register_on_punchnode(on_punchnode)
 

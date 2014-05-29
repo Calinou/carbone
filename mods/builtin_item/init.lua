@@ -93,13 +93,7 @@ minetest.register_entity(":__builtin:item", {
 		local p = self.object:getpos()
 		
 		local name = minetest.get_node(p).name
-		if name == "default:lava_flowing"
-		or name == "default:lava_source"
-		or name == "fire:basic_flame"
-		or name == "maptools:kill"
-		or name == "maptools:fake_fire"
-		or name == "maptools:permanent_fire"
-		or name == "maptools:igniter" then
+		if minetest.registered_nodes[name].damage_per_second > 0 or name == "maptools:igniter" then
 			minetest.sound_play("builtin_item_lava", {pos = self.object:getpos(), gain = 0.5})
 			self.object:remove()
 			return
