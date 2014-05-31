@@ -5,8 +5,8 @@ local hp_bar = {
 	physical = false,
 	collisionbox = {x = 0, y = 0, z = 0},
 	visual = "sprite",
-	textures = {"20.png"},
-	visual_size = {x = 1.5, y = 0.09375, z = 1.5},
+	textures = {"20.png"}, -- The texture is changed later in the code.
+	visual_size = {x = 1.5, y = 0.09375, z = 1.5}, -- Y value is (1 / 16) * 1.5.
 	wielder = nil,
 }
 
@@ -36,6 +36,7 @@ function add_HP_gauge(pl)
 		end
 end
 
-if minetest.setting_getbool("health_bars") ~= false and minetest.setting_getbool("enable_damage") then
+if minetest.setting_getbool("health_bars") ~= false -- “If not defined or set to true then”
+and minetest.setting_getbool("enable_damage") then -- Health bars only display when damage is enabled.
 	minetest.register_on_joinplayer(add_HP_gauge)
 end
