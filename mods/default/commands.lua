@@ -60,14 +60,14 @@ minetest.register_chatcommand("info", {
 	end,
 })
 
-core.register_chatcommand("clearinventory", {
+minetest.register_chatcommand("clearinventory", {
 	params = "<inventory>",
 	description = "Clears an entire inventory, \"main\" if unspecified, \"craft\" is another possible choice",
 	func = function(name, param)
-	    local player = core.get_player_by_name(name)
+	    local player = minetest.get_player_by_name(name)
 	    local player_inv = player:get_inventory()
 		if not player then
-			core.log("error", "Unable to clear inventory, no player.")
+			minetest.log("error", "Unable to clear inventory, no player.")
 			return false, "Unable to clear inventory, no player."
 		end
 		if param == "" then

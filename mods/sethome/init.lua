@@ -23,15 +23,16 @@ end
 loadhomes()
 
 minetest.register_privilege("home", "Can use /sethome and /home")
+minetest.register_privilege("spawn", "Can use /spawn")
 
 local changed = false
 
 minetest.register_chatcommand("home", {
-    description = "Teleport you to your home point",
-    privs = {home=true},
+    description = "Teleports you to your home point",
+    privs = {home = true},
     func = function(name)
         local player = minetest.get_player_by_name(name)
-        if player == nil then return false -- just a check to prevent the server crashing
+        if player == nil then return false -- Check to prevent the server crashing.
         end
         if homepos[player:get_player_name()] then
             player:setpos(homepos[player:get_player_name()])
@@ -43,8 +44,8 @@ minetest.register_chatcommand("home", {
 })
 
 minetest.register_chatcommand("sethome", {
-    description = "Set your home point",
-    privs = {home=true},
+    description = "Sets your home point",
+    privs = {home = true},
     func = function(name)
         local player = minetest.get_player_by_name(name)
         local pos = player:getpos()
@@ -61,3 +62,18 @@ minetest.register_chatcommand("sethome", {
         end
     end,
 })
+
+if minetest.setting_get("static_spawnpoint") then
+    minetest.register_chatcommand("spawn", {
+        description = "Teleports you to the spawn point",
+        privs = {spawn = true},
+        func = function(name)
+            local player = minetest.get_player_by_name(name)
+            if player == nil then return false -- Check to prevent the server crashing.
+            else
+                player:setpos(minetest.setting_get_pos("static_spawnpoint"))
+                minetest.chat_send_player(name, "Teleporting to spawn.")
+            end
+        end,
+    })
+end
