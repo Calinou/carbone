@@ -59,3 +59,23 @@ minetest.register_chatcommand("info", {
 		minetest.chat_send_player(name, "\"default:infotool\" added to inventory.")
 	end,
 })
+
+core.register_chatcommand("clearinventory", {
+	params = "<inventory>",
+	description = "Clears an entire inventory, \"main\" if unspecified, \"craft\" is another possible choice",
+	func = function(name, param)
+	    local player = core.get_player_by_name(name)
+	    local player_inv = player:get_inventory()
+		if not player then
+			core.log("error", "Unable to clear inventory, no player.")
+			return false, "Unable to clear inventory, no player."
+		end
+		if param == "" then
+		    player_inv:set_list("main", {})
+			return true, "Inventory \"main\" cleared."
+		    else
+			player_inv:set_list(param, {})
+			return true, "Inventory \"" .. param .. "\" cleared."
+		end
+	end,
+})

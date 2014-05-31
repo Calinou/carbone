@@ -71,7 +71,9 @@ THROWING_arrow_gold_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x ~= nil then
 		if minetest.registered_nodes[node.name].walkable then
-			minetest.add_item(self.lastpos, "throwing:arrow_gold")
+			if not minetest.setting_getbool("creative_mode") then
+				minetest.add_item(self.lastpos, "throwing:arrow_gold")
+			end
 			minetest.sound_play("throwing_arrow", {pos = self.lastpos, gain = 0.8})
 			self.object:remove()
 		end

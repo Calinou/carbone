@@ -96,9 +96,8 @@ minetest.register_node("bones:bones", {
 })
 
 minetest.register_on_dieplayer(function(player)
-	if minetest.setting_getbool("creative_mode") then
-		return
-	end -- Don't do anything in creative mode.
+	-- Don't do anything in creative mode.
+	if minetest.setting_getbool("creative_mode") then return end
 	
 	local pos = player:getpos()
 	pos.x = math.floor(pos.x + 0.5)
@@ -125,7 +124,7 @@ minetest.register_on_dieplayer(function(player)
 			minetest.add_item(pos, player_inv:get_stack("craft", i))
 		end
 		player_inv:set_list("main", {})	-- Empty the main inventory.
-		player_inv:set_list("craft", {}) -- Empty the crafting grid, since it can be used to store items.
+		player_inv:set_list("craft", {}) -- Empty the crafting grid, as it can store items.
 		return
 	end
 	
