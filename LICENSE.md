@@ -55,6 +55,8 @@ If not mentioned: CC BY-SA 3.0.
 
 menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
+mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
+
 mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY-SA 4.0.
 
 mods/default/textures/crack_anylength.png: from VanessaE's HDX – GNU FDL. 
@@ -63,9 +65,9 @@ mods/default/textures/crosshair.png: © 2014 ETERNALSOLSTICE – CC BY 3.0: http
 
 mods/default/textures/default_furnace_lock_%.png: © 2012 kotolegokot, Oleg Matveev <gkotolegokot@gmail.com> – CC BY-SA 3.0.
 
-mods/default/textures/smoke_puff.png: from VanessaE's HDX – GNU FDL. 
+mods/default/textures/smoke_puff.png: from VanessaE's HDX – GNU FDL.
 
-mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
+mods/default/textures/gui_%.png: © 2013 BlockMen – CC BY 3.0.
 
 mods/mobs/sounds/%.ogg: © 2012 Q009 – CC BY-SA 3.0.
 
