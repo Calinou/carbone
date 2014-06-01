@@ -20,7 +20,8 @@ function hp_bar:on_step(dtime)
 		return
 	end
 	hp = wielder:get_hp()
-	self.object:set_properties({textures = {tostring(hp) .. ".png",},}
+	breath = wielder:get_breath()
+	self.object:set_properties({textures = {"health_" .. tostring(hp) .. ".png^breath_" .. tostring(breath) .. ".png",},}
 	)
 end
 
