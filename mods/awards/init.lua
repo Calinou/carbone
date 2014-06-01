@@ -38,6 +38,69 @@ awards.register_achievement("award_light_all_the_things",{
 	}
 })
 
+
+-- Saint-Maclou
+awards.register_achievement("award_saint_maclou",{
+	title = S("Saint-Maclou"),
+	description = S("Place 20 coal checkers."),
+	icon = "novicebuilder.png",
+	trigger = {
+		type = "place",
+		node = "moreblocks:coal_checker",
+		target = 20
+	}
+})
+
+-- Castorama
+awards.register_achievement("award_castorama",{
+	title = S("Castorama"),
+	description = S("Place 20 iron checkers."),
+	icon = "novicebuilder.png",
+	trigger = {
+		type = "place",
+		node = "morenlocks:iron_checker",
+		target = 20
+	}
+})
+
+-- Sam the Trapper
+awards.register_achievement("award_sam_the_trapper",{
+	title = S("Sam the Trapper"),
+	description = S("Place 2 trap stones."),
+	icon = "novicebuilder.png",
+	trigger = {
+		type = "place",
+		node = "morenlocks:trap_stone",
+		target = 2
+	}
+})
+
+-- Cave Street
+awards.register_achievement("award_cave_street",{
+	title = S("Cave Street"),
+	description = S("Mine a coin ore."),
+	icon = "miniminer.png",
+	background = "bg_mining.png",
+	trigger = {
+		type = "dig",
+		node = "default:stone_with_coin",
+		target = 1
+	}
+})
+
+-- Obsessed with Obsidian
+awards.register_achievement("award_obsessed_with_obsidian",{
+	title = S("Obsessed with Obsidian"),
+	description = S("Mine 50 obsidian."),
+	icon = "miniminer.png",
+	background = "bg_mining.png",
+	trigger = {
+		type = "dig",
+		node = "default:obsidian",
+		target = 50
+	}
+})
+
 -- On the way
 awards.register_achievement("award_on_the_way",{
 	title = S("On The Way"),
@@ -72,9 +135,9 @@ awards.register_achievement("award_semipro_lumberjack",{
 	}
 })
 
--- Pro Lumberjack
-awards.register_achievement("award_pro_lumberjack",{
-	title = S("Semi-pro Lumberjack"),
+-- Professional Lumberjack
+awards.register_achievement("award_professional_lumberjack",{
+	title = S("Professional Lumberjack"),
 	description = S("Dig 10,000 tree blocks."),
 	trigger = {
 		type = "dig",
@@ -133,6 +196,7 @@ awards.register_achievement("award_mesefind",{
 awards.register_achievement("award_youre_a_copper",{
 	title = S("You're a copper"),
 	description = S("Dig 1,000 copper ores."),
+	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger = {
 		type = "dig",
@@ -145,6 +209,7 @@ awards.register_achievement("award_youre_a_copper",{
 awards.register_achievement("award_youre_winner",{
 	title = S("YOU'RE WINNER!"),
 	description = S("Dig 1 mossy cobblestone."),
+	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger = {
 		type = "dig",
@@ -239,44 +304,60 @@ awards.register_achievement("award_death1",{
 	}
 })
 
+-- Dying Spree
+awards.register_achievement("award_dying_spree",{
+	title = S("Dying Spree"),
+	description = S("Die 5 times."),
+	trigger = {
+		type = "death",
+		target = 5
+	}
+})
+
+-- Bot-like
+awards.register_achievement("award_bot_like",{
+	title = S("Bot-like"),
+	description = S("Die 10 times."),
+	trigger = {
+		type = "death",
+		target = 10
+	}
+})
+
+-- You Suck!
+awards.register_achievement("award_you_suck",{
+	title = S("You Suck!"),
+	description = S("Die 100 times."),
+	trigger = {
+		type = "death",
+		target = 100
+	},
+	secret = true
+})
+
 -- Burned to death
 awards.register_achievement("award_burn",{
 	title = S("You're a witch!"),
 	description = S("Burn to death in a fire.")
 })
 
--- 1 sentence
-awards.register_achievement("award_chat1",{
-	title = S("First Word"),
-	description = S("Use the chat to talk to players."),
-	trigger = {
-		type = "chat",
-		target = 1
-	}
+-- Died in flowing lava
+awards.register_achievement("award_in_the_flow",{
+	title = S("In the Flow"),
+	description = S("Die in flowing lava.")
 })
 
--- Talkative
-awards.register_achievement("award_talkative",{
-	title = S("Talkative"),
-	description = S("Talk a lot. 1,000 lines."),
-	trigger = {
-		type = "chat",
-		target = 1000
-	},
-	secret = true,
+-- Die near diamond ore
+awards.register_achievement("award_this_is_sad",{
+	title = S("This is Sad"),
+	description = S("Die near diamond ore.")
 })
 
--- More Talkative
-awards.register_achievement("award_more_talkative",{
-	title = S("More Talkative"),
-	description = S("Talk a lot. Really, a lot. 10,000 lines."),
-	trigger = {
-		type = "chat",
-		target = 10000
-	},
-	secret = true,
+-- Die near diamond ore
+awards.register_achievement("award_the_stack",{
+	title = S("The Stack"),
+	description = S("Die near bones.")
 })
-
 
 -- Join
 awards.register_achievement("award_join1",{
@@ -300,8 +381,32 @@ awards.register_achievement("award_join2",{
 
 awards.register_onDeath(function(player,data)
 	local pos = player:getpos()
-	if pos and minetest.find_node_near(pos, 1, "fire:basic_flame") ~= nil then
+	if pos and minetest.find_node_near(pos, 2, "fire:basic_flame") ~= nil then
 		return "award_burn"
+	end	
+	return nil
+end)
+
+awards.register_onDeath(function(player,data)
+	local pos = player:getpos()
+	if pos and minetest.find_node_near(pos, 2, "default:lava_flowing") ~= nil then
+		return "award_in_the_flow"
+	end	
+	return nil
+end)
+
+awards.register_onDeath(function(player,data)
+	local pos = player:getpos()
+	if pos and minetest.find_node_near(pos, 5, "default:stone_with_diamond") ~= nil then
+		return "award_this_is_sad"
+	end	
+	return nil
+end)
+
+awards.register_onDeath(function(player,data)
+	local pos = player:getpos()
+	if pos and minetest.find_node_near(pos, 5, "bones:bones") ~= nil then
+		return "award_the_stack"
 	end	
 	return nil
 end)
