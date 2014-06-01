@@ -111,7 +111,7 @@ minetest.register_abm({
 	nodenames = {"group:flammable"},
 	neighbors = {"group:igniter"},
 	interval = 1,
-	chance = 12,
+	chance = 20,
 	action = function(p0, node, _, _)
 		-- If there is water or stuff like that around flame, don't ignite.
 		if fire.flame_should_extinguish(p0) then
