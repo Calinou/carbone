@@ -409,6 +409,7 @@ minetest.register_node("default:jungleleaves", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
+	post_effect_color = {a=128, r=20, g=32, b=16},
 })
 
 minetest.register_node("default:junglesapling", {
