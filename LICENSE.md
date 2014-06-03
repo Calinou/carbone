@@ -57,7 +57,15 @@ menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
 mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
 
-mods/default/textures/default_desert_cobble.png: © 2014 brunob.santos – CC-BY-SA 4.0.
+mods/default/textures/default_grass.png,
+ mods/default/textures/default_leaves.png,
+ mods/default/textures/default_gravel.png,
+ mods/default/textures/default_dirt.png,
+ mods/default/textures/default_lava%.png,
+ mods/default/textures/default_wood.png,
+ mods/default/textures/default_junglewood.png,
+ mods/default/textures/default_grass.png:
+ © 2014 Calinou – CC BY-SA 4.0.
 
 mods/default/textures/crack_anylength.png: from VanessaE's HDX – GNU FDL.
 
