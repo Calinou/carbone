@@ -1044,16 +1044,6 @@ minetest.register_node("default:chest_locked", {
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from locked chest at "..minetest.pos_to_string(pos) .. ".")
 	end,
-	on_rightclick = function(pos, node, clicker)
-		local meta = minetest.get_meta(pos)
-		--if has_locked_chest_privilege(meta, clicker) then
-			minetest.show_formspec(
-				clicker:get_player_name(),
-				"default:chest_locked",
-				default.get_locked_chest_formspec(pos)
-			)
-		--end
-	end,
 })
 
 function default.furnace_active(pos, percent, item_percent)

@@ -77,3 +77,9 @@ end
 minetest.after(1, count_items)
 minetest.after(5, player_join_sounds)
 minetest.after(5, player_leave_sounds)
+
+minetest.register_on_joinplayer(function(player)
+	player:set_physics_override({
+    sneak_glitch = false, -- Climable blocks are quite fast in Carbone.
+  })
+end)
