@@ -168,7 +168,7 @@ minetest.register_entity(":__builtin:item", {
 			end
 		end
 	end,
-
+	--[[ This causes a duplication glitch if a player walks upon an item and clicks on it at the same time.
 	on_punch = function(self, hitter)
 		if self.itemstring ~= "" then
 			local left = hitter:get_inventory():add_item("main", self.itemstring)
@@ -179,6 +179,7 @@ minetest.register_entity(":__builtin:item", {
 		end
 		self.object:remove()
 	end,
+	--]]
 })
 
 if minetest.setting_get("log_mods") then
