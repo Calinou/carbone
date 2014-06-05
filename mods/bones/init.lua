@@ -19,7 +19,7 @@ minetest.register_node("bones:bones", {
 	drowning = 2,
 	light_source = 11,
 	drawtype = "glasslike_framed",
-	post_effect_color = {a=96, r=0, g=0, b=0},
+	post_effect_color = {a=96, r= 0, g= 0, b= 0},
 	drop = "",
 	groups = {dig_immediate = 3},
 	
@@ -62,7 +62,7 @@ minetest.register_node("bones:bones", {
 		local player_inv = player:get_inventory()
 		local has_space = true
 		
-		for i=1,inv:get_size("main") do
+		for i= 1,inv:get_size("main") do
 			local stk = inv:get_stack("main", i)
 			if player_inv:room_for_item("main", stk) then
 				inv:set_stack("main", i, nil)
@@ -96,10 +96,11 @@ minetest.register_node("bones:bones", {
 })
 
 minetest.register_on_dieplayer(function(player)
-	-- Don't do anything in creative mode.
+	local pos = player:getpos()
+	minetest.sound_play("player_death", {pos = pos, gain = 1})
+	-- Don't do anything below in creative mode.
 	if minetest.setting_getbool("creative_mode") then return end
 	
-	local pos = player:getpos()
 	pos.x = math.floor(pos.x + 0.5)
 	pos.y = math.floor(pos.y + 0.5)
 	pos.z = math.floor(pos.z + 0.5)
@@ -117,10 +118,10 @@ minetest.register_on_dieplayer(function(player)
 		not minetest.registered_nodes[nn].can_dig(pos, player) then
 
 		-- Drop items instead of delete.
-		for i=1,player_inv:get_size("main") do
+		for i= 1,player_inv:get_size("main") do
 			minetest.add_item(pos, player_inv:get_stack("main", i))
 		end
-		for i=1,player_inv:get_size("craft") do
+		for i= 1,player_inv:get_size("craft") do
 			minetest.add_item(pos, player_inv:get_stack("craft", i))
 		end
 		player_inv:set_list("main", {})	-- Empty the main inventory.
@@ -140,7 +141,7 @@ minetest.register_on_dieplayer(function(player)
 	player_inv:set_list("main", {})
 	player_inv:set_list("craft", {})
 	
-	for i=1,player_inv:get_size("craft") do
+	for i= 1,player_inv:get_size("craft") do
 		local stack = player_inv:get_stack("craft", i)
 		if inv:room_for_item("main", stack) then
 			inv:add_item("main", stack)

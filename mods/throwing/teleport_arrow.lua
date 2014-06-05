@@ -33,7 +33,7 @@ local THROWING_ARROW_ENTITY = {
 	physical = false,
 	timer = 0,
 	visual = "wielditem",
-	visual_size = {x=0.1, Y =0.1},
+	visual_size = {x = 0.125, y = 0.125},
 	textures = {"throwing:arrow_teleport_box"},
 	lastpos= {},
 	collisionbox = {0, 0, 0, 0, 0, 0},

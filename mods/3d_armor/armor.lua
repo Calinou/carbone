@@ -94,13 +94,13 @@ armor.set_player_armor = function(self, player)
 	local items = 0
 	local elements = {}
 	local textures = {}
-	local physics_o = {speed=1,gravity=1,jump=1}
-	local material = {type=nil, count=1}
+	local physics_o = {speed= 1,gravity = 1,jump= 1}
+	local material = {type=nil, count= 1}
 	local preview = armor:get_player_skin(name).."_preview.png"
 	for _,v in ipairs(self.elements) do
 		elements[v] = false
 	end
-	for i=1, 6 do
+	for i= 1, 6 do
 		local stack = player_inv:get_stack("armor", i)
 		local item = stack:get_name()
 		if stack:get_count() == 1 then
@@ -148,7 +148,7 @@ armor.set_player_armor = function(self, player)
 	if #textures > 0 then
 		armor_texture = table.concat(textures, "^")
 	end
-	local armor_groups = {fleshy=100}
+	local armor_groups = {fleshy = 100}
 	if armor_level > 0 then
 		armor_groups.level = math.floor(armor_level / 20)
 		armor_groups.fleshy = 100 - armor_level
@@ -182,7 +182,7 @@ armor.update_armor = function(self, player)
 		local heal_max = 0
 		local state = 0
 		local items = 0
-		for i=1, 6 do
+		for i= 1, 6 do
 			local stack = player_inv:get_stack("armor", i)
 			if stack:get_count() > 0 then
 				local use = stack:get_definition().groups["armor_use"] or 0
@@ -261,12 +261,12 @@ default.player_register_model("3d_armor_character.x", {
 		"3d_armor_trans.png",
 	},
 	animations = {
-		stand = {x=0, y=79},
-		lay = {x=162, y=166},
-		walk = {x=168, y=187},
-		mine = {x=189, y=198},
-		walk_mine = {x=200, y=219},
-		sit = {x=81, y=160},
+		stand =     {x = 0,   y = 40},
+		lay =       {x = 162, y = 166},
+		walk =      {x = 168, y = 187},
+		mine =      {x = 189, y = 198},
+		walk_mine = {x = 200, y = 219},
+		sit =       {x = 81,  y = 160},
 	},
 })
 
@@ -328,7 +328,7 @@ minetest.register_on_joinplayer(function(player)
 	end
 	armor_inv:set_size("armor", 6)
 	player_inv:set_size("armor", 6)
-	for i=1, 6 do
+	for i= 1, 6 do
 		local stack = player_inv:get_stack("armor", i)
 		armor_inv:set_stack("armor", i, stack)
 	end	
@@ -374,7 +374,7 @@ minetest.register_on_joinplayer(function(player)
 			armor.textures[name].skin = "player_"..name..".png"
 		end
 	end
-	for i=1, ARMOR_INIT_TIMES do
+	for i= 1, ARMOR_INIT_TIMES do
 		minetest.after(ARMOR_INIT_DELAY * i, function(player)
 			armor:set_player_armor(player)
 			if inventory_plus == nil and unified_inventory == nil then
@@ -392,7 +392,7 @@ if ARMOR_DROP == true or ARMOR_DESTROY == true then
 			local drop = {}
 			local player_inv = player:get_inventory()
 			local armor_inv = minetest.get_inventory({type="detached", name=name.."_armor"})
-			for i=1, player_inv:get_size("armor") do
+			for i= 1, player_inv:get_size("armor") do
 				local stack = armor_inv:get_stack("armor", i)
 				if stack:get_count() > 0 then
 					table.insert(drop, stack)
@@ -439,7 +439,7 @@ if ARMOR_DROP == true or ARMOR_DESTROY == true then
 							if math.random(1,2) == 1 then
 								z = -z
 							end
-							obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
+							obj:setvelocity({x = 1/x, y =obj:getvelocity().y, z = 1/z})
 						end
 					end
 				end

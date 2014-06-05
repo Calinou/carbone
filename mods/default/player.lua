@@ -39,11 +39,11 @@ Model Definition
 model_def = {
 	animation_speed = 30, -- Default animation speed, in FPS.
 	textures = {"character.png", }, -- Default array of textures.
-	visual_size = {x=1, y=1,}, -- Used to scale the model.
+	visual_size = {x = 1, y = 1,}, -- Used to scale the model.
 	animations = {
-		-- <anim_name> = { x=<start_frame>, y=<end_frame>, },
-		foo = { x= 0, y=19, },
-		bar = { x=20, y=39, },
+		-- <anim_name> = { x =<start_frame>, y =<end_frame>, },
+		foo = { x = 0, y = 19, },
+		bar = { x = 20, y =39, },
 		-- ...
 	},
 }
@@ -68,14 +68,12 @@ default.player_register_model("character.x", {
 	animation_speed = 35,
 	textures = {"character.png", },
 	animations = {
-		-- Standard animations.
-		stand     = { x=  0, y= 79, },
-		lay       = { x=162, y=166, },
-		walk      = { x=168, y=187, },
-		mine      = { x=189, y=198, },
-		walk_mine = { x=200, y=219, },
-		-- Extra animations (not currently used by the game).
-		sit       = { x= 81, y=160, },
+		stand =     {x = 0,   y = 40},
+		lay =       {x = 162, y = 166},
+		walk =      {x = 168, y = 187},
+		mine =      {x = 189, y = 198},
+		walk_mine = {x = 200, y = 219},
+		sit =       {x = 81,  y = 160},
 	},
 })
 
@@ -107,7 +105,7 @@ function default.player_set_model(player, model_name)
 			mesh = model_name,
 			textures = player_textures[name] or model.textures,
 			visual = "mesh",
-			visual_size = model.visual_size or {x=1, y=1},
+			visual_size = model.visual_size or {x = 1, y = 1},
 		})
 		default.player_set_animation(player, "stand")
 	else
@@ -143,7 +141,7 @@ end
 minetest.register_on_joinplayer(function(player)
 	default.player_attached[player:get_player_name()] = false
 	default.player_set_model(player, "character.x")
-	player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 35)
+	player:set_local_animation({x = 0, y =79}, {x = 168, y = 187}, {x = 189, y = 198}, {x = 200, y = 219}, 35)
 	
 	-- set GUI
 	if minetest.setting_getbool("creative_mode") then
@@ -176,7 +174,7 @@ minetest.register_globalstep(function(dtime)
 		if model and not default.player_attached[name] then
 			local controls = player:get_player_control()
 			local walking = false
-			local animation_speed_mod = model.animation_speed or 30
+			local animation_speed_mod = model.animation_speed or 35
 
 			-- Determine if the player is walking
 			if controls.up or controls.down or controls.left or controls.right then
@@ -185,26 +183,26 @@ minetest.register_globalstep(function(dtime)
 
 			-- Determine if the player is sneaking, and reduce animation speed if so
 			if controls.sneak then
-				animation_speed_mod = animation_speed_mod / 2
+				animation_speed_mod = animation_speed_mod * 0.5
 			end
 
 			-- Apply animations based on what the player is doing
 			if player:get_hp() == 0 then
-				player_set_animation(player, "lay")
+				player_set_animation(player, "lay", animation_speed_mod)
 			elseif walking then
 				if player_sneak[name] ~= controls.sneak then
 					player_anim[name] = nil
 					player_sneak[name] = controls.sneak
 				end
-				if controls.LMB then
+				if controls.LMB or controls.RMB then
 					player_set_animation(player, "walk_mine", animation_speed_mod)
 				else
 					player_set_animation(player, "walk", animation_speed_mod)
 				end
-			elseif controls.LMB then
-				player_set_animation(player, "mine")
+			elseif controls.LMB or controls.RMB then
+				player_set_animation(player, "mine", animation_speed_mod)
 			else
-				player_set_animation(player, "stand", animation_speed_mod)
+				player_set_animation(player, "stand", animation_speed_mod * 0.4)
 			end
 		end
 	end

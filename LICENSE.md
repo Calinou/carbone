@@ -55,6 +55,7 @@ If not mentioned: CC BY-SA 3.0.
 
 menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
+mods/mobs/sounds/player_{join,leave,death}.ogg: from OpenArena - GNU GPL 2.
 mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
 
 mods/default/textures/default_grass.png,
@@ -77,8 +78,10 @@ mods/default/textures/smoke_puff.png: from VanessaE's HDX – GNU FDL.
 
 mods/default/textures/gui_%.png: © 2013 BlockMen – CC BY 3.0.
 
+mods/mobs/sounds/mobs_punch.ogg: from OpenArena - GNU GPL 2.
 mods/mobs/sounds/%.ogg: © 2012 Q009 – CC BY-SA 3.0.
 
 mods/snow/textures/%.png: © 2014 Frai – CC BY-SA 4.0.
 
 mods/throwing/sounds/%.ogg: from Xonotic – GNU GPL 3.
+
