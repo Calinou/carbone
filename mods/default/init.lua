@@ -19,7 +19,7 @@ gui_slots = "listcolors[#606060AA; #606060; #101010; #202020; #FFF]"
 function default.get_hotbar_bg(x,y)
 	local out = ""
 	for i= 0, 7, 1 do
-		out = out .."image["..x+i..","..y..";1,1;gui_hb_bg.png]"
+		out = out .."image[" .. x + i .. "," .. y .. ";1,1;gui_hb_bg.png]"
 	end
 	return out
 end
