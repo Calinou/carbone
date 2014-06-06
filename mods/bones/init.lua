@@ -9,6 +9,8 @@ local function is_owner(pos, name)
 	return false
 end
 
+gui_slots = "listcolors[#606060AA;#808080;#101010;#202020;#FFF]"
+
 minetest.register_node("bones:bones", {
 	description = "Bones",
 	tiles = {"bones_bones.png"},
@@ -148,10 +150,7 @@ minetest.register_on_dieplayer(function(player)
 		end
 	end
 
-gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
-gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
-
-	meta:set_string("formspec", "size[8,9;]".. gui_bg_img .. gui_slots ..
+	meta:set_string("formspec", "size[8,9;]"..gui_slots ..
 			"list[current_name;main;0,0;8,4;]"..
 			"list[current_player;main;0,5;8,4;]")
 	meta:set_string("infotext", player_name .. "'s fresh bones")

@@ -1,5 +1,7 @@
 -- mods/default/nodes.lua
 
+gui_slots = "listcolors[#606060AA;#808080;#101010;#202020;#FFF]"
+
 minetest.register_node("default:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
@@ -510,7 +512,6 @@ minetest.register_node("default:papyrus", {
 
 default.bookshelf_formspec =
 	"size[8,7;]"..
-	gui_bg..
 	gui_slots..
 	"list[context;books;0,0.3;8,2;]"..
 	"list[current_player;main;0,2.85;8,1;]"..
@@ -901,7 +902,6 @@ minetest.register_node("default:sign_wall", {
 
 default.chest_formspec = 
 	"size[8,9]"..
-	gui_bg..
 	gui_slots..
 	"list[current_name;main;0,0.3;8,4;]"..
 	"list[current_player;main;0,4.85;8,1;]"..
@@ -912,7 +912,6 @@ function default.get_locked_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
 	local formspec =
 		"size[8,9]"..
-		gui_bg..
 		gui_slots..
 		"list[nodemeta:".. spos .. ";main;0,0.3;8,4;]"..
 		"list[current_player;main;0,4.85;8,1;]"..
@@ -1041,7 +1040,6 @@ minetest.register_node("default:chest_locked", {
 function default.furnace_active(pos, percent, item_percent)
     local formspec = 
 	"size[8,8.5]"..
-	gui_bg..
 	gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
@@ -1074,7 +1072,6 @@ end
 
 default.furnace_inactive_formspec =
 	"size[8,8.5]"..
-	gui_bg..
 	gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..

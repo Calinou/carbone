@@ -269,10 +269,11 @@ function circular_saw.on_metadata_inventory_take(
 	-- The recycle field plays no role here since it is processed immediately.
 end
 
+gui_slots = "listcolors[#606060AA;#808080;#101010;#202020;#FFF]"
 
 function circular_saw.on_construct(pos)
 	local meta = minetest.get_meta(pos)
-	meta:set_string("formspec", "size[11,9]"..gui_bg_img..gui_slots..
+	meta:set_string("formspec", "size[11,9]"..gui_slots..
 			"label[0,0;"..S("Input\nmaterial").."]"..
 			"list[current_name;input;1.5,0;1,1;]"..
 			"label[0,1;"..S("Left-over").."]"..

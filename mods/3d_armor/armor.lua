@@ -16,14 +16,13 @@ if input then
 end
 local time = 0
 
-gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
-gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
+gui_slots = "listcolors[#606060AA;#808080;#101010;#202020;#FFF]"
 
 armor = {
 	player_hp = {},
 	elements = {"head", "torso", "legs", "feet"},
 	physics = {"jump","speed","gravity"},
-	formspec = "size[8,8.5]" .. gui_bg_img .. gui_slots .. "list[detached:player_name_armor;armor;0,1;2,3;]"
+	formspec = "size[8,8.5]"..gui_slots .. "list[detached:player_name_armor;armor;0,1;2,3;]"
 		.."image[2,0.75;2,4;armor_preview]"
 		.."list[current_player;main;0,4.25;8,1;]"
 		.."list[current_player;main;0,5.5;8,3;8]"
