@@ -64,7 +64,7 @@ minetest.register_on_prejoinplayer(function(name, ip)
 
 	if #name < 2 then
 		return "Too short of a username. "..
-				"Please pick a name with at least two letters and try again."
+				"Please pick a name with at least 2 characters and try again."
 	end
 
 	--[[
