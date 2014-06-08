@@ -1163,7 +1163,7 @@ minetest.register_node("default:furnace", {
 })
 
 minetest.register_node("default:furnace_active", {
-	description = "Furnace",
+	description = "Furnace (active)",
 	tiles = {
 		"default_furnace_top.png",
 		"default_furnace_bottom.png",
@@ -1177,12 +1177,12 @@ minetest.register_node("default:furnace_active", {
 				type = "vertical_frames",
 				aspect_w = 16,
 				aspect_h = 16,
-				length = 1.25
+				length = 1
 			},
 		}
 	},
 	paramtype2 = "facedir",
-	light_source = 8,
+	light_source = 9,
 	drop = "default:furnace",
 	groups = {cracky = 2, not_in_creative_inventory = 1,hot= 1},
 	is_ground_content = false,
@@ -1289,10 +1289,17 @@ minetest.register_node("default:furnace_locked", {
 		inv:set_size("src", 1)
 		inv:set_size("dst", 4)
 	end,
-	can_dig = function(pos, player)
-		local meta = minetest.get_meta(pos)
+	can_dig = function(pos,player)
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
-		return minetest.setting_get("name") == player:get_player_name() or (inv:is_empty("fuel") and inv:is_empty("dst") and inv:is_empty("src"))
+		if not inv:is_empty("fuel") then
+			return false
+		elseif not inv:is_empty("dst") then
+			return false
+		elseif not inv:is_empty("src") then
+			return false
+		end
+		return true
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		local meta = minetest.get_meta(pos)
@@ -1342,11 +1349,26 @@ minetest.register_node("default:furnace_locked", {
 })
 
 minetest.register_node("default:furnace_locked_active", {
-	description = "Locked Furnace",
-	tiles = {"default_furnace_top.png", "default_furnace_bottom.png", "default_furnace_side.png",
-		"default_furnace_side.png", "default_furnace_side.png", "default_furnace_lock_active.png"},
+	description = "Locked Furnace (active)",
+	tiles = {
+		"default_furnace_top.png",
+		"default_furnace_bottom.png",
+		"default_furnace_side.png",
+		"default_furnace_side.png",
+		"default_furnace_side.png",
+		{
+			image = "default_furnace_lock_active.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 1
+			},
+		}
+	},
 	paramtype2 = "facedir",
-	light_source = 8,
+	light_source = 9,
 	drop = "default:furnace_locked",
 	groups = {cracky = 2, not_in_creative_inventory = 1},
 	sounds = default.node_sound_stone_defaults(),
@@ -1365,9 +1387,16 @@ minetest.register_node("default:furnace_locked_active", {
 		inv:set_size("dst", 4)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos)
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
-		return minetest.setting_get("name") == player:get_player_name() or (inv:is_empty("fuel") and inv:is_empty("dst") and inv:is_empty("src"))
+		if not inv:is_empty("fuel") then
+			return false
+		elseif not inv:is_empty("dst") then
+			return false
+		elseif not inv:is_empty("src") then
+			return false
+		end
+		return true
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		local meta = minetest.get_meta(pos)
