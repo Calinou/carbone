@@ -528,7 +528,7 @@ minetest.register_node("default:bookshelf", {
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.bookshelf_formspec)
 		local inv = meta:get_inventory()
-		inv:set_size("books", 8*2)
+		inv:set_size("books", 8 * 2)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -760,7 +760,7 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:ice",
-	post_effect_color = {a=70, r= 20, g=70, b=80},
+	post_effect_color = {a = 70, r = 20, g = 70, b = 80},
 	groups = {water= 3, liquid= 3, puts_out_fire= 1, freezes= 1},
 })
 
@@ -795,9 +795,9 @@ minetest.register_node("default:lava_flowing", {
 	liquid_alternative_source = "default:lava_source",
 	liquid_viscosity = LAVA_VISC,
 	liquid_renewable = false,
-	damage_per_second = 4*2,
-	post_effect_color = {a= 192, r= 255, g=64, b= 0},
-	groups = {lava= 3, liquid= 2, hot= 3, igniter= 1, not_in_creative_inventory = 1},
+	damage_per_second = 8,
+	post_effect_color = {a = 192, r = 255, g = 64, b = 0},
+	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1, not_in_creative_inventory = 1},
 })
 
 minetest.register_node("default:lava_source", {
@@ -828,9 +828,9 @@ minetest.register_node("default:lava_source", {
 	liquid_alternative_source = "default:lava_source",
 	liquid_viscosity = LAVA_VISC,
 	liquid_renewable = false,
-	damage_per_second = 4*2,
-	post_effect_color = {a= 192, r= 255, g=64, b= 0},
-	groups = {lava= 3, liquid= 2, hot= 3, igniter= 1},
+	damage_per_second = 8,
+	post_effect_color = {a = 192, r = 255, g = 64, b = 0},
+	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1},
 })
 
 minetest.register_node("default:torch", {
@@ -856,7 +856,7 @@ minetest.register_node("default:torch", {
 		wall_bottom = {-0.1, -0.5, -0.1, 0.1, -0.5+0.6, 0.1},
 		wall_side = {-0.5, -0.3, -0.1, -0.5+0.3, 0.3, 0.1},
 	},
-	groups = {choppy = 2,dig_immediate= 3,flammable= 1,attached_node= 1,hot= 2},
+	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, hot = 2},
 	sounds = default.node_sound_defaults(),
 })
 
@@ -877,7 +877,7 @@ minetest.register_node("default:sign_wall", {
 		--wall_bottom = <default>
 		--wall_side = <default>
 	},
-	groups = {choppy = 2,dig_immediate= 2,attached_node= 1},
+	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
 	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
 		--local n = minetest.get_node(pos)
@@ -934,7 +934,7 @@ minetest.register_node("default:chest", {
 		meta:set_string("formspec",default.chest_formspec)
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+		inv:set_size("main", 8 * 4)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -1046,7 +1046,7 @@ function default.furnace_active(pos, percent, item_percent)
 	"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
 	(100-percent)..":default_furnace_fire_fg.png]"..
         "image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
-        (item_percent*100)..":gui_furnace_arrow_fg.png^[transformR270]"..
+        (item_percent * 100)..":gui_furnace_arrow_fg.png^[transformR270]"..
 	"list[current_name;dst;4.75,0.96;2,2;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
@@ -1508,7 +1508,7 @@ minetest.register_abm({
 				"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
 				(100-percent)..":default_furnace_fire_fg.png]"..
 		        "image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
-						(item_percent*100)..":gui_furnace_arrow_fg.png^[transformR270]"..
+						(item_percent * 100)..":gui_furnace_arrow_fg.png^[transformR270]"..
 				"list[current_name;src;2.75,0.5;1,1;]"..
 				"list[current_name;fuel;2.75,2.5;1,1;]"..
 				"list[current_name;dst;4.75,0.96;2,2;]"..
