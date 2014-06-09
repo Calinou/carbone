@@ -99,6 +99,11 @@ minetest.register_entity(":__builtin:item", {
 			self.object:remove()
 			return
 		end
+	
+		if name == "default:water_source" then
+			self.object:setacceleration({x = 0, y = 0, z = 0})
+			self.object:setvelocity({x = 0, y = -0.22, z = 0})
+		end
 		
 		if minetest.registered_nodes[name].liquidtype == "flowing" then
 			get_flowing_dir = function(self)
@@ -129,15 +134,20 @@ minetest.register_entity(":__builtin:item", {
 			if vec then
 				local v = self.object:getvelocity()
 				if vec and vec.x-p.x > 0 then
-					self.object:setvelocity({x=1 ,y=v.y,z=0 })
+					self.object:setacceleration({x = 0, y = 0, z = 0})
+					self.object:setvelocity({x = 1, y = -0.22, z = 0})
 				elseif vec and vec.x-p.x < 0 then
-					self.object:setvelocity({x=-1,y=v.y,z=0 })
+					self.object:setacceleration({x = 0, y = 0, z = 0})
+					self.object:setvelocity({x = -1, y = -0.22, z = 0})
 				elseif vec and vec.z-p.z > 0 then
-					self.object:setvelocity({x=0 ,y=v.y,z=1 })
+					self.object:setacceleration({x = 0, y = 0, z = 0})
+					self.object:setvelocity({x = 0, y = -0.22, z = 1})
 				elseif vec and vec.z-p.z < 0 then
-					self.object:setvelocity({x=0 ,y=v.y,z=-1 })
+					self.object:setacceleration({x = 0, y = 0, z = 0})
+					self.object:setvelocity({x = 0, y = -0.22, z = -1})
 				end
-				self.object:setacceleration({x=0, y=-10, z=0})
+
+				self.object:setacceleration({x = 0, y = -10, z = 0})
 				self.physical_state = true
 				self.object:set_properties({
 					physical = true

@@ -141,7 +141,7 @@ end
 minetest.register_on_joinplayer(function(player)
 	default.player_attached[player:get_player_name()] = false
 	default.player_set_model(player, "character.x")
-	player:set_local_animation({x = 0, y =79}, {x = 168, y = 187}, {x = 189, y = 198}, {x = 200, y = 219}, 35)
+	player:set_local_animation({x = 0, y = 40}, {x = 168, y = 187}, {x = 189, y = 198}, {x = 200, y = 219}, 35)
 	
 	-- set GUI
 	if minetest.setting_getbool("creative_mode") then
