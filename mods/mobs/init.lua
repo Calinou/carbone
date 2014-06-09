@@ -248,6 +248,7 @@ mobs:register_mob("mobs:rat", {
 minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
 	inventory_image = "mobs_rat_inventory.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "mobs:rat")

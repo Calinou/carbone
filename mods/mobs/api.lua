@@ -529,6 +529,7 @@ end
 function mobs:register_arrow(name, def)
 	minetest.register_entity(name, {
 		physical = false,
+		collisionbox = {0, 0, 0, 0, 0, 0},
 		visual = def.visual,
 		visual_size = def.visual_size,
 		textures = def.textures,
@@ -538,7 +539,7 @@ function mobs:register_arrow(name, def)
 		
 		on_step = function(self, dtime)
 			local pos = self.object:getpos()
-			if minetest.get_node(self.object:getpos()).name ~= "air" then
+			if minetest.registered_nodes[minetest.get_node(self.object:getpos()).name].walkable then
 				self.hit_node(self, pos, node)
 				self.object:remove()
 				return
