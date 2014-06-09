@@ -2,7 +2,8 @@ minetest.register_entity(":__builtin:item", {
 	initial_properties = {
 		hp_max = 1,
 		physical = true,
-		collisionbox = {-0.17,-0.17,-0.17, 0.17,0.17,0.17},
+		collisionbox = {-0.175, -0.175, -0.175, 0.175, 0.175, 0.175},
+		collide_with_objects = false,
 		visual = "sprite",
 		visual_size = {x=0.5, y=0.5},
 		textures = {""},

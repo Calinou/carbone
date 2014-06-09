@@ -224,6 +224,7 @@ mobs:register_mob("mobs:rat", {
 	type = "animal",
 	hp_max = 1,
 	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.35, 0.25},
+	collide_with_objects = false,
 	visual = "mesh",
 	mesh = "mobs_rat.x",
 	textures = {"mobs_rat.png"},

@@ -672,12 +672,7 @@ minetest.register_node("default:ladder", {
 	walkable = false,
 	climbable = true,
 	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
-	},
+	selection_box = {type = "wallmounted",},
 	groups = {choppy = 2,oddly_breakable_by_hand= 3,flammable= 2},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -835,26 +830,29 @@ minetest.register_node("default:lava_source", {
 
 minetest.register_node("default:torch", {
 	description = "Torch",
-	drawtype = "torchlike",
-	--tiles = {"default_torch_on_floor.png", "default_torch_on_ceiling.png", "default_torch.png"},
+	drawtype = "nodebox",
 	tiles = {
-		{name="default_torch_on_floor_animated.png", animation={type="vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.0}},
-		{name="default_torch_on_ceiling_animated.png", animation={type="vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.0}},
-		{name="default_torch_animated.png", animation={type="vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.0}}
+		{name="default_torch_new_top.png",    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.0}},
+		{name="default_torch_new_bottom.png", animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.0}},
+		{name="default_torch_new_side.png",   animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.0}},
 	},
-	inventory_image = "default_torch_on_floor.png",
-	wield_image = "default_torch_on_floor.png",
+	inventory_image = "default_torch_new_inv.png",
+	wield_image = "default_torch_new_inv.png",
+	wield_scale = {x = 1, y = 1, z = 1.25},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
 	light_source = LIGHT_MAX,
+	node_box = {
+		type = "wallmounted",
+		wall_top    = {-0.0625, -0.0625, -0.0625, 0.0625, 0.5   , 0.0625},
+		wall_bottom = {-0.0625, -0.5   , -0.0625, 0.0625, 0.0625, 0.0625},
+		wall_side   = {-0.5   , -0.5   , -0.0625, -0.375, 0.0625, 0.0625},
+	},
 	selection_box = {
 		type = "wallmounted",
-		wall_top = {-0.1, 0.5-0.6, -0.1, 0.1, 0.5, 0.1},
-		wall_bottom = {-0.1, -0.5, -0.1, 0.1, -0.5+0.6, 0.1},
-		wall_side = {-0.5, -0.3, -0.1, -0.5+0.3, 0.3, 0.1},
 	},
 	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, hot = 2},
 	sounds = default.node_sound_defaults(),
@@ -871,12 +869,7 @@ minetest.register_node("default:sign_wall", {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
-	selection_box = {
-		type = "wallmounted",
-		--wall_top = <default>
-		--wall_bottom = <default>
-		--wall_side = <default>
-	},
+	selection_box = {type = "wallmounted",},
 	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
 	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)

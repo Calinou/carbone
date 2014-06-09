@@ -4,6 +4,7 @@ function mobs:register_mob(name, def)
 		hp_max = def.hp_max,
 		physical = true,
 		collisionbox = def.collisionbox,
+		collide_with_objects = def.collide_with_objects,
 		visual = def.visual,
 		visual_size = def.visual_size,
 		mesh = def.mesh,

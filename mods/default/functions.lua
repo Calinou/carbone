@@ -11,7 +11,7 @@ function default.node_sound_defaults(table)
 	table.dug = table.dug or
 			{name="default_dug_node", gain=0.25}
 	table.place = table.place or
-			{name="default_place_node_hard", gain=1.0}
+			{name="default_dug_node", gain=0.25}
 	return table
 end
 
@@ -21,6 +21,8 @@ function default.node_sound_stone_defaults(table)
 			{name="default_hard_footstep", gain=0.5}
 	table.dug = table.dug or
 			{name="default_hard_footstep", gain=1.0}
+	table.place = table.place or
+			{name="default_hard_footstep", gain=1.0}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -29,12 +31,12 @@ function default.node_sound_dirt_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
 			{name="default_snow_footstep", gain=0.25}
-	table.dug = table.dug or
-			{name="default_snow_footstep", gain=0.5}
 	table.dig = table.dig or
 			{name="default_snow_footstep", gain=0.375}
+	table.dug = table.dug or
+			{name="default_snow_footstep", gain=0.5}
 	table.place = table.place or
-			{name="default_place_node", gain=1.0}
+			{name="default_snow_footstep", gain=0.5}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -43,12 +45,12 @@ function default.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
 			{name="default_snow_footstep", gain=0.25}
-	table.dug = table.dug or
-			{name="default_snow_footstep", gain=0.5}
 	table.dig = table.dig or
 			{name="default_snow_footstep", gain=0.375}
+	table.dug = table.dug or
+			{name="default_snow_footstep", gain=0.5}
 	table.place = table.place or
-			{name="default_place_node", gain=1.0}
+			{name="default_snow_footstep", gain=0.5}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -59,6 +61,8 @@ function default.node_sound_wood_defaults(table)
 			{name="default_wood_footstep", gain=0.5}
 	table.dug = table.dug or
 			{name="default_wood_footstep", gain=1.0}
+	table.place = table.place or
+			{name="default_wood_footstep", gain=1.0}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -67,12 +71,12 @@ function default.node_sound_leaves_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
 			{name="default_grass_footstep", gain=0.4}
-	table.dug = table.dug or
-			{name="default_snow_footstep", gain=0.5}
 	table.dig = table.dig or
 			{name="default_dig_crumbly", gain=0.3}
+	table.dug = table.dug or
+			{name="default_snow_footstep", gain=0.5}
 	table.place = table.place or
-			{name="default_place_node", gain=1.0}
+			{name="default_snow_footstep", gain=0.5}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -82,6 +86,8 @@ function default.node_sound_glass_defaults(table)
 	table.footstep = table.footstep or
 			{name="default_glass_footstep", gain=0.5}
 	table.dug = table.dug or
+			{name="default_break_glass", gain=1.0}
+	table.place = table.place or
 			{name="default_break_glass", gain=1.0}
 	default.node_sound_defaults(table)
 	return table
