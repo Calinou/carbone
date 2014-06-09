@@ -230,7 +230,7 @@ function awards.give_achievement(name,award)
 		-- send the won award message to the player
 		if Use_Formspec == true then
 			-- use a formspec to send it
-			minetest.show_formspec(name, "achievements:unlocked", "size[4,2]"..gui_bg_img..gui_slots..
+			minetest.show_formspec(name, "achievements:unlocked", "size[4,2]".. gui_slots..
 					"image_button_exit[0,0;4,2;"..background..";close1; ]"..
 					"image_button_exit[0.2,0.8;1,1;"..icon..";close2; ]"..
 					"label[1.1,1;"..title.."]"..
