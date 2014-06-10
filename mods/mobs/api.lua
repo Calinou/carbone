@@ -445,8 +445,8 @@ function mobs:register_mob(name, def)
 			self.object:set_armor_groups({fleshy = self.armor})
 			self.object:setacceleration({x = 0, y = -14.5, z = 0})
 			self.state = "stand"
-			self.object:setvelocity({x = 0, y =self.object:getvelocity().y, z = 0})
-			self.object:setyaw(math.random(1, 360) / 180*  math.pi)
+			self.object:setvelocity({x = 0, y = self.object:getvelocity().y, z = 0})
+			self.object:setyaw(math.random(1, 360) / 180 *  math.pi)
 			self.lifetimer = 600 - dtime_s
 			if staticdata then
 				local tmp = minetest.deserialize(staticdata)
@@ -458,6 +458,7 @@ function mobs:register_mob(name, def)
 				end
 			end
 			if self.lifetimer <= 0 and not self.tamed then
+				minetest.log("action", "A mob despawned.")
 				self.object:remove()
 			end
 		end,
@@ -478,10 +479,9 @@ function mobs:register_mob(name, def)
 					minetest.sound_play("player_death", {object = self.object, gain = 0.4})
 					for _,drop in ipairs(self.drops) do
 						if math.random(1, drop.chance) == 1 then
-							hitter:get_inventory():add_item("main", ItemStack(drop.name.." "..math.random(drop.min, drop.max)))
+							hitter:get_inventory():add_item("main", ItemStack(drop.name .. " " .. math.random(drop.min, drop.max)))
 						end
 					end
-					else
 				end
 			end
 		end,
@@ -504,7 +504,7 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 			if not mobs.spawning_mobs[name] then
 				return
 			end
-			pos.y = pos.y+1
+			pos.y = pos.y + 1
 			if not minetest.get_node_light(pos) then
 				return
 			end
@@ -520,11 +520,9 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 			if minetest.get_node(pos).name ~= "air" then
 				return
 			end
-			pos.y = pos.y + 1
 			if spawn_func and not spawn_func(pos, node) then
 				return
 			end
-			
 			if minetest.setting_getbool("display_mob_spawn") then
 				minetest.chat_send_all("*** Spawned " .. name .. " at " .. minetest.pos_to_string(pos) .. ".")
 			end

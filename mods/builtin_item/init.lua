@@ -100,11 +100,12 @@ minetest.register_entity(":__builtin:item", {
 			return
 		end
 	
-		if name == "default:water_source" then
+		--[[ if name == "default:water_source" then
 			self.object:setacceleration({x = 0, y = 4, z = 0})
 		else
 			self.object:setacceleration({x = 0, y = -10, z = 0})
 		end
+		--]]
 		
 		if minetest.registered_nodes[name].liquidtype == "flowing" then
 			get_flowing_dir = function(self)
