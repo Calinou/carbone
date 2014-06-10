@@ -26,7 +26,6 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 	armor = 100,
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 8,
 	light_damage = 1,
 	attack_type = "dogfight",
@@ -69,8 +68,6 @@ mobs:register_mob("mobs:stone_monster", {
 	},
 	armor = 80,
 	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 0,
 	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
@@ -112,7 +109,6 @@ mobs:register_mob("mobs:sand_monster", {
 	},
 	armor = 100,
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 8,
 	light_damage = 1,
 	attack_type = "dogfight",
@@ -139,7 +135,7 @@ mobs:register_mob("mobs:sheep", {
 	mesh = "mobs_sheep.x",
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
+	armor = 100,
 	drops = {
 		{name = "mobs:meat_raw",
 		chance = 1,
@@ -153,7 +149,6 @@ mobs:register_mob("mobs:sheep", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
 	animation = {
 		speed_normal = 17,
 		stand_start = 0,
@@ -172,8 +167,10 @@ mobs:register_mob("mobs:sheep", {
 					clicker:set_wielded_item(item)
 				end
 				self.tamed = true
-			elseif self.naked then
-				if not minetest.setting_getbool("creative_mode") then
+				self.object:set_hp(self.object:get_hp() + 3)
+				if self.object:get_hp() > 15 then self.object:set_hp(15) end
+			else
+				if not minetest.setting_getbool("creative_mode") and self.naked then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -185,6 +182,12 @@ mobs:register_mob("mobs:sheep", {
 						textures = {"mobs_sheep.png"},
 						mesh = "mobs_sheep.x",
 					})
+				end
+				self.object:set_hp(self.object:get_hp() + 3)
+				if self.object:get_hp() > 15 then self.object:set_hp(15) return end
+				if not self.naked then
+					item:take_item()
+					clicker:set_wielded_item(item)
 				end
 			end
 			return
@@ -240,7 +243,6 @@ mobs:register_mob("mobs:rat", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 8,
-	light_damage = 0,
 	follow = "default:scorched_stuff",
 	view_range = 4,
 })
@@ -303,7 +305,6 @@ mobs:register_mob("mobs:oerkki", {
 	},
 	armor = 100,
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 8,
 	light_damage = 1,
 	attack_type = "dogfight",
@@ -350,7 +351,6 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 	armor = 80,
 	drawtype = "front",
-	water_damage = 0,
 	lava_damage = 8,
 	light_damage = 1,
 	disable_fall_damage = true,
@@ -394,7 +394,6 @@ mobs:register_mob("mobs:dungeon_master", {
 	},
 	armor = 60,
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 8,
 	light_damage = 200,
 	on_rightclick = nil,
@@ -485,7 +484,6 @@ mobs:register_mob("mobs:rhino", {
 	},
 	armor = 60,
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 8,
 	light_damage = 1,
 	on_rightclick = nil,
