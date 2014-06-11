@@ -2,18 +2,14 @@ minetest.register_globalstep(function(dtime)
 	for _,player in ipairs(minetest.get_connected_players()) do
 		if player:get_hp() > 0 or not minetest.setting_getbool("enable_damage") then
 			local pos = player:getpos()
-			pos.y = pos.y+0.5
 			local inv = player:get_inventory()
 			
-			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
+			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 0.75)) do
 				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 					if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
 						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 						if object:get_luaentity().itemstring ~= "" then
-							minetest.sound_play("item_drop_pickup", {
-								to_player = player:get_player_name(),
-								gain = 0.3,
-							})
+							minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3,})
 						end
 						object:get_luaentity().itemstring = ""
 						object:remove()
@@ -21,7 +17,7 @@ minetest.register_globalstep(function(dtime)
 				end
 			end
 			
-			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
+			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 0.75)) do
 				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 					if object:get_luaentity().collect then
 						if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
@@ -46,15 +42,12 @@ minetest.register_globalstep(function(dtime)
 								if inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
 									inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 									if object:get_luaentity().itemstring ~= "" then
-										minetest.sound_play("item_drop_pickup", {
-											to_player = player:get_player_name(),
-											gain = 0.3,
-										})
+										minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3,})
 									end
 									object:get_luaentity().itemstring = ""
 									object:remove()
 								else
-									object:setvelocity({x=0,y=0,z=0})
+									object:setvelocity({x = 0,y = 0,z = 0})
 									object:get_luaentity().physical_state = true
 									object:get_luaentity().object:set_properties({
 										physical = true
