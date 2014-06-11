@@ -79,6 +79,24 @@ minetest.register_node("farming:desert_sand_soil_wet", {
 	}
 })
 
+minetest.register_node("farming:hay_block", {
+	description = "Hay Block",
+	tiles = {"farming_hay_block.png"},
+	paramtype2 = "facedir",
+	drop = "farming:wheat 9",
+	groups = {crumbly = 3},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_craft({
+	output = "farming:hay_block",
+	recipe = {
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+	}
+})
+
 minetest.register_abm({
 	nodenames = {"group:soil", "group:wet"},
 	interval = 5,
