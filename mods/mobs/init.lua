@@ -7,7 +7,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
 	textures = {"mobs_dirt_monster.png"},
-	visual_size = {x=3, y=2.6},
+	visual_size = {x= 3, y = 2.6},
 	makes_footstep_sound = true,
 	view_range = 12,
 	walk_velocity = 1,
@@ -50,7 +50,7 @@ mobs:register_mob("mobs:stone_monster", {
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
 	textures = {"mobs_stone_monster.png"},
-	visual_size = {x=3, y=2.6},
+	visual_size = {x= 3, y = 2.6},
 	makes_footstep_sound = true,
 	view_range = 16,
 	walk_velocity = 0.25,
@@ -91,7 +91,7 @@ mobs:register_mob("mobs:sand_monster", {
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
 	textures = {"mobs_sand_monster.png"},
-	visual_size = {x=8,y=8},
+	visual_size = {x=8,y =8},
 	makes_footstep_sound = true,
 	view_range = 20,
 	walk_velocity = 2.125,
@@ -196,6 +196,8 @@ mobs:register_mob("mobs:sheep", {
 			self.naked = true
 			if minetest.registered_items["wool:white"] then
 				clicker:get_inventory():add_item("main", ItemStack("wool:white 2"))
+				clicker:get_inventory():add_item("main", ItemStack("maptools:copper_coin"))
+				minetest.sound_play("default_snow_footstep", {object = self.object, gain = 0.5,})
 			end
 			self.object:set_properties({
 				textures = {"mobs_sheep_shaved.png"},
@@ -287,7 +289,7 @@ mobs:register_mob("mobs:oerkki", {
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
 	textures = {"mobs_oerkki.png"},
-	visual_size = {x=5, y=5},
+	visual_size = {x=5, y =5},
 	makes_footstep_sound = false,
 	view_range = 16,
 	walk_velocity = 0.5,
@@ -329,7 +331,7 @@ mobs:register_mob("mobs:tree_monster", {
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
 	textures = {"mobs_tree_monster.png"},
-	visual_size = {x=4.5,y=4.5},
+	visual_size = {x= 4.5,y = 4.5},
 	makes_footstep_sound = true,
 	view_range = 32,
 	walk_velocity = 0,
@@ -376,7 +378,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
 	textures = {"mobs_dungeon_master.png"},
-	visual_size = {x=8, y=8},
+	visual_size = {x=8, y =8},
 	makes_footstep_sound = true,
 	view_range = 12,
 	walk_velocity = 0.15,
@@ -417,23 +419,23 @@ mobs:register_mob("mobs:dungeon_master", {
 
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
-	visual_size = {x=1, y=1},
-	--textures = {{name="mobs_fireball.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.5}}}, FIXME
+	visual_size = {x= 1, y = 1},
+	--textures = {{name="mobs_fireball.png", animation= {type="vertical_frames", aspect_w= 16, aspect_h= 16, length= 0.5}}}, FIXME
 	textures = {"mobs_fireball.png"},
 	velocity = 10,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
-		local vec = {x=s.x-p.x, y=s.y-p.y, z=s.z-p.z}
+		local vec = {x=s.x-p.x, y =s.y-p.y, z=s.z-p.z}
 		player:punch(self.object, 1.0,  {
-			full_punch_interval=1.0,
-			damage_groups = {fleshy=12},
+			full_punch_interval= 1.0,
+			damage_groups = {fleshy = 12},
 		}, vec)
 		local pos = self.object:getpos()
 		for dx=-1,1 do
-			for dy=-1,1 do
+			for dy =-1,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
 						minetest.dig_node(p)
@@ -445,9 +447,9 @@ mobs:register_arrow("mobs:fireball", {
 	end,
 	hit_node = function(self, pos, node)
 		for dx=-1,1 do
-			for dy=-2,1 do
+			for dy =-2,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
 						minetest.dig_node(p)
@@ -466,7 +468,7 @@ mobs:register_mob("mobs:rhino", {
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
 	textures = {"mobs_rhino.png"},
-	visual_size = {x=8, y=8},
+	visual_size = {x=8, y =8},
 	makes_footstep_sound = true,
 	view_range = 10,
 	walk_velocity = 1,
@@ -509,22 +511,22 @@ mobs:register_mob("mobs:rhino", {
 
 mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
-	visual_size = {x=0.75, y=0.75},
+	visual_size = {x= 0.75, y = 0.75},
 	textures = {"mobs_bullet.png"},
 	velocity = 30,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
-		local vec = {x=s.x-p.x, y=s.y-p.y, z=s.z-p.z}
+		local vec = {x=s.x-p.x, y =s.y-p.y, z=s.z-p.z}
 		player:punch(self.object, 1.0,  {
-			full_punch_interval=1.0,
-			damage_groups = {fleshy=3},
+			full_punch_interval= 1.0,
+			damage_groups = {fleshy = 3},
 		}, vec)
 		local pos = self.object:getpos()
 		for dx=-1,1 do
-			for dy=-1,1 do
+			for dy =-1,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
 					local n = minetest.get_node(pos).name
 				end
 			end
@@ -532,9 +534,9 @@ mobs:register_arrow("mobs:bullet", {
 	end,
 	hit_node = function(self, pos, node)
 		for dx=-1,1 do
-			for dy=-2,1 do
+			for dy =-2,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
+					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
 					local n = minetest.get_node(pos).name
 				end
 			end

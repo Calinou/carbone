@@ -2007,3 +2007,26 @@ minetest.register_node("default:snowblock", {
 		dug = {name="default_snow_footstep", gain = 0.65},
 	}),
 })
+
+if minetest.setting_getbool("xray") then
+	minetest.override_item("default:stone", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:stone_with_coal", {tiles = {"default_mineral_coal.png"},})
+	minetest.override_item("default:stone_with_iron", {tiles = {"default_mineral_iron.png"},})
+	minetest.override_item("default:stone_with_copper", {tiles = {"default_mineral_copper.png"},})
+	minetest.override_item("default:stone_with_gold", {tiles = {"default_mineral_gold.png"},})
+	minetest.override_item("default:stone_with_mese", {tiles = {"default_mineral_mese.png"},})
+	minetest.override_item("default:stone_with_diamond", {tiles = {"default_mineral_diamond.png"},})
+	minetest.override_item("default:stone_with_coin", {tiles = {"maptools_gold_coin.png"},})
+	minetest.override_item("default:dirt", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:dirt_with_grass", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:dirt_with_grass_footsteps", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:water_source", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:water_flowing", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:leaves", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:jungleleaves", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:gravel", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:sand", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:desert_sand", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:desert_stone", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:cobble", {drawtype = "airlike", pointable = false,})
+end
