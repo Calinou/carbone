@@ -4,8 +4,8 @@ ARMOR_BONES_DELAY = 1
 ARMOR_UPDATE_TIME = 1
 ARMOR_DROP = true
 ARMOR_DESTROY = false
-ARMOR_LEVEL_MULTIPLIER = 1
-ARMOR_HEAL_MULTIPLIER = 1
+ARMOR_LEVEL_MULTIPLIER = 0.65
+ARMOR_HEAL_MULTIPLIER = 0
 
 local modpath = minetest.get_modpath(ARMOR_MOD_NAME)
 local input = io.open(modpath.."/armor.conf", "r")
