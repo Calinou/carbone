@@ -1970,6 +1970,7 @@ minetest.register_node("default:snow", {
 	is_ground_content = true,
 	paramtype = "light",
 	sunlight_propagates = true,
+	walkable = false,
 	buildable_to = true,
 	leveled = 7,
 	drawtype = "nodebox",
