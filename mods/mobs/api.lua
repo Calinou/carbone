@@ -490,7 +490,7 @@ function mobs:register_mob(name, def)
 end
 
 mobs.spawning_mobs = {}
-function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_object_count, max_height, spawn_func)
+function mobs:register_spawn(name, description, nodes, max_light, min_light, chance, active_object_count, max_height, spawn_func)
 	mobs.spawning_mobs[name] = true
 	minetest.register_abm({
 		nodenames = nodes,
@@ -524,9 +524,9 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 				return
 			end
 			if minetest.setting_getbool("display_mob_spawn") then
-				minetest.chat_send_all("*** Spawned " .. name .. " at " .. minetest.pos_to_string(pos) .. ".")
+				minetest.chat_send_all("*** Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
 			end
-			minetest.log("action", "Spawned " .. name .. " at " .. minetest.pos_to_string(pos) .. ".")
+			minetest.log("action", "Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
 			minetest.add_entity(pos, name)
 		end
 	})
