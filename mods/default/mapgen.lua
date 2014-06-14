@@ -414,7 +414,7 @@ function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume
 					local z2 = z0+z1
 					local p2 = {x=x2, y =y2, z=z2}
 					if minetest.get_node(p2).name == wherein then
-						minetest.set_node(p2, {name=name})
+						minetest.set_node(p2, {name = name})
 					end
 				end
 			end
@@ -427,11 +427,11 @@ end
 
 function default.make_papyrus(pos, size)
 	for y = 0,size-1 do
-		local p = {x=pos.x, y =pos.y+y, z=pos.z}
+		local p = {x= pos.x, y = pos.y+y, z= pos.z}
 		local nn = minetest.get_node(p).name
 		if minetest.registered_nodes[nn] and
 			minetest.registered_nodes[nn].buildable_to then
-			minetest.set_node(p, {name="default:papyrus"})
+			minetest.set_node(p, {name = "default:papyrus"})
 		else
 			return
 		end
@@ -440,11 +440,11 @@ end
 
 function default.make_cactus(pos, size)
 	for y = 0,size-1 do
-		local p = {x=pos.x, y =pos.y+y, z=pos.z}
+		local p = {x= pos.x, y = pos.y+y, z= pos.z}
 		local nn = minetest.get_node(p).name
 		if minetest.registered_nodes[nn] and
 			minetest.registered_nodes[nn].buildable_to then
-			minetest.set_node(p, {name="default:cactus"})
+			minetest.set_node(p, {name = "default:cactus"})
 		else
 			return
 		end
@@ -468,13 +468,13 @@ function default.make_nyancat(pos, facedir, length)
 		facedir = 0
 		tailvec.z = 1
 	end
-	local p = {x=pos.x, y =pos.y, z=pos.z}
-	minetest.set_node(p, {name="default:nyancat", param2=facedir})
+	local p = {x= pos.x, y = pos.y, z= pos.z}
+	minetest.set_node(p, {name = "default:nyancat", param2=facedir})
 	minetest.log("action", "Generated a nyan cat at " .. minetest.pos_to_string(p) .. ".")
 	for i= 1,length do
 		p.x = p.x + tailvec.x
 		p.z = p.z + tailvec.z
-		minetest.set_node(p, {name="default:nyancat_rainbow", param2=facedir})
+		minetest.set_node(p, {name = "default:nyancat_rainbow", param2=facedir})
 	end
 end
 
@@ -596,11 +596,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						nn = minetest.get_node({x=x,y =ground_y,z=z}).name
 						-- If desert sand, add dry shrub
 						if nn == "default:desert_sand" then
-							minetest.set_node(p,{name="default:dry_shrub"})
+							minetest.set_node(p,{name = "default:dry_shrub"})
 							
 						-- If dirt with grass, add grass
 						elseif nn == "default:dirt_with_grass" then
-							minetest.set_node(p,{name="default:grass_"..pr:next(1, 5)})
+							minetest.set_node(p,{name = "default:grass_"..pr:next(1, 5)})
 						end
 					end
 				end

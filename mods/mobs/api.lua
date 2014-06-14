@@ -273,7 +273,7 @@ function mobs:register_mob(name, def)
 						self.following = nil
 						self.v_start = false
 					else
-						local vec = {x =p.x -s.x, y =p.y -s.y, z =p.z -s.z}
+						local vec = {x = p.x -s.x, y = p.y -s.y, z = p.z -s.z}
 						local yaw = math.atan(vec.z/vec.x)+math.pi/2
 						if self.drawtype == "side" then
 							yaw = yaw+(math.pi/2)
@@ -345,14 +345,14 @@ function mobs:register_mob(name, def)
 					self.state = "stand"
 					self.v_start = false
 					self.set_velocity(self, 0)
-					self.attack = {player=nil, dist=nil}
+					self.attack = {player= nil, dist= nil}
 					self:set_animation("stand")
 					return
 				else
 					self.attack.dist = dist
 				end
 				
-				local vec = {x =p.x -s.x, y =p.y -s.y, z =p.z -s.z}
+				local vec = {x = p.x -s.x, y = p.y -s.y, z = p.z -s.z}
 				local yaw = math.atan(vec.z/vec.x)+math.pi/2
 				if self.drawtype == "side" then
 					yaw = yaw+(math.pi/2)
@@ -407,7 +407,7 @@ function mobs:register_mob(name, def)
 					self.attack.dist = dist
 				end
 				
-				local vec = {x =p.x -s.x, y =p.y -s.y, z =p.z -s.z}
+				local vec = {x = p.x -s.x, y = p.y -s.y, z = p.z -s.z}
 				local yaw = math.atan(vec.z/vec.x)+math.pi/2
 				if self.drawtype == "side" then
 					yaw = yaw+(math.pi/2)

@@ -420,7 +420,7 @@ mobs:register_mob("mobs:dungeon_master", {
 mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
 	visual_size = {x= 1, y = 1},
-	--textures = {{name="mobs_fireball.png", animation= {type="vertical_frames", aspect_w= 16, aspect_h= 16, length= 0.5}}}, FIXME
+	--textures = {{name = "mobs_fireball.png", animation= {type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 0.5}}}, FIXME
 	textures = {"mobs_fireball.png"},
 	velocity = 10,
 	hit_player = function(self, player)
@@ -435,7 +435,7 @@ mobs:register_arrow("mobs:fireball", {
 		for dx=-1,1 do
 			for dy =-1,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
+					local p = {x= pos.x+dx, y = pos.y+dy, z= pos.z+dz}
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
 						minetest.dig_node(p)
@@ -449,7 +449,7 @@ mobs:register_arrow("mobs:fireball", {
 		for dx=-1,1 do
 			for dy =-2,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
+					local p = {x= pos.x+dx, y = pos.y+dy, z= pos.z+dz}
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock" and n ~= "default:chest_locked" and n ~= "bones:bones" and n ~= "default:chest" and n ~= "default:furnace" then
 						minetest.dig_node(p)
@@ -526,7 +526,7 @@ mobs:register_arrow("mobs:bullet", {
 		for dx=-1,1 do
 			for dy =-1,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
+					local p = {x= pos.x+dx, y = pos.y+dy, z= pos.z+dz}
 					local n = minetest.get_node(pos).name
 				end
 			end
@@ -536,7 +536,7 @@ mobs:register_arrow("mobs:bullet", {
 		for dx=-1,1 do
 			for dy =-2,1 do
 				for dz=-1,1 do
-					local p = {x=pos.x+dx, y =pos.y+dy, z=pos.z+dz}
+					local p = {x= pos.x+dx, y = pos.y+dy, z= pos.z+dz}
 					local n = minetest.get_node(pos).name
 				end
 			end
