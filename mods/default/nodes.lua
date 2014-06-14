@@ -63,7 +63,7 @@ minetest.register_node("default:stone_with_iron", {
 	description = "Iron Ore",
 	tiles = {"default_stone.png^default_mineral_iron.png"},
 	is_ground_content = true,
-	groups = {cracky = 2},
+	groups = {cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
@@ -78,7 +78,7 @@ minetest.register_node("default:stone_with_copper", {
 	description = "Copper Ore",
 	tiles = {"default_stone.png^default_mineral_copper.png"},
 	is_ground_content = true,
-	groups = {cracky = 2},
+	groups = {cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
@@ -89,11 +89,26 @@ minetest.register_node("default:stone_with_copper", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("default:stone_with_tin", {
+	description = "Tin Ore",
+	tiles = {"default_stone.png^default_mineral_tin.png"},
+	is_ground_content = true,
+	groups = {cracky = 3},
+	drop = {
+		items = {
+			{items = {"default:cobble"},},
+			{items = {"default:tin_lump"},},
+			{items = {"maptools:copper_coin 2"},},
+		},
+	},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("default:stone_with_mese", {
 	description = "Mese Ore",
 	tiles = {"default_stone.png^default_mineral_mese.png"},
 	is_ground_content = true,
-	groups = {cracky = 1},
+	groups = {cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
@@ -104,11 +119,26 @@ minetest.register_node("default:stone_with_mese", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("default:stone_with_silver", {
+	description = "Silver Ore",
+	tiles = {"default_stone.png^default_mineral_silver.png"},
+	is_ground_content = true,
+	groups = {cracky = 3},
+	drop = {
+		items = {
+			{items = {"default:cobble"},},
+			{items = {"default:silver_lump"},},
+			{items = {"maptools:copper_coin 3"},},
+		},
+	},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("default:stone_with_gold", {
 	description = "Gold Ore",
 	tiles = {"default_stone.png^default_mineral_gold.png"},
 	is_ground_content = true,
-	groups = {cracky = 2},
+	groups = {cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
@@ -123,7 +153,7 @@ minetest.register_node("default:stone_with_diamond", {
 	description = "Diamond Ore",
 	tiles = {"default_stone.png^default_mineral_diamond.png"},
 	is_ground_content = true,
-	groups = {cracky = 1},
+	groups = {cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
@@ -152,7 +182,7 @@ minetest.register_node("default:dirt_with_grass", {
 	description = "Dirt with Grass",
 	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
 	is_ground_content = true,
-	groups = {crumbly = 3,soil= 1},
+	groups = {crumbly = 3, soil = 1},
 	drop = {
 		items = {
 			{items = {"default:dirt"},},
@@ -168,7 +198,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 	description = "Dirt with Grass and Footsteps",
 	tiles = {"default_grass_footsteps.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
 	is_ground_content = true,
-	groups = {crumbly = 3,soil= 1,not_in_creative_inventory = 1},
+	groups = {crumbly = 3, soil = 1,not_in_creative_inventory = 1},
 	drop = {
 		items = {
 			{items = {"default:dirt"},},
@@ -207,7 +237,7 @@ minetest.register_node("default:dirt", {
 			{items = {"maptools:copper_coin"}, rarity = 32},
 		},
 	},
-	groups = {crumbly = 3,soil= 1},
+	groups = {crumbly = 3, soil = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -393,7 +423,7 @@ minetest.register_node("default:jungleleaves", {
 	waving = 1,
 	is_ground_content = false,
 	walkable = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves= 1},
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -456,7 +486,7 @@ minetest.register_node("default:leaves", {
 	waving = 1,
 	walkable = false,
 	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves= 1},
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -657,7 +687,7 @@ minetest.register_node("default:fence_steelblock", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -725,7 +755,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:snow",
 	post_effect_color = {a=70, r= 20, g=70, b=80},
-	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes= 1, melt_around = 1},
+	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes = 1, melt_around = 1},
 })
 
 minetest.register_node("default:water_source", {
@@ -757,7 +787,7 @@ minetest.register_node("default:water_source", {
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:ice",
 	post_effect_color = {a = 70, r = 20, g = 70, b = 80},
-	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes= 1},
+	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
 })
 
 minetest.register_node("default:lava_flowing", {
@@ -1112,7 +1142,7 @@ minetest.register_node("default:furnace", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		if listname == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1134,7 +1164,7 @@ minetest.register_node("default:furnace", {
 		local inv = meta:get_inventory()
 		local stack = inv:get_stack(from_list, from_index)
 		if to_list == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1209,7 +1239,7 @@ minetest.register_node("default:furnace_active", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		if listname == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1231,7 +1261,7 @@ minetest.register_node("default:furnace_active", {
 		local inv = meta:get_inventory()
 		local stack = inv:get_stack(from_list, from_index)
 		if to_list == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1691,7 +1721,15 @@ minetest.register_node("default:steelblock", {
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tinblock", {
+	description = "Tin Block",
+	tiles = {"default_tin_block.png"},
+	is_ground_content = true,
+	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1699,7 +1737,7 @@ minetest.register_node("default:copperblock", {
 	description = "Copper Block",
 	tiles = {"default_copper_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1707,7 +1745,7 @@ minetest.register_node("default:bronzeblock", {
 	description = "Bronze Block",
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1721,10 +1759,18 @@ minetest.register_node("default:mese", {
 			{items = {"maptools:silver_coin"}, rarity = 32},
 		},
 	},
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2, fall_damage_add_percent = -75},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_alias("default:mese_block", "default:mese")
+
+minetest.register_node("default:silverblock", {
+	description = "Silver Block",
+	tiles = {"default_silver_block.png"},
+	is_ground_content = true,
+	groups = {cracky = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
 
 minetest.register_node("default:goldblock", {
 	description = "Gold Block",
@@ -1738,7 +1784,7 @@ minetest.register_node("default:diamondblock", {
 	description = "Diamond Block",
 	tiles = {"default_diamond_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1,level= 3},
+	groups = {cracky = 1, level = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1758,7 +1804,7 @@ minetest.register_node("default:obsidian", {
 	tiles = {"default_obsidian.png"},
 	is_ground_content = true,
 	sounds = default.node_sound_stone_defaults(),
-	groups = {cracky = 1,level= 2},
+	groups = {cracky = 1, level = 2},
 })
 
 minetest.register_node("default:nyancat", {
@@ -1782,6 +1828,7 @@ minetest.register_node("default:nyancat_rainbow", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	light_source = LIGHT_MAX,
+	sunlight_propagates = true,
 	walkable = false,
 	use_texture_alpha = true,
 	climbable = true,
@@ -1823,7 +1870,7 @@ minetest.register_node("default:apple", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 	},
-	groups = {fleshy = 3,dig_immediate = 3,flammable = 2,leafdecay = 3,leafdecay_drop= 1},
+	groups = {fleshy = 3,dig_immediate = 3,flammable = 2, leafdecay = 3, leafdecay_drop= 1},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -1955,11 +2002,13 @@ minetest.register_node("default:grass_5", {
 
 minetest.register_node("default:ice", {
 	description = "Ice",
+	drawtype = "glasslike",
 	tiles = {"default_ice.png"},
-	is_ground_content = true,
 	paramtype = "light",
+	is_ground_content = true,
+	use_texture_alpha = true,
 	freezemelt = "default:water_source",
-	groups = {cracky = 3, melts= 1},
+	groups = {cracky = 3, melts = 1},
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -2003,7 +2052,7 @@ minetest.register_node("default:snowblock", {
 	tiles = {"default_snow.png"},
 	is_ground_content = true,
 	freezemelt = "default:water_source",
-	groups = {crumbly = 3, melts= 1},
+	groups = {crumbly = 3, melts = 1},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name = "default_snow_footstep", gain = 0.25},
 		dug = {name = "default_snow_footstep", gain = 0.65},
@@ -2011,24 +2060,27 @@ minetest.register_node("default:snowblock", {
 })
 
 if minetest.setting_getbool("xray") then
-	minetest.override_item("default:stone", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:stone_with_coal", {tiles = {"default_mineral_coal.png"},})
-	minetest.override_item("default:stone_with_iron", {tiles = {"default_mineral_iron.png"},})
-	minetest.override_item("default:stone_with_copper", {tiles = {"default_mineral_copper.png"},})
-	minetest.override_item("default:stone_with_gold", {tiles = {"default_mineral_gold.png"},})
-	minetest.override_item("default:stone_with_mese", {tiles = {"default_mineral_mese.png"},})
-	minetest.override_item("default:stone_with_diamond", {tiles = {"default_mineral_diamond.png"},})
-	minetest.override_item("default:stone_with_coin", {tiles = {"maptools_gold_coin.png"},})
-	minetest.override_item("default:dirt", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:dirt_with_grass", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:stone_with_coal",           {tiles = {"default_mineral_coal.png"},})
+	minetest.override_item("default:stone_with_iron",           {tiles = {"default_mineral_iron.png"},})
+	minetest.override_item("default:stone_with_tin",            {tiles = {"default_mineral_tin.png"},})
+	minetest.override_item("default:stone_with_copper",         {tiles = {"default_mineral_copper.png"},})
+	minetest.override_item("default:stone_with_silver",         {tiles = {"default_mineral_silver.png"},})
+	minetest.override_item("default:stone_with_gold",           {tiles = {"default_mineral_gold.png"},})
+	minetest.override_item("default:stone_with_mese",           {tiles = {"default_mineral_mese.png"},})
+	minetest.override_item("default:stone_with_diamond",        {tiles = {"default_mineral_diamond.png"},})
+	minetest.override_item("default:stone_with_coin",           {tiles = {"maptools_gold_coin.png"},})
+	
+	minetest.override_item("default:stone",                     {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:dirt",                      {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:dirt_with_grass",           {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt_with_grass_footsteps", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:water_source", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:water_flowing", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:leaves", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:jungleleaves", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:gravel", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:sand", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:desert_sand", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:desert_stone", {drawtype = "airlike", pointable = false,})
-	minetest.override_item("default:cobble", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:water_source",              {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:water_flowing",             {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:leaves",                    {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:jungleleaves",              {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:gravel",                    {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:sand",                      {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:desert_sand",               {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:desert_stone",              {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:cobble",                    {drawtype = "airlike", pointable = false,})
 end

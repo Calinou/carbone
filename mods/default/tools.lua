@@ -29,7 +29,7 @@ minetest.register_tool("default:pick_wood", {
 		full_punch_interval = 1.2,
 		max_drop_level = 0,
 		groupcaps = {
-			cracky = {times = {[3] = 1.35}, uses = 20, maxlevel= 1},
+			cracky = {times = {[3] = 1.3}, uses = 20, maxlevel= 1},
 		},
 		damage_groups = {fleshy = 3},
 	},
@@ -41,7 +41,7 @@ minetest.register_tool("default:pick_stone", {
 		full_punch_interval = 1.2,
 		max_drop_level = 0,
 		groupcaps = {
-			cracky = {times = {[2] = 1.70, [3] = 1.05}, uses = 20, maxlevel= 1},
+			cracky = {times = {[2] = 1.70, [3] = 1.0}, uses = 20, maxlevel= 1},
 		},
 		damage_groups = {fleshy = 3},
 	},
