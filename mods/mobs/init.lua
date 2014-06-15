@@ -10,8 +10,8 @@ mobs:register_mob("mobs:dirt_monster", {
 	visual_size = {x= 3, y = 2.6},
 	makes_footstep_sound = true,
 	view_range = 12,
-	walk_velocity = 1,
-	run_velocity = 3,
+	walk_velocity = 1.1,
+	run_velocity = 2.6,
 	on_rightclick = nil,
 	damage = 4,
 	drops = {
@@ -30,8 +30,8 @@ mobs:register_mob("mobs:dirt_monster", {
 	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 17,
-		speed_run = 60,
+		speed_normal = 18,
+		speed_run = 50,
 		stand_start = 0,
 		stand_end = 14,
 		walk_start = 15,
@@ -53,8 +53,8 @@ mobs:register_mob("mobs:stone_monster", {
 	visual_size = {x= 3, y = 2.6},
 	makes_footstep_sound = true,
 	view_range = 16,
-	walk_velocity = 0.25,
-	run_velocity = 2,
+	walk_velocity = 0.4,
+	run_velocity = 1.8,
 	damage = 6,
 	drops = {
 		{name = "default:stone",
@@ -71,8 +71,8 @@ mobs:register_mob("mobs:stone_monster", {
 	light_damage = 1,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 7,
-		speed_run = 45,
+		speed_normal = 8,
+		speed_run = 40,
 		stand_start = 0,
 		stand_end = 14,
 		walk_start = 15,
@@ -94,8 +94,8 @@ mobs:register_mob("mobs:sand_monster", {
 	visual_size = {x=8,y =8},
 	makes_footstep_sound = true,
 	view_range = 20,
-	walk_velocity = 2.125,
-	run_velocity = 4,
+	walk_velocity = 1.8,
+	run_velocity = 3.6,
 	damage = 2,
 	drops = {
 		{name = "default:sand",
@@ -114,7 +114,7 @@ mobs:register_mob("mobs:sand_monster", {
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 35,
-		speed_run = 50,
+		speed_run = 45,
 		stand_start = 0,
 		stand_end = 39,
 		walk_start = 41,
@@ -234,7 +234,7 @@ mobs:register_mob("mobs:rat", {
 	mesh = "mobs_rat.x",
 	textures = {"mobs_rat.png"},
 	makes_footstep_sound = false,
-	walk_velocity = 1,
+	walk_velocity = 0.8,
 	armor = 200,
 	drops = {
 		{name = "mobs:rat",
@@ -293,7 +293,7 @@ mobs:register_mob("mobs:oerkki", {
 	makes_footstep_sound = false,
 	view_range = 16,
 	walk_velocity = 0.5,
-	run_velocity = 3.25,
+	run_velocity = 3,
 	damage = 5,
 	drops = {
 		{name = "default:obsidian",
@@ -320,7 +320,7 @@ mobs:register_mob("mobs:oerkki", {
 		punch_start = 37,
 		punch_end = 49,
 		speed_normal = 10,
-		speed_run = 20,
+		speed_run = 18,
 	},
 })
 
@@ -358,8 +358,8 @@ mobs:register_mob("mobs:tree_monster", {
 	disable_fall_damage = true,
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 15,
-		speed_run = 15,
+		speed_normal = 8,
+		speed_run = 20,
 		stand_start = 0,
 		stand_end = 24,
 		walk_start = 25,
@@ -381,7 +381,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	visual_size = {x=8, y =8},
 	makes_footstep_sound = true,
 	view_range = 12,
-	walk_velocity = 0.15,
+	walk_velocity = 0.4,
 	run_velocity = 2,
 	damage = 4,
 	drops = {
@@ -412,7 +412,7 @@ mobs:register_mob("mobs:dungeon_master", {
 		walk_end = 35,
 		punch_start = 36,
 		punch_end = 48,
-		speed_normal = 5,
+		speed_normal = 8,
 		speed_run = 5,
 	},
 })
@@ -471,8 +471,8 @@ mobs:register_mob("mobs:rhino", {
 	visual_size = {x=8, y =8},
 	makes_footstep_sound = true,
 	view_range = 10,
-	walk_velocity = 1,
-	run_velocity = 2.5,
+	walk_velocity = 1.2,
+	run_velocity = 2.4,
 	damage = 4,
 	drops = {
 		{name = "default:steel_ingot",
@@ -496,7 +496,7 @@ mobs:register_mob("mobs:rhino", {
 		attack = "mobs_bullet",
 	},
 	animation = {
-		speed_normal = 20,
+		speed_normal = 25,
 		speed_run = 45,
 		stand_start = 0,
 		stand_end = 39,

@@ -112,7 +112,7 @@ minetest.register_on_dieplayer(function(player)
 	minetest.pos_to_string(pos) .. ".")
 	
 	-- Don't do anything below in creative mode or on players without interact.
-	if minetest.setting_getbool("creative_mode")
+	if minetest.setting_getbool("creative_mode") or minetest.setting_getbool("keep_items_on_death")
 	or not minetest.check_player_privs(player_name, {interact = true}) then return end
 
 	local nn = minetest.get_node(pos).name

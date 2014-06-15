@@ -463,6 +463,22 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "default:tinblock",
+	recipe = {
+		{"default:tin_ingot", "default:tin_ingot", "default:tin_ingot"},
+		{"default:tin_ingot", "default:tin_ingot", "default:tin_ingot"},
+		{"default:tin_ingot", "default:tin_ingot", "default:tin_ingot"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:tin_ingot 9",
+	recipe = {
+		{"default:tinblock"},
+	}
+})
+
+minetest.register_craft({
 	output = "default:copperblock",
 	recipe = {
 		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
@@ -491,6 +507,22 @@ minetest.register_craft({
 	output = "default:bronze_ingot 9",
 	recipe = {
 		{"default:bronzeblock"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:silverblock",
+	recipe = {
+		{"default:silver_ingot", "default:silver_ingot", "default:silver_ingot"},
+		{"default:silver_ingot", "default:silver_ingot", "default:silver_ingot"},
+		{"default:silver_ingot", "default:silver_ingot", "default:silver_ingot"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:silver_ingot 9",
+	recipe = {
+		{"default:silverblock"},
 	}
 })
 

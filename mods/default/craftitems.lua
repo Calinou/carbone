@@ -67,6 +67,11 @@ minetest.register_craftitem("default:steel_ingot", {
 	inventory_image = "default_steel_ingot.png",
 })
 
+minetest.register_craftitem("default:tin_ingot", {
+	description = "Tin Ingot",
+	inventory_image = "default_tin_ingot.png",
+})
+
 minetest.register_craftitem("default:copper_ingot", {
 	description = "Copper Ingot",
 	inventory_image = "default_copper_ingot.png",
@@ -75,6 +80,11 @@ minetest.register_craftitem("default:copper_ingot", {
 minetest.register_craftitem("default:bronze_ingot", {
 	description = "Bronze Ingot",
 	inventory_image = "default_bronze_ingot.png",
+})
+
+minetest.register_craftitem("default:silver_ingot", {
+	description = "Silver Ingot",
+	inventory_image = "default_silver_ingot.png"
 })
 
 minetest.register_craftitem("default:gold_ingot", {

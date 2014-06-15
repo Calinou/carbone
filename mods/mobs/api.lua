@@ -287,7 +287,7 @@ function mobs:register_mob(name, def)
 								self.v_start = true
 								self.set_velocity(self, self.walk_velocity)
 							else
-								if self.get_velocity(self) <= 0.25 and self.object:getvelocity().y == 0 then
+								if self.get_velocity(self) <= 0.38 and self.object:getvelocity().y == 0 then
 									local v = self.object:getvelocity()
 									v.y = 6
 									self.object:setvelocity(v)
@@ -320,7 +320,7 @@ function mobs:register_mob(name, def)
 				if math.random(1, 100) <= 30 then
 					self.object:setyaw(self.object:getyaw()+((math.random(0,360)- 14.50)/180*math.pi))
 				end
-				if self.get_velocity(self) <= 0.25 and self.object:getvelocity().y == 0 then
+				if self.get_velocity(self) <= 0.38 and self.object:getvelocity().y == 0 then
 					local v = self.object:getvelocity()
 					v.y = 6
 					self.object:setvelocity(v)
@@ -366,7 +366,7 @@ function mobs:register_mob(name, def)
 						self.v_start = true
 						self.set_velocity(self, self.run_velocity)
 					else
-						if self.get_velocity(self) <= 1.5 and self.object:getvelocity().y == 0 then
+						if self.get_velocity(self) <= 1.58 and self.object:getvelocity().y == 0 then
 							local v = self.object:getvelocity()
 							v.y = 6
 							self.object:setvelocity(v)

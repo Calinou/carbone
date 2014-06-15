@@ -368,18 +368,18 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:dirt",
 	wherein        = "default:stone",
-	clust_scarcity = 12 * 12 * 12,
+	clust_scarcity = 14 * 14 * 14,
 	clust_num_ores = 64,
 	clust_size     = 5,
 	height_max     = 30000,
-	height_min     = -30000,
+	height_min     = -4096,
 })
 
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:gravel",
 	wherein        = "default:stone",
-	clust_scarcity = 12 * 12 * 12,
+	clust_scarcity = 14 * 14 * 14,
 	clust_num_ores = 64,
 	clust_size     = 5,
 	height_max     = 30000,
@@ -391,11 +391,23 @@ minetest.register_ore({
 	ore            = "default:sand",
 	wherein        = "default:stone",
 	clust_scarcity = 20 * 20 * 20,
-	clust_num_ores = 64,
-	clust_size     = 5,
+	clust_num_ores = 32,
+	clust_size     = 4,
 	height_max     = 30000,
-	height_min     = -30000,
+	height_min     = -1024,
 })
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:clay",
+	wherein        = "default:stone",
+	clust_scarcity = 22 * 22 * 22,
+	clust_num_ores = 32,
+	clust_size     = 4,
+	height_max     = 30000,
+	height_min     = -1024,
+})
+
 
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -405,7 +417,7 @@ minetest.register_ore({
 	clust_num_ores = 512,
 	clust_size     = 9,
 	height_max     = 30000,
-	height_min     = -30000,
+	height_min     = -4096,
 })
 
 minetest.register_ore({
