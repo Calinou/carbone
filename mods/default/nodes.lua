@@ -198,7 +198,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 	description = "Dirt with Grass and Footsteps",
 	tiles = {"default_grass_footsteps.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
 	is_ground_content = true,
-	groups = {crumbly = 3, soil = 1,not_in_creative_inventory = 1},
+	groups = {crumbly = 3, soil = 1, not_in_creative_inventory = 1},
 	drop = {
 		items = {
 			{items = {"default:dirt"},},
@@ -386,7 +386,7 @@ minetest.register_node("default:tree", {
 			{items = {"maptools:copper_coin"}, rarity = 8},
 		},
 	},
-	groups = {tree = 1,choppy = 2,oddly_breakable_by_hand = 1,flammable = 2},
+	groups = {tree = 1,choppy = 2,oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -402,7 +402,7 @@ minetest.register_node("default:jungletree", {
 			{items = {"maptools:copper_coin"}, rarity = 8},
 		},
 	},
-	groups = {tree = 1,choppy = 2,oddly_breakable_by_hand = 1,flammable = 2},
+	groups = {tree = 1,choppy = 2,oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -410,7 +410,7 @@ minetest.register_node("default:jungletree", {
 minetest.register_node("default:junglewood", {
 	description = "Junglewood Planks",
 	tiles = {"default_junglewood.png"},
-	groups = {choppy = 2,oddly_breakable_by_hand = 2,flammable = 3,wood = 1},
+	groups = {choppy = 2,oddly_breakable_by_hand = 2, flammable = 3,wood = 1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -439,7 +439,7 @@ minetest.register_node("default:jungleleaves", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
-	post_effect_color = {a= 128, r= 20, g= 32, b= 16},
+	post_effect_color = {a = 128, r= 20, g= 32, b= 16},
 })
 
 minetest.register_node("default:junglesapling", {
@@ -455,7 +455,7 @@ minetest.register_node("default:junglesapling", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
-	groups = {snappy = 2,dig_immediate = 3,flammable = 2,attached_node = 1},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -469,7 +469,7 @@ minetest.register_node("default:junglegrass", {
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,
-	groups = {snappy = 3,flammable = 2,flora= 1,attached_node = 1},
+	groups = {snappy = 3, flammable = 2, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -515,7 +515,7 @@ minetest.register_node("default:cactus", {
 			{items = {"maptools:copper_coin"}, rarity = 12},
 		},
 	},
-	groups = {snappy = 1,choppy = 3,flammable = 2},
+	groups = {snappy = 1,choppy = 3, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -533,7 +533,7 @@ minetest.register_node("default:papyrus", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
-	groups = {snappy = 3,flammable = 2},
+	groups = {snappy = 3, flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
 	after_dig_node = function(pos, node, metadata, digger)
 		default.dig_up(pos, node, digger)
@@ -553,7 +553,7 @@ minetest.register_node("default:bookshelf", {
 	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = false,
 	paramtype2 = "facedir",
-	groups = {choppy = 3,oddly_breakable_by_hand = 2,flammable = 3},
+	groups = {choppy = 3,oddly_breakable_by_hand = 2, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -633,7 +633,7 @@ minetest.register_node("default:fence_wood", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	groups = {choppy = 2,oddly_breakable_by_hand = 2,flammable = 2},
+	groups = {choppy = 2,oddly_breakable_by_hand = 2, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -704,14 +704,14 @@ minetest.register_node("default:ladder", {
 	climbable = true,
 	is_ground_content = false,
 	selection_box = {type = "wallmounted",},
-	groups = {choppy = 2,oddly_breakable_by_hand = 3,flammable = 2},
+	groups = {choppy = 2,oddly_breakable_by_hand = 3, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:wood", {
 	description = "Wooden Planks",
 	tiles = {"default_wood.png"},
-	groups = {choppy = 2,oddly_breakable_by_hand = 2,flammable = 3,wood = 1},
+	groups = {choppy = 2,oddly_breakable_by_hand = 2, flammable = 3,wood = 1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -754,7 +754,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:snow",
-	post_effect_color = {a=70, r= 20, g=70, b=80},
+	post_effect_color = {a =70, r= 20, g=70, b=80},
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes = 1, melt_around = 1},
 })
 
@@ -955,7 +955,7 @@ minetest.register_node("default:chest", {
 	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec",default.chest_formspec)
+		meta:set_string("formspec", default.chest_formspec)
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8 * 4)
@@ -1578,13 +1578,13 @@ minetest.register_abm({
 	end,
 })
 
-function swap_node(pos,name)
+function swap_node(pos, name)
 	local node = minetest.get_node(pos)
 	if node.name == name then
 		return
 	end
 	node.name = name
-	minetest.swap_node(pos,node)
+	minetest.swap_node(pos, node)
 end
 
 minetest.register_abm({
@@ -1639,7 +1639,7 @@ minetest.register_abm({
 					meta:get_float("fuel_totaltime") * 100)
 			meta:set_string("infotext","Furnace active: "..percent.."%")
 			swap_node(pos,"default:furnace_active")
-			meta:set_string("formspec",default.get_furnace_active_formspec(pos, percent))
+			meta:set_string("formspec", default.get_furnace_active_formspec(pos, percent))
 			return
 		end
 
@@ -1816,7 +1816,7 @@ minetest.register_node("default:nyancat", {
 	light_source = LIGHT_MAX,
 	groups = {cracky = 2},
 	is_ground_content = false,
-	post_effect_color = {a= 128, r= 255, g= 128, b= 255},
+	post_effect_color = {a = 128, r= 255, g= 128, b= 255},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1834,7 +1834,7 @@ minetest.register_node("default:nyancat_rainbow", {
 	climbable = true,
 	groups = {cracky = 2},
 	is_ground_content = false,
-	post_effect_color = {a= 128, r= 255, g= 128, b= 255},
+	post_effect_color = {a = 128, r= 255, g= 128, b= 255},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1852,7 +1852,7 @@ minetest.register_node("default:sapling", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
-	groups = {snappy = 2,dig_immediate = 3,flammable = 2,attached_node = 1},
+	groups = {snappy = 2, dig_immediate = 2, flammable = 2, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -1870,7 +1870,7 @@ minetest.register_node("default:apple", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 	},
-	groups = {fleshy = 3,dig_immediate = 3,flammable = 2, leafdecay = 3, leafdecay_drop= 1},
+	groups = {fleshy = 3, dig_immediate = 2, flammable = 2, leafdecay = 3, leafdecay_drop= 1},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -1892,7 +1892,7 @@ minetest.register_node("default:dry_shrub", {
 	walkable = false,
 	is_ground_content = true,
 	buildable_to = true,
-	groups = {snappy = 3,flammable = 3,attached_node = 1},
+	groups = {snappy = 3, flammable = 3, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -1911,7 +1911,7 @@ minetest.register_node("default:grass_1", {
 	walkable = false,
 	is_ground_content = true,
 	buildable_to = true,
-	groups = {snappy = 3,flammable = 3,flora= 1,attached_node = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -1936,7 +1936,7 @@ minetest.register_node("default:grass_2", {
 	buildable_to = true,
 	is_ground_content = true,
 	drop = "default:grass_1",
-	groups = {snappy = 3,flammable = 3,flora= 1,attached_node = 1,not_in_creative_inventory = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -1954,7 +1954,7 @@ minetest.register_node("default:grass_3", {
 	buildable_to = true,
 	is_ground_content = true,
 	drop = "default:grass_1",
-	groups = {snappy = 3,flammable = 3,flora= 1,attached_node = 1,not_in_creative_inventory = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -1973,7 +1973,7 @@ minetest.register_node("default:grass_4", {
 	buildable_to = true,
 	is_ground_content = true,
 	drop = "default:grass_1",
-	groups = {snappy = 3,flammable = 3,flora= 1,attached_node = 1,not_in_creative_inventory = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -1992,7 +1992,7 @@ minetest.register_node("default:grass_5", {
 	buildable_to = true,
 	is_ground_content = true,
 	drop = "default:grass_1",
-	groups = {snappy = 3,flammable = 3,flora= 1,attached_node = 1,not_in_creative_inventory = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",

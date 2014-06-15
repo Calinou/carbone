@@ -150,6 +150,7 @@ function mobs:register_mob(name, def)
 				end
 			end
 			
+			--[[
 			if self.disable_fall_damage and self.object:getvelocity().y == 0 then
 				if not self.old_y then
 					self.old_y = self.object:getpos().y
@@ -167,6 +168,7 @@ function mobs:register_mob(name, def)
 					self.old_y = self.object:getpos().y
 				end
 			end
+			--]]
 			
 			self.timer = self.timer + dtime
 			if self.state ~= "attack" then
@@ -498,36 +500,22 @@ function mobs:register_spawn(name, description, nodes, max_light, min_light, cha
 		interval = 2,
 		chance = chance,
 		action = function(pos, node, _, active_object_count_wider)
-			if active_object_count_wider > active_object_count then
-				return
-			end
-			if not mobs.spawning_mobs[name] then
-				return
-			end
+			if active_object_count_wider > active_object_count then return end
+			if not mobs.spawning_mobs[name] then return end
 			pos.y = pos.y + 1
-			if not minetest.get_node_light(pos) then
-				return
-			end
-			if minetest.get_node_light(pos) > max_light then
-				return
-			end
-			if minetest.get_node_light(pos) < min_light then
-				return
-			end
-			if pos.y > max_height then
-				return
-			end
-			if minetest.get_node(pos).name ~= "air" then
-				return
-			end
-			if spawn_func and not spawn_func(pos, node) then
-				return
-			end
+			if not minetest.get_node_light(pos) then return end
+			if minetest.get_node_light(pos) > max_light then return end
+			if minetest.get_node_light(pos) < min_light then return end
+			if pos.y > max_height then return end
+			if minetest.get_node(pos).name ~= "air" then return end
+			if spawn_func and not spawn_func(pos, node) then return end
 			if minetest.setting_getbool("display_mob_spawn") then
 				minetest.chat_send_all("*** Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
 			end
 			minetest.log("action", "Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
 			minetest.add_entity(pos, name)
+			if name ~= "mobs:rat" then return end
+			minetest.add_entity(pos, "mobs:rat")
 		end
 	})
 end

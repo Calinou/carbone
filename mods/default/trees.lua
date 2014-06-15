@@ -6,7 +6,7 @@ local c_apple = minetest.get_content_id("default:apple")
 
 function default.grow_tree(data, a, pos, is_apple_tree, seed)
         --[[
-                NOTE: Tree-placing code is currently duplicated in the engine
+                NOTE: Tree -placing code is currently duplicated in the engine
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
@@ -19,7 +19,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                         data[vi] = c_tree
                 end
         end
-        y = y+th-1 -- (x, y, z) is now last piece of trunk
+        y = y + th - 1 -- (x, y, z) is now last piece of trunk
         local leaves_a = VoxelArea:new{MinEdge={x=-2, y=-1, z=-2}, MaxEdge={x=2, y=2, z=2}}
         local leaves_buffer = {}
         
@@ -43,7 +43,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 for xi = 0, d do
                 for yi = 0, d do
                 for zi = 0, d do
-                        leaves_buffer[leaves_a:index(xx+xi, yy+yi, zz+zi)] = true
+                        leaves_buffer[leaves_a:index(xx + xi, yy + yi, zz + zi)] = true
                 end
                 end
                 end
@@ -53,8 +53,8 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         for xi = leaves_a.MinEdge.x, leaves_a.MaxEdge.x do
         for yi = leaves_a.MinEdge.y, leaves_a.MaxEdge.y do
         for zi = leaves_a.MinEdge.z, leaves_a.MaxEdge.z do
-                if a:contains(x+xi, y+yi, z+zi) then
-                        local vi = a:index(x+xi, y+yi, z+zi)
+                if a:contains(x + xi, y + yi, z + zi) then
+                        local vi = a:index(x + xi, y + yi, z + zi)
                         if data[vi] == c_air or data[vi] == c_ignore then
                                 if leaves_buffer[leaves_a:index(xi, yi, zi)] then
                                         if is_apple_tree and pr:next(1, 100) <=  10 then
@@ -75,7 +75,7 @@ local c_jungleleaves = minetest.get_content_id("default:jungleleaves")
 
 function default.grow_jungletree(data, a, pos, seed)
         --[[
-                NOTE: Tree-placing code is currently duplicated in the engine
+                NOTE: Tree -placing code is currently duplicated in the engine
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
@@ -84,11 +84,11 @@ function default.grow_jungletree(data, a, pos, seed)
         for xi = -1, 1 do
         for zi = -1, 1 do
                 if pr:next(1, 3) >= 2 then
-                        local vi1 = a:index(x+xi, y, z+zi)
-                        local vi2 = a:index(x+xi, y-1, z+zi)
-                        if a:contains(x+xi, y-1, z+zi) and data[vi2] == c_air then
+                        local vi1 = a:index(x + xi, y, z + zi)
+                        local vi2 = a:index(x + xi, y-1, z + zi)
+                        if a:contains(x + xi, y-1, z + zi) and data[vi2] == c_air then
                                 data[vi2] = c_jungletree
-                        elseif a:contains(x+xi, y, z+zi) and data[vi1] == c_air then
+                        elseif a:contains(x + xi, y, z + zi) and data[vi1] == c_air then
                                 data[vi1] = c_jungletree
                         end
                 end
@@ -102,7 +102,7 @@ function default.grow_jungletree(data, a, pos, seed)
                         data[vi] = c_jungletree
                 end
         end
-        y = y+th-1 -- (x, y, z) is now last piece of trunk
+        y = y + th - 1 -- (x, y, z) is now last piece of trunk
         local leaves_a = VoxelArea:new{MinEdge={x=-3, y=-2, z=-3}, MaxEdge={x=3, y=2, z=3}}
         local leaves_buffer = {}
         
@@ -126,7 +126,7 @@ function default.grow_jungletree(data, a, pos, seed)
                 for xi = 0, d do
                 for yi = 0, d do
                 for zi = 0, d do
-                        leaves_buffer[leaves_a:index(xx+xi, yy+yi, zz+zi)] = true
+                        leaves_buffer[leaves_a:index(xx + xi, yy + yi, zz + zi)] = true
                 end
                 end
                 end
@@ -136,8 +136,8 @@ function default.grow_jungletree(data, a, pos, seed)
         for xi = leaves_a.MinEdge.x, leaves_a.MaxEdge.x do
         for yi = leaves_a.MinEdge.y, leaves_a.MaxEdge.y do
         for zi = leaves_a.MinEdge.z, leaves_a.MaxEdge.z do
-                if a:contains(x+xi, y+yi, z+zi) then
-                        local vi = a:index(x+xi, y+yi, z+zi)
+                if a:contains(x + xi, y + yi, z + zi) then
+                        local vi = a:index(x + xi, y + yi, z + zi)
                         if data[vi] == c_air or data[vi] == c_ignore then
                                 if leaves_buffer[leaves_a:index(xi, yi, zi)] then
                                         data[vi] = c_jungleleaves

@@ -447,15 +447,15 @@ function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume
 	local num_chunks = math.floor(chunks_per_volume * volume)
 	local inverse_chance = math.floor(chunk_size*chunk_size*chunk_size / ore_per_chunk)
 	--print("generate_ore num_chunks: "..dump(num_chunks))
-	for i= 1,num_chunks do
+	for i= 1, num_chunks do
 		local y0 = pr:next(y_min, y_max-chunk_size+1)
 		if y0 >= height_min and y0 <= height_max then
 			local x0 = pr:next(minp.x, maxp.x-chunk_size+1)
 			local z0 = pr:next(minp.z, maxp.z-chunk_size+1)
 			local p0 = {x=x0, y =y0, z=z0}
-			for x1= 0,chunk_size-1 do
-			for y1= 0,chunk_size-1 do
-			for z1= 0,chunk_size-1 do
+			for x1= 0,chunk_size - 1 do
+			for y1= 0,chunk_size - 1 do
+			for z1= 0,chunk_size - 1 do
 				if pr:next(1,inverse_chance) == 1 then
 					local x2 = x0+x1
 					local y2 = y0+y1
@@ -474,8 +474,8 @@ function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume
 end
 
 function default.make_papyrus(pos, size)
-	for y = 0,size-1 do
-		local p = {x= pos.x, y = pos.y+y, z= pos.z}
+	for y = 0, size - 1 do
+		local p = {x= pos.x, y = pos.y + y, z= pos.z}
 		local nn = minetest.get_node(p).name
 		if minetest.registered_nodes[nn] and
 			minetest.registered_nodes[nn].buildable_to then
@@ -487,8 +487,8 @@ function default.make_papyrus(pos, size)
 end
 
 function default.make_cactus(pos, size)
-	for y = 0,size-1 do
-		local p = {x= pos.x, y = pos.y+y, z= pos.z}
+	for y = 0, size-1 do
+		local p = {x= pos.x, y = pos.y + y, z= pos.z}
 		local nn = minetest.get_node(p).name
 		if minetest.registered_nodes[nn] and
 			minetest.registered_nodes[nn].buildable_to then
@@ -555,8 +555,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		-- Assume X and Z lengths are equal
 		local divlen = 8
 		local divs = (maxp.x-minp.x)/divlen+1;
-		for divx= 0,divs-1 do
-		for divz= 0,divs-1 do
+		for divx= 0, divs-1 do
+		for divz= 0, divs-1 do
 			local x0 = minp.x + math.floor((divx+0)*divlen)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
@@ -580,8 +580,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
-		for divx= 0,divs-1 do
-		for divz= 0,divs-1 do
+		for divx= 0, divs-1 do
+		for divz= 0, divs-1 do
 			local x0 = minp.x + math.floor((divx+0)*divlen)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
@@ -613,8 +613,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
-		for divx= 0,divs-1 do
-		for divz= 0,divs-1 do
+		for divx= 0, divs-1 do
+		for divz= 0, divs-1 do
 			local x0 = minp.x + math.floor((divx+0)*divlen)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
