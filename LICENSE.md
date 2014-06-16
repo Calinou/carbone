@@ -30,6 +30,8 @@ Builtin Item is under the WTFPL: https://github.com/PilzAdam/builtin_item
 
 Item Drop is under the WTFPL: https://github.com/PilzAdam/item_drop
 
+Item Frames is under the WTFPL: https://github.com/Zeg9/minetest-itemframes
+
 Simple Mobs is under the WTFPL: https://github.com/PilzAdam/mobs
 
 Simple Snow is under the WTFPL: https://forum.minetest.net/viewtopic.php?f=11&t=9270

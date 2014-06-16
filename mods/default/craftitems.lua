@@ -4,7 +4,7 @@ minetest.register_craftitem("default:stick", {
 	description = "Stick",
 	inventory_image = "default_stick.png",
 	wield_image = "default_stick.png^[transformR90",
-	groups = {stick=1},
+	groups = {stick = 1},
 })
 
 minetest.register_craftitem("default:paper", {
@@ -25,16 +25,19 @@ minetest.register_craftitem("default:coal_lump", {
 minetest.register_craftitem("default:iron_lump", {
 	description = "Iron Lump",
 	inventory_image = "default_iron_lump.png",
+	groups = {ingot_lump = 1},
 })
 
 minetest.register_craftitem("default:tin_lump", {
 	description = "Tin Lump",
 	inventory_image = "default_tin_lump.png",
+	groups = {ingot_lump = 1},
 })
 
 minetest.register_craftitem("default:copper_lump", {
 	description = "Copper Lump",
 	inventory_image = "default_copper_lump.png",
+	groups = {ingot_lump = 1},
 })
 
 minetest.register_craftitem("default:mese_crystal", {
@@ -45,11 +48,13 @@ minetest.register_craftitem("default:mese_crystal", {
 minetest.register_craftitem("default:silver_lump", {
 	description = "Silver Lump",
 	inventory_image = "default_silver_lump.png",
+	groups = {ingot_lump = 1},
 })
 
 minetest.register_craftitem("default:gold_lump", {
 	description = "Gold Lump",
 	inventory_image = "default_gold_lump.png",
+	groups = {ingot_lump = 1},
 })
 
 minetest.register_craftitem("default:diamond", {
@@ -65,31 +70,37 @@ minetest.register_craftitem("default:clay_lump", {
 minetest.register_craftitem("default:steel_ingot", {
 	description = "Steel Ingot",
 	inventory_image = "default_steel_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:tin_ingot", {
 	description = "Tin Ingot",
 	inventory_image = "default_tin_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:copper_ingot", {
 	description = "Copper Ingot",
 	inventory_image = "default_copper_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:bronze_ingot", {
 	description = "Bronze Ingot",
 	inventory_image = "default_bronze_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:silver_ingot", {
 	description = "Silver Ingot",
-	inventory_image = "default_silver_ingot.png"
+	inventory_image = "default_silver_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:gold_ingot", {
 	description = "Gold Ingot",
-	inventory_image = "default_gold_ingot.png"
+	inventory_image = "default_gold_ingot.png",
+	groups = {ingot = 1},
 })
 
 minetest.register_craftitem("default:mese_crystal_fragment", {

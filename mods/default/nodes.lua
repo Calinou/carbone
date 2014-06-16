@@ -543,7 +543,7 @@ minetest.register_node("default:papyrus", {
 default.bookshelf_formspec =
 	"size[8,7;]"..
 	gui_slots..
-	"list[context;books;0,0.3;8,2;]"..
+	"list[context;books;0, 0.3;8,2;]"..
 	"list[current_player;main;0,2.85;8,1;]"..
 	"list[current_player;main;0,4.08;8,3;8]"..
 	default.get_hotbar_bg(0,2.85)
@@ -927,7 +927,7 @@ minetest.register_node("default:sign_wall", {
 default.chest_formspec = 
 	"size[8,9]"..
 	gui_slots..
-	"list[current_name;main;0,0.3;8,4;]"..
+	"list[current_name;main;0, 0.3;8,4;]"..
 	"list[current_player;main;0,4.85;8,1;]"..
 	"list[current_player;main;0,6.08;8,3;8]"..
 	default.get_hotbar_bg(0,4.85)
@@ -937,7 +937,7 @@ function default.get_locked_chest_formspec(pos)
 	local formspec =
 		"size[8,9]"..
 		gui_slots..
-		"list[nodemeta:".. spos .. ";main;0,0.3;8,4;]"..
+		"list[nodemeta:".. spos .. ";main;0, 0.3;8,4;]"..
 		"list[current_player;main;0,4.85;8,1;]"..
 		"list[current_player;main;0,6.08;8,3;8]"..
 		default.get_hotbar_bg(0,4.85)
@@ -1065,13 +1065,13 @@ function default.furnace_active(pos, percent, item_percent)
     local formspec = 
 	"size[8,8.5]"..
 	gui_slots..
-	"list[current_name;src;2.75,0.5;1,1;]"..
+	"list[current_name;src;2.75, 0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
 	(100-percent)..":default_furnace_fire_fg.png]"..
         "image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
         (item_percent * 100)..":gui_furnace_arrow_fg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
+	"list[current_name;dst;4.75, 0.96;2,2;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
 	default.get_hotbar_bg(0,4.25)
@@ -1097,11 +1097,11 @@ end
 default.furnace_inactive_formspec =
 	"size[8,8.5]"..
 	gui_slots..
-	"list[current_name;src;2.75,0.5;1,1;]"..
+	"list[current_name;src;2.75, 0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
+	"list[current_name;dst;4.75, 0.96;2,2;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
 	default.get_hotbar_bg(0,4.25)
@@ -1533,9 +1533,9 @@ minetest.register_abm({
 				(100-percent)..":default_furnace_fire_fg.png]"..
 		        "image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 						(item_percent * 100)..":gui_furnace_arrow_fg.png^[transformR270]"..
-				"list[current_name;src;2.75,0.5;1,1;]"..
+				"list[current_name;src;2.75, 0.5;1,1;]"..
 				"list[current_name;fuel;2.75,2.5;1,1;]"..
-				"list[current_name;dst;4.75,0.96;2,2;]"..
+				"list[current_name;dst;4.75, 0.96;2,2;]"..
 				"list[current_player;main;0,4.25;8,1;]"..
 				"list[current_player;main;0,5.5;8,3;8]")
 			return
@@ -1721,7 +1721,7 @@ minetest.register_node("default:steelblock", {
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1729,7 +1729,7 @@ minetest.register_node("default:tinblock", {
 	description = "Tin Block",
 	tiles = {"default_tin_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1737,7 +1737,7 @@ minetest.register_node("default:copperblock", {
 	description = "Copper Block",
 	tiles = {"default_copper_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1745,7 +1745,7 @@ minetest.register_node("default:bronzeblock", {
 	description = "Bronze Block",
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1768,7 +1768,7 @@ minetest.register_node("default:silverblock", {
 	description = "Silver Block",
 	tiles = {"default_silver_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1},
+	groups = {cracky = 1, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1776,7 +1776,7 @@ minetest.register_node("default:goldblock", {
 	description = "Gold Block",
 	tiles = {"default_gold_block.png"},
 	is_ground_content = true,
-	groups = {cracky = 1},
+	groups = {cracky = 1, ingot_block = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
