@@ -37,7 +37,7 @@ function mobs:register_mob(name, def)
 		state = "stand",
 		v_start = false,
 		old_y = nil,
-		lifetimer = 600,
+		lifetimer = 300,
 		tamed = false,
 		
 		set_velocity = function(self, v)
@@ -449,7 +449,7 @@ function mobs:register_mob(name, def)
 			self.state = "stand"
 			self.object:setvelocity({x = 0, y = self.object:getvelocity().y, z = 0})
 			self.object:setyaw(math.random(1, 360) / 180 *  math.pi)
-			self.lifetimer = 600 - dtime_s
+			self.lifetimer = 300 - dtime_s
 			if staticdata then
 				local tmp = minetest.deserialize(staticdata)
 				if tmp and tmp.lifetimer then
@@ -460,7 +460,9 @@ function mobs:register_mob(name, def)
 				end
 			end
 			if self.lifetimer <= 0 and not self.tamed then
-				minetest.log("action", "A mob despawned.")
+				local pos = self.object:getpos()
+				local hp = self.object:get_hp()
+				minetest.log("action", "A mob despawned at " .. minetest.pos_to_string(pos) .. ", with " .. tostring(hp) .. " HP.")
 				self.object:remove()
 			end
 		end,
