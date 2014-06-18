@@ -37,7 +37,8 @@ for i = 1, 6 do
 			"jumping_trampoline_bottom.png",
 			"jumping_trampoline_sides.png^jumping_trampoline_sides_overlay_" .. i .. ".png",
 		},
-		groups = {dig_immediate = 2, bouncy = 20 + i * 20, fall_damage_add_percent = -50},
+		drop = "jumping:trampoline_1",
+		groups = {dig_immediate = 2, bouncy = 16 + i * 16, fall_damage_add_percent = -65, disable_jump = 1},
 	})
 end
 
