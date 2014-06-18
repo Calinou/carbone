@@ -68,13 +68,12 @@ local trash = minetest.create_detached_inventory("creative_trash", {
 })
 trash:set_size("main", 1)
 
-gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
 gui_slots = "listcolors[#606060AA;#606060;#141318;#30434C;#FFF]"
 
 creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 	pagenum = math.floor(pagenum)
 	local pagemax = math.floor((creative_inventory.creative_inventory_size-1) / (5*8) + 1)
-	player:set_inventory_formspec("size[15,9]".. gui_bg_img .. gui_slots ..
+	player:set_inventory_formspec("size[15,9]".. gui_slots ..
 			--"image[6,0.6;1,2;player.png]"..
 			"list[current_player;main;6,4.5;8,5;]"..
 			"list[current_player;craft;8,1;3,4;]"..
