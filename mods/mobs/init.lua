@@ -257,6 +257,7 @@ minetest.register_craftitem("mobs:rat", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "mobs:rat")
 			itemstack:take_item()
+			minetest.log("action", placer:get_player_name() .. " placed a rat at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
 		end
 		return itemstack
 	end,

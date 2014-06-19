@@ -239,10 +239,10 @@ function mobs:register_mob(name, def)
 				for _,player in pairs(minetest.get_connected_players()) do
 					local s = self.object:getpos()
 					local p = player:getpos()
-					local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^0.5
-					if dist < self.view_range then
+					local dist = ((p.x - s.x) ^ 2 + (p.y - s.y) ^ 2 + (p.z - s.z) ^ 2) ^ 0.5
+					if dist <= self.view_range then
 						if self.attack.dist then
-							if self.attack.dist < dist then
+							if self.attack.dist <= dist then
 								self.state = "attack"
 								self.attack.player = player
 								self.attack.dist = dist
@@ -260,7 +260,7 @@ function mobs:register_mob(name, def)
 				for _,player in pairs(minetest.get_connected_players()) do
 					local s = self.object:getpos()
 					local p = player:getpos()
-					local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^0.5
+					local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^ 0.5
 					if self.view_range and dist < self.view_range then
 						self.following = player
 					end
@@ -273,7 +273,7 @@ function mobs:register_mob(name, def)
 				else
 					local s = self.object:getpos()
 					local p = self.following:getpos()
-					local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^0.5
+					local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^ 0.5
 					if dist > self.view_range then
 						self.following = nil
 						self.v_start = false
@@ -345,12 +345,12 @@ function mobs:register_mob(name, def)
 				end
 				local s = self.object:getpos()
 				local p = self.attack.player:getpos()
-				local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^0.5
+				local dist = ((p.x - s.x) ^ 2 + (p.y - s.y) ^ 2 + (p.z - s.z) ^ 2) ^ 0.5
 				if dist > self.view_range or self.attack.player:get_hp() <= 0 then
 					self.state = "stand"
 					self.v_start = false
 					self.set_velocity(self, 0)
-					self.attack = {player= nil, dist= nil}
+					self.attack = {player = nil, dist = nil}
 					self:set_animation("stand")
 					return
 				else
@@ -400,7 +400,7 @@ function mobs:register_mob(name, def)
 				end
 				local s = self.object:getpos()
 				local p = self.attack.player:getpos()
-				local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^0.5
+				local dist = ((p.x -s.x) ^ 2 + (p.y -s.y) ^ 2 + (p.z -s.z) ^ 2) ^ 0.5
 				if dist > self.view_range or self.attack.player:get_hp() <= 0 then
 					self.state = "stand"
 					self.v_start = false
@@ -435,7 +435,7 @@ function mobs:register_mob(name, def)
 					local p = self.object:getpos()
 					p.y = p.y + (self.collisionbox[2]+self.collisionbox[5])/2
 					local obj = minetest.add_entity(p, self.arrow)
-					local amount = (vec.x^ 2+vec.y^ 2+vec.z^ 2) ^0.5
+					local amount = (vec.x^ 2+vec.y^ 2+vec.z^ 2) ^ 0.5
 					local v = obj:get_luaentity().velocity
 					vec.y = vec.y+0
 					vec.x = vec.x*v/amount
@@ -465,7 +465,7 @@ function mobs:register_mob(name, def)
 			if self.lifetimer <= 0 and not self.tamed then
 				local pos = self.object:getpos()
 				local hp = self.object:get_hp()
-				minetest.log("action", "A mob with " .. tostring(hp) .. " despawned at " .. minetest.pos_to_string(pos) .. " on activation.")
+				minetest.log("action", "A mob with " .. tostring(hp) .. " HP despawned at " .. minetest.pos_to_string(pos) .. " on activation.")
 				self.object:remove()
 			end
 		end,
@@ -480,6 +480,10 @@ function mobs:register_mob(name, def)
 		
 		on_punch = function(self, hitter)
 		minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
+		local y = self.object:getvelocity().y
+		if y <= 0 then
+			self.object:setvelocity({x = 0, y = y + 4.5, z = 0})
+		end
 			if self.object:get_hp() <= 0 then
 				if hitter and hitter:is_player() and hitter:get_inventory() then
 					local pos = self.object:getpos()
