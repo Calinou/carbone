@@ -90,10 +90,10 @@ function hover:on_step(dtime)
 			self.v = self.v - 0.1
 		end
 		if ctrl.left then
-			self.object:setyaw(self.object:getyaw() +math.pi/120+dtime*math.pi/90)
+			self.object:setyaw(self.object:getyaw() + math.pi / 120 + dtime * math.pi / 90)
 		end
 		if ctrl.right then
-			self.object:setyaw(self.object:getyaw()-math.pi/120-dtime*math.pi/90)
+			self.object:setyaw(self.object:getyaw() - math.pi / 120 - dtime * math.pi / 90)
 		end
 	end
 	local s = get_sign(self.v)
@@ -145,7 +145,7 @@ minetest.register_craftitem("hovers:hover", {
 	
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.type ~= "node" then return end
-		pointed_thing.under.y = pointed_thing.under.y + 1
+		pointed_thing.under.y = pointed_thing.under.y + 2
 		minetest.add_entity(pointed_thing.under, "hovers:hover")
 		itemstack:take_item()
 		return itemstack

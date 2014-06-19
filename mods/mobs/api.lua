@@ -332,7 +332,7 @@ function mobs:register_mob(name, def)
 				end
 				self:set_animation("walk")
 				self.set_velocity(self, self.walk_velocity)
-				if math.random(1, 100) <= 10 then
+				if math.random(1, 100) <= 30 then
 					self.set_velocity(self, 0)
 					self.state = "stand"
 					self:set_animation("stand")
