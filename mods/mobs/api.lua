@@ -47,7 +47,7 @@ function mobs:register_mob(name, def)
 			end
 			local x = math.sin(yaw) * -v
 			local z = math.cos(yaw) * v
-			self.object:setvelocity({x =x, y =self.object:getvelocity().y, z =z})
+			self.object:setvelocity({x =x, y = self.object:getvelocity().y, z =z})
 		end,
 		
 		get_velocity = function(self)
@@ -69,7 +69,7 @@ function mobs:register_mob(name, def)
 					and self.animation.speed_normal
 				then
 					self.object:set_animation(
-						{x =self.animation.stand_start,y =self.animation.stand_end},
+						{x = self.animation.stand_start,y = self.animation.stand_end},
 						self.animation.speed_normal, 0
 					)
 					self.animation.current = "stand"
@@ -81,7 +81,7 @@ function mobs:register_mob(name, def)
 					and self.animation.speed_normal
 				then
 					self.object:set_animation(
-						{x =self.animation.walk_start,y =self.animation.walk_end},
+						{x = self.animation.walk_start,y = self.animation.walk_end},
 						self.animation.speed_normal, 0
 					)
 					self.animation.current = "walk"
@@ -93,7 +93,7 @@ function mobs:register_mob(name, def)
 					and self.animation.speed_run
 				then
 					self.object:set_animation(
-						{x =self.animation.run_start,y =self.animation.run_end},
+						{x = self.animation.run_start,y = self.animation.run_end},
 						self.animation.speed_run, 0
 					)
 					self.animation.current = "run"
@@ -105,7 +105,7 @@ function mobs:register_mob(name, def)
 					and self.animation.speed_normal
 				then
 					self.object:set_animation(
-						{x =self.animation.punch_start,y =self.animation.punch_end},
+						{x = self.animation.punch_start,y = self.animation.punch_end},
 						self.animation.speed_normal, 0
 					)
 					self.animation.current = "punch"
@@ -119,12 +119,15 @@ function mobs:register_mob(name, def)
 			self.lifetimer = self.lifetimer - dtime
 			if self.lifetimer <= 0 and not self.tamed then
 				local player_count = 0
-				for _,obj in ipairs(minetest.get_objects_inside_radius(self.object:getpos(), 20)) do
+				for _,obj in ipairs(minetest.get_objects_inside_radius(self.object:getpos(), 12)) do
 					if obj:is_player() then
 						player_count = player_count + 1
 					end
 				end
 				if player_count == 0 and self.state ~= "attack" then
+					local pos = self.object:getpos()
+					local hp = self.object:get_hp()
+					minetest.log("action", "A mob with " .. tostring(hp) .. " HP despawned at " .. minetest.pos_to_string(pos) .. ".")
 					self.object:remove()
 					return
 				end
@@ -195,7 +198,7 @@ function mobs:register_mob(name, def)
 				then
 					self.object:set_hp(self.object:get_hp()-self.light_damage)
 					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
-					if self.object:get_hp() == 0 then
+					if self.object:get_hp() <= 0 then
 						minetest.sound_play("player_death", {object = self.object, gain = 0.4})
 						self.object:remove()
 					end
@@ -206,7 +209,7 @@ function mobs:register_mob(name, def)
 				then
 					self.object:set_hp(self.object:get_hp()-self.water_damage)
 					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
-					if self.object:get_hp() == 0 then
+					if self.object:get_hp() <= 0 then
 						minetest.sound_play("player_death", {object = self.object, gain = 0.4})
 						self.object:remove()
 					end
@@ -217,7 +220,7 @@ function mobs:register_mob(name, def)
 				then
 					self.object:set_hp(self.object:get_hp()-self.lava_damage)
 					minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
-					if self.object:get_hp() == 0 then
+					if self.object:get_hp() <= 0 then
 						minetest.sound_play("player_death", {object = self.object, gain = 0.4})
 						self.object:remove()
 					end
@@ -385,7 +388,7 @@ function mobs:register_mob(name, def)
 						minetest.sound_play("mobs_punch", {object = self.object, gain = 1})
 						self.attack.player:punch(self.object, 1.0,  {
 							full_punch_interval= 1.0,
-							damage_groups = {fleshy =self.damage}
+							damage_groups = {fleshy = self.damage}
 						}, vec)
 					end
 				end
@@ -434,7 +437,7 @@ function mobs:register_mob(name, def)
 					local obj = minetest.add_entity(p, self.arrow)
 					local amount = (vec.x^ 2+vec.y^ 2+vec.z^ 2) ^0.5
 					local v = obj:get_luaentity().velocity
-					vec.y = vec.y+1
+					vec.y = vec.y+0
 					vec.x = vec.x*v/amount
 					vec.y = vec.y*v/amount
 					vec.z = vec.z*v/amount
@@ -462,7 +465,7 @@ function mobs:register_mob(name, def)
 			if self.lifetimer <= 0 and not self.tamed then
 				local pos = self.object:getpos()
 				local hp = self.object:get_hp()
-				minetest.log("action", "A mob despawned at " .. minetest.pos_to_string(pos) .. ", with " .. tostring(hp) .. " HP.")
+				minetest.log("action", "A mob with " .. tostring(hp) .. " despawned at " .. minetest.pos_to_string(pos) .. " on activation.")
 				self.object:remove()
 			end
 		end,
@@ -511,9 +514,6 @@ function mobs:register_spawn(name, description, nodes, max_light, min_light, cha
 			if pos.y > max_height then return end
 			if minetest.get_node(pos).name ~= "air" then return end
 			if spawn_func and not spawn_func(pos, node) then return end
-			if minetest.setting_getbool("display_mob_spawn") then
-				minetest.chat_send_all("*** Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
-			end
 			minetest.log("action", "Spawned " .. description .. " at " .. minetest.pos_to_string(pos) .. ".")
 			minetest.add_entity(pos, name)
 			if name ~= "mobs:rat" then return end
