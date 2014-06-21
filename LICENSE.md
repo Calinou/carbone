@@ -20,7 +20,11 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+--------
+
 More Blocks and Map Tools are under the zlib license: https://gitorious.org/Calinou/moreblocks – https://gitorious.org/Calinou/maptools
+
+Beds is under the WTFPL: https://github.com/PilzAdam/beds
 
 Player Textures is under the WTFPL: https://github.com/PilzAdam/player_textures
 
@@ -54,6 +58,8 @@ License of media (textures and sounds)
 See README.txt in each mod directory for information about other authors.
 
 If not mentioned: CC BY-SA 3.0.
+
+--------
 
 % is a wildcard.
 

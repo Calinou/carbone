@@ -189,6 +189,7 @@ minetest.register_globalstep(function(dtime)
 			-- Apply animations based on what the player is doing
 			if player:get_hp() == 0 then
 				player_set_animation(player, "lay", animation_speed_mod)
+				player:set_eye_offset({x = 0, y = -10, z = 0}, {x = 0, y = -10, z = 0})
 			elseif walking then
 				if player_sneak[name] ~= controls.sneak then
 					player_anim[name] = nil

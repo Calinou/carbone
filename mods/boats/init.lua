@@ -1,36 +1,23 @@
-
---
--- Helper functions
---
-
 local function is_water(pos)
 	local nn = minetest.get_node(pos).name
 	return minetest.get_item_group(nn, "water") ~= 0
 end
 
 local function get_sign(i)
-	if i == 0 then
-		return 0
-	else
-		return i/math.abs(i)
-	end
+	if i == 0 then return 0 else return i / math.abs(i) end
 end
 
 local function get_velocity(v, yaw, y)
-	local x = -math.sin(yaw)*v
-	local z = math.cos(yaw)*v
-	return {x =x, y =y, z =z}
+	local x = -math.sin(yaw) * v
+	local z = math.cos(yaw) * v
+	return {x = x, y = y, z = z}
 end
 
 local function get_v(v)
-	return math.sqrt(v.x^2+v.z^2)
+	return math.sqrt(v.x ^ 2 + v.z ^ 2)
 end
 
---
--- Boat entity
---
-
-local boat = {
+local boat = { -- Boat entity:
 	physical = true,
 	collisionbox = {-0.8125, -0.3125, -0.8125, 0.8125, 0, 0.8125},
 	visual = "mesh",
@@ -41,9 +28,7 @@ local boat = {
 }
 
 function boat:on_rightclick(clicker)
-	if not clicker or not clicker:is_player() then
-		return
-	end
+	if not clicker or not clicker:is_player() then return end
 	local name = clicker:get_player_name()
 	if self.driver and clicker == self.driver then
 		self.driver = nil
