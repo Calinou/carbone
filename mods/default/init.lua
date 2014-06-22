@@ -85,3 +85,9 @@ minetest.register_on_respawnplayer(function(player)
 	local pos = player:getpos()
 	minetest.sound_play("player_join", {pos = pos, gain = 5})
 end)
+
+minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, user, pointed_thing)
+	if user:get_hp() >= 20 then return itemstack end
+	local pos = user:getpos()
+	minetest.sound_play("health_gain", {pos = pos, gain = 0.4})
+end)

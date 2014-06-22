@@ -770,12 +770,12 @@ minetest.register_node("default:water_flowing", {
 		{
 			image = "default_water_flowing_animated.png",
 			backface_culling=false,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
 		},
 		{
 			image = "default_water_flowing_animated.png",
 			backface_culling=true,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
 		},
 	},
 	alpha = WATER_ALPHA,
@@ -801,13 +801,13 @@ minetest.register_node("default:water_source", {
 	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "liquid",
 	tiles = {
-		{name = "default_water_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 2.0}}
+		{name = "default_water_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0}}
 	},
 	special_tiles = {
 		-- New-style water source material (mostly unused)
 		{
 			name = "default_water_source_animated.png",
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 2.0},
+			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0},
 			backface_culling = false,
 		}
 	},
@@ -836,13 +836,13 @@ minetest.register_node("default:lava_flowing", {
 	special_tiles = {
 		{
 			image = "default_lava_flowing_animated.png",
-			backface_culling=false,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.3}
+			backface_culling = false,
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.4}
 		},
 		{
 			image = "default_lava_flowing_animated.png",
-			backface_culling=true,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.3}
+			backface_culling = true,
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.4}
 		},
 	},
 	paramtype = "light",
@@ -869,13 +869,13 @@ minetest.register_node("default:lava_source", {
 	inventory_image = minetest.inventorycube("default_lava.png"),
 	drawtype = "liquid",
 	tiles = {
-		{name = "default_lava_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.0}}
+		{name = "default_lava_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 3.0}}
 	},
 	special_tiles = {
 		-- New-style lava source material (mostly unused)
 		{
 			name = "default_lava_source_animated.png",
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h= 16, length= 3.0},
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 3.0},
 			backface_culling = false,
 		}
 	},
@@ -928,7 +928,7 @@ minetest.register_node("default:torch", {
 minetest.register_node("default:sign_wall", {
 	description = "Sign",
 	drawtype = "nodebox",
-	tiles = {"default_sign_new_wall.png"},
+	tiles = {"default_sign_new.png"},
 	inventory_image = "default_sign_new_inv.png",
 	wield_image = "default_sign_new_inv.png",
 	paramtype = "light",
@@ -946,7 +946,7 @@ minetest.register_node("default:sign_wall", {
 	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
 	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
-		--local n = minetest.get_node(pos)
+		-- local n = minetest.get_node(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", "field[text;;${text}]")
 		meta:set_string("infotext", "\"\"")
@@ -1184,7 +1184,7 @@ minetest.register_node("default:furnace", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		if listname == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width = 1, items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1206,7 +1206,7 @@ minetest.register_node("default:furnace", {
 		local inv = meta:get_inventory()
 		local stack = inv:get_stack(from_list, from_index)
 		if to_list == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width = 1, items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1281,7 +1281,7 @@ minetest.register_node("default:furnace_active", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		if listname == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width = 1, items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end
@@ -1303,7 +1303,7 @@ minetest.register_node("default:furnace_active", {
 		local inv = meta:get_inventory()
 		local stack = inv:get_stack(from_list, from_index)
 		if to_list == "fuel" then
-			if minetest.get_craft_result({method = "fuel",width= 1,items ={stack}}).time ~= 0 then
+			if minetest.get_craft_result({method = "fuel",width = 1, items ={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
 					meta:set_string("infotext","Furnace is empty")
 				end

@@ -65,7 +65,7 @@ If not mentioned: CC BY-SA 3.0.
 
 menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
-mods/mobs/sounds/player_{join,leave,death}.ogg: from OpenArena - GNU GPL 2.
+mods/default/sounds/player_{join,leave,death}.ogg, health_gain.ogg: from OpenArena - GNU GPL 2.
 mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
 
 mods/default/textures/default_grass.png,
