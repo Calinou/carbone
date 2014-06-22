@@ -263,7 +263,7 @@ end
 minetest.register_abm({
 	nodenames = {"default:lava_flowing"},
 	neighbors = {"group:water"},
-	interval = 1,
+	interval = 2,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		default.cool_lava_flowing(pos, node, active_object_count, active_object_count_wider)
@@ -273,7 +273,7 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:lava_source"},
 	neighbors = {"group:water"},
-	interval = 1,
+	interval = 2,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		default.cool_lava_source(pos, node, active_object_count, active_object_count_wider)
@@ -287,17 +287,17 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
-	interval = 50,
-	chance = 20,
+	interval = 25,
+	chance = 40,
 	action = function(pos, node)
-		pos.y = pos.y-1
+		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
 		if minetest.get_item_group(name, "sand") ~= 0 then
-			pos.y = pos.y+1
+			pos.y = pos.y + 1
 			local height = 0
 			while minetest.get_node(pos).name == "default:cactus" and height < 4 do
-				height = height+1
-				pos.y = pos.y+1
+				height = height + 1
+				pos.y = pos.y + 1
 			end
 			if height < 4 then
 				if minetest.get_node(pos).name == "air" then
@@ -310,21 +310,25 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:papyrus"},
-	neighbors = {"default:dirt", "default:dirt_with_grass"},
-	interval = 50,
-	chance = 20,
+	neighbors = {"default:dirt", "default:dirt_with_grass", "default:dirt_with_snow", "default:sand", "default:desert_sand"},
+	interval = 25,
+	chance = 40,
 	action = function(pos, node)
-		pos.y = pos.y-1
+		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
-		if name == "default:dirt" or name == "default:dirt_with_grass" then
+		if name == "default:dirt"
+		or name == "default:dirt_with_grass"
+		or name == "default:dirt_with_snow"
+		or name == "default:sand"
+		or name == "default:desert_sand" then
 			if minetest.find_node_near(pos, 3, {"group:water"}) == nil then
 				return
 			end
-			pos.y = pos.y+1
+			pos.y = pos.y + 1
 			local height = 0
 			while minetest.get_node(pos).name == "default:papyrus" and height < 4 do
-				height = height+1
-				pos.y = pos.y+1
+				height = height + 1
+				pos.y = pos.y + 1
 			end
 			if height < 4 then
 				if minetest.get_node(pos).name == "air" then
@@ -373,8 +377,7 @@ end)
 minetest.register_abm({
 	nodenames = {"group:leafdecay"},
 	neighbors = {"air", "group:liquid"},
-	-- A low interval and a high inverse chance spreads the load
-	interval = 2,
+	interval = 2, -- A low interval and a high inverse chance spreads the load.
 	chance = 3,
 
 	action = function(p0, node, _, _)
@@ -382,12 +385,12 @@ minetest.register_abm({
 		local do_preserve = false
 		local d = minetest.registered_nodes[node.name].groups.leafdecay
 		if not d or d == 0 then
-			--print("not groups.leafdecay")
+			-- print("not groups.leafdecay")
 			return
 		end
 		local n0 = minetest.get_node(p0)
 		if n0.param2 ~= 0 then
-			--print("param2 ~= 0")
+			-- print("param2 ~= 0")
 			return
 		end
 		local p0_hash = nil
@@ -397,13 +400,13 @@ minetest.register_abm({
 			if trunkp then
 				local n = minetest.get_node(trunkp)
 				local reg = minetest.registered_nodes[n.name]
-				-- Assume ignore is a trunk, to make the thing work at the border of the active area
+				-- Assume ignore is a trunk, to make the thing work at the border of the active area:
 				if n.name == "ignore" or (reg and reg.groups.tree and reg.groups.tree ~= 0) then
-					--print("cached trunk still exists")
+					-- print("Cached trunk still exists.")
 					return
 				end
-				--print("cached trunk is invalid")
-				-- Cache is invalid
+				-- print("Cached trunk is invalid.")
+				-- Cache is invalid:
 				table.remove(default.leafdecay_trunk_cache, p0_hash)
 			end
 		end
@@ -412,18 +415,18 @@ minetest.register_abm({
 		end
 		default.leafdecay_trunk_find_allow_accumulator =
 				default.leafdecay_trunk_find_allow_accumulator - 1
-		-- Assume ignore is a trunk, to make the thing work at the border of the active area
+		-- Assume ignore is a trunk, to make the thing work at the border of the active area:
 		local p1 = minetest.find_node_near(p0, d, {"ignore", "group:tree"})
 		if p1 then
 			do_preserve = true
 			if default.leafdecay_enable_cache then
-				--print("caching trunk")
-				-- Cache the trunk
+				-- print("Caching trunk.")
+				-- Cache the trunk:
 				default.leafdecay_trunk_cache[p0_hash] = p1
 			end
 		end
 		if not do_preserve then
-			-- Drop stuff other than the node itself
+			-- Drop stuff other than the node itself:
 			itemstacks = minetest.get_node_drops(n0.name)
 			for _, itemname in ipairs(itemstacks) do
 				if minetest.get_item_group(n0.name, "leafdecay_drop") ~= 0 or
@@ -436,8 +439,8 @@ minetest.register_abm({
 					minetest.add_item(p_drop, itemname)
 				end
 			end
-			-- Remove node
 			minetest.remove_node(p0)
+			-- minetest.log("action", n0.name .. " decayed at " .. minetest.pos_to_string(p0) .. ".")
 			nodeupdate(p0)
 		end
 	end

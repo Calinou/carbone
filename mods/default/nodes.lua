@@ -45,6 +45,21 @@ minetest.register_node("default:stone_with_coal", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("default:desert_stone_with_coal", {
+	description = "Coal Ore",
+	tiles = {"default_desert_stone.png^default_mineral_coal.png"},
+	is_ground_content = true,
+	groups = {cracky = 3},
+	drop = {
+		items = {
+			{items = {"default:desert_cobble"},},
+			{items = {"default:coal_lump"},},
+			{items = {"maptools:copper_coin"},},
+		},
+	},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("default:stone_with_coin", {
 	description = "Stone with Coin",
 	tiles = {"default_stone.png^maptools_gold_coin.png"},
@@ -82,6 +97,21 @@ minetest.register_node("default:stone_with_copper", {
 	drop = {
 		items = {
 			{items = {"default:cobble"},},
+			{items = {"default:copper_lump"},},
+			{items = {"maptools:copper_coin 2"},},
+		},
+	},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:desert_stone_with_copper", {
+	description = "Copper Ore",
+	tiles = {"default_desert_stone.png^default_mineral_copper.png"},
+	is_ground_content = true,
+	groups = {cracky = 3},
+	drop = {
+		items = {
+			{items = {"default:desert_cobble"},},
 			{items = {"default:copper_lump"},},
 			{items = {"maptools:copper_coin 2"},},
 		},
@@ -241,17 +271,18 @@ minetest.register_node("default:dirt", {
 	sounds = default.node_sound_dirt_defaults(),
 })
 
+--[[
 minetest.register_abm({
 	nodenames = {"default:dirt"},
 	interval = 2,
-	chance = 200,
+	chance = 60,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local name = minetest.get_node(above).name
 		local nodedef = minetest.registered_nodes[name]
 		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none"
-				and (minetest.get_node_light(above) or 0) >= 13 then
+				and (minetest.get_node_light(above) or 0) >= 12 then
 			if name == "default:snow" or name == "default:snowblock" then
 				minetest.set_node(pos, {name = "default:dirt_with_snow"})
 			else
@@ -260,11 +291,12 @@ minetest.register_abm({
 		end
 	end
 })
+--]]
 
 minetest.register_abm({
 	nodenames = {"default:dirt_with_grass"},
 	interval = 2,
-	chance = 20,
+	chance = 10,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local name = minetest.get_node(above).name

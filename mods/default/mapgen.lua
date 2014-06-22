@@ -44,6 +44,17 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
+	ore            = "default:desert_stone_with_coal",
+	wherein        = "default:desert_stone",
+	clust_scarcity = 9 * 9 * 9,
+	clust_num_ores = 10,
+	clust_size     = 3,
+	height_min     = 0,
+	height_max     = 64,
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
 	ore            = "default:stone_with_coal",
 	wherein        = "default:stone",
 	clust_scarcity = 24 * 24 * 24,
@@ -233,6 +244,17 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
+	ore            = "default:desert_stone_with_copper",
+	wherein        = "default:desert_stone",
+	clust_scarcity = 11 * 11 * 11,
+	clust_num_ores = 6,
+	clust_size     = 3,
+	height_min     = 0,
+	height_max     = 64,
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
 	ore            = "default:stone_with_copper",
 	wherein        = "default:stone",
 	clust_scarcity = 10 * 10 * 10,
@@ -251,7 +273,7 @@ minetest.register_ore({
 	clust_num_ores = 5,
 	clust_size     = 3,
 	height_min     = -30000,
-	height_max     = 30000,
+	height_max     = 64,
 	flags          = "absheight",
 })
 
@@ -262,7 +284,7 @@ minetest.register_ore({
 	clust_scarcity = 30 * 30 * 30,
 	clust_num_ores = 64,
 	clust_size     = 5,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -30000,
 })
 
@@ -273,7 +295,7 @@ minetest.register_ore({
 	clust_scarcity = 40 * 40 * 40,
 	clust_num_ores = 64,
 	clust_size     = 5,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -30000,
 })
 
@@ -371,7 +393,7 @@ minetest.register_ore({
 	clust_scarcity = 14 * 14 * 14,
 	clust_num_ores = 64,
 	clust_size     = 5,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -4096,
 })
 
@@ -382,7 +404,7 @@ minetest.register_ore({
 	clust_scarcity = 14 * 14 * 14,
 	clust_num_ores = 64,
 	clust_size     = 5,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -30000,
 })
 
@@ -393,7 +415,7 @@ minetest.register_ore({
 	clust_scarcity = 20 * 20 * 20,
 	clust_num_ores = 32,
 	clust_size     = 4,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -1024,
 })
 
@@ -404,7 +426,7 @@ minetest.register_ore({
 	clust_scarcity = 22 * 22 * 22,
 	clust_num_ores = 32,
 	clust_size     = 4,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -1024,
 })
 
@@ -416,8 +438,19 @@ minetest.register_ore({
 	clust_scarcity = 40 * 40 * 40,
 	clust_num_ores = 512,
 	clust_size     = 9,
-	height_max     = 30000,
+	height_max     = 64,
 	height_min     = -4096,
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:desert_cobble",
+	wherein        = "default:desert_stone",
+	clust_scarcity = 40 * 40 * 40,
+	clust_num_ores = 512,
+	clust_size     = 9,
+	height_max     = 64,
+	height_min     = 0,
 })
 
 minetest.register_ore({
@@ -602,8 +635,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 				end
 				-- If desert sand, make cactus
-				if ground_y and minetest.get_node({x=x,y =ground_y,z=z}).name == "default:desert_sand" then
-					default.make_cactus({x=x,y =ground_y+1,z=z}, pr:next(3, 4))
+				if ground_y and minetest.get_node({x = x, y = ground_y, z = z}).name == "default:desert_sand" then
+					default.make_cactus({x=x,y =ground_y+1,z=z}, 4)
 				end
 			end
 		end
@@ -648,7 +681,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							
 						-- If dirt with grass, add grass
 						elseif nn == "default:dirt_with_grass" then
-							minetest.set_node(p,{name = "default:grass_"..pr:next(1, 5)})
+							minetest.set_node(p,{name = "default:grass_" .. pr:next(1, 5)})
 						end
 					end
 				end
