@@ -1,6 +1,4 @@
 
-local BALL_PUSH_CHECK_INTERVAL = 0.1
-
 local function reg_ball(color)
 	local ball_item_name = "soccer:ball_" .. color .. "_item"
 	local ball_ent_name = "soccer:ball_" .. color .. "_entity"
@@ -18,7 +16,7 @@ local function reg_ball(color)
 
 		on_step = function(self, dtime)
 			self.timer = self.timer + dtime
-			if self.timer >= BALL_PUSH_CHECK_INTERVAL then
+			if self.timer >= 0.2 then
 				self.object:setacceleration({x = 0, y = -14.5, z = 0})
 				self.timer = 0
 				local vel = self.object:getvelocity()
