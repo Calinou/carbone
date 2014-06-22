@@ -42,6 +42,8 @@ Simple Mobs is under the WTFPL: https://github.com/PilzAdam/mobs
 
 Simple Snow is under the WTFPL: https://forum.minetest.net/viewtopic.php?f=11&t=9270
 
+Soccer is under BSD 2-clause license for code and CC BY-SA 2.0 for textures: https://github.com/kaeza/minetest-soccer
+
 Chat Plus is under CC BY-SA: https://github.com/rubenwardy/chatplus
 
 Awards is under CC BY-SA: https://github.com/rubenwardy/awards
