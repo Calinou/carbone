@@ -725,17 +725,23 @@ minetest.register_node("default:fence_steelblock", {
 
 minetest.register_node("default:ladder", {
 	description = "Ladder",
-	drawtype = "signlike",
-	tiles = {"default_ladder.png"},
-	inventory_image = "default_ladder.png",
-	wield_image = "default_ladder.png",
+	drawtype = "nodebox",
+	tiles = {"default_ladder_new.png"},
+	inventory_image = "default_ladder_new_inv.png",
+	wield_image = "default_ladder_new_inv.png",
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "wallmounted",
 	walkable = false,
 	climbable = true,
 	is_ground_content = false,
-	selection_box = {type = "wallmounted",},
+	node_box = {
+		type = "wallmounted",
+		wall_top    = {-0.375, 0.4375, -0.5, 0.375, 0.5, 0.5},
+		wall_bottom = {-0.375, -0.5, -0.5, 0.375, -0.4375, 0.5},
+		wall_side   = {-0.5, -0.5, -0.375, -0.4375, 0.5, 0.375},
+	},
+	selection_box = {type = "wallmounted"},
 	groups = {choppy = 2,oddly_breakable_by_hand = 3, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -914,25 +920,29 @@ minetest.register_node("default:torch", {
 		wall_bottom = {-0.0625, -0.5   , -0.0625, 0.0625, 0.0625, 0.0625},
 		wall_side   = {-0.5   , -0.5   , -0.0625, -0.375, 0.0625, 0.0625},
 	},
-	selection_box = {
-		type = "wallmounted",
-	},
+	selection_box = {type = "wallmounted"},
 	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, hot = 2},
 	sounds = default.node_sound_defaults(),
 })
 
 minetest.register_node("default:sign_wall", {
 	description = "Sign",
-	drawtype = "signlike",
-	tiles = {"default_sign_wall.png"},
-	inventory_image = "default_sign_wall.png",
-	wield_image = "default_sign_wall.png",
+	drawtype = "nodebox",
+	tiles = {"default_sign_new_wall.png"},
+	inventory_image = "default_sign_new_inv.png",
+	wield_image = "default_sign_new_inv.png",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
-	selection_box = {type = "wallmounted",},
+	node_box = {
+		type = "wallmounted",
+		wall_top    = {-0.4375, 0.4375, -0.3125, 0.4375, 0.5, 0.3125},
+		wall_bottom = {-0.4375, -0.5, -0.3125, 0.4375, -0.4375, 0.3125},
+		wall_side   = {-0.5, -0.3125, -0.4375, -0.4375, 0.3125, 0.4375},
+	},
+	selection_box = {type = "wallmounted"},
 	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
 	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
@@ -942,7 +952,7 @@ minetest.register_node("default:sign_wall", {
 		meta:set_string("infotext", "\"\"")
 	end,
 	on_receive_fields = function(pos, formname, fields, sender)
-		--print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
+		-- print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
 		if minetest.is_protected(pos, sender:get_player_name()) then
 			minetest.record_protection_violation(pos, sender:get_player_name())
 			return
