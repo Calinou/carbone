@@ -219,7 +219,7 @@ local function cool_wf_vm(pos, node1, node2)
 				
 	manip:set_data(nodes)
 	manip:write_to_map()
-	minetest.log("action", "Lava cooling happened at (" .. pos.x .. "," .. pos.y .. "," .. pos.z .. ").")
+	-- minetest.log("action", "Lava cooling happened at (" .. pos.x .. "," .. pos.y .. "," .. pos.z .. ").")
 	local t1 = os.clock()
 	manip:update_map()
 	-- minetest.log("action", string.format("Lava cooling updated the map after ca. %.2fs.", os.clock() - t1))

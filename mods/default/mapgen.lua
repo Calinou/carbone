@@ -281,9 +281,9 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_coal",
 	wherein        = "default:stone",
-	clust_scarcity = 30 * 30 * 30,
-	clust_num_ores = 64,
-	clust_size     = 5,
+	clust_scarcity = 32 * 32 * 32,
+	clust_num_ores = 40,
+	clust_size     = 4,
 	height_max     = 64,
 	height_min     = -30000,
 })
@@ -292,9 +292,9 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
-	clust_scarcity = 40 * 40 * 40,
-	clust_num_ores = 64,
-	clust_size     = 5,
+	clust_scarcity = 48 * 48 * 48,
+	clust_num_ores = 40,
+	clust_size     = 4,
 	height_max     = 64,
 	height_min     = -30000,
 })
@@ -379,11 +379,11 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "air",
 	wherein        = "default:stone",
-	clust_scarcity = 55 * 55 * 55,
-	clust_num_ores = 360,
+	clust_scarcity = 54 * 54 * 54,
+	clust_num_ores = 362,
 	clust_size     = 9,
 	height_min     = -30000,
-	height_max     = -15,
+	height_max     = 8,
 })
 
 minetest.register_ore({
@@ -463,6 +463,20 @@ minetest.register_ore({
 	height_max     = 4,
 	height_min     = -8,
 })
+
+-- Lakes:
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "air",
+	wherein        = "default:dirt",
+	clust_scarcity = 28 * 28 * 28,
+	clust_num_ores = 200,
+	clust_size     = 7,
+	height_min     = -30000,
+	height_max     = 64,
+})
+
 
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
 	minetest.log("action", "WARNING: default.generate_ore is deprecated")
