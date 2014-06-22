@@ -109,14 +109,14 @@ for i in ipairs(beds_list) do
 				elseif param2 == 3 then
 					pos.z = pos.z - 1
 				end
-				clicker:set_physics_override({speed = 1.0, jump = 1.0})
+				clicker:set_physics_override({speed = 1.0, jump = 1.0, sneak = true})
 				pos.y = pos.y - 0.5
 				clicker:setpos(pos)
 				clicker:set_eye_offset({x = 0, y = 0, z = 0}, {x = 0, y = 0, z = 0})
 				meta:set_string("player", "")
 				players_in_bed = players_in_bed - 1
 			elseif meta:get_string("player") == "" then
-				clicker:set_physics_override({speed = 0.0, jump = 0.0})
+				clicker:set_physics_override({speed = 0.0, jump = 0.0, sneak = false})
 				pos.y = pos.y + 0.5625
 				clicker:setpos(pos)
 				clicker:set_eye_offset({x = 0, y = -10, z = 0}, {x = 0, y = -10, z = 0})
@@ -179,9 +179,9 @@ for i in ipairs(beds_list) do
 	})
 end
 
-minetest.register_alias("beds:bed_bottom", "beds:bed_bottom_blue")
-minetest.register_alias("beds:bed_top", "beds:bed_top_blue")
-minetest.register_alias("beds:bed", "beds:bed_bottom_blue")
+minetest.register_alias("beds:bed_bottom", "beds:bed_bottom_green")
+minetest.register_alias("beds:bed_top", "beds:bed_top_green")
+minetest.register_alias("beds:bed", "beds:bed_bottom_green")
 
 beds_player_spawns = {}
 
