@@ -52,6 +52,7 @@ local function reg_ball(color)
 					final_dir.y = (final_dir.y * 9.6) / player_count
 					final_dir.z = (final_dir.z * 7.2) / player_count
 					self.object:setvelocity(final_dir)
+					minetest.sound_play("default_dig_oddly_breakable_by_hand", {object = self.object, gain = 0.5})
 				end
 			end
 		end,
