@@ -732,9 +732,7 @@ minetest.register_node("default:ladder", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "wallmounted",
-	walkable = false,
 	climbable = true,
-	is_ground_content = false,
 	node_box = {
 		type = "wallmounted",
 		wall_top    = {-0.375, 0.4375, -0.5, 0.375, 0.5, 0.5},
