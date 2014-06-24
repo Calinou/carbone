@@ -311,7 +311,7 @@ minetest.register_ore({
 })
 
 if minetest.setting_get("mg_name") == "indev" then
-	-- Floatlands and high mountains springs
+	-- Floatlands and high mountains springs:
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:water_source",
@@ -348,7 +348,7 @@ if minetest.setting_get("mg_name") == "indev" then
 	})
 end
 
--- Underground springs
+-- Underground springs:
 	
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -379,8 +379,8 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "air",
 	wherein        = "default:stone",
-	clust_scarcity = 54 * 54 * 54,
-	clust_num_ores = 362,
+	clust_scarcity = 48 * 48 * 48,
+	clust_num_ores = 363,
 	clust_size     = 9,
 	height_min     = -30000,
 	height_max     = 8,
@@ -464,13 +464,13 @@ minetest.register_ore({
 	height_min     = -8,
 })
 
--- Lakes:
+-- Air rooms in dirt:
 
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "air",
 	wherein        = "default:dirt",
-	clust_scarcity = 28 * 28 * 28,
+	clust_scarcity = 24 * 24 * 24,
 	clust_num_ores = 200,
 	clust_size     = 7,
 	height_min     = -30000,
