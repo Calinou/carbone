@@ -564,12 +564,12 @@ function default.make_nyancat(pos, facedir, length)
 		tailvec.z = 1
 	end
 	local p = {x= pos.x, y = pos.y, z= pos.z}
-	minetest.set_node(p, {name = "default:nyancat", param2=facedir})
-	minetest.log("action", "Generated a nyan cat at " .. minetest.pos_to_string(p) .. ".")
+	minetest.set_node(p, {name = "default:nyancat", param2 = facedir})
+	-- minetest.log("action", "Generated a nyan cat at " .. minetest.pos_to_string(p) .. ".")
 	for i= 1,length do
 		p.x = p.x + tailvec.x
 		p.z = p.z + tailvec.z
-		minetest.set_node(p, {name = "default:nyancat_rainbow", param2=facedir})
+		minetest.set_node(p, {name = "default:nyancat_rainbow", param2 = facedir})
 	end
 end
 

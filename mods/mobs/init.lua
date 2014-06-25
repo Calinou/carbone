@@ -560,17 +560,17 @@ mobs:register_arrow("mobs:bullet", {
 
 if not minetest.setting_getbool("creative_mode") then
 	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then -- “If not defined or set to true then”
-		mobs:register_spawn("mobs:rat", "two rats", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 20, -1, 15000, 6, 30000)
-		mobs:register_spawn("mobs:sheep", "a sheep", {"default:dirt_with_grass"},                                                  20, 8, 70000, 2, 30000)
+		mobs:register_spawn("mobs:rat", "two rats", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 16, -1, 7500, 6, 100)
+		mobs:register_spawn("mobs:sheep", "a sheep", {"default:dirt_with_grass"},                                                  16, 8, 20000, 2, 100)
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If not defined or set to true then”
-		mobs:register_spawn("mobs:dirt_monster", "a dirt monster", {"default:dirt", "default:stone"},                           1, -1, 65000, 2, -15)
-		mobs:register_spawn("mobs:stone_monster", "a stone monster", {"default:stone"},                                         1, -1, 70000, 2, -15)
-		mobs:register_spawn("mobs:sand_monster", "a sand monster", {"default:stone"},                                           1, -1, 75000, 2, -15)
-		mobs:register_spawn("mobs:oerkki", "an oerkki", {"default:stone"},                                                      1, -1, 70000, 2, -30)
-		mobs:register_spawn("mobs:tree_monster", "a tree monster", {"default:stone"},                                           1, -1, 75000, 1, -30)
-		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", {"default:stone"},                                       1, -1, 75000, 1, -60)
-		mobs:register_spawn("mobs:rhino", "a rhino", {"default:stone"},                                                         1, -1, 75000, 1, -60)
+		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     {"default:stone", "default:desert_stone"}, 1, -1, 15000, 6, -15)
+		mobs:register_spawn("mobs:stone_monster", "a stone monster",   {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -15)
+		mobs:register_spawn("mobs:sand_monster", "a sand monster",     {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -15)
+		mobs:register_spawn("mobs:oerkki", "an oerkki",                {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -30)
+		mobs:register_spawn("mobs:tree_monster", "a tree monster",     {"default:stone", "default:desert_stone"}, 1, -1, 25000, 2, -30)
+		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", {"default:stone", "default:desert_stone"}, 1, -1, 25000, 2, -60)
+		mobs:register_spawn("mobs:rhino", "a rhino",                   {"default:stone", "default:desert_stone"}, 1, -1, 25000, 2, -60)
 	end
 end
 

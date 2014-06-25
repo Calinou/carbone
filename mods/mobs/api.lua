@@ -175,9 +175,7 @@ function mobs:register_mob(name, def)
 			
 			self.timer = self.timer + dtime
 			if self.state ~= "attack" then
-				if self.timer < 1.0 then
-					return
-				end
+				if self.timer < 1.0 then return end
 				self.timer = 0
 			end
 			
@@ -235,23 +233,14 @@ function mobs:register_mob(name, def)
 				do_env_damage(self)
 			end
 			
-			if self.type == "monster" and minetest.setting_getbool("enable_damage") then
+			if self.type == "monster" then
 				for _,player in pairs(minetest.get_connected_players()) do
 					local s = self.object:getpos()
 					local p = player:getpos()
 					local dist = ((p.x - s.x) ^ 2 + (p.y - s.y) ^ 2 + (p.z - s.z) ^ 2) ^ 0.5
 					if dist <= self.view_range then
-						if self.attack.dist then
-							if self.attack.dist <= dist then
-								self.state = "attack"
-								self.attack.player = player
-								self.attack.dist = dist
-							end
-						else
-							self.state = "attack"
-							self.attack.player = player
-							self.attack.dist = dist
-						end
+						self.state = "attack"
+						self.attack.player = player
 					end
 				end
 			end
@@ -294,7 +283,7 @@ function mobs:register_mob(name, def)
 							else
 								if self.get_velocity(self) <= 0.38 and self.object:getvelocity().y == 0 then
 									local v = self.object:getvelocity()
-									v.y = 6
+									v.y = 8
 									self.object:setvelocity(v)
 								end
 								self.set_velocity(self, self.walk_velocity)
@@ -327,7 +316,7 @@ function mobs:register_mob(name, def)
 				end
 				if self.get_velocity(self) <= 0.38 and self.object:getvelocity().y == 0 then
 					local v = self.object:getvelocity()
-					v.y = 6
+					v.y = 8
 					self.object:setvelocity(v)
 				end
 				self:set_animation("walk")
@@ -373,7 +362,7 @@ function mobs:register_mob(name, def)
 					else
 						if self.get_velocity(self) <= 1.58 and self.object:getvelocity().y == 0 then
 							local v = self.object:getvelocity()
-							v.y = 6
+							v.y = 8
 							self.object:setvelocity(v)
 						end
 						self.set_velocity(self, self.run_velocity)
