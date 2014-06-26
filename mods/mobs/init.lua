@@ -374,7 +374,7 @@ mobs:register_mob("mobs:tree_monster", {
 
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 55,
+	hp_max = 50,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
@@ -384,7 +384,7 @@ mobs:register_mob("mobs:dungeon_master", {
 	view_range = 12,
 	walk_velocity = 0.4,
 	run_velocity = 2,
-	damage = 4,
+	damage = 10,
 	drops = {
 		{name = "default:mese_crystal",
 		chance = 1,
@@ -422,7 +422,7 @@ mobs:register_arrow("mobs:fireball", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
 	textures = {"mobs_fireball.png"},
-	velocity = 10,
+	velocity = 9,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
@@ -482,12 +482,12 @@ mobs:register_mob("mobs:rhino", {
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
 	textures = {"mobs_rhino.png"},
-	visual_size = {x =8, y =8},
+	visual_size = {x = 8, y = 8},
 	makes_footstep_sound = true,
 	view_range = 10,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	damage = 4,
+	damage = 2,
 	drops = {
 		{name = "default:steel_ingot",
 		chance = 1,
@@ -527,14 +527,14 @@ mobs:register_arrow("mobs:bullet", {
 	visual = "sprite",
 	visual_size = {x = 0.75, y = 0.75},
 	textures = {"mobs_bullet.png"},
-	velocity = 30,
+	velocity = 18,
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
 		local vec = {x =s.x-p.x, y =s.y-p.y, z =s.z-p.z}
 		player:punch(self.object, 1.0,  {
 			full_punch_interval= 1.0,
-			damage_groups = {fleshy = 3},
+			damage_groups = {fleshy = 2},
 		}, vec)
 		local pos = self.object:getpos()
 		for dx = -1, 1 do
