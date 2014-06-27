@@ -7,9 +7,9 @@ moreblocks = {}
 
 -- Load translation library if intllib is installed
 
-local S = nil
+local S -- Load translation library if intllib is installed:
 if intllib then
-	S = intllib.Getter()
+	S = intllib.Getter(minetest.get_current_modname())
 else
 	S = function(s) return s end
 end
