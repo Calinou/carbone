@@ -9,7 +9,7 @@ dofile(farming.path .. "/hoes.lua")
 
 -- WHEAT
 farming.register_plant("farming:wheat", {
-	description = "Wheat seed",
+	description = "Wheat Seed",
 	inventory_image = "farming_wheat_seed.png",
 	steps = 8,
 	minlight = 13,
@@ -24,7 +24,7 @@ minetest.register_craftitem("farming:flour", {
 minetest.register_craftitem("farming:bread", {
 	description = "Bread",
 	inventory_image = "farming_bread.png",
-	on_use = minetest.item_eat(6),
+	on_use = minetest.item_eat(5),
 })
 
 minetest.register_craft({
@@ -42,7 +42,7 @@ minetest.register_craft({
 
 -- Cotton
 farming.register_plant("farming:cotton", {
-	description = "Cotton seed",
+	description = "Cotton Seed",
 	inventory_image = "farming_cotton_seed.png",
 	steps = 8,
 	minlight = 13,
