@@ -560,7 +560,7 @@ mobs:register_arrow("mobs:bullet", {
 
 if not minetest.setting_getbool("creative_mode") then
 	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then -- “If not defined or set to true then”
-		mobs:register_spawn("mobs:rat", "two rats", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 16, -1, 7500, 6, 100)
+		mobs:register_spawn("mobs:rat", "two rats", {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}, 16, -1, 8000, 6, 100)
 		mobs:register_spawn("mobs:sheep", "a sheep", {"default:dirt_with_grass"},                                                  16, 8, 20000, 2, 100)
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If not defined or set to true then”

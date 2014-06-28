@@ -431,11 +431,11 @@ minetest.register_node("default:jungletree", {
 	is_ground_content = false,
 	drop = {
 		items = {
-			{items = {"default:tree"},},
-			{items = {"maptools:copper_coin"}, rarity = 8},
+			{items = {"default:jungletree"},},
+			{items = {"maptools:copper_coin"}, rarity = 6},
 		},
 	},
-	groups = {tree = 1,choppy = 2,oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -450,7 +450,6 @@ minetest.register_node("default:junglewood", {
 minetest.register_node("default:jungleleaves", {
 	description = "Jungle Leaves",
 	drawtype = "glasslike",
-	visual_scale = 1.3,
 	tiles = {"default_jungleleaves.png"},
 	paramtype = "light",
 	waving = 1,
@@ -461,9 +460,9 @@ minetest.register_node("default:jungleleaves", {
 		max_items = 1,
 		items = {
 			{
-				-- Player will get sapling with 1/20 chance:
+				-- Player will get sapling with 1/18 chance:
 				items = {"default:junglesapling"},
-				rarity = 20,
+				rarity = 18,
 			},
 			{
 				-- Player will get leaves only if he gets no saplings, this is because max_items is 1:
@@ -524,9 +523,9 @@ minetest.register_node("default:leaves", {
 		max_items = 1,
 		items = {
 			{
-				-- Player will get sapling with 1/20 chance:
+				-- Player will get sapling with 1/18 chance:
 				items = {"default:sapling"},
-				rarity = 20,
+				rarity = 18,
 			},
 			{
 				-- Player will get leaves only if he gets no saplings, this is because max_items is 1:

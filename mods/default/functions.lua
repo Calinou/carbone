@@ -145,13 +145,11 @@ minetest.register_on_punchnode(on_punchnode)
 minetest.register_abm({
 	nodenames = {"default:sapling"},
 	interval = 30,
-	chance = 40,
+	chance = 30,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
-		if is_soil == 0 then
-			return
-		end
+		if is_soil == 0 then return end
 		
 		minetest.log("action", "A sapling grows into a tree at " .. minetest.pos_to_string(pos) .. ".")
 		local vm = minetest.get_voxel_manip()
@@ -168,13 +166,11 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:junglesapling"},
 	interval = 30,
-	chance = 50,
+	chance = 40,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
-		if is_soil == 0 then
-			return
-		end
+		if is_soil == 0 then return end
 		
 		minetest.log("action", "A jungle sapling grows into a tree at " .. minetest.pos_to_string(pos) .. ".")
 		local vm = minetest.get_voxel_manip()
