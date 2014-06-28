@@ -274,14 +274,15 @@ minetest.register_node("default:dirt", {
 
 minetest.register_abm({
 	nodenames = {"default:dirt"},
-	interval = 2,
-	chance = 120,
+	interval = 30,
+	chance = 5,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local name = minetest.get_node(above).name
 		local nodedef = minetest.registered_nodes[name]
 		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none"
+				and pos.y >= -15
 				and (minetest.get_node_light(above) or 0) >= 12 then
 			if name == "default:snow" or name == "default:snowblock" then
 				minetest.set_node(pos, {name = "default:dirt_with_snow"})
@@ -295,7 +296,7 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:dirt_with_grass"},
-	interval = 2,
+	interval = 30,
 	chance = 2,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}

@@ -99,7 +99,7 @@ minetest.register_craft({
 
 minetest.register_abm({
 	nodenames = {"group:soil", "group:wet"},
-	interval = 2,
+	interval = 30,
 	chance = 2,
 	action = function(pos, node)
 		pos.y = pos.y + 1

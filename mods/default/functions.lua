@@ -144,8 +144,8 @@ minetest.register_on_punchnode(on_punchnode)
 
 minetest.register_abm({
 	nodenames = {"default:sapling"},
-	interval = 2,
-	chance = 400,
+	interval = 30,
+	chance = 40,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -167,8 +167,8 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:junglesapling"},
-	interval = 2,
-	chance = 500,
+	interval = 30,
+	chance = 50,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -287,8 +287,8 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
-	interval = 2,
-	chance = 400,
+	interval = 30,
+	chance = 50,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
@@ -311,8 +311,8 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:papyrus"},
 	neighbors = {"default:dirt", "default:dirt_with_grass", "default:dirt_with_snow", "default:sand", "default:desert_sand"},
-	interval = 2,
-	chance = 300,
+	interval = 30,
+	chance = 30,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
@@ -429,14 +429,9 @@ minetest.register_abm({
 			-- Drop stuff other than the node itself:
 			itemstacks = minetest.get_node_drops(n0.name)
 			for _, itemname in ipairs(itemstacks) do
-				if minetest.get_item_group(n0.name, "leafdecay_drop") ~= 0 or
-						itemname ~= n0.name then
-					local p_drop = {
-						x = p0.x - 0.5 + math.random(),
-						y = p0.y - 0.5 + math.random(),
-						z = p0.z - 0.5 + math.random(),
-					}
-					minetest.add_item(p_drop, itemname)
+				if minetest.get_item_group(n0.name, "leafdecay_drop") ~= 0
+				or itemname ~= n0.name then
+					minetest.add_item(p0, itemname)
 				end
 			end
 			minetest.remove_node(p0)
