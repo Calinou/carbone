@@ -590,7 +590,7 @@ function generate_nyancats(seed, minp, maxp)
 			local y0 = pr:next(minp.y, maxp.y)
 			local z0 = pr:next(minp.z, maxp.z)
 			local p0 = {x=x0, y =y0, z=z0}
-			default.make_nyancat(p0, pr:next(0,3), pr:next(3,15))
+			default.make_nyancat(p0, pr:next(0,3), 10)
 		end
 	end
 end
@@ -617,7 +617,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local z = pr:next(z0, z1)
 				if minetest.get_node({x=x,y = 1,z=z}).name == "default:dirt_with_grass" and
 						minetest.find_node_near({x=x,y = 1,z=z}, 1, "default:water_source") then
-					default.make_papyrus({x=x,y = 2,z=z}, pr:next(2, 4))
+					default.make_papyrus({x=x,y = 2,z=z}, 4)
 				end
 			end
 		end
