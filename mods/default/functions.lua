@@ -144,8 +144,8 @@ minetest.register_on_punchnode(on_punchnode)
 
 minetest.register_abm({
 	nodenames = {"default:sapling"},
-	interval = 10,
-	chance = 50,
+	interval = 2,
+	chance = 400,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -167,8 +167,8 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:junglesapling"},
-	interval = 10,
-	chance = 50,
+	interval = 2,
+	chance = 500,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -287,8 +287,8 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
-	interval = 25,
-	chance = 40,
+	interval = 2,
+	chance = 400,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
@@ -311,8 +311,8 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:papyrus"},
 	neighbors = {"default:dirt", "default:dirt_with_grass", "default:dirt_with_snow", "default:sand", "default:desert_sand"},
-	interval = 25,
-	chance = 40,
+	interval = 2,
+	chance = 300,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local name = minetest.get_node(pos).name
@@ -377,11 +377,11 @@ end)
 minetest.register_abm({
 	nodenames = {"group:leafdecay"},
 	neighbors = {"air", "group:liquid"},
-	interval = 2, -- A low interval and a high inverse chance spreads the load.
-	chance = 3,
+	interval = 1, -- A low interval and a high inverse chance spreads the load.
+	chance = 2,
 
 	action = function(p0, node, _, _)
-		--print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
+		-- print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
 		local do_preserve = false
 		local d = minetest.registered_nodes[node.name].groups.leafdecay
 		if not d or d == 0 then

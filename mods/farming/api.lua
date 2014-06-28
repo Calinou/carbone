@@ -180,8 +180,8 @@ farming.register_plant = function(name, def)
 	minetest.register_abm({
 		nodenames = {"group:seed"},
 		neighbors = {"group:soil"},
-		interval = 30,
-		chance = 5,
+		interval = 2,
+		chance = 2,
 		action = function(pos, node)
 			local seedferts = minetest.registered_nodes[node.name].fertility
 			local soilferts = {}
@@ -244,8 +244,8 @@ farming.register_plant = function(name, def)
 	minetest.register_abm({
 		nodenames = {"group:" .. pname},
 		neighbors = {"group:soil"},
-		interval = 90,
-		chance = 2,
+		interval = 2,
+		chance = 90,
 		action = function(pos, node)
 			-- return if already full grown
 			if minetest.get_item_group(node.name, pname) == def.steps then

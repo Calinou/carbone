@@ -271,11 +271,11 @@ minetest.register_node("default:dirt", {
 	sounds = default.node_sound_dirt_defaults(),
 })
 
---[[
+
 minetest.register_abm({
 	nodenames = {"default:dirt"},
 	interval = 2,
-	chance = 60,
+	chance = 120,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local name = minetest.get_node(above).name
@@ -291,12 +291,12 @@ minetest.register_abm({
 		end
 	end
 })
---]]
+
 
 minetest.register_abm({
 	nodenames = {"default:dirt_with_grass"},
 	interval = 2,
-	chance = 10,
+	chance = 2,
 	action = function(pos, node)
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local name = minetest.get_node(above).name
@@ -460,12 +460,12 @@ minetest.register_node("default:jungleleaves", {
 		max_items = 1,
 		items = {
 			{
-				-- player will get sapling with 1/18 chance
+				-- Player will get sapling with 1/20 chance:
 				items = {"default:junglesapling"},
-				rarity = 18,
+				rarity = 20,
 			},
 			{
-				-- player will get leaves only if he gets no saplings, this is because max_items is 1
+				-- Player will get leaves only if he gets no saplings, this is because max_items is 1:
 				items = {"default:jungleleaves"},
 			}
 		}
@@ -523,12 +523,12 @@ minetest.register_node("default:leaves", {
 		max_items = 1,
 		items = {
 			{
-				-- player will get sapling with 1/18 chance
+				-- Player will get sapling with 1/20 chance:
 				items = {"default:sapling"},
-				rarity = 18,
+				rarity = 20,
 			},
 			{
-				-- player will get leaves only if he gets no saplings, this is because max_items is 1
+				-- Player will get leaves only if he gets no saplings, this is because max_items is 1:
 				items = {"default:leaves"},
 			}
 		}

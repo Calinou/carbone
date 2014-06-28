@@ -110,8 +110,8 @@ end
 minetest.register_abm({
 	nodenames = {"group:flammable"},
 	neighbors = {"group:igniter"},
-	interval = 1,
-	chance = 20,
+	interval = 2,
+	chance = 10,
 	action = function(p0, node, _, _)
 		-- If there is water or stuff like that around flame, don't ignite.
 		if fire.flame_should_extinguish(p0) then
@@ -131,7 +131,7 @@ minetest.register_abm({
 	nodenames = {"group:igniter"},
 	neighbors = {"air"},
 	interval = 2,
-	chance = 10,
+	chance = 5,
 	action = function(p0, node, _, _)
 		local reg = minetest.registered_nodes[node.name]
 		if not reg or not reg.groups.igniter or reg.groups.igniter < 2 then
@@ -157,8 +157,8 @@ minetest.register_abm({
 -- Remove flammable nodes and flame
 minetest.register_abm({
 	nodenames = {"fire:basic_flame"},
-	interval = 1,
-	chance = 4,
+	interval = 2,
+	chance = 2,
 	action = function(p0, node, _, _)
 		-- If there is water or stuff like that around flame, remove flame
 		if fire.flame_should_extinguish(p0) then
