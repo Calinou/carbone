@@ -1910,7 +1910,7 @@ minetest.register_node("default:apple", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 	},
-	groups = {fleshy = 3, dig_immediate = 2, flammable = 2, leafdecay = 3, leafdecay_drop= 1},
+	groups = {fleshy = 3, dig_immediate = 3, flammable = 2, leafdecay = 3, leafdecay_drop = 1},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -1944,8 +1944,7 @@ minetest.register_node("default:grass_1", {
 	description = "Grass",
 	drawtype = "plantlike",
 	tiles = {"default_grass_1.png"},
-	-- use a bigger inventory image
-	inventory_image = "default_grass_3.png",
+	inventory_image = "default_grass_3.png", -- Use a bigger inventory image.
 	wield_image = "default_grass_3.png",
 	paramtype = "light",
 	walkable = false,
@@ -1958,10 +1957,10 @@ minetest.register_node("default:grass_1", {
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
 	},
 	on_place = function(itemstack, placer, pointed_thing)
-		-- place a random grass node
-		local stack = ItemStack("default:grass_"..math.random(1,5))
+		-- Place a random grass node:
+		local stack = ItemStack("default:grass_"..math.random(1, 5))
 		local ret = minetest.item_place(stack, placer, pointed_thing)
-		return ItemStack("default:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
+		return ItemStack("default:grass_1 " .. itemstack:get_count() - (1 - ret:get_count()))
 	end,
 })
 
