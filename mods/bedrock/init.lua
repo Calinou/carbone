@@ -11,7 +11,7 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "bedrock:bedrock",
+	ore            = "bedrock:deepstone",
 	wherein        = "default:stone",
 	clust_scarcity = 1*1*1,
 	clust_num_ores = 5,
