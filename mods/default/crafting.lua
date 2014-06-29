@@ -542,7 +542,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "default:paper",
+	output = "default:paper 4",
 	recipe =  {"default:papyrus", "default:papyrus", "default:papyrus"},
 })
 
