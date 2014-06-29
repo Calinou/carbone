@@ -48,9 +48,9 @@ minetest.register_tool("throwing:bow_wood", {
 minetest.register_craft({
 	output = "throwing:bow_wood",
 	recipe = {
-		{"farming:string", "default:wood", ""},
-		{"farming:string", "", "default:wood"},
-		{"farming:string", "default:wood", ""},
+		{"farming:cotton", "default:wood", ""},
+		{"farming:cotton", "", "default:wood"},
+		{"farming:cotton", "default:wood", ""},
 	}
 })
 
@@ -72,9 +72,9 @@ minetest.register_tool("throwing:bow_stone", {
 minetest.register_craft({
 	output = "throwing:bow_stone",
 	recipe = {
-		{"farming:string", "default:cobble", ""},
-		{"farming:string", "", "default:cobble"},
-		{"farming:string", "default:cobble", ""},
+		{"farming:cotton", "default:cobble", ""},
+		{"farming:cotton", "", "default:cobble"},
+		{"farming:cotton", "default:cobble", ""},
 	}
 })
 
@@ -96,9 +96,9 @@ minetest.register_tool("throwing:bow_steel", {
 minetest.register_craft({
 	output = "throwing:bow_steel",
 	recipe = {
-		{"farming:string", "default:steel_ingot", ""},
-		{"farming:string", "", "default:steel_ingot"},
-		{"farming:string", "default:steel_ingot", ""},
+		{"farming:cotton", "default:steel_ingot", ""},
+		{"farming:cotton", "", "default:steel_ingot"},
+		{"farming:cotton", "default:steel_ingot", ""},
 	}
 })
 
@@ -121,9 +121,9 @@ minetest.register_tool("throwing:bow_bronze", {
 minetest.register_craft({
 	output = "throwing:bow_bronze",
 	recipe = {
-		{"farming:string", "default:bronze_ingot", ""},
-		{"farming:string", "", "default:bronze_ingot"},
-		{"farming:string", "default:bronze_ingot", ""},
+		{"farming:cotton", "default:bronze_ingot", ""},
+		{"farming:cotton", "", "default:bronze_ingot"},
+		{"farming:cotton", "default:bronze_ingot", ""},
 	}
 })
 
@@ -145,9 +145,9 @@ minetest.register_tool("throwing:bow_mese", {
 minetest.register_craft({
 	output = "throwing:bow_mese",
 	recipe = {
-		{"farming:string", "default:mese_crystal", ""},
-		{"farming:string", "", "default:mese_crystal"},
-		{"farming:string", "default:mese_crystal", ""},
+		{"farming:cotton", "default:mese_crystal", ""},
+		{"farming:cotton", "", "default:mese_crystal"},
+		{"farming:cotton", "default:mese_crystal", ""},
 	}
 })
 
@@ -169,9 +169,9 @@ minetest.register_tool("throwing:bow_diamond", {
 minetest.register_craft({
 	output = "throwing:bow_diamond",
 	recipe = {
-		{"farming:string", "default:diamond", ""},
-		{"farming:string", "", "default:diamond"},
-		{"farming:string", "default:diamond", ""},
+		{"farming:cotton", "default:diamond", ""},
+		{"farming:cotton", "", "default:diamond"},
+		{"farming:cotton", "default:diamond", ""},
 	}
 })
 

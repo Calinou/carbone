@@ -41,6 +41,7 @@ minetest.register_craft({
 })
 
 -- Cotton
+
 farming.register_plant("farming:cotton", {
 	description = "Cotton Seed",
 	inventory_image = "farming_cotton_seed.png",
@@ -50,10 +51,14 @@ farming.register_plant("farming:cotton", {
 	fertility = {"grassland", "desert"}
 })
 
+minetest.register_alias("farming:string", "farming:cotton")
+
+--[[
 minetest.register_craftitem("farming:string", {
 	description = "String",
 	inventory_image = "farming_cotton.png",
 })
+--]]
 
 minetest.register_craft({
 	output = "wool:white",
