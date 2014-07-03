@@ -88,8 +88,17 @@ minetest.register_chatcommand("whoami", {
 	description = "Tells your name",
 	privs = {},
 	func = function(name)
-		minetest.chat_send_player(name, "Your name is \"" .. name.. "\".")
+		minetest.chat_send_player(name, "Your name is: " .. name)
 	end,
+})
+
+minetest.register_chatcommand("ip", {
+	params = "",
+	description = "Shows your IP address",
+	privs = {},
+	func = function(name)
+		minetest.chat_send_player(name, "Your IP address is: "..minetest.get_player_ip(name))
+	end
 })
 
 minetest.register_chatcommand("kill", {
@@ -99,6 +108,9 @@ minetest.register_chatcommand("kill", {
 		local player = minetest.get_player_by_name(name)
 		if not player then return end
 		player:set_hp(0)
+		if minetest.setting_getbool("enable_damage") == false then
+			minetest.chat_send_player(name, "Damage is disabled on this server.")
+		end
 	end,
 })
 
@@ -156,5 +168,20 @@ minetest.register_chatcommand("jump", {
 		end
 
 		player:set_physics_override(nil, tonumber(jump), nil)
+	end,
+})
+
+minetest.register_chatcommand("hotbar", {
+	params = "<size>",
+	description = "Sets the size of your hotbar",
+	privs = {give = true},
+	func = function(name, slots)
+		if slots == "" then slots = 16 end
+		if type(tonumber(slots)) ~= "number" or tonumber(slots) < 1 or tonumber(slots) > 23 then
+			minetest.chat_send_player(name, "Value must be between 1 and 23.")
+			return
+		end
+		local player = minetest.get_player_by_name(name)
+		player:hud_set_hotbar_itemcount(tonumber(slots))
 	end,
 })
