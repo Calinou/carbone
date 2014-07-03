@@ -84,7 +84,7 @@ end
 function default.node_sound_glass_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_glass_footstep", gain=0.45}
+			{name="default_glass_footstep", gain=0.65}
 	table.dug = table.dug or
 			{name="default_break_glass", gain=0.8}
 	table.place = table.place or
@@ -93,10 +93,7 @@ function default.node_sound_glass_defaults(table)
 	return table
 end
 
---
--- Legacy
---
-
+-- Legacy:
 function default.spawn_falling_node(p, nodename)
 	spawn_falling_node(p, nodename)
 end
@@ -359,6 +356,8 @@ end
 -- If the node is in the leafdecay_drop group then the it will always be dropped
 -- as an item
 
+if minetest.setting_getbool("leaf_decay") ~= false then -- “If not defined or set to true then”
+
 default.leafdecay_trunk_cache = {}
 default.leafdecay_enable_cache = true
 -- Spread the load of finding trunks
@@ -436,3 +435,5 @@ minetest.register_abm({
 		end
 	end
 })
+
+end -- Ends: if minetest.setting_getbool("leaf_decay") ~= false

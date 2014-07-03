@@ -1,7 +1,7 @@
 -- Loss probabilities array (one in x will be lost).
 local loss_prob = {}
 
-local radius_max = tonumber(minetest.setting_get("tnt_radius_max") or 8)
+local radius_max = tonumber(minetest.setting_get("tnt_radius_max") or 9)
 
 local eject_drops = function(pos, stack)
 	local obj = minetest.add_item(pos, stack)
@@ -10,15 +10,13 @@ local eject_drops = function(pos, stack)
 		return
 	end
 	obj:get_luaentity().collect = true
-	obj:setacceleration({x=0, y=-10, z=0})
-	obj:setvelocity({x=math.random(0,6)-3, y=10, z=math.random(0,6)-3})
+	obj:setacceleration({x=0, y = -10, z=0})
+	obj:setvelocity({x=math.random(0,4) - 2, y = 8, z=math.random(0,4) - 2})
 end
 
 local add_drop = function(drops, pos, item)
 	if loss_prob[item] ~= nil then
-		if math.random(1,loss_prob[item]) == 1 then
-			return
-		end
+		if math.random(1,loss_prob[item]) == 1 then return end
 	end
 
 	if drops[item] == nil then
@@ -108,12 +106,12 @@ boom = function(pos, time)
 					if node.name == "air" then
 					elseif node.name == "tnt:tnt" or node.name == "tnt:tnt_burning" then
 						if radius < radius_max then
-							if radius <= 5 then
-								radius = radius + 0.35
-							elseif radius <= 10 then
-								radius = radius + 0.25
+							if radius <= 3 then
+								radius = radius + 0.4
+							elseif radius <= 6 then
+								radius = radius + 0.3
 							else
-								radius = radius + 0.15
+								radius = radius + 0.2
 							end
 							minetest.remove_node(np, 2)
 						tnts = tnts + 1
@@ -180,8 +178,8 @@ boom = function(pos, time)
 			{x=0.5,y=5,z=0.5}, --maxacc
 			0.1, --minexptime
 			1, --maxexptime
-			8, --minsize
-			15, --maxsize
+			5, --minsize
+			10, --maxsize
 			false, --collisiondetection
 			"tnt_smoke.png" --texture
 		)
@@ -213,6 +211,7 @@ minetest.register_node("tnt:tnt", {
 })
 
 minetest.register_node("tnt:tnt_burning", {
+	description = "TNT (burning)",
 	tiles = {{name="tnt_top_burning_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=1}}, "tnt_bottom.png", "tnt_side.png"},
 	light_source = 5,
 	drop = "",
@@ -220,10 +219,15 @@ minetest.register_node("tnt:tnt_burning", {
 })
 
 minetest.register_node("tnt:boom", {
+	description = "Explosion",
 	drawtype = "plantlike",
 	tiles = {"tnt_boom.png"},
-	light_source = LIGHT_MAX,
+	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
+	pointable = false,
+	buildable_to = true,
+	light_source = LIGHT_MAX,
 	drop = "",
 	groups = {dig_immediate=3},
 })
@@ -275,7 +279,7 @@ burn = function(pos)
 end
 
 minetest.register_node("tnt:gunpowder", {
-	description = "Gun Powder",
+	description = "Gunpowder",
 	drawtype = "raillike",
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -298,6 +302,7 @@ minetest.register_node("tnt:gunpowder", {
 })
 
 minetest.register_node("tnt:gunpowder_burning", {
+	description = "Gunpowder (burning)",
 	drawtype = "raillike",
 	paramtype = "light",
 	sunlight_propagates = true,
