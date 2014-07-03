@@ -1,9 +1,9 @@
 
-local mode_text = {
-	{"Change rotation, Don't change axisdir."},
-	{"Keep choosen face in front then rotate it."},
-	{"Change axis dir, Reset rotation."},
-	{"Bring top in front then rotate it."},
+local mode_text = { -- The text comes after a semicolon, don't capitalize:
+	{"change rotation, don't change axisdir."},
+	{"keep choosen face in front then rotate it."},
+	{"change axis dir, reset rotation."},
+	{"bring top in front then rotate it."},
 }
 
 local opposite_faces = {
@@ -20,14 +20,14 @@ local function screwdriver_setmode(user,itemstack)
 	local item = itemstack:to_table()
 	local mode = tonumber(itemstack:get_metadata())
 	if not mode then
-		minetest.chat_send_player(player_name, "Hold shift and use to change screwdriwer modes.")
+		minetest.chat_send_player(player_name, "Hold [Sneak] and [Left click] to change screwdriwer modes.")
 		mode = 0
 	end
 	mode = mode + 1
 	if mode == 5 then
 		mode = 1
 	end
-	minetest.chat_send_player(player_name, "Screwdriver mode : "..mode.." - "..mode_text[mode][1] )
+	minetest.chat_send_player(player_name, "Mode " .. mode .. ": " .. mode_text[mode][1] )
 	itemstack:set_name("screwdriver:screwdriver"..mode)
 	itemstack:set_metadata(mode)
 	return itemstack
@@ -71,6 +71,10 @@ local function screwdriver_handler(itemstack, user, pointed_thing)
 		return
 	end
 	local node = minetest.get_node(pos)
+	if node.name == "itemframes:frame" then
+		minetest.log("action", player_name .. " tried to rotate an item frame.")
+		return
+	end
 	local ndef = minetest.registered_nodes[node.name]
 	if not ndef or not ndef.paramtype2 == "facedir" or
 			(ndef.drawtype == "nodebox" and
@@ -146,7 +150,7 @@ minetest.register_tool("screwdriver:screwdriver", {
 
 for i = 1, 4 do
 	minetest.register_tool("screwdriver:screwdriver"..i, {
-		description = "Screwdriver in Mode "..i,
+		description = "Screwdriver (mode " .. i .. ")",
 		inventory_image = "screwdriver.png^tool_mode"..i..".png",
 		wield_image = "screwdriver.png",
 		groups = {not_in_creative_inventory=1},
@@ -156,4 +160,3 @@ for i = 1, 4 do
 		end,
 	})
 end
-
