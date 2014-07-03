@@ -1,5 +1,7 @@
--- Texture Stick code by PilzAdam.
+minetest.register_privilege("physics", {
+    description = "Allows player to set their gravity, jump height and movement speed"})
 
+-- Infotool code by PilzAdam:
 minetest.register_craftitem("default:infotool", {
     description = "Infotool",
     inventory_image = "default_infotool.png",
@@ -77,5 +79,82 @@ minetest.register_chatcommand("clearinventory", {
 			player_inv:set_list(param, {})
 			return true, "Inventory \"" .. param .. "\" cleared."
 		end
+	end,
+})
+
+-- The following commands /whoami, /kill, /speed, /gravity and /jump by Wuzzy:
+minetest.register_chatcommand("whoami", {
+	params = "",
+	description = "Tells your name",
+	privs = {},
+	func = function(name)
+		minetest.chat_send_player(name, "Your name is \"" .. name.. "\".")
+	end,
+})
+
+minetest.register_chatcommand("kill", {
+	params = "",
+	description = "Kills yourself",
+	func = function(name, param)
+		local player = minetest.get_player_by_name(name)
+		if not player then return end
+		player:set_hp(0)
+	end,
+})
+
+minetest.register_chatcommand("speed", {
+    params = "[speed]",
+    description = "Sets your movement speed (defaults to 1).",
+    privs = {physics = true},
+    func = function(name, speed)
+	local player = minetest.get_player_by_name(name)
+	if not player then return end
+	if speed == "" then speed = 1 end
+	if type(tonumber(speed)) ~= "number"
+	or tonumber(speed) < 0
+	or tonumber(speed) > 10 then
+	    minetest.chat_send_player(name, "Value must be between 0.0 and 10.0.")
+	    return
+	end
+
+	player:set_physics_override(tonumber(speed), nil, nil)
+    end,
+})
+
+minetest.register_chatcommand("gravity", {
+	params = "[gravity]",
+	description = "Sets your gravity (defaults to 1).",
+	privs = {physics = true},
+	func = function(name, gravity)
+		local player = minetest.get_player_by_name(name)
+		if not player then return end
+		if gravity == "" then gravity = 1 end
+		if type(tonumber(gravity)) ~= "number"
+		or tonumber(gravity) < -10
+		or tonumber(gravity) > 10 then
+		    minetest.chat_send_player(name, "Value must be between -10.0 and 10.0.")
+		    return
+		end
+
+		player:set_physics_override(nil, nil, tonumber(gravity))
+	end,
+})
+
+minetest.register_chatcommand("jump", {
+	params = "[height]",
+	description = "Sets your jump height (defaults to 1)",
+	privs = {physics = true},
+	func = function(name, jump)
+		local player = minetest.get_player_by_name(name)
+		if not player then return end
+		if jump == "" then jump = 1 end
+		if type(tonumber(jump)) ~= "number"
+		or tonumber(jump) < 0
+		or tonumber(jump) > 10 then
+		    minetest.chat_send_player(name, "Value must be between 0.0 and 10.0.")
+		    return
+		end
+
+		player:set_physics_override(nil, tonumber(jump), nil)
 	end,
 })
