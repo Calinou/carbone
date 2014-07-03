@@ -283,6 +283,12 @@ minetest.register_craft({
 	cooktime = 10,
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:black",
+	recipe = {"default:scorched_stuff"},
+})
+
 mobs:register_mob("mobs:oerkki", {
 	type = "monster",
 	hp_max = 45,

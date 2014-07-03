@@ -561,9 +561,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "default:ladder 4",
 	recipe = {
-		{"group:stick", "           ", "group:stick"},
+		{"group:stick",            "", "group:stick"},
 		{"group:stick", "group:stick", "group:stick"},
-		{"group:stick", "           ", "group:stick"},
+		{"group:stick",            "", "group:stick"},
 	}
 })
 
@@ -584,17 +584,17 @@ minetest.register_craft({
 
 minetest.register_craft({
 	output = "default:mese_crystal 9",
-	recipe = {{"default:mese"},}
+	recipe = {{"default:mese"}},
 })
 
 minetest.register_craft({
 	output = "default:mese_crystal_fragment 9",
-	recipe = {{"default:mese_crystal"},}
+	recipe = {{"default:mese_crystal"}},
 })
 
 minetest.register_craft({
 	output = "default:obsidian_shard 9",
-	recipe = {{"default:obsidian"}}
+	recipe = {{"default:obsidian"}},
 })
 
 minetest.register_craft({
@@ -635,6 +635,11 @@ minetest.register_craft({
 	recipe = {{"default:snowblock"},}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:dark_grey 4",
+	recipe = {"default:coal_lump"},
+})
 
 minetest.register_craft({ -- Tool repair (combine 2 tools of the same type in the crafting grid):
 	type = "toolrepair", additional_wear = -0.15,
