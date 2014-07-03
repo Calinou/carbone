@@ -120,10 +120,9 @@ boom = function(pos, time)
 						boom(np, 1)
 						end
 					elseif node.name == "fire:basic_flame"
-						--or string.find(node.name, "default:water_") 
-						--or string.find(node.name, "default:lava_") 
-						or node.name == "tnt:boom"
-						then
+						-- or string.find(node.name, "default:water_") 
+						-- or string.find(node.name, "default:lava_") 
+						or node.name == "tnt:boom" then
 						
 					else
 						if math.abs(p.x)<2 and math.abs(p.y)<2 and math.abs(p.z)<2 then
@@ -139,29 +138,29 @@ boom = function(pos, time)
 				end
 		end
 
-		local objects = minetest.get_objects_inside_radius(pos, radius*2)
+		local objects = minetest.get_objects_inside_radius(pos, radius * 2)
 		for _,obj in ipairs(objects) do
-			--if obj:is_player() or (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item") then
+			-- if obj:is_player() or (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item") then
 				local p = obj:getpos()
 				local v = obj:getvelocity()
-				local vec = {x=p.x-pos.x, y=p.y-pos.y, z=p.z-pos.z}
-				local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
-				local damage = ((radius*20)/dist)
-				-- inetest.log("action", "TNT damages dist="..dist.." damage="..damage)
+				local vec = {x = p.x - pos.x, y = p.y - pos.y, z = p.z - pos.z}
+				local dist = (vec.x ^ 2 + vec.y ^ 2 + vec.z ^ 2) ^ 0.5
+				local damage = ((radius * 20) / dist)
 				if obj:is_player() or (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item") then
 				obj:punch(obj, 1.0, {
-					full_punch_interval=1.0,
+					full_punch_interval = 1.0,
 					damage_groups={fleshy=damage},
 				}, vec)
+				-- minetest.log("action", "TNT damages an entity for " .. math.floor(damage + 0.5) .. " HP.")
 				end
 				if v ~= nil then
-					--obj:setvelocity({x=(p.x - pos.x) + (radius / 4) + v.x, y=(p.y - pos.y) + (radius / 2) + v.y, z=(p.z - pos.z) + (radius / 4) + v.z})
+					-- obj:setvelocity({x=(p.x - pos.x) + (radius / 4) + v.x, y=(p.y - pos.y) + (radius / 2) + v.y, z=(p.z - pos.z) + (radius / 4) + v.z})
 					obj:setvelocity({x=(p.x - pos.x) + (radius / 2) + v.x, y=(p.y - pos.y) + radius + v.y,       z=(p.z - pos.z) + (radius / 2) + v.z})
 				end
-			--end
+			-- end
 		end
 
-		minetest.log("action", tnts .. " tnt:tnt exploded with a radius of " .. radius .. " nodes, " .. destroyed .. " nodes potentially destroyed.")
+		minetest.log("action", tnts .. " TNT exploded with a radius of " .. radius .. " nodes, " .. destroyed .. " nodes potentially destroyed.")
 
 		for _,stack in pairs(drops) do
 			eject_drops(pos, stack)

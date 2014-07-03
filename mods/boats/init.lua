@@ -34,13 +34,13 @@ function boat:on_rightclick(clicker)
 		self.driver = nil
 		clicker:set_detach()
 		default.player_attached[name] = false
-		default.player_set_animation(clicker, "stand" , 30)
+		default.player_set_animation(clicker, "stand" , 10)
 	elseif not self.driver then
 		self.driver = clicker
 		clicker:set_attach(self.object, "", {x = 0, y = 11, z =-3}, {x = 0, y = 0, z = 0})
 		default.player_attached[name] = true
 		minetest.after(0.2, function()
-			default.player_set_animation(clicker, "sit" , 30)
+			default.player_set_animation(clicker, "sit" , 10)
 		end)
 		self.object:setyaw(clicker:get_look_yaw()-math.pi/2)
 	end
@@ -58,8 +58,8 @@ function boat:get_staticdata()
 end
 
 function boat:on_punch(puncher, time_from_last_punch, tool_capabilities, direction)
-	self.object:remove()
-	if puncher and puncher:is_player() then
+	if not self.driver then self.object:remove() end
+	if puncher and puncher:is_player() and not self.driver then
 		puncher:get_inventory():add_item("main", "boats:boat")
 	end
 end
@@ -68,6 +68,7 @@ function boat:on_step(dtime)
 	self.v = get_v(self.object:getvelocity())*get_sign(self.v)
 	if self.driver then
 		local ctrl = self.driver:get_player_control()
+		local yaw = self.object:getyaw()
 		if ctrl.up then
 			self.v = self.v + 0.1
 		end
@@ -75,14 +76,14 @@ function boat:on_step(dtime)
 			self.v = self.v - 0.1
 		end
 		if ctrl.left then
-			self.object:setyaw(self.object:getyaw() + math.pi / 120 + dtime * math.pi / 90)
+			self.object:setyaw(yaw + math.pi / 90 + dtime * math.pi / 90)
 		end
 		if ctrl.right then
-			self.object:setyaw(self.object:getyaw() - math.pi / 120 - dtime * math.pi / 90)
+			self.object:setyaw(yaw - math.pi / 90 - dtime * math.pi / 90)
 		end
 	end
 	local s = get_sign(self.v)
-	self.v = self.v - 0.02 * s
+	self.v = self.v - 0.015 * s
 	if s ~= get_sign(self.v) then
 		self.object:setvelocity({x = 0, y = 0, z = 0})
 		self.v = 0
@@ -140,7 +141,9 @@ minetest.register_craftitem("boats:boat", {
 		if not is_water(pointed_thing.under) then return end
 		pointed_thing.under.y = pointed_thing.under.y + 0.5
 		minetest.add_entity(pointed_thing.under, "boats:boat")
-		itemstack:take_item()
+		if not minetest.setting_getbool("creative_mode") then
+			itemstack:take_item()
+		end
 		return itemstack
 	end,
 })
@@ -148,7 +151,7 @@ minetest.register_craftitem("boats:boat", {
 minetest.register_craft({
 	output = "boats:boat",
 	recipe = {
-		{"group:wood", "", "group:wood"},
+		{"group:wood",           "", "group:wood"},
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
