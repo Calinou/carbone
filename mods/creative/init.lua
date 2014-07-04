@@ -75,7 +75,7 @@ creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 	local pagemax = math.floor((creative_inventory.creative_inventory_size-1) / (5*8) + 1)
 	player:set_inventory_formspec("size[15,9]".. gui_slots ..
 			--"image[6,0.6;1,2;player.png]"..
-			"list[current_player;main;6,4.5;8,5;]"..
+			"list[current_player;main;6,4.5;8,4;]"..
 			"list[current_player;craft;8,1;3,4;]"..
 			"list[current_player;craftpreview;12,2;1,2;]"..
 			"list[detached:creative;main;0.3,0.5;5,8;"..tostring(start_i).."]"..
@@ -83,7 +83,9 @@ creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 			"button[0.3,8.3;2.6,1;creative_prev;<--<--<--<--]"..
 			"button[2.7,8.3;2.6,1;creative_next;-->-->-->-->]"..
 			"label[6,1.5;Trash:]"..
-			"list[detached:creative_trash;main;6,2;1,1;]")
+			"list[detached:creative_trash;main;6,2;1,1;]" ..
+			default.get_hotbar_bg(6, 4.5) ..
+			default.get_hotbar_bg(6, 5.5))
 end
 minetest.register_on_joinplayer(function(player)
 	-- If in creative mode, modify player"s inventory forms
@@ -127,11 +129,10 @@ if minetest.setting_getbool("creative_mode") then
 	local digtime = 0.35
 	minetest.register_item(":", {
 		type = "none",
-		wield_image = "wieldhand.png",
-		wield_scale = {x = 1, y = 1, z = 2.5},
+		wield_image = "invisible.png",
 		range = 12,
 		tool_capabilities = {
-			full_punch_interval = 0.35,
+			full_punch_interval = 0.1,
 			max_drop_level = 3,
 			groupcaps = {
 				crumbly = {times={[1]=digtime, [2]=digtime, [3]=digtime}, uses=0, maxlevel=3},
