@@ -86,7 +86,7 @@ end)
 minetest.register_on_respawnplayer(function(player)
 	player:set_eye_offset({x = 0, y = 0, z = 0}, {x = 0, y = 0, z = 0})
 	local pos = player:getpos()
-	minetest.sound_play("player_join", {pos = pos, gain = 5})
+	minetest.sound_play("player_join", {pos = pos, gain = 3})
 end)
 
 minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, user, pointed_thing)

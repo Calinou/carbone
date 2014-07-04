@@ -43,6 +43,22 @@ mobs:register_mob("mobs:dirt_monster", {
 	},
 })
 
+minetest.register_craftitem("mobs:dirt_monster", {
+	description = "Dirt Monster",
+	inventory_image = "mobs_dirt_monster.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:dirt_monster")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a dirt monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
+})
+
 mobs:register_mob("mobs:stone_monster", {
 	type = "monster",
 	hp_max = 30,
@@ -82,6 +98,22 @@ mobs:register_mob("mobs:stone_monster", {
 		punch_start = 40,
 		punch_end = 63,
 	}
+})
+
+minetest.register_craftitem("mobs:stone_monster", {
+	description = "Stone Monster",
+	inventory_image = "mobs_stone_monster.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:stone_monster")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a stone monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
 })
 
 mobs:register_mob("mobs:sand_monster", {
@@ -124,6 +156,22 @@ mobs:register_mob("mobs:sand_monster", {
 		punch_start = 74,
 		punch_end = 105,
 	},
+})
+
+minetest.register_craftitem("mobs:sand_monster", {
+	description = "Sand Monster",
+	inventory_image = "mobs_sand_monster.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:sand_monster")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a sand monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
 })
 
 mobs:register_mob("mobs:sheep", {
@@ -207,6 +255,22 @@ mobs:register_mob("mobs:sheep", {
 	end,
 })
 
+minetest.register_craftitem("mobs:sheep", {
+	description = "Sheep",
+	inventory_image = "mobs_sheep.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:sheep")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a sheep at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
+})
+
 minetest.register_craftitem("mobs:meat_raw", {
 	description = "Raw Meat",
 	inventory_image = "mobs_meat_raw.png",
@@ -253,10 +317,12 @@ minetest.register_craftitem("mobs:rat", {
 	description = "Rat",
 	inventory_image = "mobs_rat_inventory.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "mobs:rat")
-			itemstack:take_item()
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
 			minetest.log("action", placer:get_player_name() .. " placed a rat at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
 		end
 		return itemstack
@@ -331,6 +397,22 @@ mobs:register_mob("mobs:oerkki", {
 	},
 })
 
+minetest.register_craftitem("mobs:oerkki", {
+	description = "Oerkki",
+	inventory_image = "mobs_oerkki.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:oerkki")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed an oerkki at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
+})
+
 mobs:register_mob("mobs:tree_monster", {
 	type = "monster",
 	hp_max = 60,
@@ -378,6 +460,22 @@ mobs:register_mob("mobs:tree_monster", {
 	},
 })
 
+minetest.register_craftitem("mobs:tree_monster", {
+	description = "Tree Monster",
+	inventory_image = "mobs_tree_monster.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:tree_monster")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a tree monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
+})
+
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
 	hp_max = 50,
@@ -422,6 +520,22 @@ mobs:register_mob("mobs:dungeon_master", {
 		speed_normal = 8,
 		speed_run = 5,
 	},
+})
+
+minetest.register_craftitem("mobs:dungeon_master", {
+	description = "Dungeon Master",
+	inventory_image = "mobs_dungeon_master.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:dungeon_master")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a dungeon master at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
 })
 
 mobs:register_arrow("mobs:fireball", {
@@ -527,6 +641,22 @@ mobs:register_mob("mobs:rhino", {
 		punch_start = 74,
 		punch_end = 105,
 	},
+})
+
+minetest.register_craftitem("mobs:rhino", {
+	description = "Rhino",
+	inventory_image = "mobs_rhino.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			minetest.add_entity(pointed_thing.above, "mobs:rhino")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a rhino at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
 })
 
 mobs:register_arrow("mobs:bullet", {

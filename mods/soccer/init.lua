@@ -5,6 +5,7 @@ local function reg_ball(color)
 
 	minetest.register_entity(ball_ent_name, {
 		physical = true,
+		hp_max = 32767,
 		collide_with_objects = false,
 		visual = "mesh",
 		visual_size = {x = 1.125, y = 1.125, z = 1.125},
@@ -87,7 +88,9 @@ local function reg_ball(color)
 			local ent = minetest.env:add_entity(pos, ball_ent_name)
 			minetest.log("action", placer:get_player_name() .. " placed a ball at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
 			ent:setvelocity({x = 0, y = -14.5, z = 0})
-			itemstack:take_item()
+			if not minetest.setting_getbool("creative_mode") then
+				itemstack:take_item()
+			end
 			return itemstack
 		end,
 	})
