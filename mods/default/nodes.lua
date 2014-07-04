@@ -826,6 +826,7 @@ minetest.register_node("default:water_source", {
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
 })
 
+--[[
 function default.get_water_area_p0p1(pos)
 	local p0 = {
 		x = math.floor(pos.x / water.D) * water.D,
@@ -886,6 +887,7 @@ minetest.register_abm({
 		default.update_water_sounds_around(pos)
 	end
 })
+--]]
 
 minetest.register_node("default:lava_flowing", {
 	description = "Flowing Lava",
@@ -956,6 +958,7 @@ minetest.register_node("default:lava_source", {
 	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1},
 })
 
+--[[
 function default.get_lava_area_p0p1(pos)
 	local p0 = {
 		x = math.floor(pos.x / lava.D) * lava.D,
@@ -1016,6 +1019,7 @@ minetest.register_abm({
 		default.update_lava_sounds_around(pos)
 	end
 })
+--]]
 
 minetest.register_node("default:torch", {
 	description = "Torch",
