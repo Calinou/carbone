@@ -150,9 +150,11 @@ minetest.register_on_dieplayer(function(player)
 		end
 	end
 
-	meta:set_string("formspec", "size[8,9;]"..gui_slots ..
-			"list[current_name;main;0,0;8,4;]"..
-			"list[current_player;main;0,5;8,4;]")
+	meta:set_string("formspec", "size[8,9;]" .. gui_slots ..
+			"list[current_name;main;0,0;8,4;]" ..
+			"list[current_player;main;0,5;8,4;]" ..
+			default.get_hotbar_bg(0, 5) ..
+			default.get_hotbar_bg(0, 6))
 	meta:set_string("infotext", player_name .. "'s fresh bones")
 	meta:set_string("owner", player_name)
 	meta:set_int("time", minetest.get_gametime())

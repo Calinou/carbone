@@ -22,12 +22,13 @@ armor = {
 	player_hp = {},
 	elements = {"head", "torso", "legs", "feet"},
 	physics = {"jump","speed","gravity"},
-	formspec = "size[8,8.5]"..gui_slots .. "list[detached:player_name_armor;armor;0,1;2,3;]"
-		.."image[2,0.75;2,4;armor_preview]"
-		.."list[current_player;main;0,4.25;8,1;]"
-		.."list[current_player;main;0,5.5;8,3;8]"
-    	.."list[current_player;craft;4,1;3,3;]"
-    	.."list[current_player;craftpreview;7,2;1,1;]",
+	formspec = "size[8,8.5]" .. gui_slots .. "list[detached:player_name_armor;armor;0,1;2,3;]"
+		.. "image[2,0.75;2,4;armor_preview]"
+		.. "list[current_player;main;0,4.25;8,4;]"
+    	.. "list[current_player;craft;4,1;3,3;]"
+    	.. "list[current_player;craftpreview;7,2;1,1;]"
+    	.. default.get_hotbar_bg(0, 4.25)
+    	.. default.get_hotbar_bg(0, 5.25),
 	textures = {},
 	default_skin = "character",
 }
