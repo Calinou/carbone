@@ -826,6 +826,67 @@ minetest.register_node("default:water_source", {
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
 })
 
+function default.get_water_area_p0p1(pos)
+	local p0 = {
+		x = math.floor(pos.x / water.D) * water.D,
+		y = math.floor(pos.y / water.D) * water.D,
+		z = math.floor(pos.z / water.D) * water.D,
+	}
+	local p1 = {
+		x = p0.x + water.D - 1,
+		y = p0.y + water.D - 1,
+		z = p0.z + water.D - 1
+	}
+	return p0, p1
+end
+
+water = {}
+water.D = 4
+water.sounds = {}
+
+function default.update_water_sounds_around(pos)
+	local p0, p1 = default.get_water_area_p0p1(pos)
+	local cp = {x = (p0.x + p1.x) / 2, y = (p0.y + p1.y) / 2, z = (p0.z + p1.z) / 2}
+	local water_p = minetest.find_nodes_in_area(p0, p1, {"default:water_flowing"})
+	--  print("number of flames at "..minetest.pos_to_string(p0).."/"
+	--	..minetest.pos_to_string(p1)..": "..#flames_p)
+	local should_have_sound = (#water_p >= 20)
+	local wanted_sound = nil
+	if #water_p >= 20 then
+		wanted_sound = {name = "waterfall"}
+	end
+	local p0_hash = minetest.hash_node_position(p0)
+	local sound = water.sounds[p0_hash]
+	if not sound then
+		if should_have_sound then
+			water.sounds[p0_hash] = {
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true, max_hear_distance = 16}),
+				name = wanted_sound.name,
+			}
+		end
+	else
+		if not wanted_sound then
+			minetest.sound_stop(sound.handle)
+			water.sounds[p0_hash] = nil
+		elseif sound.name ~= wanted_sound.name then
+			minetest.sound_stop(sound.handle)
+			water.sounds[p0_hash] = {
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true, max_hear_distance = 16}),
+				name = wanted_sound.name,
+			}
+		end
+	end
+end
+
+minetest.register_abm({
+	nodenames = {"default:water_flowing"},
+	interval = 2,
+	chance = 1,
+	action = function(pos, node)
+		default.update_water_sounds_around(pos)
+	end
+})
+
 minetest.register_node("default:lava_flowing", {
 	description = "Flowing Lava",
 	inventory_image = minetest.inventorycube("default_lava.png"),
@@ -893,6 +954,67 @@ minetest.register_node("default:lava_source", {
 	damage_per_second = 8,
 	post_effect_color = {a = 192, r = 255, g = 64, b = 0},
 	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1},
+})
+
+function default.get_lava_area_p0p1(pos)
+	local p0 = {
+		x = math.floor(pos.x / lava.D) * lava.D,
+		y = math.floor(pos.y / lava.D) * lava.D,
+		z = math.floor(pos.z / lava.D) * lava.D,
+	}
+	local p1 = {
+		x = p0.x + lava.D - 1,
+		y = p0.y + lava.D - 1,
+		z = p0.z + lava.D - 1
+	}
+	return p0, p1
+end
+
+lava = {}
+lava.D = 4
+lava.sounds = {}
+
+function default.update_lava_sounds_around(pos)
+	local p0, p1 = default.get_lava_area_p0p1(pos)
+	local cp = {x = (p0.x + p1.x) / 2, y = (p0.y + p1.y) / 2, z = (p0.z + p1.z) / 2}
+	local lava_p = minetest.find_nodes_in_area(p0, p1, {"default:lava_flowing"})
+	--  print("number of flames at "..minetest.pos_to_string(p0).."/"
+	--	..minetest.pos_to_string(p1)..": "..#flames_p)
+	local should_have_sound = (#lava_p >= 40)
+	local wanted_sound = nil
+	if #lava_p >= 40 then
+		wanted_sound = {name = "lava"}
+	end
+	local p0_hash = minetest.hash_node_position(p0)
+	local sound = lava.sounds[p0_hash]
+	if not sound then
+		if should_have_sound then
+			lava.sounds[p0_hash] = {
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true}),
+				name = wanted_sound.name,
+			}
+		end
+	else
+		if not wanted_sound then
+			minetest.sound_stop(sound.handle)
+			lava.sounds[p0_hash] = nil
+		elseif sound.name ~= wanted_sound.name then
+			minetest.sound_stop(sound.handle)
+			lava.sounds[p0_hash] = {
+				handle = minetest.sound_play(wanted_sound, {pos = cp, loop = true}),
+				name = wanted_sound.name,
+			}
+		end
+	end
+end
+
+minetest.register_abm({
+	nodenames = {"default:lava_flowing"},
+	interval = 2,
+	chance = 1,
+	action = function(pos, node)
+		default.update_lava_sounds_around(pos)
+	end
 })
 
 minetest.register_node("default:torch", {
