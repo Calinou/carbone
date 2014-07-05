@@ -349,10 +349,7 @@ minetest.register_node("default:gravel", {
 			{items = {"maptools:copper_coin"}, rarity = 16},
 		},
 	},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_gravel_footstep", gain = 0.35},
-		dug = {name = "default_gravel_footstep", gain = 0.6},
-	}),
+	sounds = default.node_sound_gravel_defaults(),
 })
 
 minetest.register_node("default:sandstone", {
