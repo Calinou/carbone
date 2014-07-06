@@ -700,9 +700,9 @@ if not minetest.setting_getbool("creative_mode") then
 		mobs:register_spawn("mobs:sheep", "a sheep", {"default:dirt_with_grass"},                                                  16, 8, 20000, 2, 100)
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If not defined or set to true then”
-		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     {"default:stone", "default:desert_stone"}, 1, -1, 15000, 6, -15)
-		mobs:register_spawn("mobs:stone_monster", "a stone monster",   {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -15)
-		mobs:register_spawn("mobs:sand_monster", "a sand monster",     {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -15)
+		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     {"default:stone", "default:desert_stone"}, 1, -1, 15000, 6, -10)
+		mobs:register_spawn("mobs:stone_monster", "a stone monster",   {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -10)
+		mobs:register_spawn("mobs:sand_monster", "a sand monster",     {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -10)
 		mobs:register_spawn("mobs:oerkki", "an oerkki",                {"default:stone", "default:desert_stone"}, 1, -1, 20000, 4, -30)
 		mobs:register_spawn("mobs:tree_monster", "a tree monster",     {"default:stone", "default:desert_stone"}, 1, -1, 25000, 2, -30)
 		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", {"default:stone", "default:desert_stone"}, 1, -1, 25000, 2, -60)
