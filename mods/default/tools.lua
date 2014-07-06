@@ -124,7 +124,7 @@ minetest.register_tool("default:shovel_wood", {
 		full_punch_interval = 1.2,
 		max_drop_level = 0,
 		groupcaps = {
-			crumbly = {times = {[1] = 2.0, [2] = 1.4, [3] = 0.44}, uses = 20, maxlevel = 1},
+			crumbly = {times = {[1] = 2.6, [2] = 1.4, [3] = 0.44}, uses = 20, maxlevel = 1},
 		},
 		damage_groups = {fleshy = 2},
 	},
@@ -137,7 +137,7 @@ minetest.register_tool("default:shovel_stone", {
 		full_punch_interval = 1.2,
 		max_drop_level = 0,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.8, [2] = 1.2, [3] = 0.39}, uses = 20, maxlevel = 1},
+			crumbly = {times = {[1] = 2.4, [2] = 1.2, [3] = 0.39}, uses = 20, maxlevel = 1},
 		},
 		damage_groups = {fleshy = 3},
 	},
@@ -150,7 +150,7 @@ minetest.register_tool("default:shovel_steel", {
 		full_punch_interval = 1.2,
 		max_drop_level = 1,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.5, [2] = 0.9, [3] = 0.36}, uses = 30, maxlevel = 2},
+			crumbly = {times = {[1] = 2.0, [2] = 0.9, [3] = 0.36}, uses = 30, maxlevel = 2},
 		},
 		damage_groups = {fleshy = 3},
 	},
@@ -163,7 +163,7 @@ minetest.register_tool("default:shovel_bronze", {
 		full_punch_interval = 1.2,
 		max_drop_level = 1,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.5, [2] = 0.9, [3] = 0.36}, uses = 40, maxlevel = 2},
+			crumbly = {times = {[1] = 2.0, [2] = 0.9, [3] = 0.36}, uses = 40, maxlevel = 2},
 		},
 		damage_groups = {fleshy = 3},
 	},
@@ -176,7 +176,7 @@ minetest.register_tool("default:shovel_mese", {
 		full_punch_interval = 0.8,
 		max_drop_level = 3,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.2, [2] = 0.6, [3] = 0.3}, uses = 20, maxlevel = 3},
+			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.3}, uses = 20, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 3},
 	},
@@ -189,7 +189,7 @@ minetest.register_tool("default:shovel_diamond", {
 		full_punch_interval = 1.2,
 		max_drop_level = 1,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.1, [2] = 0.5, [3] = 0.25}, uses = 30, maxlevel = 3},
+			crumbly = {times = {[1] = 1.5, [2] = 0.5, [3] = 0.25}, uses = 30, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 4},
 	},

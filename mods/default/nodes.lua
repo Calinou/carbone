@@ -20,7 +20,7 @@ minetest.register_node("default:desert_stone", {
 	description = "Desert Stone",
 	tiles = {"default_desert_stone.png"},
 	is_ground_content = true,
-	groups = {cracky = 3, stone = 1},
+	groups = {crumbly = 1, cracky = 3, stone = 1},
 	drop = {
 		items = {
 			{items = {"default:desert_cobble"},},
@@ -49,7 +49,7 @@ minetest.register_node("default:desert_stone_with_coal", {
 	description = "Coal Ore",
 	tiles = {"default_desert_stone.png^default_mineral_coal.png"},
 	is_ground_content = true,
-	groups = {cracky = 3},
+	groups = {crumbly = 1, cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:desert_cobble"},},
@@ -108,7 +108,7 @@ minetest.register_node("default:desert_stone_with_copper", {
 	description = "Copper Ore",
 	tiles = {"default_desert_stone.png^default_mineral_copper.png"},
 	is_ground_content = true,
-	groups = {cracky = 3},
+	groups = {crumbly = 1, cracky = 3},
 	drop = {
 		items = {
 			{items = {"default:desert_cobble"},},
@@ -356,7 +356,7 @@ minetest.register_node("default:sandstone", {
 	description = "Sandstone",
 	tiles = {"default_sandstone.png"},
 	is_ground_content = true,
-	groups = {crumbly = 2,cracky = 3},
+	groups = {crumbly = 1, cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 

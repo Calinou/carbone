@@ -501,16 +501,19 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:sandstone",
+	output = "default:sandstone 2",
 	recipe = {
-		{"group:sand", "group:sand"},
-		{"group:sand", "group:sand"},
+		{"default:sand", "default:sand"},
+		{"default:sand", "default:sand"},
 	}
 })
 
 minetest.register_craft({
-	output = "default:sand 4",
-	recipe = {{"default:sandstone"},}
+	output = "default:desert_stone 2",
+	recipe = {
+		{"default:desert_sand", "default:desert_sand"},
+		{"default:desert_sand", "default:desert_sand"},
+	}
 })
 
 minetest.register_craft({
