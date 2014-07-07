@@ -177,7 +177,7 @@ minetest.register_chatcommand("jump", {
 })
 
 minetest.register_chatcommand("hotbar", {
-	params = "<size>",
+	params = "[size]",
 	description = "Sets the size of your hotbar",
 	func = function(name, slots)
 		if slots == "" then slots = 16 end
