@@ -109,7 +109,9 @@ minetest.register_chatcommand("kill", {
 		if not player then return end
 		player:set_hp(0)
 		if minetest.setting_getbool("enable_damage") == false then
-			minetest.chat_send_player(name, "Damage is disabled on this server.")
+			minetest.chat_send_player(name, "[X] Damage is disabled on this server.")
+		else
+			minetest.chat_send_player(name, "[X] You suicided.")
 		end
 	end,
 })
@@ -125,11 +127,12 @@ minetest.register_chatcommand("speed", {
 	if type(tonumber(speed)) ~= "number"
 	or tonumber(speed) < 0
 	or tonumber(speed) > 10 then
-	    minetest.chat_send_player(name, "Value must be between 0.0 and 10.0.")
+	    minetest.chat_send_player(name, "[~] Speed must be between 0.0 and 10.0.")
 	    return
 	end
 
 	player:set_physics_override(tonumber(speed), nil, nil)
+	minetest.chat_send_player(name, "[~] Speed set to " .. tonumber(speed) * 100 .. " %.")
     end,
 })
 
@@ -144,11 +147,12 @@ minetest.register_chatcommand("gravity", {
 		if type(tonumber(gravity)) ~= "number"
 		or tonumber(gravity) < -10
 		or tonumber(gravity) > 10 then
-		    minetest.chat_send_player(name, "Value must be between -10.0 and 10.0.")
+		    minetest.chat_send_player(name, "[~] Gravity must be between -10.0 and 10.0.")
 		    return
 		end
 
 		player:set_physics_override(nil, nil, tonumber(gravity))
+		minetest.chat_send_player(name, "[~] Gravity set to " .. tonumber(gravity) * 100 .. " %.")
 	end,
 })
 
@@ -163,11 +167,12 @@ minetest.register_chatcommand("jump", {
 		if type(tonumber(jump)) ~= "number"
 		or tonumber(jump) < 0
 		or tonumber(jump) > 10 then
-		    minetest.chat_send_player(name, "Value must be between 0.0 and 10.0.")
+		    minetest.chat_send_player(name, "[~] Jump height must be between 0.0 and 10.0.")
 		    return
 		end
 
 		player:set_physics_override(nil, tonumber(jump), nil)
+		minetest.chat_send_player(name, "[~] Jump height set to " .. tonumber(jump) * 100 .. " %.")
 	end,
 })
 
@@ -177,10 +182,11 @@ minetest.register_chatcommand("hotbar", {
 	func = function(name, slots)
 		if slots == "" then slots = 16 end
 		if type(tonumber(slots)) ~= "number" or tonumber(slots) < 1 or tonumber(slots) > 23 then
-			minetest.chat_send_player(name, "Value must be between 1 and 23.")
+			minetest.chat_send_player(name, "[_] Hotbar size must be between 1 and 23.")
 			return
 		end
 		local player = minetest.get_player_by_name(name)
 		player:hud_set_hotbar_itemcount(tonumber(slots))
+		minetest.chat_send_player(name, "[_] Hotbar size set to " .. tonumber(slots) .. ".")
 	end,
 })
