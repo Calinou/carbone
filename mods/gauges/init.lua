@@ -12,7 +12,7 @@ local hp_bar = {
 
 function hp_bar:on_step(dtime)
 	local wielder = self.wielder
-	if wielder == nil then
+	if wielder == nil then	
 		self.object:remove()
 		 return
 	elseif minetest.env:get_player_by_name(wielder:get_player_name()) == nil then
@@ -21,8 +21,7 @@ function hp_bar:on_step(dtime)
 	end
 	hp = wielder:get_hp()
 	breath = wielder:get_breath()
-	self.object:set_properties({textures = {"health_" .. tostring(hp) .. ".png^breath_" .. tostring(breath) .. ".png",},}
-	)
+	self.object:set_properties({textures = {"health_" .. tostring(hp) .. ".png^breath_" .. tostring(breath) .. ".png"}})
 end
 
 minetest.register_entity("gauges:hp_bar", hp_bar)
