@@ -18,16 +18,18 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "default:wood",
 	recipe = {
-		{"default:stick", "default:stick"},
-		{"default:stick", "default:stick"},
+		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "default:stick", "default:stick"},
 	}
 })
 
 minetest.register_craft({
 	output = "default:junglewood",
 	recipe = {
-		{"moreblocks:jungle_stick", "moreblocks:jungle_stick"},
-		{"moreblocks:jungle_stick", "moreblocks:jungle_stick"},
+		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
+		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
+		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
 	}
 })
 
@@ -117,7 +119,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "moreblocks:junglestick 4",
+	output = "moreblocks:jungle_stick 9",
 	recipe = {{"default:junglewood"},}
 })
 
