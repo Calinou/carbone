@@ -197,3 +197,7 @@ minetest.register_craft({
 	burntime = 60,
 	replacements = {{"bucket:bucket_lava", "bucket:bucket_empty"}},
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [bucket] loaded.")
+end

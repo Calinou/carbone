@@ -93,3 +93,7 @@ minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, 
 	local pos = user:getpos()
 	minetest.sound_play("health_gain", {pos = pos, gain = 0.4})
 end)
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [default] loaded.")
+end

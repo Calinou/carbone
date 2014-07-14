@@ -232,6 +232,6 @@ minetest.register_on_respawnplayer(function(player)
 	end
 end)
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[beds] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [beds] loaded.")
 end

@@ -136,3 +136,6 @@ end
 -- Hide dyelocal
 dyelocal = nil
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [dye] loaded.")
+end

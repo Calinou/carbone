@@ -75,3 +75,7 @@ minetest.register_on_prejoinplayer(function(name, ip)
 	--]]
 
 end)
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [no_bad_names] loaded.")
+end

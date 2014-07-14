@@ -73,3 +73,7 @@ minetest.register_craft({
 		{"default:stick", "default:stick", "default:stick"},
 	}
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [jumping] loaded.")
+end

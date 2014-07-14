@@ -160,3 +160,7 @@ for i = 1, 4 do
 		end,
 	})
 end
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [screwdriver] loaded.")
+end

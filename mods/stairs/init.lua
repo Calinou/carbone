@@ -267,3 +267,7 @@ stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		"Stone Brick Stair",
 		"Stone Brick Slab",
 		default.node_sound_stone_defaults())
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [stairs] loaded.")
+end

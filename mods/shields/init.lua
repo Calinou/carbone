@@ -72,3 +72,7 @@ end
 minetest.after(0, function()
 	table.insert(armor.elements, "shield")
 end)
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [shields] loaded.")
+end

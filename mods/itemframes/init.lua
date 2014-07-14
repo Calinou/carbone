@@ -200,3 +200,7 @@ minetest.register_craft({
 		{"default:stone", "default:stone", "default:stone"},
 	}
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [itemframes] loaded.")
+end

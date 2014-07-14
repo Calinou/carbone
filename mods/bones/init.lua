@@ -162,3 +162,7 @@ minetest.register_on_dieplayer(function(player)
 	local timer = minetest.get_node_timer(pos)
 	timer:start(10)
 end)
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [bones] loaded.")
+end

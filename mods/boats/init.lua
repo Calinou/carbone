@@ -155,3 +155,7 @@ minetest.register_craft({
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [boats] loaded.")
+end

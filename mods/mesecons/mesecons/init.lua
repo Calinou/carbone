@@ -137,6 +137,6 @@ dofile(minetest.get_modpath("mesecons").."/wires.lua");
 --Services like turnoff receptor on dignode and so on
 dofile(minetest.get_modpath("mesecons").."/services.lua");
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[mesecons] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [mesecons] loaded.")
 end

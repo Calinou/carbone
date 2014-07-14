@@ -134,6 +134,6 @@ minetest.register_entity(":__builtin:item", {
 	--]]
 })
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[builtin_item] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [builtin_item] loaded.")
 end

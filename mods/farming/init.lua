@@ -67,3 +67,7 @@ minetest.register_craft({
 		{"farming:cotton", "farming:cotton"},
 	}
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [farming] loaded.")
+end

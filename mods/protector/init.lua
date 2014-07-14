@@ -316,3 +316,7 @@ minetest.register_node("protector:display_node", {
 })
 
 minetest.register_alias("protector:protect2", "protector:protect") -- For compatibility.
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [protector] loaded.")
+end

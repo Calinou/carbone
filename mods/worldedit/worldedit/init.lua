@@ -20,6 +20,6 @@ loadmodule(path .. "/serialization.lua")
 loadmodule(path .. "/code.lua")
 loadmodule(path .. "/compatibility.lua")
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[worldedit] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [worldedit] loaded.")
 end

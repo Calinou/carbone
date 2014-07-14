@@ -399,3 +399,7 @@ chatplus.register_handler(function(from,to,msg)
 	return nil
 end)
 --]]
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [chatplus] loaded.")
+end

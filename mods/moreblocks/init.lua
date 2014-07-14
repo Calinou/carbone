@@ -26,6 +26,6 @@ dofile(modpath .. "/crafting.lua")
 dofile(modpath .. "/aliases.lua")
 
 if minetest.setting_getbool("log_mods") then
-	print(S("[moreblocks] loaded."))
+	minetest.log("action", "Carbone: [moreblocks] loaded.")
 end
 

@@ -172,3 +172,7 @@ register_panes("bar", {
         {"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"}
 	}
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [xpanes] loaded.")
+end

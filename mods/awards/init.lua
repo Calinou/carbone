@@ -410,3 +410,7 @@ awards.register_onDeath(function(player,data)
 	end	
 	return nil
 end)
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [awards] loaded.")
+end

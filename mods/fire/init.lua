@@ -194,3 +194,6 @@ minetest.register_abm({
 	end,
 })
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [fire] loaded.")
+end

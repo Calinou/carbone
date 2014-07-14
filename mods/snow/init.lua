@@ -23,3 +23,7 @@ minetest.register_ore({
 	height_min     = 25, 
 	height_max     = 31000,
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [snow] loaded.")
+end

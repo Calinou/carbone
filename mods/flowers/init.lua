@@ -163,3 +163,7 @@ minetest.register_abm({
 		end
 	end,
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [flowers] loaded.")
+end

@@ -77,3 +77,7 @@ minetest.register_chatcommand("spawn", {
         end
     end,
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [sethome] loaded.")
+end

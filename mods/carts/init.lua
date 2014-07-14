@@ -856,3 +856,7 @@ minetest.register_alias("carts:power_rail", "carts:rail_power")
 minetest.register_alias("carts:brakerail", "carts:rail_brake")
 minetest.register_alias("carts:brake_rail", "carts:rail_power")
 minetest.register_alias("carts:tourrail", "carts:rail_tour")
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [carts] loaded.")
+end

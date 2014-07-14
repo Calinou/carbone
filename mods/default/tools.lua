@@ -79,7 +79,7 @@ minetest.register_tool("default:pick_diamond", {
 		full_punch_interval = 1.2,
 		max_drop_level = 3,
 		groupcaps = {
-			cracky = {times = {[1] = 2.4, [2] = 1.0, [3] = 0.6}, uses = 30, maxlevel = 3},
+			cracky = {times = {[1] = 2.4, [2] = 1.0, [3] = 0.65}, uses = 30, maxlevel = 3},
 			crumbly = {times = {[1] = 2.0, [2] = 0.9, [3] = 0.36}, uses = 30, maxlevel = 2},
 		},
 		damage_groups = {fleshy = 5},
@@ -92,7 +92,7 @@ minetest.register_tool("default:pick_nyan", {
 		full_punch_interval = 1.2,
 		max_drop_level = 3,
 		groupcaps = {
-			cracky = {times = {[1] = 2.4, [2] = 1.0, [3] = 0.6}, uses = 90, maxlevel = 3},
+			cracky = {times = {[1] = 2.4, [2] = 1.0, [3] = 0.65}, uses = 90, maxlevel = 3},
 			crumbly = {times = {[1] = 2.0, [2] = 0.9, [3] = 0.36}, uses = 90, maxlevel = 2},
 		},
 		damage_groups = {fleshy = 5},
@@ -106,7 +106,7 @@ minetest.register_tool("default:pick_mese", {
 		max_drop_level = 3,
 		groupcaps = {
 			cracky = {times = {[1] = 1.8, [2] = 0.75, [3] = 0.45}, uses = 15, maxlevel = 3},
-			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.3}, uses = 15, maxlevel = 2},
+			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.32}, uses = 15, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 5},
 	},
@@ -176,7 +176,7 @@ minetest.register_tool("default:shovel_diamond", {
 		full_punch_interval = 1.2,
 		max_drop_level = 1,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.3}, uses = 30, maxlevel = 3},
+			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.32}, uses = 30, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 4},
 	},
@@ -189,7 +189,7 @@ minetest.register_tool("default:shovel_nyan", {
 		full_punch_interval = 1.2,
 		max_drop_level = 1,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.3}, uses = 90, maxlevel = 3},
+			crumbly = {times = {[1] = 1.65, [2] = 0.6, [3] = 0.32}, uses = 90, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 4},
 	},
@@ -202,7 +202,7 @@ minetest.register_tool("default:shovel_mese", {
 		full_punch_interval = 0.8,
 		max_drop_level = 3,
 		groupcaps = {
-			crumbly = {times = {[1] = 1.25, [2] = 0.45, [3] = 0.25}, uses = 15, maxlevel = 3},
+			crumbly = {times = {[1] = 1.25, [2] = 0.45, [3] = 0.26}, uses = 15, maxlevel = 3},
 		},
 		damage_groups = {fleshy = 3},
 	},

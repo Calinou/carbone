@@ -40,3 +40,7 @@ if minetest.setting_getbool("health_bars") ~= false -- “If not defined or set 
 and minetest.setting_getbool("enable_damage") then -- Health bars only display when damage is enabled.
 	minetest.register_on_joinplayer(add_HP_gauge)
 end
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [gauges] loaded.")
+end

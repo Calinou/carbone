@@ -47,3 +47,6 @@ for _, row in ipairs(wool.dyes) do
 	end
 end
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [wool] loaded.")
+end

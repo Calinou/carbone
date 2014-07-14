@@ -114,4 +114,8 @@ for _,color in ipairs(colors) do
 	reg_ball(color)
 end
 
-minetest.register_alias("ball", "soccer:ball_black_item")
+minetest.register_alias("ball", "soccer:ball_black_item") -- For quickly using the /give command.
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [soccer] loaded.")
+end

@@ -147,3 +147,7 @@ minetest.register_craft({
 		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
 	},
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [hovers] loaded.")
+end

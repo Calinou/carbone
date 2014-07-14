@@ -183,6 +183,6 @@ dofile(minetest.get_modpath("throwing") .. "/dig_arrow.lua")
 dofile(minetest.get_modpath("throwing") .. "/dig_arrow_admin.lua")
 dofile(minetest.get_modpath("throwing") .. "/build_arrow.lua")
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[throwing] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [throwing] loaded.")
 end

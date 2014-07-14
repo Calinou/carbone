@@ -106,6 +106,6 @@ function minetest.handle_node_drops(pos, drops, digger)
 end
 --]]
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[item_drop] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [item_drop] loaded.")
 end

@@ -710,6 +710,6 @@ if not minetest.setting_getbool("creative_mode") then
 	end
 end
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[mobs] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [mobs] loaded.")
 end

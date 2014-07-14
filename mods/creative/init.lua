@@ -165,3 +165,8 @@ if minetest.setting_getbool("creative_mode") then
 	end
 	
 end
+
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [creative] loaded.")
+end

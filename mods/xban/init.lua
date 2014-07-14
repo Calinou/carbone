@@ -14,3 +14,7 @@ dofile(MP.."/conf.lua")
 dofile(MP.."/intr.lua")
 dofile(MP.."/xban.lua")
 dofile(MP.."/chat.lua")
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [xban] loaded.")
+end

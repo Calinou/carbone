@@ -11,3 +11,6 @@ minetest.register_on_newplayer(function(player)
 	end
 end)
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [give_initial_stuff] loaded.")
+end

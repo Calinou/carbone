@@ -35,3 +35,7 @@ minetest.register_node("bedrock:deepstone", {
 	groups = {cracky = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [bedrock] loaded.")
+end

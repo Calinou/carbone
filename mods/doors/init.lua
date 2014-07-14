@@ -452,3 +452,7 @@ minetest.register_craft({
 		{'', '', ''},
 	}
 })
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [doors] loaded.")
+end

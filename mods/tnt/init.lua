@@ -350,6 +350,6 @@ minetest.register_craft({
 	}
 })
 
-if minetest.setting_get("log_mods") then
-	minetest.log("action", "[tnt] loaded.")
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [tnt] loaded.")
 end

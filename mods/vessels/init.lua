@@ -114,3 +114,6 @@ minetest.register_craft( {
 	recipe = "vessels:steel_bottle",
 })
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [vessels] loaded.")
+end

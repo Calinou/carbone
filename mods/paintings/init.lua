@@ -51,3 +51,7 @@ for _, row in ipairs(paintings.dyes) do
 		}
 	})
 end
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [paintings] loaded.")
+end

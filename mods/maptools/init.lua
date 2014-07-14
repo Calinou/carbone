@@ -679,5 +679,5 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 end)
 
 if minetest.setting_getbool("log_mods") then
-	print(S("[maptools] loaded."))
+	minetest.log("action", "Carbone: [maptools] loaded.")
 end

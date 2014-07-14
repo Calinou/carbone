@@ -233,3 +233,7 @@ for k, v in pairs(craft_ingreds) do
 		},
 	})
 end
+
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [3d_armor] loaded.")
+end

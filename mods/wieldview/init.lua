@@ -72,3 +72,6 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
+if minetest.setting_getbool("log_mods") then
+	minetest.log("action", "Carbone: [wieldview] loaded.")
+end
