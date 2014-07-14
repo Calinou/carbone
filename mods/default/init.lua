@@ -54,7 +54,7 @@ local function count_items()
 		end
 		i = i + 1
 	end
-	print("There are " .. number .. " registered nodes, items and tools.")
+	minetest.log("action", "There are " .. number .. " registered nodes, items and tools.")
 end
 
 local function player_join_sounds()
@@ -95,5 +95,6 @@ minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, 
 end)
 
 if minetest.setting_getbool("log_mods") then
-	minetest.log("action", "Carbone: [default] loaded.")
+	 -- Highlight the default mod in the mod loading logs:
+	minetest.log("action", "Carbone: * [default] loaded.")
 end
