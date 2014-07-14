@@ -58,7 +58,7 @@ awards.register_achievement("award_castorama",{
 	icon = "novicebuilder.png",
 	trigger = {
 		type = "place",
-		node = "morenlocks:iron_checker",
+		node = "moreblocks:iron_checker",
 		target = 20
 	}
 })
@@ -70,7 +70,7 @@ awards.register_achievement("award_sam_the_trapper",{
 	icon = "novicebuilder.png",
 	trigger = {
 		type = "place",
-		node = "morenlocks:trap_stone",
+		node = "moreblocks:trap_stone",
 		target = 2
 	}
 })
