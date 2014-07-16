@@ -494,3 +494,15 @@ minetest.register_tool("default:sword_mese", {
 		damage_groups = {fleshy = 6},
 	}
 })
+
+
+
+minetest.register_tool("default:knife_silver", {
+	description = "Knife",
+	inventory_image = "default_tool_silverknife.png",
+	wield_image = "default_tool_silverknife.png^[transformR90",
+	tool_capabilities = {
+		full_punch_interval = 0.4,
+		damage_groups = {fleshy = 3},
+	}
+})

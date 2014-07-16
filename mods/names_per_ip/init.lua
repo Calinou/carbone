@@ -1,3 +1,6 @@
+minetest.register_privilege("whois", {
+    description = "Allows player to see other player IPs"})
+
 -- Created by Krock to stop mass-account-creators
 -- License: WTFPL
 
@@ -14,7 +17,7 @@ ipnames.name_per_ip_limit = minetest.setting_get("max_names_per_ip") or 5
 -- Get accounts self:
 minetest.register_chatcommand("whois", {
 	description = "Gets all players who have the same IP as the specified player",
-	privs = {ban = true},
+	privs = {whois = true},
 	func = function(name, param)
 		if not ipnames.data[param] then
 			minetest.chat_send_player(name, "The player \"" .. param .. "\" did not join yet.")
