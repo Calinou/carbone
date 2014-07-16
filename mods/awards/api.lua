@@ -237,14 +237,14 @@ function awards.give_achievement(name,award)
 					"label[0.3,0.1;"..custom_announce.."]")
 		else
 			-- use the chat console to send it
-			minetest.chat_send_player(name, "Achievement Unlocked: "..title)
+			minetest.chat_send_player(name, "Achievement unlocked: " .. title)
 			if desc~="" then
 				minetest.chat_send_player(name, desc)
 			end
 		end
 	
 		-- record this in the log	
-		minetest.log("action", name.." has unlocked award "..title)
+		minetest.log("action", name.." has unlocked award \"" .. title .. "\".")
 		
 		-- save playertable
 		awards.save()
