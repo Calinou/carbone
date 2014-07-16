@@ -468,15 +468,20 @@ function mobs:register_mob(name, def)
 		end,
 		
 		on_punch = function(self, hitter)
-		minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
+		local hp = self.object:get_hp()
+		if hp >= 1 then
+			minetest.sound_play("player_damage", {object = self.object, gain = 0.25})
+			minetest.sound_play("hit", {pos = hitter:getpos(), gain = 0.4})
+		end
 		local y = self.object:getvelocity().y
 		if y <= 0 then
 			self.object:setvelocity({x = 0, y = y + 4.5, z = 0})
 		end
-			if self.object:get_hp() <= 0 then
+			if hp <= 0 then
 				if hitter and hitter:is_player() and hitter:get_inventory() then
 					local pos = self.object:getpos()
 					minetest.sound_play("player_death", {object = self.object, gain = 0.4})
+					minetest.sound_play("hit_death", {pos = hitter:getpos(), gain = 0.4})
 					for _,drop in ipairs(self.drops) do
 						if math.random(1, drop.chance) == 1 then
 							hitter:get_inventory():add_item("main", ItemStack(drop.name .. " " .. math.random(drop.min, drop.max)))

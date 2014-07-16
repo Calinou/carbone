@@ -101,9 +101,18 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:pick_mese",
+	output = "default:pick_silver",
 	recipe = {
-		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+		{"default:silver_ingot", "default:silver_ingot", "default:silver_ingot"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+minetest.register_craft({
+	output = "default:pick_gold",
+	recipe = {
+		{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
 		{"", "group:stick", ""},
 		{"", "group:stick", ""},
 	}
@@ -126,6 +135,17 @@ minetest.register_craft({
 		{"", "group:stick", ""},
 	}
 })
+
+minetest.register_craft({
+	output = "default:pick_mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+
 
 minetest.register_craft({
 	output = "default:shovel_wood",
@@ -164,9 +184,18 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:shovel_mese",
+	output = "default:shovel_silver",
 	recipe = {
-		{"default:mese_crystal"},
+		{"default:silver_ingot"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:shovel_gold",
+	recipe = {
+		{"default:gold_ingot"},
 		{"group:stick"},
 		{"group:stick"},
 	}
@@ -189,6 +218,17 @@ minetest.register_craft({
 		{"group:stick"},
 	}
 })
+
+minetest.register_craft({
+	output = "default:shovel_mese",
+	recipe = {
+		{"default:mese_crystal"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+
 
 minetest.register_craft({
 	output = "default:axe_wood",
@@ -227,11 +267,38 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:axe_mese",
+	output = "default:axe_silver",
 	recipe = {
-		{"default:mese_crystal", "default:mese_crystal"},
-		{"default:mese_crystal", "group:stick"},
+		{"default:silver_ingot", "default:silver_ingot"},
+		{"default:silver_ingot", "group:stick"},
 		{"", "group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:axe_silver",
+	recipe = {
+		{"default:silver_ingot", "default:silver_ingot"},
+		{"group:stick", "default:silver_ingot"},
+		{"group:stick", ""},
+	}
+})
+
+minetest.register_craft({
+	output = "default:axe_gold",
+	recipe = {
+		{"default:gold_ingot", "default:gold_ingot"},
+		{"default:gold_ingot", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:axe_gold",
+	recipe = {
+		{"default:gold_ingot", "default:gold_ingot"},
+		{"group:stick", "default:gold_ingot"},
+		{"group:stick", ""},
 	}
 })
 
@@ -261,6 +328,17 @@ minetest.register_craft({
 		{"group:stick", ""},
 	}
 })
+
+minetest.register_craft({
+	output = "default:axe_mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal"},
+		{"default:mese_crystal", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+
 
 minetest.register_craft({
 	output = "default:sword_wood",
@@ -299,10 +377,19 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:sword_mese",
+	output = "default:sword_silver",
 	recipe = {
-		{"default:mese_crystal"},
-		{"default:mese_crystal"},
+		{"default:silver_ingot"},
+		{"default:silver_ingot"},
+		{"group:stick"},
+	}
+})
+
+minetest.register_craft({
+	output = "default:sword_gold",
+	recipe = {
+		{"default:gold_ingot"},
+		{"default:gold_ingot"},
 		{"group:stick"},
 	}
 })
@@ -324,6 +411,17 @@ minetest.register_craft({
 		{"group:stick"},
 	}
 })
+
+minetest.register_craft({
+	output = "default:sword_mese",
+	recipe = {
+		{"default:mese_crystal"},
+		{"default:mese_crystal"},
+		{"group:stick"},
+	}
+})
+
+
 
 minetest.register_craft({
 	output = "default:rail 16",
