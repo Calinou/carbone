@@ -2,7 +2,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:bedrock",
 	wherein        = "default:stone",
-	clust_scarcity = 1*1*1,
+	clust_scarcity = 1 * 1 * 1,
 	clust_num_ores = 5,
 	clust_size     = 2,
 	height_min     = -30912, -- Engine changes can modify this value.
@@ -13,7 +13,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:deepstone",
 	wherein        = "default:stone",
-	clust_scarcity = 1*1*1,
+	clust_scarcity = 1 * 1 * 1,
 	clust_num_ores = 5,
 	clust_size     = 2,
 	height_min     = -30656,

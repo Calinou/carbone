@@ -139,12 +139,47 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mese",
 	wherein        = "default:stone",
-	clust_scarcity = 36* 36* 36,
+	clust_scarcity = 30 * 30 * 30,
 	clust_num_ores = 3,
 	clust_size     = 2,
 	height_min     = -30000,
 	height_max     = -1024,
 	flags          = "absheight",
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:mese",
+	wherein        = "default:stone",
+	clust_scarcity = 48 * 48 * 48,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = -1024,
+	height_max     = 64,
+	flags          = "absheight",
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:mese",
+	wherein        = "default:desert_stone",
+	clust_scarcity = 48 * 48 * 48,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = -1024,
+	height_max     = 64,
+	flags          = "absheight",
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "maptools:superapple",
+	wherein        = "default:apple",
+	clust_scarcity = 6 * 6 * 6,
+	clust_num_ores = 5,
+	clust_size     = 2,
+	height_min     = 0,
+	height_max     = 64,
 })
 
 minetest.register_ore({
@@ -380,8 +415,8 @@ minetest.register_ore({
 	ore            = "air",
 	wherein        = "default:stone",
 	clust_scarcity = 48 * 48 * 48,
-	clust_num_ores = 363,
-	clust_size     = 9,
+	clust_num_ores = 501,
+	clust_size     = 10,
 	height_min     = -30000,
 	height_max     = 8,
 })
@@ -473,6 +508,19 @@ minetest.register_ore({
 	clust_scarcity = 24 * 24 * 24,
 	clust_num_ores = 200,
 	clust_size     = 7,
+	height_min     = -30000,
+	height_max     = 64,
+})
+
+-- Acid lakes in gravel:
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:acid_source",
+	wherein        = "default:gravel",
+	clust_scarcity = 20 * 20 * 20,
+	clust_num_ores = 64,
+	clust_size     = 5,
 	height_min     = -30000,
 	height_max     = 64,
 })

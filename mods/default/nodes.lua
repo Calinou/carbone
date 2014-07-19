@@ -786,7 +786,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:snow",
-	post_effect_color = {a =70, r= 20, g=70, b=80},
+	post_effect_color = {a = 72, r = 20, g = 70, b = 80},
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes = 1, melt_around = 1},
 })
 
@@ -818,7 +818,7 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:ice",
-	post_effect_color = {a = 70, r = 20, g = 70, b = 80},
+	post_effect_color = {a = 72, r = 20, g = 70, b = 80},
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
 })
 
@@ -1016,6 +1016,75 @@ minetest.register_abm({
 	end
 })
 --]]
+
+minetest.register_node("default:acid_flowing", {
+	description = "Flowing Acid",
+	inventory_image = minetest.inventorycube("default_acid.png"),
+	drawtype = "flowingliquid",
+	tiles = {"default_acid.png"},
+	special_tiles = {
+		{
+			image = "default_acid_flowing_animated.png",
+			backface_culling=false,
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+		},
+		{
+			image = "default_acid_flowing_animated.png",
+			backface_culling=true,
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+		},
+	},
+	alpha = WATER_ALPHA,
+	paramtype = "light",
+	light_source = LIGHT_MAX - 8,
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 2,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "default:acid_flowing",
+	liquid_alternative_source = "default:acid_source",
+	liquid_viscosity = WATER_VISC,
+	damage_per_second = 2,
+	post_effect_color = {a = 96, r = 60, g = 80, b = 30},
+	groups = {water = 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1},
+})
+
+minetest.register_node("default:acid_source", {
+	description = "Acid Source",
+	inventory_image = minetest.inventorycube("default_acid.png"),
+	drawtype = "liquid",
+	tiles = {
+		{name = "default_acid_source_animated.png", animation={type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2.0}}
+	},
+	special_tiles = {
+		-- New-style acid source material (mostly unused)
+		{
+			name = "default_acid_source_animated.png",
+			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0},
+			backface_culling = false,
+		}
+	},
+	alpha = WATER_ALPHA,
+	paramtype = "light",
+	light_source = LIGHT_MAX - 8,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 2,
+	liquidtype = "source",
+	liquid_alternative_flowing = "default:acid_flowing",
+	liquid_alternative_source = "default:acid_source",
+	liquid_viscosity = WATER_VISC,
+	damage_per_second = 2,
+	post_effect_color = {a = 96, r = 60, g = 80, b = 30},
+	groups = {water = 3, liquid = 3, puts_out_fire = 1},
+})
 
 minetest.register_node("default:torch", {
 	description = "Torch",
