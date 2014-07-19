@@ -1996,6 +1996,28 @@ minetest.register_node("default:mese", {
 })
 minetest.register_alias("default:mese_block", "default:mese")
 
+local function die_later(digger)
+	digger:set_hp(0)
+end
+
+minetest.register_node("default:meze", {
+	description = "Meze Block",
+	tiles = {"default_meze_block.png"},
+	is_ground_content = true,
+	drop = "",
+	groups = {cracky = 1, level = 2, fall_damage_add_percent = -75},
+	sounds = default.node_sound_stone_defaults(),
+	
+	on_dig = function(pos, node, digger)
+		if digger then
+			minetest.after(5, die_later, digger)
+			minetest.chat_send_player(digger:get_player_name(), "You feel like you did a mistake.")
+			minetest.node_dig(pos, node, digger)
+		end
+	end,
+})
+minetest.register_alias("default:meze_block", "default:meze")
+
 minetest.register_node("default:silverblock", {
 	description = "Silver Block",
 	tiles = {"default_silver_block.png"},

@@ -130,7 +130,7 @@ minetest.register_ore({
 	clust_scarcity = 14 * 14 * 14,
 	clust_num_ores = 5,
 	clust_size     = 3,
-	height_min     = -30000,
+	height_min     = -1024,
 	height_max     = -256,
 	flags          = "absheight",
 })
@@ -139,7 +139,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mese",
 	wherein        = "default:stone",
-	clust_scarcity = 30 * 30 * 30,
+	clust_scarcity = 20 * 20 * 20,
 	clust_num_ores = 3,
 	clust_size     = 2,
 	height_min     = -30000,
@@ -151,7 +151,7 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mese",
 	wherein        = "default:stone",
-	clust_scarcity = 48 * 48 * 48,
+	clust_scarcity = 40 * 40 * 40,
 	clust_num_ores = 3,
 	clust_size     = 2,
 	height_min     = -1024,
@@ -161,12 +161,36 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
+	ore            = "default:meze",
+	wherein        = "default:stone",
+	clust_scarcity = 40 * 40 * 40,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = 0,
+	height_max     = 64,
+	flags          = "absheight",
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
 	ore            = "default:mese",
 	wherein        = "default:desert_stone",
-	clust_scarcity = 48 * 48 * 48,
+	clust_scarcity = 40 * 40 * 40,
 	clust_num_ores = 3,
 	clust_size     = 2,
 	height_min     = -1024,
+	height_max     = 64,
+	flags          = "absheight",
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:meze",
+	wherein        = "default:desert_stone",
+	clust_scarcity = 40 * 40 * 40,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = 0,
 	height_max     = 64,
 	flags          = "absheight",
 })
