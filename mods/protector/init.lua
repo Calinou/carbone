@@ -70,6 +70,7 @@ protector.generate_formspec = function(meta)
 		formspec = formspec
 		.. "field[" .. (add_i % 4 * 2 + 1 / 3) .. "," .. (math.floor(add_i / 4 + 3) + 1 / 3) .. ";1.433,.5;protector_add_member;;]"
 	end
+		formspec = formspec.."button_exit[1,6.2;2,0.5;close_me;OK]"
 	return formspec
 end
 
