@@ -121,7 +121,7 @@ minetest.override_item("default:grass_1", {
 })
 
 for i = 2, 5 do
-	minetest.override_item("default:grass_"..i, {
+	minetest.override_item("default:grass_" ..i, {
 		paramtype = "light",
 		sunlight_propagates = true,
 	})

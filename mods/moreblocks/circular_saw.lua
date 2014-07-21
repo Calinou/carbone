@@ -5,7 +5,7 @@ circular_saw.known_stairs = setmetatable({}, {
 	__newindex = function(k, v)
 		local modname = minetest.get_current_modname()
 		print(("WARNING: mod %s tried to add node %s to the circular saw"
-				.." manually."):format(modname, v))
+				.. " manually."):format(modname, v))
 	end,
 })
 
@@ -127,7 +127,7 @@ function circular_saw:update_inventory(pos, amount)
 	local material = name_parts[2]
 
 	inv:set_list("input", { -- Display as many full blocks as possible:
-		node_name.." ".. math.floor(amount / 8)
+		node_name.. " " .. math.floor(amount / 8)
 	})
 
 	-- The stairnodes made of default nodes use moreblocks namespace, other mods keep own:
