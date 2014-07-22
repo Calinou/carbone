@@ -220,7 +220,7 @@ minetest.register_node("default:dirt_with_grass", {
 		},
 	},
 	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_grass_footstep", gain = 0.4},
+		footstep = {name = "default_grass_footstep", gain = 0.8},
 	}),
 })
 
@@ -252,9 +252,7 @@ minetest.register_node("default:dirt_with_snow", {
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_snow_footstep", gain = 0.25},
-	}),
+	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
 })
 
 minetest.register_node("default:dirt", {
@@ -2172,7 +2170,7 @@ minetest.register_node("default:grass_1", {
 	},
 	on_place = function(itemstack, placer, pointed_thing)
 		-- Place a random grass node:
-		local stack = ItemStack("default:grass_"..math.random(1, 5))
+		local stack = ItemStack("default:grass_" .. math.random(1, 5))
 		local ret = minetest.item_place(stack, placer, pointed_thing)
 		return ItemStack("default:grass_1 " .. itemstack:get_count() - (1 - ret:get_count()))
 	end,
@@ -2285,10 +2283,7 @@ minetest.register_node("default:snow", {
 		},
 	},
 	groups = {crumbly = 3, falling_node = 1, melts = 1, float = 1},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_snow_footstep", gain = 0.25},
-		dug = {name = "default_snow_footstep", gain = 0.65},
-	}),
+	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
 	on_construct = function(pos)
 		pos.y = pos.y - 1
 		if minetest.get_node(pos).name == "default:dirt_with_grass" then
@@ -2306,10 +2301,7 @@ minetest.register_node("default:snowblock", {
 	is_ground_content = true,
 	freezemelt = "default:water_source",
 	groups = {crumbly = 3, melts = 1},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_snow_footstep", gain = 0.25},
-		dug = {name = "default_snow_footstep", gain = 0.65},
-	}),
+	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
 })
 
 if minetest.setting_getbool("xray") then
