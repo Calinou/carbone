@@ -9,7 +9,7 @@ minetest.register_node("default:stone", {
 	groups = {cracky = 3, stone = 1},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
+			{items = {"default:cobble"}},
 			{items = {"maptools:copper_coin"}, rarity = 30},
 		},
 	},
@@ -23,7 +23,7 @@ minetest.register_node("default:desert_stone", {
 	groups = {crumbly = 1, cracky = 3, stone = 1},
 	drop = {
 		items = {
-			{items = {"default:desert_cobble"},},
+			{items = {"default:desert_cobble"}},
 			{items = {"maptools:copper_coin"}, rarity = 20},
 		},
 	},
@@ -37,9 +37,9 @@ minetest.register_node("default:stone_with_coal", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:coal_lump"},},
-			{items = {"maptools:copper_coin"},},
+			{items = {"default:cobble"}},
+			{items = {"default:coal_lump"}},
+			{items = {"maptools:copper_coin"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -52,9 +52,9 @@ minetest.register_node("default:desert_stone_with_coal", {
 	groups = {crumbly = 1, cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:desert_cobble"},},
-			{items = {"default:coal_lump"},},
-			{items = {"maptools:copper_coin"},},
+			{items = {"default:desert_cobble"}},
+			{items = {"default:coal_lump"}},
+			{items = {"maptools:copper_coin"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -67,8 +67,8 @@ minetest.register_node("default:stone_with_coin", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"maptools:gold_coin"},},
+			{items = {"default:cobble"}},
+			{items = {"maptools:gold_coin"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -81,9 +81,9 @@ minetest.register_node("default:stone_with_iron", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:iron_lump"},},
-			{items = {"maptools:copper_coin 2"},},
+			{items = {"default:cobble"}},
+			{items = {"default:iron_lump"}},
+			{items = {"maptools:copper_coin 2"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -96,9 +96,9 @@ minetest.register_node("default:stone_with_copper", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:copper_lump"},},
-			{items = {"maptools:copper_coin 2"},},
+			{items = {"default:cobble"}},
+			{items = {"default:copper_lump"}},
+			{items = {"maptools:copper_coin 2"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -111,9 +111,9 @@ minetest.register_node("default:desert_stone_with_copper", {
 	groups = {crumbly = 1, cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:desert_cobble"},},
-			{items = {"default:copper_lump"},},
-			{items = {"maptools:copper_coin 2"},},
+			{items = {"default:desert_cobble"}},
+			{items = {"default:copper_lump"}},
+			{items = {"maptools:copper_coin 2"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -126,9 +126,9 @@ minetest.register_node("default:stone_with_tin", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:tin_lump"},},
-			{items = {"maptools:copper_coin 2"},},
+			{items = {"default:cobble"}},
+			{items = {"default:tin_lump"}},
+			{items = {"maptools:copper_coin 2"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -141,9 +141,9 @@ minetest.register_node("default:stone_with_mese", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:mese_crystal"},},
-			{items = {"maptools:silver_coin 1"},},
+			{items = {"default:cobble"}},
+			{items = {"default:mese_crystal"}},
+			{items = {"maptools:silver_coin 1"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -156,9 +156,9 @@ minetest.register_node("default:stone_with_silver", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:silver_lump"},},
-			{items = {"maptools:copper_coin 3"},},
+			{items = {"default:cobble"}},
+			{items = {"default:silver_lump"}},
+			{items = {"maptools:copper_coin 3"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -171,9 +171,9 @@ minetest.register_node("default:stone_with_gold", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:gold_lump"},},
-			{items = {"maptools:copper_coin 5"},},
+			{items = {"default:cobble"}},
+			{items = {"default:gold_lump"}},
+			{items = {"maptools:copper_coin 5"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -186,9 +186,9 @@ minetest.register_node("default:stone_with_diamond", {
 	groups = {cracky = 3},
 	drop = {
 		items = {
-			{items = {"default:cobble"},},
-			{items = {"default:diamond"},},
-			{items = {"maptools:silver_coin 1"},},
+			{items = {"default:cobble"}},
+			{items = {"default:diamond"}},
+			{items = {"maptools:silver_coin 1"}},
 		},
 	},
 	sounds = default.node_sound_stone_defaults(),
@@ -215,7 +215,7 @@ minetest.register_node("default:dirt_with_grass", {
 	groups = {crumbly = 3, soil = 1},
 	drop = {
 		items = {
-			{items = {"default:dirt"},},
+			{items = {"default:dirt"}},
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
@@ -231,7 +231,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 	groups = {crumbly = 3, soil = 1, not_in_creative_inventory = 1},
 	drop = {
 		items = {
-			{items = {"default:dirt"},},
+			{items = {"default:dirt"}},
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
@@ -247,8 +247,8 @@ minetest.register_node("default:dirt_with_snow", {
 	groups = {crumbly = 3},
 	drop = {
 		items = {
-			{items = {"default:dirt"},},
-			{items = {"default:snow"},},
+			{items = {"default:dirt"}},
+			{items = {"default:snow"}},
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
@@ -261,7 +261,7 @@ minetest.register_node("default:dirt", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:dirt"},},
+			{items = {"default:dirt"}},
 			{items = {"maptools:copper_coin"}, rarity = 32},
 		},
 	},
@@ -314,7 +314,7 @@ minetest.register_node("default:sand", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:sand"},},
+			{items = {"default:sand"}},
 			{items = {"maptools:copper_coin"}, rarity = 32},
 		},
 	},
@@ -328,7 +328,7 @@ minetest.register_node("default:desert_sand", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:desert_sand"},},
+			{items = {"default:desert_sand"}},
 			{items = {"maptools:copper_coin"}, rarity = 32},
 		},
 	},
@@ -343,7 +343,7 @@ minetest.register_node("default:gravel", {
 	groups = {crumbly = 2, falling_node = 1},
 	drop = {
 		items = {
-			{items = {"default:gravel"},},
+			{items = {"default:gravel"}},
 			{items = {"maptools:copper_coin"}, rarity = 16},
 		},
 	},
@@ -373,8 +373,8 @@ minetest.register_node("default:clay", {
 	groups = {crumbly = 3},
 	drop = {
 		items = {
-			{items = {"default:clay_lump 8"},},
-			{items = {"maptools:copper_coin"},},
+			{items = {"default:clay_lump 8"}},
+			{items = {"maptools:copper_coin"}},
 		},
 	},
 	sounds = default.node_sound_dirt_defaults(),
@@ -387,8 +387,8 @@ minetest.register_node("default:clay_burned", {
 	groups = {crumbly = 3},
 	drop = {
 		items = {
-			{items = {"default:clay_lump 8"},},
-			{items = {"maptools:copper_coin"},},
+			{items = {"default:clay_lump 8"}},
+			{items = {"maptools:copper_coin"}},
 		},
 	},
 	sounds = default.node_sound_dirt_defaults(),
@@ -410,7 +410,7 @@ minetest.register_node("default:tree", {
 	is_ground_content = false,
 	drop = {
 		items = {
-			{items = {"default:tree"},},
+			{items = {"default:tree"}},
 			{items = {"maptools:copper_coin"}, rarity = 8},
 		},
 	},
@@ -426,7 +426,7 @@ minetest.register_node("default:jungletree", {
 	is_ground_content = false,
 	drop = {
 		items = {
-			{items = {"default:jungletree"},},
+			{items = {"default:jungletree"}},
 			{items = {"maptools:copper_coin"}, rarity = 6},
 		},
 	},
@@ -538,7 +538,7 @@ minetest.register_node("default:cactus", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:cactus"},},
+			{items = {"default:cactus"}},
 			{items = {"maptools:copper_coin"}, rarity = 12},
 		},
 	},
@@ -1931,7 +1931,7 @@ minetest.register_node("default:mossycobble", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:mossycobble"},},
+			{items = {"default:mossycobble"}},
 			{items = {"maptools:silver_coin"}, rarity = 64},
 		},
 	},
@@ -1985,7 +1985,7 @@ minetest.register_node("default:mese", {
 	is_ground_content = true,
 	drop = {
 		items = {
-			{items = {"default:mese"},},
+			{items = {"default:mese"}},
 			{items = {"maptools:silver_coin"}, rarity = 32},
 		},
 	},
@@ -2305,20 +2305,21 @@ minetest.register_node("default:snowblock", {
 })
 
 if minetest.setting_getbool("xray") then
-	minetest.override_item("default:stone_with_coal",           {tiles = {"default_mineral_coal.png"},})
-	minetest.override_item("default:stone_with_iron",           {tiles = {"default_mineral_iron.png"},})
-	minetest.override_item("default:stone_with_tin",            {tiles = {"default_mineral_tin.png"},})
-	minetest.override_item("default:stone_with_copper",         {tiles = {"default_mineral_copper.png"},})
-	minetest.override_item("default:stone_with_silver",         {tiles = {"default_mineral_silver.png"},})
-	minetest.override_item("default:stone_with_gold",           {tiles = {"default_mineral_gold.png"},})
-	minetest.override_item("default:stone_with_mese",           {tiles = {"default_mineral_mese.png"},})
-	minetest.override_item("default:stone_with_diamond",        {tiles = {"default_mineral_diamond.png"},})
-	minetest.override_item("default:stone_with_coin",           {tiles = {"maptools_gold_coin.png"},})
+	minetest.override_item("default:stone_with_coal",           {tiles = {"default_mineral_coal.png"}})
+	minetest.override_item("default:stone_with_iron",           {tiles = {"default_mineral_iron.png"}})
+	minetest.override_item("default:stone_with_tin",            {tiles = {"default_mineral_tin.png"}})
+	minetest.override_item("default:stone_with_copper",         {tiles = {"default_mineral_copper.png"}})
+	minetest.override_item("default:stone_with_silver",         {tiles = {"default_mineral_silver.png"}})
+	minetest.override_item("default:stone_with_gold",           {tiles = {"default_mineral_gold.png"}})
+	minetest.override_item("default:stone_with_mese",           {tiles = {"default_mineral_mese.png"}})
+	minetest.override_item("default:stone_with_diamond",        {tiles = {"default_mineral_diamond.png"}})
+	minetest.override_item("default:stone_with_coin",           {tiles = {"maptools_gold_coin.png"}})
 	
 	minetest.override_item("default:stone",                     {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt",                      {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt_with_grass",           {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt_with_grass_footsteps", {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:dirt_with_snow",            {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:water_source",              {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:water_flowing",             {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:leaves",                    {drawtype = "airlike", pointable = false,})
