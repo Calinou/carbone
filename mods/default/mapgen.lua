@@ -208,6 +208,17 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
+	ore            = "maptools:superapple",
+	wherein        = "default:jungleleaves",
+	clust_scarcity = 16 * 16 * 16,
+	clust_num_ores = 5,
+	clust_size     = 2,
+	height_min     = 0,
+	height_max     = 64,
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
 	ore            = "default:stone_with_coin",
 	wherein        = "default:stone",
 	clust_scarcity = 26 * 26 * 26,
