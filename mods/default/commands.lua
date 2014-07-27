@@ -8,18 +8,16 @@ minetest.register_craftitem("default:infotool", {
     wield_image = "default_infotool.png^[transformR90",
     groups = {not_in_creative_inventory = 1},
     on_use = function(_, user, pt)
-	if pt.type ~= "node" then
-	    return
-	end
+	if pt.type ~= "node" then return end
 	local nn = minetest.get_node(pt.under).name
+	if type(minetest.registered_items[nn].tiles[1]) ~= "string" then return end
 	local def = minetest.registered_nodes[nn]
-	if not def then
-	    return
-	end
+	if not def then return end
+	
 	local textures = def.tiles
 	local description = def.description
 	if not textures then
-	    textures = {"unknown_node.png"}
+	    textures = {"(no texture)"}
 	end
 	if not description then
 	    description = {"(no description)"}

@@ -23,9 +23,9 @@ wieldview.get_item_texture = function(self, item)
 		if minetest.registered_items[item] then
 			if minetest.registered_items[item].inventory_image ~= "" then
 				texture = minetest.registered_items[item].inventory_image
-			elseif node_tiles == true and minetest.registered_items[item].tiles 
+			elseif node_tiles == true and minetest.registered_items[item].tiles
 					and type(minetest.registered_items[item].tiles[1]) == "string"
-					and minetest.registered_items[item].tiles[1] ~= "" then 
+					and minetest.registered_items[item].tiles[1] ~= "" then
 				texture = minetest.inventorycube(minetest.registered_items[item].tiles[1])
 			end
 		end
