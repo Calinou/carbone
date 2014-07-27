@@ -252,7 +252,7 @@ minetest.register_node("default:dirt_with_snow", {
 			{items = {"maptools:copper_coin"}, rarity = 10},
 		},
 	},
-	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
+	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.625}}),
 })
 
 minetest.register_node("default:dirt", {
@@ -1109,7 +1109,7 @@ minetest.register_node("default:torch", {
 	},
 	selection_box = {type = "wallmounted"},
 	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, hot = 2},
-	sounds = default.node_sound_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:sign_wall", {
@@ -1131,7 +1131,7 @@ minetest.register_node("default:sign_wall", {
 	},
 	selection_box = {type = "wallmounted"},
 	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
-	sounds = default.node_sound_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		-- local n = minetest.get_node(pos)
 		local meta = minetest.get_meta(pos)
@@ -1990,7 +1990,7 @@ minetest.register_node("default:mese", {
 		},
 	},
 	groups = {cracky = 1, level = 2, fall_damage_add_percent = -75},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(), -- Intended.
 })
 minetest.register_alias("default:mese_block", "default:mese")
 
@@ -2004,7 +2004,7 @@ minetest.register_node("default:meze", {
 	is_ground_content = true,
 	drop = "",
 	groups = {cracky = 1, level = 2, fall_damage_add_percent = -75},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(), -- Intended.
 	
 	on_dig = function(pos, node, digger)
 		if digger then
@@ -2301,7 +2301,7 @@ minetest.register_node("default:snowblock", {
 	is_ground_content = true,
 	freezemelt = "default:water_source",
 	groups = {crumbly = 3, melts = 1},
-	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
+	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.625}}),
 })
 
 if minetest.setting_getbool("xray") then

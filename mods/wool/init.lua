@@ -35,7 +35,11 @@ for _, row in ipairs(wool.dyes) do
 		description = desc.." Wool",
 		tiles = {"wool_"..name..".png"},
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
-		sounds = default.node_sound_defaults(),
+		sounds = default.node_sound_dirt_defaults(
+		{footstep = {name = "default_snow_footstep", gain = 0.625},
+		dig = {name = "default_snow_footstep", gain = 0.7},
+		dug = {name = "default_snow_footstep", gain = 0.8},
+		place = {name = "default_snow_footstep", gain = 0.8}}),
 	})
 	if craft_color_group then
 		-- Crafting from dye and white wool

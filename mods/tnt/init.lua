@@ -191,7 +191,7 @@ end
 minetest.register_node("tnt:tnt", {
 	description = "TNT",
 	tiles = {"tnt_top.png", "tnt_bottom.png", "tnt_side.png"},
-	groups = {dig_immediate=2, mesecon=2},
+	groups = {dig_immediate = 2, mesecon = 2, not_in_creative_inventory = 1},
 	sounds = default.node_sound_wood_defaults(),
 	
 	on_punch = function(pos, node, puncher)
@@ -216,7 +216,8 @@ minetest.register_node("tnt:tnt_burning", {
 	description = "TNT (burning)",
 	tiles = {{name="tnt_top_burning_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=1}}, "tnt_bottom.png", "tnt_side.png"},
 	light_source = 5,
-	drop = "",
+	drop = "tnt:tnt",
+	groups = {not_in_creative_inventory = 1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -231,7 +232,7 @@ minetest.register_node("tnt:boom", {
 	buildable_to = true,
 	light_source = LIGHT_MAX,
 	drop = "",
-	groups = {dig_immediate=3},
+	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 })
 
 burn = function(pos)
@@ -293,7 +294,7 @@ minetest.register_node("tnt:gunpowder", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {dig_immediate=2,attached_node=1},
+	groups = {dig_immediate = 2, attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	
 	on_punch = function(pos, node, puncher)
@@ -316,7 +317,7 @@ minetest.register_node("tnt:gunpowder_burning", {
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	drop = "",
-	groups = {dig_immediate=2,attached_node=1},
+	groups = {dig_immediate = 2,attached_node = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
