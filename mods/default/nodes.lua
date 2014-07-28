@@ -1918,6 +1918,15 @@ minetest.register_node("default:cobble", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("default:cobble_cooled", {
+	description = "Cobblestone (cooled)",
+	tiles = {"default_cobble.png"},
+	is_ground_content = true,
+	drop = "default:cobble",
+	groups = {cracky = 3, stone = 2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("default:desert_cobble", {
 	description = "Desert Cobblestone",
 	tiles = {"default_desert_cobble.png"},
@@ -2056,6 +2065,15 @@ minetest.register_node("default:obsidian", {
 	description = "Obsidian",
 	tiles = {"default_obsidian.png"},
 	is_ground_content = true,
+	sounds = default.node_sound_stone_defaults(),
+	groups = {cracky = 1, level = 2},
+})
+
+minetest.register_node("default:obsidian_cooled", {
+	description = "Obsidian (cooled)",
+	tiles = {"default_obsidian.png"},
+	is_ground_content = true,
+	drop = "default:obsidian",
 	sounds = default.node_sound_stone_defaults(),
 	groups = {cracky = 1, level = 2},
 })

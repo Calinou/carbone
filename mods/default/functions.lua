@@ -259,10 +259,10 @@ default.cool_lava_source = function(pos)
 	local del2 = tonumber(os.clock())
 	if del2-del1 < 0.1
 	and count > 1 then
-		cool_wf_vm(pos, "default:lava_source", "default:obsidian")
+		cool_wf_vm(pos, "default:lava_source", "default:obsidian_cooled")
 		count = 0
 	else
-		minetest.set_node(pos, {name="default:obsidian"})
+		minetest.set_node(pos, {name="default:obsidian_cooled"})
 		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
 		if del2-del1 < 0.1 then
 			count = count + 1
@@ -275,10 +275,10 @@ default.cool_lava_flowing = function(pos)
 	local del2 = tonumber(os.clock())
 	if del2-del1 < 0.1
 	and count > 1 then
-		cool_wf_vm(pos, "default:lava_flowing", "default:stone")
+		cool_wf_vm(pos, "default:lava_flowing", "default:cobble_cooled")
 		count = 0
 	else
-		minetest.set_node(pos, {name="default:stone"})
+		minetest.set_node(pos, {name="default:cobble_cooled"})
 		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
 		if del2-del1 < 0.1 then
 			count = count + 1
