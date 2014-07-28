@@ -715,7 +715,7 @@ minetest.register_node("default:fence_steelblock", {
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
 	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:ladder", {
@@ -1953,7 +1953,7 @@ minetest.register_node("default:steelblock", {
 	tiles = {"default_steel_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, level = 2, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:tinblock", {
@@ -1961,7 +1961,7 @@ minetest.register_node("default:tinblock", {
 	tiles = {"default_tin_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, level = 2, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:copperblock", {
@@ -1969,7 +1969,7 @@ minetest.register_node("default:copperblock", {
 	tiles = {"default_copper_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, level = 2, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:bronzeblock", {
@@ -1977,7 +1977,7 @@ minetest.register_node("default:bronzeblock", {
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, level = 2, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:mese", {
@@ -2022,7 +2022,7 @@ minetest.register_node("default:silverblock", {
 	tiles = {"default_silver_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:goldblock", {
@@ -2030,7 +2030,7 @@ minetest.register_node("default:goldblock", {
 	tiles = {"default_gold_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, ingot_block = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:diamondblock", {
@@ -2038,7 +2038,7 @@ minetest.register_node("default:diamondblock", {
 	tiles = {"default_diamond_block.png"},
 	is_ground_content = true,
 	groups = {cracky = 1, level = 3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_node("default:obsidian_glass", {

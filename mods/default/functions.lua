@@ -31,6 +31,20 @@ function default.node_sound_stone_defaults(table)
 	return table
 end
 
+function default.node_sound_metal_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name="default_metal_footstep", gain = 0.575}
+	table.dig = table.dig or
+			{name="default_metal_footstep", gain = 0.65}
+	table.dug = table.dug or
+			{name="default_metal_footstep", gain = 0.8}
+	table.place = table.place or
+			{name="default_metal_footstep", gain = 0.8}
+	default.node_sound_defaults(table)
+	return table
+end
+
 function default.node_sound_dirt_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
