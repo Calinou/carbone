@@ -7,26 +7,26 @@
 function default.node_sound_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_hard_footstep", gain = 0.6}
+			{name = "default_hard_footstep", gain = 0.6}
 	table.dig = table.dig or
-			{name="default_hard_footstep", gain = 0.7}
+			{name = "default_hard_footstep", gain = 0.7}
 	table.dug = table.dug or
-			{name="default_hard_footstep", gain = 0.8}
+			{name = "default_hard_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_hard_footstep", gain = 0.8}
+			{name = "default_hard_footstep", gain = 0.8}
 	return table
 end
 
 function default.node_sound_stone_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_hard_footstep", gain = 0.6}
+			{name = "default_hard_footstep", gain = 0.6}
 	table.dig = table.dig or
-			{name="default_hard_footstep", gain = 0.7}
+			{name = "default_hard_footstep", gain = 0.7}
 	table.dug = table.dug or
-			{name="default_hard_footstep", gain = 0.8}
+			{name = "default_hard_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_hard_footstep", gain = 0.8}
+			{name = "default_hard_footstep", gain = 0.8}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -34,13 +34,13 @@ end
 function default.node_sound_metal_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_metal_footstep", gain = 0.575}
+			{name = "default_metal_footstep", gain = 0.575}
 	table.dig = table.dig or
-			{name="default_metal_footstep", gain = 0.65}
+			{name = "default_metal_footstep", gain = 0.65}
 	table.dug = table.dug or
-			{name="default_metal_footstep", gain = 0.8}
+			{name = "default_metal_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_metal_footstep", gain = 0.8}
+			{name = "default_metal_footstep", gain = 0.8}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -48,13 +48,13 @@ end
 function default.node_sound_dirt_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_dirt_footstep", gain = 0.8}
+			{name = "default_dirt_footstep", gain = 0.8}
 	table.dig = table.dig or
-			{name="default_dirt_footstep", gain = 0.9}
+			{name = "default_dirt_footstep", gain = 0.9}
 	table.dug = table.dug or
-			{name="default_dirt_footstep", gain = 1.0}
+			{name = "default_dirt_footstep", gain = 1.0}
 	table.place = table.place or
-			{name="default_dirt_footstep", gain = 1.0}
+			{name = "default_dirt_footstep", gain = 1.0}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -62,13 +62,13 @@ end
 function default.node_sound_gravel_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_dirt_footstep", gain = 0.8}
+			{name = "default_dirt_footstep", gain = 0.8}
 	table.dig = table.dig or
-			{name="default_dirt_footstep", gain = 0.9}
+			{name = "default_dirt_footstep", gain = 0.9}
 	table.dug = table.dug or
-			{name="default_dirt_footstep", gain = 1.0}
+			{name = "default_dirt_footstep", gain = 1.0}
 	table.place = table.place or
-			{name="default_dirt_footstep", gain = 1.0}
+			{name = "default_dirt_footstep", gain = 1.0}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -76,13 +76,13 @@ end
 function default.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_sand_footstep", gain = 0.6}
+			{name = "default_sand_footstep", gain = 0.6}
 	table.dig = table.dig or
-			{name="default_sand_footstep", gain = 0.7}
+			{name = "default_sand_footstep", gain = 0.7}
 	table.dug = table.dug or
-			{name="default_sand_footstep", gain = 0.8}
+			{name = "default_sand_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_sand_footstep", gain = 0.8}
+			{name = "default_sand_footstep", gain = 0.8}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -90,13 +90,13 @@ end
 function default.node_sound_wood_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_wood_footstep", gain = 0.625}
+			{name = "default_wood_footstep", gain = 0.625}
 	table.dig = table.dig or
-			{name="default_wood_footstep", gain = 0.7}
+			{name = "default_wood_footstep", gain = 0.7}
 	table.dug = table.dug or
-			{name="default_wood_footstep", gain = 0.8}
+			{name = "default_wood_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_wood_footstep", gain = 0.8}
+			{name = "default_wood_footstep", gain = 0.8}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -104,13 +104,13 @@ end
 function default.node_sound_leaves_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_grass_footstep", gain = 0.6}
+			{name = "default_grass_footstep", gain = 0.6}
 	table.dig = table.dig or
-			{name="default_grass_footstep", gain = 0.7}
+			{name = "default_grass_footstep", gain = 0.7}
 	table.dug = table.dug or
-			{name="default_snow_footstep", gain = 0.8}
+			{name = "default_snow_footstep", gain = 0.8}
 	table.place = table.place or
-			{name="default_snow_footstep", gain = 0.8}
+			{name = "default_snow_footstep", gain = 0.8}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -118,11 +118,13 @@ end
 function default.node_sound_glass_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_glass_footstep", gain = 0.7}
+			{name = "default_hard_footstep", gain = 0.55}
+	table.dig = table.dig or
+			{name = "default_hard_footstep", gain = 0.65}
 	table.dug = table.dug or
-			{name="default_break_glass", gain = 0.8}
+			{name = "default_break_glass", gain = 0.8}
 	table.place = table.place or
-			{name="default_break_glass", gain = 0.4}
+			{name = "default_hard_footstep", gain = 0.75}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -256,7 +258,7 @@ default.cool_lava_source = function(pos)
 		cool_wf_vm(pos, "default:lava_source", "default:obsidian_cooled")
 		count = 0
 	else
-		minetest.set_node(pos, {name="default:obsidian_cooled"})
+		minetest.set_node(pos, {name = "default:obsidian_cooled"})
 		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
 		if del2-del1 < 0.1 then
 			count = count + 1
@@ -272,7 +274,7 @@ default.cool_lava_flowing = function(pos)
 		cool_wf_vm(pos, "default:lava_flowing", "default:cobble_cooled")
 		count = 0
 	else
-		minetest.set_node(pos, {name="default:cobble_cooled"})
+		minetest.set_node(pos, {name = "default:cobble_cooled"})
 		minetest.sound_play("default_cool_lava", {pos = pos, gain = 0.2})
 		if del2-del1 < 0.1 then
 			count = count + 1
@@ -322,7 +324,7 @@ minetest.register_abm({
 			end
 			if height < 4 then
 				if minetest.get_node(pos).name == "air" then
-					minetest.set_node(pos, {name="default:cactus"})
+					minetest.set_node(pos, {name = "default:cactus"})
 				end
 			end
 		end
@@ -353,7 +355,7 @@ minetest.register_abm({
 			end
 			if height < 4 then
 				if minetest.get_node(pos).name == "air" then
-					minetest.set_node(pos, {name="default:papyrus"})
+					minetest.set_node(pos, {name = "default:papyrus"})
 				end
 			end
 		end
