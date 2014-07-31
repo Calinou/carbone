@@ -231,16 +231,10 @@ local function cool_wf_vm(pos, node1, node2)
 	local stone = minetest.get_content_id(node2)
 	local lava = minetest.get_content_id(node1)
 
-	for x = minp.x, maxp.x do
-		for y = minp.y, maxp.y do
-			for z = minp.z, maxp.z do
-				local p = {x=x, y=y, z=z}
-				local p_p = area:indexp(p)
-				if nodes[p_p] == lava
-				and minetest.find_node_near(p, 1, {"group:water"}) then
-					nodes[p_p] = stone
-				end
-			end
+	for i in area:iterp(minp, maxp) do
+		local p = area:position(i)
+		if nodes[i] == lava and minetest.find_node_near(p, 1, {"group:water"}) then
+			nodes[i] = stone
 		end
 	end
 				
