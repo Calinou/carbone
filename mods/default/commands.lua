@@ -80,7 +80,7 @@ minetest.register_chatcommand("clearinventory", {
 	end,
 })
 
--- The following commands /whoami, /kill, /speed, /gravity and /jump by Wuzzy:
+-- The following commands /whoami, /suicide, /speed, /gravity and /jump by Wuzzy:
 minetest.register_chatcommand("whoami", {
 	params = "",
 	description = "Tells your name",
@@ -99,7 +99,7 @@ minetest.register_chatcommand("ip", {
 	end
 })
 
-minetest.register_chatcommand("kill", {
+minetest.register_chatcommand("suicide", {
 	params = "",
 	description = "Kills yourself",
 	func = function(name, param)
