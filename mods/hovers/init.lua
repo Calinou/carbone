@@ -70,20 +70,20 @@ function hover:on_step(dtime)
 		local ctrl = self.driver:get_player_control()
 		local yaw = self.object:getyaw()
 		if ctrl.up then
-			self.v = self.v + 0.1
+			self.v = self.v + dtime * 5
 		end
 		if ctrl.down then
-			self.v = self.v - 0.1
+			self.v = self.v - dtime * 1
 		end
 		if ctrl.left then
-			self.object:setyaw(yaw + math.pi / 90 + dtime * math.pi / 90)
+			self.object:setyaw(yaw + dtime)
 		end
 		if ctrl.right then
-			self.object:setyaw(yaw - math.pi / 90 - dtime * math.pi / 90)
+			self.object:setyaw(yaw - dtime)
 		end
 	end
 	local s = get_sign(self.v)
-	self.v = self.v - 0.01 * s
+	self.v = self.v - dtime * 0.5 * s
 	if s ~= get_sign(self.v) then
 		self.object:setvelocity({x = 0, y = 0, z = 0})
 		self.v = 0
