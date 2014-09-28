@@ -9,7 +9,7 @@ minetest.register_globalstep(function(dtime)
 					if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
 						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 						if object:get_luaentity().itemstring ~= "" then
-							minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3,})
+							minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3, max_hear_distance = 16})
 						end
 						object:get_luaentity().itemstring = ""
 						object:remove()
@@ -42,7 +42,7 @@ minetest.register_globalstep(function(dtime)
 								if inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
 									inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 									if object:get_luaentity().itemstring ~= "" then
-										minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3,})
+										minetest.sound_play("item_drop_pickup", {pos = pos, gain = 0.3, max_hear_distance = 16})
 									end
 									object:get_luaentity().itemstring = ""
 									object:remove()
