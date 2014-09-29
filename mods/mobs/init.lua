@@ -565,7 +565,7 @@ mobs:register_arrow("mobs:fireball", {
 						minetest.dig_node(p)
 					end
 						minetest.sound_play("mobs_fireball_explode", {
-						pos = s,
+						pos = pos,
 						gain = 0.1,
 						max_hear_distance = 48})
 				end
@@ -586,7 +586,7 @@ mobs:register_arrow("mobs:fireball", {
 						minetest.dig_node(p)
 					end
 						minetest.sound_play("mobs_fireball_explode", {
-						pos = s,
+						pos = pos,
 						gain = 0.1,
 						max_hear_distance = 48})
 				end
