@@ -7,20 +7,22 @@
 -- For legitimate player names that are caught by the filters.
 
 local exemptions = {}
-local temp = minetest.setting_get("restriction_exempted_names")
+local temp = minetest.setting_get("name_restrictions.exemptions")
 temp = temp and temp:split() or {}
 for _, allowed_name in pairs(temp) do
 	exemptions[allowed_name] = true
 end
 temp = nil
-
+-- Exempt server owner
+exemptions[minetest.setting_get("name")] = true
+exemptions["singleplayer"] = true
 
 ---------------------
 -- Simple matching --
 ---------------------
 
 local disallowed = {
-	["^guest[0-9]+"] = "Guest accounts are disallowed on this server. " ..
+	["^guest[0-9]+"] = "Guest accounts are disallowed on this server.  "..
 	                   "Please choose a proper username and try again.",
 	["[4a]dm[1il]n"]    = "Misleading nickname.",
 	["[0o]wn[e3]r"]  = "Misleading nickname.",
@@ -47,7 +49,7 @@ minetest.register_on_prejoinplayer(function(name, ip)
 		if iname:lower() == lname and iname ~= name then
 			return "Sorry, someone else is already using this"
 				.." name.  Please pick another name."
-				.."  Annother possibility is that you used the"
+				.."  Annother posibility is that you used the"
 				.." wrong case for your name."
 		end
 	end
@@ -57,7 +59,7 @@ end)
 minetest.register_chatcommand("choosecase", {
 	description = "Choose the casing that a player name should have",
 	params = "<name>",
-	privs = {server = true},
+	privs = {server=true},
 	func = function(name, params)
 		local lname = params:lower()
 		local worldpath = minetest.get_worldpath()
@@ -118,12 +120,13 @@ all_chars = all_chars .. "]"
 minetest.register_on_prejoinplayer(function(name, ip)
 	if exemptions[name] then return end
 
+	-- Generate a regular expression to match all similar names
 	local re = name:gsub(all_chars, char_map)
 	re = "^[_-]*" .. re .. "[_-]*$"
 
 	for authName, _ in pairs(minetest.auth_table) do
 		if authName ~= name and authName:match(re) then
-			return "Your name is too similar to another player's name."
+			return "Your name is too similar to annother player's name."
 		end
 	end
 end)
@@ -134,7 +137,7 @@ end)
 -- Name length --
 -----------------
 
-local min_name_len = tonumber(minetest.setting_get("minimum_name_length")) or 2
+local min_name_len = tonumber(minetest.setting_get("name_restrictions.minimum_name_length")) or 2
 
 minetest.register_on_prejoinplayer(function(name, ip)
 	if exemptions[name] then return end
@@ -150,8 +153,7 @@ end)
 ----------------------
 
 -- Original implementation (in Python) by sfan5
---[[
-local function pronounceable(text)
+local function pronounceable(pronounceability, text)
 	local pronounceable = 0
 	local nonpronounceable = 0
 	local cn = 0
@@ -189,16 +191,24 @@ local function pronounceable(text)
 	if cn > 0 then
 		nonpronounceable = nonpronounceable + 1
 	end
-	return (pronounceable >= nonpronounceable)
+	return pronounceable * pronounceability >= nonpronounceable
 end
 
+-- Pronounceability factor:
+--   nil = Checking disabled.
+--   0   = Everything's unpronounceable.
+--   0.5 = Strict checking.
+--   1   = Normal checking.
+--   2   = Relaxed checking.
+local pronounceability = tonumber(minetest.setting_get("name_restrictions.pronounceability"))
+if pronounceability then
+	minetest.register_on_prejoinplayer(function(name, ip)
+		if exemptions[name] then return end
 
-minetest.register_on_prejoinplayer(function(name, ip)
-	if exemptions[name] then return end
+		if not pronounceable(pronounceability, name) then
+			return "Your player name does not seem to be pronounceable."
+				.."  Please choose a more pronounceable name."
+		end
+	end)
+end
 
-	if not pronounceable(name) then
-		return "Your player name does not seem to be pronounceable."
-			.."  Please choose a more pronounceable name."
-	end
-end)
---]]
