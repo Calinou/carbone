@@ -1108,7 +1108,12 @@ minetest.register_node("default:torch", {
 		wall_bottom = {-0.0625, -0.5   , -0.0625, 0.0625, 0.0625, 0.0625},
 		wall_side   = {-0.5   , -0.5   , -0.0625, -0.375, 0.0625, 0.0625},
 	},
-	selection_box = {type = "wallmounted"},
+	selection_box = {
+		type = "wallmounted",
+		wall_top    = {-0.25, -0.0625, -0.25, 0.25, 0.5   , 0.25},
+		wall_bottom = {-0.25, -0.5   , -0.25, 0.25, 0.0625, 0.25},
+		wall_side   = {-0.25, -0.5  , -0.25, -0.5, 0.0625, 0.25},
+	},
 	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, hot = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
