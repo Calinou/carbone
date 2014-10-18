@@ -1,9 +1,10 @@
 -- mods/default/tools.lua
 
--- The hand
+-- The hand:
 minetest.register_item(":", {
 	type = "none",
-	wield_image = "invisible.png",
+	wield_image = "wieldhand.png",
+	wield_scale = {x = 0.9, y = 0.9, z = 2.2},
 	range = 5,
 	tool_capabilities = {
 		full_punch_interval = 0.8,
