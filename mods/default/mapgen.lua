@@ -444,18 +444,6 @@ minetest.register_ore({
 	height_max     = -100,
 })
 
-
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "air",
-	wherein        = "default:stone",
-	clust_scarcity = 48 * 48 * 48,
-	clust_num_ores = 501,
-	clust_size     = 10,
-	height_min     = -30000,
-	height_max     = 8,
-})
-
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:dirt",
