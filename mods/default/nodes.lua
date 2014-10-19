@@ -2347,16 +2347,18 @@ minetest.register_node("default:snowblock", {
 })
 
 if minetest.setting_getbool("xray") then
-	minetest.override_item("default:stone_with_coal",           {tiles = {"default_mineral_coal.png"}})
-	minetest.override_item("default:stone_with_iron",           {tiles = {"default_mineral_iron.png"}})
-	minetest.override_item("default:stone_with_tin",            {tiles = {"default_mineral_tin.png"}})
-	minetest.override_item("default:stone_with_copper",         {tiles = {"default_mineral_copper.png"}})
-	minetest.override_item("default:stone_with_silver",         {tiles = {"default_mineral_silver.png"}})
-	minetest.override_item("default:stone_with_gold",           {tiles = {"default_mineral_gold.png"}})
-	minetest.override_item("default:stone_with_mese",           {tiles = {"default_mineral_mese.png"}})
-	minetest.override_item("default:stone_with_diamond",        {tiles = {"default_mineral_diamond.png"}})
-	minetest.override_item("default:stone_with_coin",           {tiles = {"maptools_gold_coin.png"}})
+	-- Nodes to make partially see-through:
+	minetest.override_item("default:stone_with_coal",    {tiles = {"default_mineral_coal.png"}})
+	minetest.override_item("default:stone_with_iron",    {tiles = {"default_mineral_iron.png"}})
+	minetest.override_item("default:stone_with_tin",     {tiles = {"default_mineral_tin.png"}})
+	minetest.override_item("default:stone_with_copper",  {tiles = {"default_mineral_copper.png"}})
+	minetest.override_item("default:stone_with_silver",  {tiles = {"default_mineral_silver.png"}})
+	minetest.override_item("default:stone_with_gold",    {tiles = {"default_mineral_gold.png"}})
+	minetest.override_item("default:stone_with_mese",    {tiles = {"default_mineral_mese.png"}})
+	minetest.override_item("default:stone_with_diamond", {tiles = {"default_mineral_diamond.png"}})
+	minetest.override_item("default:stone_with_coin",    {tiles = {"maptools_gold_coin.png"}})
 	
+	-- Nodes to hide:
 	minetest.override_item("default:stone",                     {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt",                      {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:dirt_with_grass",           {drawtype = "airlike", pointable = false,})
@@ -2371,4 +2373,5 @@ if minetest.setting_getbool("xray") then
 	minetest.override_item("default:desert_sand",               {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:desert_stone",              {drawtype = "airlike", pointable = false,})
 	minetest.override_item("default:cobble",                    {drawtype = "airlike", pointable = false,})
+	minetest.override_item("default:desert_cobble",             {drawtype = "airlike", pointable = false,})
 end
