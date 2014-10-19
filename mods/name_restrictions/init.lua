@@ -49,7 +49,7 @@ minetest.register_on_prejoinplayer(function(name, ip)
 		if iname:lower() == lname and iname ~= name then
 			return "Sorry, someone else is already using this"
 				.." name.  Please pick another name."
-				.."  Annother posibility is that you used the"
+				.."  Another posibility is that you used the"
 				.." wrong case for your name."
 		end
 	end
@@ -126,7 +126,7 @@ minetest.register_on_prejoinplayer(function(name, ip)
 
 	for authName, _ in pairs(minetest.auth_table) do
 		if authName ~= name and authName:match(re) then
-			return "Your name is too similar to annother player's name."
+			return "Your name is too similar to another player's name."
 		end
 	end
 end)
@@ -138,12 +138,21 @@ end)
 -----------------
 
 local min_name_len = tonumber(minetest.setting_get("name_restrictions.minimum_name_length")) or 2
+local max_name_len = tonumber(minetest.setting_get("name_restrictions.maximum_name_length")) or 17
 
 minetest.register_on_prejoinplayer(function(name, ip)
 	if exemptions[name] then return end
 
 	if #name < min_name_len then
-		return "Your player name is too short, please try a longer name."
+		return "Your player name is too short"
+		.. " (" .. #name .. " characters, must be " .. min_name_len .. " characters at least)."
+		.. " Please try a longer name."
+	end
+	
+	if #name > max_name_len then
+		return "Your player name is too long"
+		.. " (" .. #name .. " characters, must be " .. max_name_len .. " characters at most)."
+		.. " Please try a shorter name."
 	end
 end)
 
