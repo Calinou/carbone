@@ -129,7 +129,8 @@ if minetest.setting_getbool("creative_mode") then
 	local digtime = 0.35
 	minetest.register_item(":", {
 		type = "none",
-		wield_image = "invisible.png",
+		wield_image = "wieldhand.png",
+		wield_scale = {x = 0.9, y = 0.9, z = 2.2},
 		range = 12,
 		tool_capabilities = {
 			full_punch_interval = 0.1,
