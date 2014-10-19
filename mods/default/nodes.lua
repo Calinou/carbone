@@ -803,7 +803,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:snow",
-	post_effect_color = {a = 72, r = 20, g = 70, b = 80},
+	post_effect_color = {a = 90, r = 20, g = 70, b = 80},
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes = 1, melt_around = 1},
 })
 
@@ -835,7 +835,7 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	freezemelt = "default:ice",
-	post_effect_color = {a = 72, r = 20, g = 70, b = 80},
+	post_effect_color = {a = 90, r = 20, g = 70, b = 80},
 	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
 })
 
