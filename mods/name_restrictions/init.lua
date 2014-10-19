@@ -22,11 +22,16 @@ exemptions["singleplayer"] = true
 ---------------------
 
 local disallowed = {
-	["^guest[0-9]+"] = "Guest accounts are disallowed on this server.  "..
-	                   "Please choose a proper username and try again.",
-	["[4a]dm[1il]n"]    = "Misleading nickname.",
-	["[0o]wn[e3]r"]  = "Misleading nickname.",
-	["^[0-9]+$"]     = "All-numeric usernames are disallowed on this server.",
+	["^guest[0-9]+"] = "Guest accounts are disallowed on this server." ..
+	                   " Please choose a proper name and try again.",
+	["[4a]dm[1il]n"] = "Misleading name." ..
+					   " Please choose a proper name and try again.",
+	["[0o]wn[e3]r"]  = "Misleading name." ..
+					   " Please choose a proper name and try again.",
+	["^[0-9]+$"]     = "All-numeric names are disallowed on this server." ..
+					   " Please choose a proper name and try again.",
+	["[0-9].-[0-9].-[0-9].-[0-9].-[0-9].-[0-9]"] = "Too many numbers in your name (must be 5 at most)." ..
+					   " Please choose a proper name and try again.",
 }
 
 minetest.register_on_prejoinplayer(function(name, ip)
@@ -59,7 +64,7 @@ end)
 minetest.register_chatcommand("choosecase", {
 	description = "Choose the casing that a player name should have",
 	params = "<name>",
-	privs = {server=true},
+	privs = {server = true},
 	func = function(name, params)
 		local lname = params:lower()
 		local worldpath = minetest.get_worldpath()
@@ -67,7 +72,7 @@ minetest.register_chatcommand("choosecase", {
 			if iname:lower() == lname and iname ~= params then
 				minetest.auth_table[iname] = nil
 				assert(not iname:find("[/\\]"))
-				os.remove(worldpath.."/players/"..iname)
+				os.remove(worldpath .. "/players/" .. iname)
 			end
 		end
 		return true, "Done."
