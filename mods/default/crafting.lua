@@ -48,6 +48,14 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "default:fence_brick 16",
+	recipe = {
+		{"default:brick", "default:brick", "default:brick"},
+		{"default:brick", "default:brick", "default:brick"},
+	}
+})
+
+minetest.register_craft({
 	output = "default:sign_wall",
 	recipe = {
 		{"group:wood", "group:wood", "group:wood"},

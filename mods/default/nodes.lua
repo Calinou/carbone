@@ -718,6 +718,24 @@ minetest.register_node("default:fence_steelblock", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
+local fence_brick_texture = "default_fence_overlay.png^default_brick.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_brick", {
+	description = "Brick Fence",
+	drawtype = "fencelike",
+	tiles = {"default_brick.png"},
+	inventory_image = fence_brick_texture,
+	wield_image = fence_brick_texture,
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {cracky = 3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node("default:ladder", {
 	description = "Ladder",
 	drawtype = "nodebox",
