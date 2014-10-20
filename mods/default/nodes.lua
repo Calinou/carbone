@@ -466,7 +466,7 @@ minetest.register_node("default:jungleleaves", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
-	post_effect_color = {a = 128, r= 20, g= 32, b= 16},
+	post_effect_color = {a = 150, r = 30, g = 50, b = 20},
 })
 
 minetest.register_node("default:junglesapling", {
@@ -934,7 +934,7 @@ minetest.register_node("default:lava_flowing", {
 	liquid_viscosity = LAVA_VISC,
 	liquid_renewable = false,
 	damage_per_second = 8,
-	post_effect_color = {a = 192, r = 255, g = 64, b = 0},
+	post_effect_color = {a = 220, r = 250, g = 70, b = 20},
 	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1, not_in_creative_inventory = 1},
 })
 
@@ -967,7 +967,7 @@ minetest.register_node("default:lava_source", {
 	liquid_viscosity = LAVA_VISC,
 	liquid_renewable = false,
 	damage_per_second = 8,
-	post_effect_color = {a = 192, r = 255, g = 64, b = 0},
+	post_effect_color = {a = 220, r = 250, g = 70, b = 20},
 	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1},
 })
 
