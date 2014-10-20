@@ -94,6 +94,27 @@ minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, 
 	minetest.sound_play("health_gain", {pos = pos, gain = 0.4})
 end)
 
+if minetest.setting_getbool("creative_mode") then
+	minetest.log("action", "Creative mode is enabled.")
+	else
+	minetest.log("action", "Creative mode is disabled.")
+end
+
+if minetest.setting_getbool("enable_damage") then
+	minetest.log("action", "Damage is enabled.")
+	else
+	minetest.log("action", "Damage is disabled.")
+end
+
+if minetest.setting_getbool("enable_pvp") then
+	minetest.log("action", "PvP is enabled.")
+	else
+	minetest.log("action", "PvP is disabled.")
+end
+
+minetest.log("action", "Maximum users: " .. minetest.setting_get("max_users") or 15)
+minetest.log("action", "MOTD: " .. minetest.setting_get("motd") or "(none)")
+
 if minetest.setting_getbool("log_mods") then
 	 -- Highlight the default mod in the mod loading logs:
 	minetest.log("action", "Carbone: * [default] loaded.")
