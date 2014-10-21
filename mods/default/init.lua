@@ -127,6 +127,16 @@ end
 minetest.log("action", "") -- Empty line.
 minetest.log("action", "") -- Empty line.
 
+-- Reserved slot handling:
+
+minetest.register_on_prejoinplayer(function(name, ip)
+    if #minetest.get_connected_players() >= (minetest.setting_get("max_users") - 2)
+    and not minetest.check_player_privs(name, {server = true}) then
+        return "Sorry, 2 slots are reserved for administrators."
+    end
+end)
+
+
 if minetest.setting_getbool("log_mods") then
 	 -- Highlight the default mod in the mod loading logs:
 	minetest.log("action", "Carbone: * [default] loaded.")
