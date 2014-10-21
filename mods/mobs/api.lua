@@ -1,4 +1,7 @@
+local monster_damage = minetest.setting_get("monster_damage_factor") or 1.0
+
 mobs = {}
+
 function mobs:register_mob(name, def)
 	minetest.register_entity(name, {
 		hp_max = def.hp_max,
@@ -37,7 +40,7 @@ function mobs:register_mob(name, def)
 		state = "stand",
 		v_start = false,
 		old_y = nil,
-		lifetimer = 300,
+		lifetimer = 600,
 		tamed = false,
 		
 		set_velocity = function(self, v)
@@ -52,7 +55,7 @@ function mobs:register_mob(name, def)
 		
 		get_velocity = function(self)
 			local v = self.object:getvelocity()
-			return (v.x^ 2 + v.z^ 2) ^(0.5)
+			return (v.x^ 2 + v.z^ 2) ^ (0.5)
 		end,
 		
 		set_animation = function(self, type)
@@ -175,7 +178,7 @@ function mobs:register_mob(name, def)
 			
 			self.timer = self.timer + dtime
 			if self.state ~= "attack" then
-				if self.timer < 1.0 then return end
+				if self.timer < 0.9 then return end
 				self.timer = 0
 			end
 			
@@ -372,11 +375,11 @@ function mobs:register_mob(name, def)
 					self.set_velocity(self, 0)
 					self:set_animation("punch")
 					self.v_start = false
-					if self.timer > 1 then
+					if self.timer > 0.9 then
 						self.timer = 0
 						minetest.sound_play("mobs_punch", {object = self.object, gain = 1})
-						self.attack.player:punch(self.object, 1.0,  {
-							full_punch_interval= 1.0,
+						self.attack.player:punch(self.object, monster_damage,  {
+							full_punch_interval = 0.9,
 							damage_groups = {fleshy = self.damage}
 						}, vec)
 					end
@@ -441,7 +444,7 @@ function mobs:register_mob(name, def)
 			self.state = "stand"
 			self.object:setvelocity({x = 0, y = self.object:getvelocity().y, z = 0})
 			self.object:setyaw(math.random(1, 360) / 180 *  math.pi)
-			self.lifetimer = 300 - dtime_s
+			self.lifetimer = 600 - dtime_s
 			if staticdata then
 				local tmp = minetest.deserialize(staticdata)
 				if tmp and tmp.lifetimer then

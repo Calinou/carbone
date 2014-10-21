@@ -476,6 +476,60 @@ minetest.register_craftitem("mobs:tree_monster", {
 	end,
 })
 
+mobs:register_mob("mobs:trooper", {
+	type = "monster",
+	hp_max = 20,
+	collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
+	visual = "mesh",
+	mesh = "character.x",
+	textures = {"character.png"},
+	visual_size = {x = 1, y = 1},
+	makes_footstep_sound = true,
+	view_range = 8,
+	lava_damage = 8,
+	walk_velocity = 1.6,
+	run_velocity = 3.2,
+	damage = 2,
+	drops = {
+		{name = "mobs:trooper",
+		chance = 1,
+		min = 1,
+		max = 1,},
+	},
+	armor = 100,
+	drawtype = "front",
+	attack_type = "dogfight",
+	animation = {
+		speed_normal = 17,
+		speed_run = 35,
+		stand_start = 0,
+		stand_end = 40,
+		walk_start = 168,
+		walk_end = 187,
+		run_start = 168,
+		run_end = 187,
+		punch_start = 189,
+		punch_end = 198,
+	}
+})
+
+minetest.register_craftitem("mobs:trooper", {
+	description = "Trooper",
+	inventory_image = "player.png",
+	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
+	groups = {not_in_creative_inventory = 1},
+	
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.above then
+			pointed_thing.above.y = pointed_thing.above.y + 0.5
+			minetest.add_entity(pointed_thing.above, "mobs:trooper")
+			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
+			minetest.log("action", placer:get_player_name() .. " placed a trooper at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+		end
+		return itemstack
+	end,
+})
+
 mobs:register_mob("mobs:dungeon_master", {
 	type = "monster",
 	hp_max = 50,
@@ -705,13 +759,19 @@ if not minetest.setting_getbool("creative_mode") then
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If not defined or set to true then”
 		local mn = {"default:stone", "default:desert_stone"}
+		local tn = {"default:dirt_with_grass", "default:sand", "default:desert_sand", "default:dirt_with_snow"}
 		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 15000, 6, 0)
 		mobs:register_spawn("mobs:stone_monster", "a stone monster",   mn, 1, -1, 15000, 4, 0)
 		mobs:register_spawn("mobs:sand_monster", "a sand monster",     mn, 1, -1, 15000, 4, 0)
 		mobs:register_spawn("mobs:oerkki", "an oerkki",                mn, 1, -1, 20000, 4, 0)
 		mobs:register_spawn("mobs:tree_monster", "a tree monster",     mn, 1, -1, 25000, 2, 0)
+		
 		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", mn, 1, -1, 25000, 2, -50)
 		mobs:register_spawn("mobs:rhino", "a rhino",                   mn, 1, -1, 25000, 2, 0)
+	end
+	if minetest.setting_getbool("spawn_troopers") ~= false then -- “If not defined or set to true then”
+		local tn = {"default:dirt_with_grass", "default:sand", "default:desert_sand", "default:dirt_with_snow"}
+		mobs:register_spawn("mobs:trooper", "a trooper",               tn, 16, -1, 40000, 4, 100)
 	end
 end
 

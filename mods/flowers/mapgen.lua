@@ -21,19 +21,19 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				-- Find ground level (0...15)
 				local ground_y = nil
 				for y=30,0,-1 do
-					if minetest.get_node({x=x,y=y,z=z}).name ~= "air" then
+					if minetest.get_node({x = x, y = y, z = z}).name ~= "air" then
 						ground_y = y
 						break
 					end
 				end
 				
 				if ground_y then
-					local p = {x=x,y=ground_y+1,z=z}
+					local p = {x = x, y = ground_y + 1, z = z}
 					local nn = minetest.get_node(p).name
 					-- Check if the node can be replaced
 					if minetest.registered_nodes[nn] and
 						minetest.registered_nodes[nn].buildable_to then
-						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
+						nn = minetest.get_node({x = x, y = ground_y, z = z}).name
 						if nn == "default:dirt_with_grass" then
 							local flower_choice = pr:next(1, 6)
 							local flower
@@ -50,7 +50,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							elseif flower_choice == 6 then
 								flower = "flowers:viola"
 							end
-							minetest.set_node(p, {name=flower})
+							minetest.set_node(p, {name = flower})
+						elseif nn == "default:water_source" then
+							minetest.set_node(p, {name = "flowers:lily_pad"})
 						end
 					end
 				end
