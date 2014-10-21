@@ -771,7 +771,7 @@ if not minetest.setting_getbool("creative_mode") then
 	end
 	if minetest.setting_getbool("spawn_troopers") ~= false then -- “If not defined or set to true then”
 		local tn = {"default:dirt_with_grass", "default:sand", "default:desert_sand", "default:dirt_with_snow"}
-		mobs:register_spawn("mobs:trooper", "a trooper",               tn, 16, -1, 40000, 4, 100)
+		mobs:register_spawn("mobs:trooper", "a trooper",               tn, 16, -1, 50000, 4, 100)
 	end
 end
 
