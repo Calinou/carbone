@@ -94,6 +94,9 @@ minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, 
 	minetest.sound_play("health_gain", {pos = pos, gain = 0.4})
 end)
 
+minetest.log("action", "") -- Empty line.
+minetest.log("action", "") -- Empty line.
+
 if minetest.setting_getbool("creative_mode") then
 	minetest.log("action", "Creative mode is enabled.")
 	else
@@ -112,8 +115,17 @@ if minetest.setting_getbool("enable_pvp") then
 	minetest.log("action", "PvP is disabled.")
 end
 
-minetest.log("action", "Maximum users: " .. minetest.setting_get("max_users") or 15)
-minetest.log("action", "MOTD: " .. minetest.setting_get("motd") or "(none)")
+if not minetest.is_singleplayer() and minetest.setting_getbool("server_announce") then
+	minetest.log("action", "") -- Empty line.
+	minetest.log("action", "Server name: " .. minetest.setting_get("server_name") or "(none)")
+	minetest.log("action", "Server description: " .. minetest.setting_get("server_description") or "(none)")
+	minetest.log("action", "Server URL: " .. minetest.setting_get("server_address") or "(none)")
+	minetest.log("action", "MOTD: " .. minetest.setting_get("motd") or "(none)")
+	minetest.log("action", "Maximum users: " .. minetest.setting_get("max_users") or 15)
+end
+
+minetest.log("action", "") -- Empty line.
+minetest.log("action", "") -- Empty line.
 
 if minetest.setting_getbool("log_mods") then
 	 -- Highlight the default mod in the mod loading logs:
