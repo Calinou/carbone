@@ -53,6 +53,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							minetest.set_node(p, {name = flower})
 						elseif nn == "default:water_source" then
 							minetest.set_node(p, {name = "flowers:lily_pad"})
+						elseif nn == "default:sand" then
+							minetest.set_node(p, {name = "default:dry_shrub"})
+						elseif nn == "default:dirt_with_snow" then
+							minetest.set_node(p, {name = "default:snow"})
 						end
 					end
 				end

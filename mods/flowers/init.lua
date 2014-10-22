@@ -142,6 +142,10 @@ minetest.register_node("flowers:lily_pad", {
 	sounds = default.node_sound_leaves_defaults(),
 	node_box = {
 		type = "fixed",
+		fixed = {-0.5, -0.45, -0.5, 0.5, -0.4375, 0.5},
+	},
+	selection_box = {
+		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
 	},
 })
