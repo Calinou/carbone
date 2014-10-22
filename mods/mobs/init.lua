@@ -750,28 +750,26 @@ mobs:register_arrow("mobs:bullet", {
 
 -- mobs:register_spawn(name, description, nodes, max_light, min_light, chance, active_object_count, max_height)
 
-if not minetest.setting_getbool("creative_mode") then
+if not minetest.setting_getbool("creative_mode") then -- Disable all mob spawning in creative mode.
 	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then -- “If nil or true then”
 		local rn = {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}
 		local sn = {"default:dirt_with_grass"}
+		
 		mobs:register_spawn("mobs:rat", "two rats",                    rn, 16, -1, 7500, 6, 100)
 		mobs:register_spawn("mobs:sheep", "a sheep",                   sn, 16, 8, 20000, 2, 100)
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If nil or true then”
-		local mn = {"default:stone", "default:desert_stone"}
-		local tn = {"default:dirt_with_grass", "default:sand", "default:desert_sand", "default:dirt_with_snow"}
+		local mn = {"default:stone", "default:desert_stone", "default:cobble", "default:mossycobble"}
+		
 		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 15000, 6, 0)
 		mobs:register_spawn("mobs:stone_monster", "a stone monster",   mn, 1, -1, 15000, 4, 0)
 		mobs:register_spawn("mobs:sand_monster", "a sand monster",     mn, 1, -1, 15000, 4, 0)
 		mobs:register_spawn("mobs:oerkki", "an oerkki",                mn, 1, -1, 20000, 4, 0)
 		mobs:register_spawn("mobs:tree_monster", "a tree monster",     mn, 1, -1, 25000, 2, 0)
+		mobs:register_spawn("mobs:trooper", "a trooper",               mn, 1, -1, 25000, 2, 0)
 		
 		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", mn, 1, -1, 25000, 2, -50)
 		mobs:register_spawn("mobs:rhino", "a rhino",                   mn, 1, -1, 25000, 2, 0)
-	end
-	if minetest.setting_getbool("spawn_troopers") then -- “If true then”
-		local tn = {"default:dirt_with_grass", "default:sand", "default:desert_sand", "default:dirt_with_snow"}
-		mobs:register_spawn("mobs:trooper", "a trooper",               tn, 16, -1, 40000, 2, 100)
 	end
 end
 
