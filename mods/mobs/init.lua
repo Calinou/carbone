@@ -9,7 +9,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	textures = {"mobs_dirt_monster.png"},
 	visual_size = {x = 3, y = 2.6},
 	makes_footstep_sound = true,
-	view_range = 12,
+	view_range = 16,
 	walk_velocity = 1.1,
 	run_velocity = 2.6,
 	on_rightclick = nil,
@@ -125,7 +125,7 @@ mobs:register_mob("mobs:sand_monster", {
 	textures = {"mobs_sand_monster.png"},
 	visual_size = {x =8,y =8},
 	makes_footstep_sound = true,
-	view_range = 20,
+	view_range = 16,
 	walk_velocity = 1.8,
 	run_velocity = 3.6,
 	damage = 2,
@@ -205,7 +205,7 @@ mobs:register_mob("mobs:sheep", {
 		walk_end = 100,
 	},
 	follow = "farming:wheat",
-	view_range = 6,
+	view_range = 8,
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "farming:wheat" then
@@ -310,7 +310,7 @@ mobs:register_mob("mobs:rat", {
 	water_damage = 1,
 	lava_damage = 8,
 	follow = "default:scorched_stuff",
-	view_range = 4,
+	view_range = 5,
 })
 
 minetest.register_craftitem("mobs:rat", {
@@ -422,7 +422,7 @@ mobs:register_mob("mobs:tree_monster", {
 	textures = {"mobs_tree_monster.png"},
 	visual_size = {x = 4.5,y = 4.5},
 	makes_footstep_sound = true,
-	view_range = 32,
+	view_range = 16,
 	walk_velocity = 0,
 	run_velocity = 1.6,
 	damage = 6,
@@ -658,7 +658,7 @@ mobs:register_mob("mobs:rhino", {
 	textures = {"mobs_rhino.png"},
 	visual_size = {x = 8, y = 8},
 	makes_footstep_sound = true,
-	view_range = 10,
+	view_range = 12,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	damage = 2,
