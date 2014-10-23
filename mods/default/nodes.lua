@@ -781,12 +781,12 @@ minetest.register_node("default:water_flowing", {
 		{
 			image = "default_water_flowing_animated.png",
 			backface_culling=false,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.6}
 		},
 		{
 			image = "default_water_flowing_animated.png",
 			backface_culling=true,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.6}
 		},
 	},
 	alpha = WATER_ALPHA,
@@ -812,13 +812,13 @@ minetest.register_node("default:water_source", {
 	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "liquid",
 	tiles = {
-		{name = "default_water_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0}}
+		{name = "default_water_source_animated.png", animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 1.5}}
 	},
 	special_tiles = {
 		-- New-style water source material (mostly unused)
 		{
 			name = "default_water_source_animated.png",
-			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0},
+			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 1.5},
 			backface_culling = false,
 		}
 	},
@@ -911,12 +911,12 @@ minetest.register_node("default:lava_flowing", {
 		{
 			image = "default_lava_flowing_animated.png",
 			backface_culling = false,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.4}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 1.5}
 		},
 		{
 			image = "default_lava_flowing_animated.png",
 			backface_culling = true,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.4}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 1.5}
 		},
 	},
 	paramtype = "light",
@@ -1043,17 +1043,16 @@ minetest.register_node("default:acid_flowing", {
 		{
 			image = "default_acid_flowing_animated.png",
 			backface_culling=false,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.6}
 		},
 		{
 			image = "default_acid_flowing_animated.png",
 			backface_culling=true,
-			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.8}
+			animation={type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 0.6}
 		},
 	},
 	alpha = WATER_ALPHA,
 	paramtype = "light",
-	light_source = LIGHT_MAX - 8,
 	paramtype2 = "flowingliquid",
 	walkable = false,
 	pointable = false,
@@ -1066,7 +1065,7 @@ minetest.register_node("default:acid_flowing", {
 	liquid_alternative_source = "default:acid_source",
 	liquid_viscosity = WATER_VISC,
 	damage_per_second = 2,
-	post_effect_color = {a = 96, r = 60, g = 80, b = 30},
+	post_effect_color = {a = 120, r = 50, g = 90, b = 30},
 	groups = {water = 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1},
 })
 
@@ -1075,19 +1074,18 @@ minetest.register_node("default:acid_source", {
 	inventory_image = minetest.inventorycube("default_acid.png"),
 	drawtype = "liquid",
 	tiles = {
-		{name = "default_acid_source_animated.png", animation={type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2.0}}
+		{name = "default_acid_source_animated.png", animation={type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 1.5}}
 	},
 	special_tiles = {
 		-- New-style acid source material (mostly unused)
 		{
 			name = "default_acid_source_animated.png",
-			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 2.0},
+			animation = {type = "vertical_frames", aspect_w= 16, aspect_h = 16, length = 1.5},
 			backface_culling = false,
 		}
 	},
 	alpha = WATER_ALPHA,
 	paramtype = "light",
-	light_source = LIGHT_MAX - 8,
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -1099,7 +1097,7 @@ minetest.register_node("default:acid_source", {
 	liquid_alternative_source = "default:acid_source",
 	liquid_viscosity = WATER_VISC,
 	damage_per_second = 2,
-	post_effect_color = {a = 96, r = 60, g = 80, b = 30},
+	post_effect_color = {a = 120, r = 50, g = 90, b = 30},
 	groups = {water = 3, liquid = 3, puts_out_fire = 1},
 })
 
@@ -2040,9 +2038,11 @@ minetest.register_node("default:meze", {
 	sounds = default.node_sound_wood_defaults(), -- Intended.
 	
 	on_dig = function(pos, node, digger)
-		if digger then
-			minetest.after(5, die_later, digger)
+		if digger and minetest.setting_getbool("enable_damage") and not minetest.setting_getbool("creative_mode") then
+			minetest.after(3, die_later, digger)
 			minetest.chat_send_player(digger:get_player_name(), "You feel like you did a mistake.")
+			minetest.node_dig(pos, node, digger)
+		elseif digger then
 			minetest.node_dig(pos, node, digger)
 		end
 	end,

@@ -7,7 +7,7 @@ default = {} -- Definitions made by this mod are usable by all mods.
 
 WATER_ALPHA = 160
 WATER_VISC = 1
-LAVA_VISC = 7     -- Slower movement in lava.
+LAVA_VISC = 3     -- Slower movement in lava.
 LIGHT_MAX = 14    -- 15 is reserved for sunlight.
 
 -- GUI related stuff:
