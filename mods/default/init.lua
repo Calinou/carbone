@@ -31,7 +31,6 @@ gui_suvival_form = "size[8,8.5]"..
 			default.get_hotbar_bg(0, 5.25)
 
 -- Load files:
-
 dofile(minetest.get_modpath("default").."/functions.lua")
 dofile(minetest.get_modpath("default").."/commands.lua")
 dofile(minetest.get_modpath("default").."/nodes.lua")
