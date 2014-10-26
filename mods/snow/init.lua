@@ -13,27 +13,31 @@ minetest.register_craft({
     },
 })
 
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:dirt_with_snow",
-	wherein        = "default:dirt_with_grass",
-	clust_scarcity = 1 * 1 * 1,
-	clust_num_ores = 5,
-	clust_size     = 2,
-	height_min     = 26, 
-	height_max     = 31000,
-})
+local snow_altitude = minetest.setting_get("snow_altitude") or 26
 
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "air",
-	wherein        = "default:junglegrass",
-	clust_scarcity = 1 * 1 * 1,
-	clust_num_ores = 5,
-	clust_size     = 2,
-	height_min     = 26, 
-	height_max     = 31000,
-})
+if minetest.setting_getbool("generate_snow") ~= false then
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:dirt_with_snow",
+		wherein        = "default:dirt_with_grass",
+		clust_scarcity = 1 * 1 * 1,
+		clust_num_ores = 5,
+		clust_size     = 2,
+		height_min     = snow_altitude, 
+		height_max     = 31000,
+	})
+	
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "air",
+		wherein        = "default:junglegrass",
+		clust_scarcity = 1 * 1 * 1,
+		clust_num_ores = 5,
+		clust_size     = 2,
+		height_min     = snow_altitude, 
+		height_max     = 31000,
+	})
+end
 
 if minetest.setting_getbool("log_mods") then
 	minetest.log("action", "Carbone: [snow] loaded.")

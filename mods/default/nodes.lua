@@ -63,6 +63,7 @@ minetest.register_node("default:desert_stone_with_coal", {
 minetest.register_node("default:stone_with_coin", {
 	description = "Stone with Coin",
 	tiles = {"default_stone.png^maptools_gold_coin.png"},
+	light_source = 3,
 	is_ground_content = true,
 	groups = {cracky = 3},
 	drop = {
@@ -138,6 +139,7 @@ minetest.register_node("default:stone_with_mese", {
 	description = "Mese Ore",
 	tiles = {"default_stone.png^default_mineral_mese.png"},
 	is_ground_content = true,
+	light_source = 6,
 	groups = {cracky = 3},
 	drop = {
 		items = {
@@ -182,6 +184,7 @@ minetest.register_node("default:stone_with_gold", {
 minetest.register_node("default:stone_with_diamond", {
 	description = "Diamond Ore",
 	tiles = {"default_stone.png^default_mineral_diamond.png"},
+	light_source = 5,
 	is_ground_content = true,
 	groups = {cracky = 3},
 	drop = {
@@ -2013,6 +2016,7 @@ minetest.register_node("default:bronzeblock", {
 minetest.register_node("default:mese", {
 	description = "Mese Block",
 	tiles = {"default_mese_block.png"},
+	light_source = 7,
 	is_ground_content = true,
 	drop = {
 		items = {
@@ -2032,6 +2036,7 @@ end
 minetest.register_node("default:meze", {
 	description = "Meze Block",
 	tiles = {"default_meze_block.png"},
+	light_source = 7,
 	is_ground_content = true,
 	drop = "",
 	groups = {cracky = 1, level = 2, fall_damage_add_percent = -75},
@@ -2301,8 +2306,18 @@ minetest.register_node("default:ice", {
 	is_ground_content = true,
 	use_texture_alpha = true,
 	freezemelt = "default:water_source",
+	post_effect_color = {a = 90, r = 120, g = 170, b = 180},
 	groups = {cracky = 3, melts = 1},
 	sounds = default.node_sound_glass_defaults(),
+	
+	on_dig = function(pos, node, digger)
+		if digger and not minetest.setting_getbool("creative_mode") then
+			minetest.node_dig(pos, node, digger)
+			minetest.set_node(pos, {name = "default:water_source"})
+		elseif digger then
+			minetest.node_dig(pos, node, digger)
+		end
+	end,
 })
 
 minetest.register_node("default:snow", {
