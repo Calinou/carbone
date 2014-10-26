@@ -12,8 +12,9 @@ minetest.register_node(":default:mese", {
 	description = "Mese Block",
 	tiles = {minetest.registered_nodes["default:mese"].tiles[1]},
 	is_ground_content = true,
-	groups = {cracky=1},
-	sounds = default.node_sound_stone_defaults(),
+	light_source = 7,
+	groups = {cracky = 1},
+	sounds = default.node_sound_wood_defaults(), -- Intended.
 	mesecons = {conductor = {
 		state = mesecon.state.off,
 		onstate = "mesecons_extrawires:mese_powered",
