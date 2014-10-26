@@ -13,7 +13,7 @@ minetest.register_craft({
     },
 })
 
-local snow_altitude = minetest.setting_get("snow_altitude") or 26
+local snow_altitude = tonumber(minetest.setting_get("snow_altitude")) or 26
 
 if minetest.setting_getbool("generate_snow") ~= false then
 	minetest.register_ore({
