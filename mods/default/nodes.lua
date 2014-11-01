@@ -402,7 +402,6 @@ minetest.register_node("default:brick", {
 	tiles = {"default_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 3},
-	drop = "default:clay_brick 9",
 	sounds = default.node_sound_stone_defaults(),
 })
 
