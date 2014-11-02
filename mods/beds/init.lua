@@ -86,9 +86,11 @@ for i in ipairs(beds_list) do
 			end
 		end,
 		
-		--[[
 		on_rightclick = function(pos, node, clicker)
-			if not clicker:is_player() then return end
+			if not clicker:is_player()
+			or not minetest.is_singleplayer()
+			and not minetest.setting_getbool("beds.enable") then return end
+			
 			local meta = minetest.env:get_meta(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -100,6 +102,7 @@ for i in ipairs(beds_list) do
 			elseif param2 == 3 then
 				pos.x = pos.x - 1
 			end
+			
 			if clicker:get_player_name() == meta:get_string("player") then
 				if param2 == 0 then
 					pos.x = pos.x - 1
@@ -135,7 +138,6 @@ for i in ipairs(beds_list) do
 				players_in_bed = players_in_bed + 1
 			end
 		end
-		--]]
 	})
 	
 	minetest.register_node("beds:bed_top_" .. colour, {
@@ -185,7 +187,6 @@ minetest.register_alias("beds:bed_bottom", "beds:bed_bottom_green")
 minetest.register_alias("beds:bed_top", "beds:bed_top_green")
 minetest.register_alias("beds:bed", "beds:bed_bottom_green")
 
---[[
 beds_player_spawns = {}
 
 local file = io.open(minetest.get_worldpath().."/beds.txt", "r")
@@ -234,7 +235,6 @@ minetest.register_on_respawnplayer(function(player)
 		return true
 	end
 end)
---]]
 
 if minetest.setting_getbool("log_mods") then
 	minetest.log("action", "Carbone: [beds] loaded.")
