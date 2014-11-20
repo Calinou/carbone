@@ -71,7 +71,7 @@ mobs:register_mob("mobs:stone_monster", {
 	view_range = 16,
 	walk_velocity = 0.4,
 	run_velocity = 1.8,
-	damage = 6,
+	damage = 5,
 	drops = {
 		{name = "default:stone",
 		chance = 1,
