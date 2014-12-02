@@ -504,6 +504,12 @@ minetest.register_craft({
 	recipe = {"default:copper_ingot", "default:tin_ingot"},
 })
 
+minetest.register_craft({ -- More Ores compatibility recipe:
+	type = "shapeless",
+	output = "default:bronze_ingot",
+	recipe = {"default:copper_ingot", "moreores:tin_ingot"},
+})
+
 minetest.register_craft({
 	output = "default:coalblock",
 	recipe = {
