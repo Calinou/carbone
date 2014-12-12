@@ -122,16 +122,19 @@ minetest.register_abm({
 				minetest.set_node(pos, {name = node.soil.wet})
 			end
 		else
-			-- Turn it back into base if it is already dry.
-			if minetest.get_item_group(node.name, "wet") == 0 then
-				-- Only turn it back if there is no plant/seed on top of it.
-				if minetest.get_item_group(nn, "plant") == 0 and minetest.get_item_group(nn, "seed") == 0 then
-					minetest.set_node(pos, {name = node.soil.base})
+			-- only turn back if there are no unloaded blocks (and therefore
+			-- possible water sources) nearby
+			if not minetest.find_node_near(pos, 3, {"ignore"}) then
+				-- turn it back into base if it is already dry
+				if wet_lvl == 0 then
+					-- only turn it back if there is no plant/seed on top of it
+					if minetest.get_item_group(nn.name, "plant") == 0 and minetest.get_item_group(nn.name, "seed") == 0 then
+						minetest.set_node(pos, {name = base})
+					end
+				-- if its wet turn it back into dry soil
+				elseif wet_lvl == 1 then
+					minetest.set_node(pos, {name = dry})
 				end
-				
-			-- If it's wet turn it back into dry soil.
-			elseif minetest.get_item_group(node.name, "wet") == 1 then
-				minetest.set_node(pos, {name = node.soil.dry})
 			end
 		end
 	end,

@@ -803,9 +803,8 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:snow",
 	post_effect_color = {a = 120, r = 20, g = 60, b = 80},
-	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1, freezes = 1, melt_around = 1},
+	groups = {water= 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1},
 })
 
 minetest.register_node("default:water_source", {
@@ -835,9 +834,8 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:ice",
 	post_effect_color = {a = 120, r = 20, g = 60, b = 80},
-	groups = {water= 3, liquid = 3, puts_out_fire = 1, freezes = 1},
+	groups = {water= 3, liquid = 3, puts_out_fire = 1},
 })
 
 --[[
@@ -2303,9 +2301,8 @@ minetest.register_node("default:ice", {
 	paramtype = "light",
 	is_ground_content = true,
 	use_texture_alpha = true,
-	freezemelt = "default:water_source",
 	post_effect_color = {a = 120, r = 120, g = 160, b = 180},
-	groups = {cracky = 3, melts = 1},
+	groups = {cracky = 3},
 	sounds = default.node_sound_glass_defaults(),
 	
 	on_dig = function(pos, node, digger)
@@ -2330,14 +2327,13 @@ minetest.register_node("default:snow", {
 	buildable_to = true,
 	leveled = 7,
 	drawtype = "nodebox",
-	freezemelt = "default:water_flowing",
 	node_box = {
 		type = "leveled",
 		fixed = {
 			{-0.5, -0.5, -0.5,  0.5, -0.375, 0.5},
 		},
 	},
-	groups = {crumbly = 3, falling_node = 1, melts = 1, float = 1},
+	groups = {crumbly = 3, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.7}}),
 	on_construct = function(pos)
 		pos.y = pos.y - 1
@@ -2354,8 +2350,7 @@ minetest.register_node("default:snowblock", {
 	description = "Snow Block",
 	tiles = {"default_snow.png"},
 	is_ground_content = true,
-	freezemelt = "default:water_source",
-	groups = {crumbly = 3, melts = 1},
+	groups = {crumbly = 3},
 	sounds = default.node_sound_dirt_defaults({footstep = {name = "default_snow_footstep", gain = 0.625}}),
 })
 
