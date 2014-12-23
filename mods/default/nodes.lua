@@ -1065,7 +1065,7 @@ minetest.register_node("default:acid_flowing", {
 	liquid_viscosity = WATER_VISC,
 	damage_per_second = 2,
 	post_effect_color = {a = 120, r = 50, g = 90, b = 30},
-	groups = {water = 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1},
+	groups = {water = 3, acid = 3, liquid = 3, puts_out_fire = 1, not_in_creative_inventory = 1},
 })
 
 minetest.register_node("default:acid_source", {
@@ -1097,7 +1097,7 @@ minetest.register_node("default:acid_source", {
 	liquid_viscosity = WATER_VISC,
 	damage_per_second = 2,
 	post_effect_color = {a = 120, r = 50, g = 90, b = 30},
-	groups = {water = 3, liquid = 3, puts_out_fire = 1},
+	groups = {water = 3, acid = 3, liquid = 3, puts_out_fire = 1},
 })
 
 minetest.register_node("default:torch", {
