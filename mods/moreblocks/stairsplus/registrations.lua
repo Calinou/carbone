@@ -24,7 +24,7 @@ local default_nodes = { -- Default stairs/slabs/panels/microblocks:
 }
 
 for _, name in pairs(default_nodes) do
-	local nodename = "default:" ..name
+	local nodename = "default:" .. name
 	local ndef = minetest.registered_nodes[nodename]
 	local groups = {}
 	for k, v in pairs(ndef.groups)
