@@ -13,7 +13,7 @@ mobs:register_mob("mobs:dirt_monster", {
 	walk_velocity = 1.1,
 	run_velocity = 2.6,
 	on_rightclick = nil,
-	damage = 4,
+	damage = 3,
 	drops = {
 		name = "default:dirt",
 		chance = 1,
@@ -71,7 +71,7 @@ mobs:register_mob("mobs:stone_monster", {
 	view_range = 16,
 	walk_velocity = 0.4,
 	run_velocity = 1.8,
-	damage = 5,
+	damage = 4,
 	drops = {
 		{name = "default:stone",
 		chance = 1,
@@ -425,7 +425,7 @@ mobs:register_mob("mobs:tree_monster", {
 	view_range = 16,
 	walk_velocity = 0,
 	run_velocity = 1.6,
-	damage = 6,
+	damage = 5,
 	drops = {
 		{name = "default:sapling",
 		chance = 1,
@@ -761,15 +761,15 @@ if not minetest.setting_getbool("creative_mode") then -- Disable all mob spawnin
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If nil or true then”
 		local mn = {"default:stone", "default:desert_stone", "default:cobble", "default:mossycobble"}
 		
-		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 15000, 6, 0)
+		mobs:register_spawn("mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 15000, 4, 0)
 		mobs:register_spawn("mobs:stone_monster", "a stone monster",   mn, 1, -1, 15000, 4, 0)
-		mobs:register_spawn("mobs:sand_monster", "a sand monster",     mn, 1, -1, 15000, 4, 0)
+		mobs:register_spawn("mobs:sand_monster", "a sand monster",     mn, 1, -1, 20000, 4, 0)
 		mobs:register_spawn("mobs:oerkki", "an oerkki",                mn, 1, -1, 20000, 4, 0)
 		mobs:register_spawn("mobs:tree_monster", "a tree monster",     mn, 1, -1, 25000, 2, 0)
 		mobs:register_spawn("mobs:trooper", "a trooper",               mn, 1, -1, 25000, 2, 0)
 		
-		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", mn, 1, -1, 25000, 2, -50)
-		mobs:register_spawn("mobs:rhino", "a rhino",                   mn, 1, -1, 25000, 2, 0)
+		mobs:register_spawn("mobs:dungeon_master", "a dungeon master", mn, 1, -1, 25000, 2, -64)
+		mobs:register_spawn("mobs:rhino", "a rhino",                   mn, 1, -1, 25000, 2, -64)
 	end
 end
 
