@@ -36,21 +36,21 @@ Item Drop is under the WTFPL: https://github.com/PilzAdam/item_drop
 
 Item Frames is under the WTFPL: https://github.com/Zeg9/minetest-itemframes
 
-Jumping is under GNU GPL 3: https://github.com/Jeija/minetest-mod-jumping
+Jumping is under GNU GPL v3: https://github.com/Jeija/minetest-mod-jumping
 
 Simple Mobs is under the WTFPL: https://github.com/PilzAdam/mobs
 
 Simple Snow is under the WTFPL: https://forum.minetest.net/viewtopic.php?f=11&t=9270
 
-Soccer is under BSD 2-clause license for code and CC BY-SA 2.0 for textures: https://github.com/kaeza/minetest-soccer
+Soccer is under BSD 2-clause license for code and CC BY-SA 3.0 for textures: https://github.com/kaeza/minetest-soccer
 
 Chat Plus is under CC BY-SA: https://github.com/rubenwardy/chatplus
 
 Awards is under CC BY-SA: https://github.com/rubenwardy/awards
 
-WorldEdit is under the GNU AGPL 3: https://github.com/Uberi/MineTest-WorldEdit
+WorldEdit is under the GNU AGPL v3: https://github.com/Uberi/MineTest-WorldEdit
 
-3D Armor mods are under the GNU LGPL 2.1: https://github.com/stujones11/minetest-3d_armor
+3D Armor mods are under the GNU LGPL v2.1: https://github.com/stujones11/minetest-3d_armor
 
 No Bad Names (which is based on No Guests) is under the WTFPL, made by kaeza, VanessaE and sfan5.
 
@@ -67,8 +67,8 @@ If not mentioned: CC BY-SA 3.0.
 
 menu/header.png: © 2013 BlockMen – CC BY 3.0.
 
-mods/default/sounds/player_{join, leave, death}.ogg, health_gain.ogg: from OpenArena – GNU GPL 2.
-mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL 3.
+mods/default/sounds/player_{join, leave, death}.ogg, health_gain.ogg: from OpenArena – GNU GPL v2.
+mods/default/sounds/player_%.ogg: from Xonotic – GNU GPL v2.
 
 mods/default/sounds/{lava, waterfall}.ogg: from Red Eclipse – CC BY-SA 3.0.
 
@@ -84,20 +84,20 @@ mods/default/textures/default_grass.png,
  mods/default/textures/default_grass.png:
  © 2014 Calinou – CC BY-SA 4.0.
 
-mods/default/textures/crack_anylength.png: from VanessaE's HDX – GNU FDL.
+mods/default/textures/crack_anylength.png: from VanessaE's HDX – WTFPL.
 
-mods/default/textures/crosshair.png: © 2014 ETERNALSOLSTICE – CC BY 3.0: http://quadropolis.us/node/3993
+mods/default/textures/crosshair.png: © 2015 Calinou – CC0 1.0.
 
 mods/default/textures/default_furnace_lock_%.png: © 2012 kotolegokot, Oleg Matveev <gkotolegokot@gmail.com> – CC BY-SA 3.0.
 
-mods/default/textures/smoke_puff.png: from VanessaE's HDX – GNU FDL.
+mods/default/textures/smoke_puff.png: from VanessaE's HDX – WTFPL.
 
 mods/default/textures/gui_%.png: © 2013 BlockMen – CC BY 3.0.
 
-mods/mobs/sounds/mobs_punch.ogg: from OpenArena - GNU GPL 2.
+mods/mobs/sounds/mobs_punch.ogg: from OpenArena - GNU GPL v2.
 mods/mobs/sounds/%.ogg: © 2012 Q009 – CC BY-SA 3.0.
 
 mods/snow/textures/%.png: © 2014 Frai – CC BY-SA 4.0.
 
-mods/throwing/sounds/%.ogg: from Xonotic – GNU GPL 3.
+mods/throwing/sounds/%.ogg: from Xonotic – GNU GPL v2.
 
