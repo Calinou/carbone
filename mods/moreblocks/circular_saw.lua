@@ -1,4 +1,12 @@
-local S = moreblocks.gettext
+--[[
+More Blocks: circular saw
+
+Copyright (c) 2011-2015 Calinou and contributors.
+Licensed under the zlib license. See LICENSE.md for more information.
+--]]
+
+local S = moreblocks.intllib
+
 circular_saw = {}
 
 circular_saw.known_stairs = setmetatable({}, {
@@ -269,19 +277,17 @@ gui_slots = "listcolors[#606060AA;#808080;#101010;#202020;#FFF]"
 
 function circular_saw.on_construct(pos)
 	local meta = minetest.get_meta(pos)
-	meta:set_string("formspec", "size[11,9]" .. gui_slots ..
-			"label[0,0;" .. S("Input\nmaterial")  .. "]" ..
+	meta:set_string("formspec", "size[11,9]" ..gui_slots..
+			"label[0,0;" ..S("Input\nmaterial").. "]" ..
 			"list[current_name;input;1.5,0;1,1;]" ..
-			"label[0,1;" .. S("Left-over") .. "]" ..
+			"label[0,1;" ..S("Left-over").. "]" ..
 			"list[current_name;micro;1.5,1;1,1;]" ..
-			"label[0,2;" .. S("Recycle\noutput") .. "]" ..
+			"label[0,2;" ..S("Recycle\noutput").. "]" ..
 			"list[current_name;recycle;1.5,2;1,1;]" ..
-			"field[0.3,3.5;1,1;max_offered;" .. S("Max") .. ":;${max_offered}]" ..
-			"button[1,3.2;1,1;Set;" .. S("Set") .. "]" ..
+			"field[0.3,3.5;1,1;max_offered;" ..S("Max").. ":;${max_offered}]" ..
+			"button[1,3.2;1,1;Set;" ..S("Set").. "]" ..
 			"list[current_name;output;2.8,0;8,4;]" ..
-			"list[current_player;main;1.5,5;8,4;]" ..
-			default.get_hotbar_bg(1.5, 5) ..
-			default.get_hotbar_bg(1.5, 6))
+			"list[current_player;main;1.5,5;8,4;]")
 
 	meta:set_int("anz", 0) -- No microblocks inside yet.
 	meta:set_string("max_offered", 99) -- How many items of this kind are offered by default?

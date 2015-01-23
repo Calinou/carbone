@@ -1,4 +1,9 @@
--- Crafting
+--[[
+More Blocks: crafting recipes
+
+Copyright (c) 2011-2015 Calinou and contributors.
+Licensed under the zlib license. See LICENSE.md for more information.
+--]]
 
 minetest.register_craft({
 	output = "default:stick",
@@ -18,18 +23,16 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "default:wood",
 	recipe = {
-		{"default:stick", "default:stick", "default:stick"},
-		{"default:stick", "default:stick", "default:stick"},
-		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "default:stick"},
+		{"default:stick", "default:stick"},
 	}
 })
 
 minetest.register_craft({
 	output = "default:junglewood",
 	recipe = {
-		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
-		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
-		{"moreblocks:jungle_stick", "moreblocks:jungle_stick", "moreblocks:jungle_stick"},
+		{"moreblocks:jungle_stick", "moreblocks:jungle_stick"},
+		{"moreblocks:jungle_stick", "moreblocks:jungle_stick"},
 	}
 })
 
@@ -119,7 +122,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "moreblocks:jungle_stick 9",
+	output = "moreblocks:junglestick 4",
 	recipe = {{"default:junglewood"},}
 })
 

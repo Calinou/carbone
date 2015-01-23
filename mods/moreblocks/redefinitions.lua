@@ -1,3 +1,10 @@
+--[[
+More Blocks: redefinitions of default stuff
+
+Copyright (c) 2011-2015 Calinou and contributors.
+Licensed under the zlib license. See LICENSE.md for more information.
+--]]
+
 -- Redefinitions of some default crafting recipes:
 
 minetest.register_craft({
@@ -31,33 +38,6 @@ minetest.register_craft({
 		{"default:steel_ingot", "", "default:steel_ingot"},
 		{"default:steel_ingot", "default:stick", "default:steel_ingot"},
 		{"default:steel_ingot", "", "default:steel_ingot"},
-	}
-})
-
-minetest.register_craft({
-	output = "default:axe_wood",
-	recipe = {
-		{"default:wood", "default:wood"},
-		{"default:stick", "default:wood"},
-		{"default:stick", ""},
-	}
-})
-
-minetest.register_craft({
-	output = "default:axe_stone",
-	recipe = {
-		{"default:cobble", "default:cobble"},
-		{"default:stick", "default:cobble"},
-		{"default:stick", ""},
-	}
-})
-
-minetest.register_craft({
-	output = "default:axe_steel",
-	recipe = {
-		{"default:steel_ingot", "default:steel_ingot"},
-		{"default:stick", "default:steel_ingot"},
-		{"default:stick", ""},
 	}
 })
 

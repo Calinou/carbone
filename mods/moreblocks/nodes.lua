@@ -1,4 +1,11 @@
-local S = moreblocks.gettext
+--[[
+More Blocks: node definitions
+
+Copyright (c) 2011-2015 Calinou and contributors.
+Licensed under the zlib license. See LICENSE.md for more information.
+--]]
+
+local S = moreblocks.intllib
 
 local sound_wood = default.node_sound_wood_defaults()
 local sound_stone = default.node_sound_stone_defaults()
@@ -129,7 +136,8 @@ local nodes = {
 	},
 	["iron_glass"] = {
 		description = S("Iron Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_iron_glass.png", "moreblocks_iron_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		groups = {snappy = 2, cracky = 3, oddly_breakable_by_hand = 3},
@@ -137,7 +145,8 @@ local nodes = {
 	},
 	["coal_glass"] = {
 		description = S("Coal Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_coal_glass.png", "moreblocks_coal_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		groups = {snappy = 2, cracky = 3, oddly_breakable_by_hand = 3},
@@ -145,7 +154,8 @@ local nodes = {
 	},
 	["clean_glass"] = {
 		description = S("Clean Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_clean_glass.png", "moreblocks_clean_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		groups = {snappy = 2, cracky = 3, oddly_breakable_by_hand = 3},
@@ -216,7 +226,8 @@ local nodes = {
 	},
 	["trap_glass"] = {
 		description = S("Trap Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_trap_glass.png", "default_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
@@ -255,7 +266,8 @@ local nodes = {
 	},
 	["glow_glass"] = {
 		description = S("Glow Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_glow_glass.png", "moreblocks_glow_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		light_source = 11,
@@ -264,7 +276,8 @@ local nodes = {
 	},
 	["trap_glow_glass"] = {
 		description = S("Trap Glow Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_trap_glass.png", "moreblocks_glow_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		light_source = 11,
@@ -275,7 +288,8 @@ local nodes = {
 	},
 	["super_glow_glass"] = {
 		description = S("Super Glow Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_super_glow_glass.png", "moreblocks_super_glow_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		light_source = 15,
@@ -284,7 +298,8 @@ local nodes = {
 	},
 	["trap_super_glow_glass"] = {
 		description = S("Trap Super Glow Glass"),
-		drawtype = "glasslike_framed",
+		drawtype = "glasslike_framed_optional",
+		tiles = {"moreblocks_trap_super_glow_glass.png", "moreblocks_super_glow_glass_detail.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		light_source = 15,
@@ -338,9 +353,8 @@ minetest.register_craftitem("moreblocks:sweeper", {
 
 minetest.register_craftitem("moreblocks:jungle_stick", {
 	description = S("Jungle Stick"),
-	stack_max = 1000,
 	inventory_image = "moreblocks_junglestick.png",
-	groups = {stick = 1},
+	groups = {stick= 1},
 })
 
 minetest.register_craftitem("moreblocks:nothing", {
