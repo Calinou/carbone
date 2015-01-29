@@ -9,11 +9,11 @@ dofile(farming.path .. "/hoes.lua")
 
 -- WHEAT
 farming.register_plant("farming:wheat", {
-	description = "Wheat Seed",
+	description = "Wheat seed",
 	inventory_image = "farming_wheat_seed.png",
 	steps = 8,
 	minlight = 13,
-	maxlight = LIGHT_MAX,
+	maxlight = default.LIGHT_MAX,
 	fertility = {"grassland"}
 })
 minetest.register_craftitem("farming:flour", {
@@ -24,7 +24,7 @@ minetest.register_craftitem("farming:flour", {
 minetest.register_craftitem("farming:bread", {
 	description = "Bread",
 	inventory_image = "farming_bread.png",
-	on_use = minetest.item_eat(5),
+	on_use = minetest.item_eat(4),
 })
 
 minetest.register_craft({
@@ -41,24 +41,16 @@ minetest.register_craft({
 })
 
 -- Cotton
-
 farming.register_plant("farming:cotton", {
-	description = "Cotton Seed",
+	description = "Cotton seed",
 	inventory_image = "farming_cotton_seed.png",
 	steps = 8,
 	minlight = 13,
-	maxlight = LIGHT_MAX,
+	maxlight = default.LIGHT_MAX,
 	fertility = {"grassland", "desert"}
 })
 
 minetest.register_alias("farming:string", "farming:cotton")
-
---[[
-minetest.register_craftitem("farming:string", {
-	description = "String",
-	inventory_image = "farming_cotton.png",
-})
---]]
 
 minetest.register_craft({
 	output = "wool:white",
@@ -68,6 +60,19 @@ minetest.register_craft({
 	}
 })
 
-if minetest.setting_getbool("log_mods") then
-	minetest.log("action", "Carbone: [farming] loaded.")
-end
+-- Straw
+minetest.register_craft({
+	output = "farming:straw 3",
+	recipe = {
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farming:wheat", "farming:wheat", "farming:wheat"},
+	}
+})
+
+minetest.register_craft({
+	output = "farming:wheat 3",
+	recipe = {
+		{"farming:straw"},
+	}
+})
