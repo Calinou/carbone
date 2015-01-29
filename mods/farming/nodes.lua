@@ -1,3 +1,6 @@
+-- Alias for compatibility with older Carbone:
+minetest.register_alias("farming:hay_block", "farming:straw")
+
 minetest.override_item("default:dirt", {
 	groups = {crumbly=3,soil=1},
 	soil = {
