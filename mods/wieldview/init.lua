@@ -6,8 +6,8 @@ if not update_time then
 end
 local node_tiles = minetest.setting_getbool("wieldview_node_tiles")
 if not node_tiles then
-	node_tiles = true
-	minetest.setting_set("wieldview_node_tiles", "true")
+	node_tiles = false
+	minetest.setting_set("wieldview_node_tiles", "false")
 end
 
 wieldview = {
@@ -74,6 +74,3 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
-if minetest.setting_getbool("log_mods") then
-	minetest.log("action", "Carbone: [wieldview] loaded.")
-end
